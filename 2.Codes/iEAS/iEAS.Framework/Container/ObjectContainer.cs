@@ -38,6 +38,17 @@ namespace iEAS
         }
 
         /// <summary>
+        /// 根据指定的Key值获取服务对象
+        /// </summary>
+        /// <typeparam name="TService"></typeparam>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static TService Resolve<TService>(object key)
+        {
+            return RequestLifetime.Resolve<TService>(new NamedParameter("key", key));
+        }
+
+        /// <summary>
         /// 从当前请求的Scope中获取服务对象
         /// </summary>
         /// <typeparam name="TService"></typeparam>

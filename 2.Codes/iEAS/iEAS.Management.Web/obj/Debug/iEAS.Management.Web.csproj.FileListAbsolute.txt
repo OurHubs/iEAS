@@ -8,3 +8,9 @@ C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\iEAS.Management.pdb
 C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\obj\Debug\iEAS.Management.Web.csprojResolveAssemblyReference.cache
 C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\obj\Debug\iEAS.Management.Web.dll
 C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\obj\Debug\iEAS.Management.Web.pdb
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\Autofac.dll
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\Autofac.Integration.Web.dll
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\log4net.dll
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\EntityFramework.dll
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\log4net.xml
+C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Management.Web\bin\EntityFramework.xml
