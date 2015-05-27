@@ -1,4 +1,0 @@
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework.Web\bin\Debug\iEAS.Framework.Web.dll
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework.Web\bin\Debug\iEAS.Framework.Web.pdb
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework.Web\obj\Debug\iEAS.Framework.Web.dll
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework.Web\obj\Debug\iEAS.Framework.Web.pdb

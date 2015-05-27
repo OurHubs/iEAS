@@ -50,6 +50,7 @@
     <Folder Include="BaseData\Entity\" />
     <Folder Include="BaseData\Repository\Mapping\" />
     <Folder Include="BaseData\Service\" />
+    <Folder Include="Model\" />
     <Folder Include="Navigation\Config\" />
     <Folder Include="Navigation\Entity\" />
     <Folder Include="Navigation\Repository\Mapping\" />

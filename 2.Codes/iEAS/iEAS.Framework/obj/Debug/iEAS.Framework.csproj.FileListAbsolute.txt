@@ -1,4 +1,0 @@
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework\bin\Debug\iEAS.Framework.dll
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework\bin\Debug\iEAS.Framework.pdb
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework\obj\Debug\iEAS.Framework.dll
-C:\Workspace\iEAS\2.Codes\iEAS\iEAS.Framework\obj\Debug\iEAS.Framework.pdb
