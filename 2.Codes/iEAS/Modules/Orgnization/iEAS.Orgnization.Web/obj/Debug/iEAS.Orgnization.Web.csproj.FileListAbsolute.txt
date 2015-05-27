@@ -1,0 +1,5 @@
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization.Web\bin\iEAS.Orgnization.Web.dll.config
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization.Web\bin\iEAS.Orgnization.Web.dll
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization.Web\bin\iEAS.Orgnization.Web.pdb
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization.Web\obj\Debug\iEAS.Orgnization.Web.dll
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization.Web\obj\Debug\iEAS.Orgnization.Web.pdb

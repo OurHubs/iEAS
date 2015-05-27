@@ -1,0 +1,4 @@
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization\bin\Debug\iEAS.Orgnization.dll
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization\bin\Debug\iEAS.Orgnization.pdb
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization\obj\Debug\iEAS.Orgnization.dll
+C:\Workspace\iEAS\2.Codes\iEAS\Modules\Orgnization\iEAS.Orgnization\obj\Debug\iEAS.Orgnization.pdb

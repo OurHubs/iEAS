@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iEAS.Web;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -7,7 +8,7 @@ using System.Web.SessionState;
 
 namespace iEAS.Management.Web
 {
-    public class Global : System.Web.HttpApplication
+    public class Global : iEASGlobal
     {
         protected void Application_Start(object sender, EventArgs e)
         {
