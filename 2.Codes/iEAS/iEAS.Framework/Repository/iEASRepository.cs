@@ -1,11 +1,12 @@
-﻿using iEAS.Log;
+﻿using iEAS.Domain;
+using iEAS.Log;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
-namespace iEAS.Domain
+namespace iEAS.Repository
 {
     public class iEASRepository:BaseRepository
     {

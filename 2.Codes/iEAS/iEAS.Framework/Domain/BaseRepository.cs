@@ -30,6 +30,13 @@ namespace iEAS.Domain
             return this.Set<TEntity>().FirstOrDefault();
         }
 
+        /// <summary>
+        /// 记录查询
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="orderby"></param>
+        /// <returns></returns>
         public IQueryable<TEntity> Query<TEntity>(Expression<Func<TEntity,bool>> predicate=null,Action<Orderable<TEntity>> orderby=null)
             where TEntity:class
         {
@@ -48,6 +55,15 @@ namespace iEAS.Domain
             return query;
         }
 
+        /// <summary>
+        /// 数据查询
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="orderby"></param>
+        /// <param name="startRow"></param>
+        /// <param name="maxRows"></param>
+        /// <returns></returns>
         public IQueryable<TEntity> Query<TEntity>(Expression<Func<TEntity,bool>> predicate,Action<Orderable<TEntity>> orderby,int startRow,int maxRows)
             where TEntity:class
         {
@@ -56,6 +72,15 @@ namespace iEAS.Domain
             return query;
         }
 
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="orderby"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public PagedResult<TEntity> PagedQuery<TEntity>(Expression<Func<TEntity,bool>> predicate,Action<Orderable<TEntity>> orderby,int pageIndex,int pageSize)
             where TEntity:class
         {
@@ -71,6 +96,14 @@ namespace iEAS.Domain
             };
         }
 
+        /// <summary>
+        /// 分页查询
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="orderby"></param>
+        /// <param name="pageIndex"></param>
+        /// <param name="pageSize"></param>
+        /// <returns></returns>
         public PagedResult<TEntity> PagedQuery<TEntity>(Action<Orderable<TEntity>> orderby, int pageIndex, int pageSize)
             where TEntity : class
         {
@@ -88,42 +121,67 @@ namespace iEAS.Domain
             this.SaveChanges();
         }
 
+        /// <summary>
+        /// 添加实体对象
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity"></param>
+        public void Create<TEntity>(IEnumerable<TEntity> items) where TEntity : class
+        {
+            foreach(var item in items)
+            {
+                this.Set<TEntity>().Add(item);
+            }
+            this.SaveChanges();
+        }
+
+        /// <summary>
+        /// 更新数据实体
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity"></param>
         public void Update<TEntity>(TEntity entity) where TEntity:class
         {
             this.Entry<TEntity>(entity);
             this.SaveChanges();
         }
 
+        /// <summary>
+        /// 更新数据实体
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        /// <param name="handler"></param>
+        public void Update<TEntity>(Expression<Func<TEntity,bool>> predicate,Action<TEntity> handler) where TEntity:class
+        {
+            var items = Query<TEntity>(predicate);
+            foreach(var item in items)
+            {
+                handler(item);
+            }
+        }
+
+        /// <summary>
+        /// 删除记录
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="entity"></param>
         public void Delete<TEntity>(TEntity entity) where TEntity:class
         {
             this.Set<TEntity>().Remove(entity);
             this.SaveChanges();
         }
 
-        public static TResult Transact<TRepository,TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
-            where TRepository:BaseRepository,new()
+        /// <summary>
+        /// 删除记录
+        /// </summary>
+        /// <typeparam name="TEntity"></typeparam>
+        /// <param name="predicate"></param>
+        public void Delete<TEntity>(Expression<Func<TEntity,bool>> predicate) where TEntity : class
         {
-            if (layzLoad)
-            {
-                var rep = ObjectContainer.Resolve<TRepository>();
-                return handler(rep);
-            }
-            else
-            {
-                using (var rep = new TRepository())
-                {
-                    return handler(rep);
-                }
-            }
-        }
-
-        public static void Transact<TRepository>(Action<TRepository> handler)
-            where TRepository:BaseRepository,new()
-        {
-            using (var rep = new TRepository())
-            {
-                handler(rep);
-            }
+            var items = Query<TEntity>(predicate);
+            this.Set<TEntity>().RemoveRange(items);
+            this.SaveChanges();
         }
     }
 }

@@ -5,7 +5,4 @@ using System.Text;
 
 namespace iEAS.Module.Impl
 {
-    public class ModuleService:IModuleService
-    {
-    }
 }
