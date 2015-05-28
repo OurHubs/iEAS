@@ -53,7 +53,7 @@ namespace iEAS.Log
             }
             catch(Exception ex)
             {
-                ILogger fileLogger = ObjectContainer.Resolve<ILogger>("filelog");
+                ILogger fileLogger = ObjectContainer.GetService<ILogger>("filelog");
                 fileLogger.Error("DBLogger Error", ex);
                 switch (type)
                 {

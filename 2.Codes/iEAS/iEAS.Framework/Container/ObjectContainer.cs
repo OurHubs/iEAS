@@ -19,7 +19,7 @@ namespace iEAS
             }
         }
 
-        public static ILifetimeScope RequestLifetime
+        public static ILifetimeScope RequestContainer
         {
             get
             {
@@ -32,9 +32,9 @@ namespace iEAS
         /// </summary>
         /// <typeparam name="TService"></typeparam>
         /// <returns></returns>
-        public static TService Resolve<TService>()
+        public static TService GetService<TService>()
         {
-            return RequestLifetime.Resolve<TService>();
+            return RequestContainer.Resolve<TService>();
         }
 
         /// <summary>
@@ -43,9 +43,9 @@ namespace iEAS
         /// <typeparam name="TService"></typeparam>
         /// <param name="key"></param>
         /// <returns></returns>
-        public static TService Resolve<TService>(object key)
+        public static TService GetService<TService>(object key)
         {
-            return RequestLifetime.Resolve<TService>(new NamedParameter("key", key));
+            return RequestContainer.Resolve<TService>(new NamedParameter("key", key));
         }
 
         /// <summary>
@@ -53,9 +53,9 @@ namespace iEAS
         /// </summary>
         /// <typeparam name="TService"></typeparam>
         /// <returns></returns>
-        public static TService ResolveOptional<TService>() where TService:class
+        public static TService GetOptionalService<TService>() where TService:class
         {
-            return RequestLifetime.ResolveOptional<TService>();
+            return RequestContainer.ResolveOptional<TService>();
         }
 
         public static ILifetimeScope BeginLifetimeScope()

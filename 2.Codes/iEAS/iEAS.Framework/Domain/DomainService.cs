@@ -21,7 +21,7 @@ namespace iEAS.Domain
         {
             if (layzLoad)
             {
-                var rep = ObjectContainer.Resolve<TRepository>();
+                var rep = ObjectContainer.GetService<TRepository>();
                 return handler(rep);
             }
             else
