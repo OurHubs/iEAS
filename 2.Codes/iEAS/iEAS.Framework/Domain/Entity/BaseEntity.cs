@@ -8,7 +8,6 @@ namespace iEAS.Domain
     public class BaseEntity
     {
         private Guid _Guid = Guid.Empty;
-        private int _Status = 1;
 
         public BaseEntity()
         {
@@ -33,15 +32,6 @@ namespace iEAS.Domain
                 return _Guid;
             }
             set { _Guid = value; }
-        }
-
-        /// <summary>
-        /// 状态（-1：草稿，0：删除，1：生效）
-        /// </summary>
-        public int Status
-        {
-            get { return _Status; }
-            set {_Status=value;}
         }
     }
 }

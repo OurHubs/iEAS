@@ -82,7 +82,7 @@ namespace iEAS.Domain
          /// 创建实体
          /// </summary>
          /// <param name="entity"></param>
-        public void Create(TEntity entity)
+        public virtual void Create(TEntity entity)
         {
             Execute(rep => rep.Create(entity));
         }
@@ -91,7 +91,7 @@ namespace iEAS.Domain
          /// 批量创建实体
          /// </summary>
          /// <param name="items"></param>
-        public void Create(IEnumerable<TEntity> items)
+        public virtual void Create(IEnumerable<TEntity> items)
         {
             Execute(rep => rep.Create<TEntity>(items));
         }
@@ -100,7 +100,7 @@ namespace iEAS.Domain
          /// 更新实体
          /// </summary>
          /// <param name="entity"></param>
-        public void Update(TEntity entity)
+        public virtual void Update(TEntity entity)
         {
             Execute(rep => rep.Update(entity));
         }
@@ -110,7 +110,7 @@ namespace iEAS.Domain
          /// </summary>
          /// <param name="predicate"></param>
          /// <param name="handler"></param>
-        public void Update(Expression<Func<TEntity,bool>> predicate,Action<TEntity> handler)
+        public virtual void Update(Expression<Func<TEntity,bool>> predicate,Action<TEntity> handler)
         {
             Execute(rep =>rep.Update(predicate, handler));
         }
@@ -156,7 +156,7 @@ namespace iEAS.Domain
          /// 删除实体
          /// </summary>
          /// <param name="entity"></param>
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
             Execute(rep => rep.Delete<TEntity>(entity));
         }
@@ -165,7 +165,7 @@ namespace iEAS.Domain
          /// 按条件批量删除实体
          /// </summary>
          /// <param name="predicate"></param>
-        public void Delete(Expression<Func<TEntity,bool>> predicate)
+        public virtual void Delete(Expression<Func<TEntity,bool>> predicate)
         {
             Execute(rep => rep.Delete<TEntity>(predicate));
         }
@@ -216,7 +216,7 @@ namespace iEAS.Domain
          /// <param name="predicate"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public TEntity Get(Expression<Func<TEntity, bool>> predicate, bool lazyLoad = false)
+        public virtual TEntity Get(Expression<Func<TEntity, bool>> predicate, bool lazyLoad = false)
         {
             return Fetch<TEntity>(rep => rep.Get<TEntity>(predicate), lazyLoad);
         }
@@ -228,7 +228,7 @@ namespace iEAS.Domain
          /// <param name="orderBy"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false)
+        public virtual IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false)
         {
             return Fetch<IList<TEntity>>(rep =>
             {
@@ -257,7 +257,7 @@ namespace iEAS.Domain
          /// <param name="maxRows"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
+        public virtual IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
         {
             return Fetch<IList<TEntity>>(rep =>
             {
@@ -287,7 +287,7 @@ namespace iEAS.Domain
          /// <param name="pageIndex"></param>
          /// <param name="pageSize"></param>
          /// <returns></returns>
-        public PagedResult<TEntity> PagedQuery(Expression<Func<TEntity,bool>> predicate,Action<Orderable<TEntity>> orderBy,int pageIndex,int pageSize)
+        public virtual PagedResult<TEntity> PagedQuery(Expression<Func<TEntity,bool>> predicate,Action<Orderable<TEntity>> orderBy,int pageIndex,int pageSize)
         {
             return Fetch(rep => rep.PagedQuery<TEntity>(predicate, orderBy, pageIndex, pageSize));
         }
@@ -304,4 +304,62 @@ namespace iEAS.Domain
             return PagedQuery(null,orderBy,pageIndex,pageSize);
         }
     }
+
+     public class IdentityDomainService<TEntity, TRepository>
+        : DomainService<TEntity,TRepository>, IDomainService<TEntity, TRepository>
+             where TRepository : BaseRepository, new()
+             where TEntity : IdentityEntity
+     {
+         public override void Create(IEnumerable<TEntity> items)
+         {
+             foreach(var item in items)
+             {
+                 item.Creator = AppContext.Current.User.Number;
+                 item.CreateTime = DateTime.Now;
+                 item.Updator = AppContext.Current.User.Number;
+                 item.UpdateTime = DateTime.Now;
+             }
+             base.Create(items);
+         }
+
+         public override void Create(TEntity entity)
+         {
+             entity.Creator = AppContext.Current.User.Number;
+             entity.CreateTime = DateTime.Now;
+             entity.Updator = AppContext.Current.User.Number;
+             entity.UpdateTime = DateTime.Now;
+             base.Create(entity);
+         }
+
+         public override void Delete(Expression<Func<TEntity, bool>> predicate)
+         {
+             this.Update(predicate, m =>
+             {
+                 m.Status=2;
+             });
+         }
+
+         public override void Delete(TEntity entity)
+         {
+             entity.Status = 2;
+             this.Update(entity);
+         }
+
+         public override void Update(Expression<Func<TEntity, bool>> predicate, Action<TEntity> handler)
+         {
+             Update(predicate, m =>
+             {
+                 m.UpdateTime = DateTime.Now;
+                 m.Updator = AppContext.Current.User.Number;
+                 handler(m);
+             });
+         }
+
+         public override void Update(TEntity entity)
+         {
+             entity.Updator = AppContext.Current.User.Number;
+             entity.UpdateTime = DateTime.Now;
+             base.Update(entity);
+         }
+     }
 }

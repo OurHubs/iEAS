@@ -9,7 +9,7 @@ namespace iEAS
     {
         public static ILogger GetLogger()
         {
-            return ObjectContainer.GetService<ILogger>();
+            return ObjectContainer.GetService<ILogger>("system");
         }
     }
 }

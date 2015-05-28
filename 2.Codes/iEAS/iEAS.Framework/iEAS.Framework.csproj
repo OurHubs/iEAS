@@ -61,14 +61,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Caching\CacheHelper.cs" />
+    <Compile Include="Caching\HttpCacheProvider.cs" />
+    <Compile Include="Caching\ICacheProvider.cs" />
     <Compile Include="Context\AppContext.cs" />
     <Compile Include="Container\ObjectContainer.cs" />
     <Compile Include="Domain\Entity\BaseEntity.cs" />
     <Compile Include="Domain\DomainService.cs" />
+    <Compile Include="Domain\Entity\IdentityEntity.cs" />
     <Compile Include="Domain\IDomainService.cs" />
     <Compile Include="Domain\Entity\Orderable.cs" />
     <Compile Include="Domain\Entity\PagedResult.cs" />
     <Compile Include="Exception\AuthorizationException.cs" />
+    <Compile Include="Exception\BusinessException.cs" />
+    <Compile Include="Exception\SystemException.cs" />
     <Compile Include="Log\BaseLogger.cs" />
     <Compile Include="Log\DBLogger.cs" />
     <Compile Include="Log\ILogger.cs" />
@@ -92,7 +98,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Cache\" />
     <Folder Include="Collection\" />
   </ItemGroup>
   <ItemGroup>
