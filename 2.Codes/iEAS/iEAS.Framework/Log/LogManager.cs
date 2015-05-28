@@ -9,18 +9,7 @@ namespace iEAS
     {
         public static ILogger GetLogger()
         {
-            return ObjectContainer.Resolve<ILogger>("system");
-        }
-
-        public static ILogger GetDBLogger()
-        {
-            return ObjectContainer.Resolve<ILogger>("dblog");
-        }
-
-        public static  ILogger GetFileLogger()
-        {
-            log4net.LogManager.GetLogger("");
-            return ObjectContainer.Resolve<ILogger>("filelog");
+            return ObjectContainer.Resolve<ILogger>();
         }
     }
 }

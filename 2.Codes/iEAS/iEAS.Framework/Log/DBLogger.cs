@@ -1,4 +1,4 @@
-﻿using iEAS.Repository;
+﻿using iEAS.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -52,7 +52,7 @@ namespace iEAS.Log
             }
             catch(Exception ex)
             {
-                ILogger fileLogger=LogManager.GetFileLogger();
+                ILogger fileLogger = ObjectContainer.Resolve<ILogger>("filelog");
                 fileLogger.Error("DBLogger Error", ex);
                 switch (type)
                 {

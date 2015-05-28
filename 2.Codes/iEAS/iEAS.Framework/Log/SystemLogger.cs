@@ -15,11 +15,11 @@ namespace iEAS.Log
             var loggers = new List<ILogger>();
             if(IsDBLoggerEnabled)
             {
-                loggers.Add(LogManager.GetDBLogger());
+                //loggers.Add(LogManager.GetDBLogger());
             }
             if (IsFileLoggerEnabled)
             {
-                loggers.Add(LogManager.GetFileLogger());
+                //loggers.Add(LogManager.GetFileLogger());
             }
             _Loggers = loggers;
         }

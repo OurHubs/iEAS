@@ -12,5 +12,7 @@ namespace iEAS.Module
         public string Name { get; set; }
 
         public string Code { get; set; }
+
+        public string LogType { get; set; }
     }
 }

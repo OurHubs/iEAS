@@ -11,7 +11,7 @@ namespace iEAS
 {
     public static class ObjectContainer
     {
-        public static ILifetimeScope RootLifetime
+        public static ILifetimeScope ApplicationContainer
         {
             get
             {
@@ -56,6 +56,11 @@ namespace iEAS
         public static TService ResolveOptional<TService>() where TService:class
         {
             return RequestLifetime.ResolveOptional<TService>();
+        }
+
+        public static ILifetimeScope BeginLifetimeScope()
+        {
+            return ApplicationContainer.BeginLifetimeScope();
         }
 
         static IContainerProvider ContainerBuilder
