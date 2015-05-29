@@ -18,7 +18,7 @@ namespace iEAS.Infrastructure.Web
 
         protected override void RegisterComponents(ContainerBuilder builder)
         {
-
+            builder.RegisterType<FrameworkRepository>().AsSelf();
             builder.RegisterType<iEASRepository>().AsSelf();
             builder.RegisterGeneric(typeof(DomainService<,>)).As(typeof(IDomainService<,>));
 

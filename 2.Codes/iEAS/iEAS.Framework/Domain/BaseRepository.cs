@@ -9,6 +9,17 @@ namespace iEAS
 {
     public class BaseRepository : DbContext
     {
+        public BaseRepository()
+            :base("name=iEASConn")
+        {
+
+        }
+
+        public BaseRepository(string nameOrConnectionString)
+            :base(nameOrConnectionString)
+        {
+        }
+
         /// <summary>
         /// 按指定条件查找到像
         /// </summary>
