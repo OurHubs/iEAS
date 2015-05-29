@@ -12,11 +12,14 @@ namespace iEAS.Repository.Mapping.BaseData
         public BaseDataItemMapping()
         {
             this.ToTable("BASE_DATA_ITEM");
-            this.Property(m => m.Name).HasColumnType("nvarchar").HasMaxLength(500);
-            this.Property(m => m.Value).HasColumnType("nvarchar").HasMaxLength(500);
-            this.Property(m => m.Desc).HasColumnType("nvarchar").HasMaxLength(500);
-            this.HasRequired(m => m.Type).WithMany().HasForeignKey(m => m.TypeID);
-            this.HasMany(m => m.Items).WithOptional().HasForeignKey(m => m.ParentID);
+            this.Property(m => m.Name, "NAME",500);
+            this.Property(m => m.Value, "VALUE",500);
+            this.Property(m => m.Desc, "DESC", 500);
+
+            this.Property(m => m.TypeID, "TYPE_ID");
+            this.Property(m => m.ParentID, "PARENT_ID");
+            this.HasRequired(m => m.Type).WithMany(m=>m.Items).HasForeignKey(m => m.TypeID).WillCascadeOnDelete(false);
+            this.HasMany(m => m.Items).WithOptional(m=>m.Parent).HasForeignKey(m => m.ParentID).WillCascadeOnDelete(false);
         }
     }
 }

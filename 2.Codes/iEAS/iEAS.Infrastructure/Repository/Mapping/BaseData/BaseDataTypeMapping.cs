@@ -13,10 +13,9 @@ namespace iEAS.Repository.Mapping.BaseData
         public BaseDataTypeMapping()
         {
             this.ToTable("BASE_DATA_TYPE");
-            this.Property(m => m.Name).HasColumnType("nvarchar").HasMaxLength(50);
-            this.Property(m => m.Code).HasColumnType("nvarchar").HasMaxLength(50);
-            this.Property(m => m.Desc).HasColumnType("nvarchar").HasMaxLength(500);
-            this.HasMany(m => m.Items).WithRequired();
+            this.Property(m => m.Name, "NAME", 50);
+            this.Property(m => m.Code, "CODE", 50);
+            this.Property(m => m.Desc, "DESC", 500);
         }
     }
 }

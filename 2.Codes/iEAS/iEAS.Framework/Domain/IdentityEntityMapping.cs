@@ -10,11 +10,11 @@ namespace iEAS.Repository
         public IdentityEntityMapping()
             :base()
         {
-            this.Property(m => m.Creator).IsOptional();
-            this.Property(m => m.CreateTime).IsOptional();
-            this.Property(m => m.Updator).IsOptional();
-            this.Property(m => m.UpdateTime).IsOptional();
-            this.Property(m => m.Status).IsRequired();
+            this.Property(m => m.Creator).HasColumnName("CREATOR").HasColumnType("nvarchar").HasMaxLength(50).IsOptional();
+            this.Property(m => m.CreateTime).HasColumnName("CREATE_TIME").IsOptional();
+            this.Property(m => m.Updator).HasColumnName("UPDATOR").HasColumnType("nvarchar").HasMaxLength(50).IsOptional();
+            this.Property(m => m.UpdateTime).HasColumnName("UPDATE_TIME").IsOptional();
+            this.Property(m => m.Status).HasColumnName("STATUS").IsRequired();
         }
     }
 }

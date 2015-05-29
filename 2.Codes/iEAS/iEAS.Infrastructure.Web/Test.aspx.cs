@@ -1,4 +1,5 @@
-﻿using iEAS.Repository;
+﻿using iEAS.BaseData;
+using iEAS.Repository;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -18,8 +19,38 @@ namespace iEAS.Infrastructure.Web
 
         protected void btnGenerateDB_Click(object sender, EventArgs e)
         {
-            Database.SetInitializer(new CreateDatabaseIfNotExists<FrameworkRepository>());
-            Database.SetInitializer(new CreateDatabaseIfNotExists<iEASRepository>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<FrameworkRepository>());
+            Database.SetInitializer(new DropCreateDatabaseAlways<iEASRepository>());
+            using(var rep=new FrameworkRepository())
+            {
+                rep.Database.Initialize(true);
+            }
+            using (var rep = new iEASRepository())
+            {
+                rep.Database.Initialize(true);
+            }
+        }
+
+        protected void btnCreate_Click(object sender, EventArgs e)
+        {
+            var rep= ObjectContainer.GetOwnedService<iEASRepository>();
+            var dataType = new BaseDataType
+            {
+                Name = "1111",
+                Code = "1111",
+                Items = new List<BaseDataItem>
+                {
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                    new BaseDataItem{ Name="aaaa",Value="aaaa"},
+                }
+            };
+            rep.Create(dataType);
+
+
         }
     }
 }
