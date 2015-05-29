@@ -45,6 +45,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BaseData\BaseDataHelper.cs" />
     <Compile Include="BaseData\Entity\BaseDataItem.cs" />
     <Compile Include="BaseData\Entity\BaseDataType.cs" />
     <Compile Include="BaseData\Service\Impl\BaseDataTypeService.cs" />
@@ -63,6 +64,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Account\" />
     <Folder Include="BaseData\Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

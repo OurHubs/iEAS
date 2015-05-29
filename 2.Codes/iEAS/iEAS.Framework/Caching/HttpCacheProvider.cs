@@ -29,5 +29,9 @@ namespace iEAS.Caching
         {
             return Cache.Get(key);
         }
+        public void Remove(string key)
+        {
+            Cache.Remove(key);
+        }
     }
 }

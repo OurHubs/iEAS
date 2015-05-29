@@ -14,5 +14,7 @@ namespace iEAS.Caching
         void Insert(string key, object value, string[] filePaths);
 
         object Get(string key);
+
+        void Remove(string key);
     }
 }

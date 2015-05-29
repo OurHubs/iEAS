@@ -31,7 +31,7 @@ namespace iEAS.Caching
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="seconds"></param>
-        public void Insert(string key, object value, int seconds)
+        public static void Insert(string key, object value, int seconds)
         {
             Provider.Insert(key, value, seconds);
         }
@@ -42,7 +42,7 @@ namespace iEAS.Caching
         /// <param name="key"></param>
         /// <param name="value"></param>
         /// <param name="filePaths"></param>
-        public void Insert(string key, object value, string[] filePaths)
+        public static void Insert(string key, object value, string[] filePaths)
         {
             Provider.Insert(key, value, filePaths);
         }
@@ -52,7 +52,7 @@ namespace iEAS.Caching
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
-        public object Get(string key)
+        public static object Get(string key)
         {
             return Provider.Get(key);
         }
@@ -63,7 +63,7 @@ namespace iEAS.Caching
         /// <param name="key"></param>
         /// <param name="handler"></param>
         /// <returns></returns>
-        public object Get(string key, Func<object> handler)
+        public static object Get(string key, Func<object> handler)
         {
             object value = Get(key);
             if (value == null)
@@ -81,7 +81,7 @@ namespace iEAS.Caching
         /// <param name="handler"></param>
         /// <param name="seconds"></param>
         /// <returns></returns>
-        public object Get(string key, Func<object> handler,int seconds)
+        public static object Get(string key, Func<object> handler,int seconds)
         {
             object value = Get(key);
             if (value == null)
@@ -99,7 +99,7 @@ namespace iEAS.Caching
         /// <param name="handler"></param>
         /// <param name="filePaths"></param>
         /// <returns></returns>
-        public object Get(string key,Func<object> handler,string[] filePaths)
+        public static object Get(string key,Func<object> handler,string[] filePaths)
         {
             object value = Get(key);
             if (value == null)
@@ -116,7 +116,7 @@ namespace iEAS.Caching
         /// <typeparam name="T"></typeparam>
         /// <param name="key"></param>
         /// <returns></returns>
-        public T Get<T>(string key)
+        public static T Get<T>(string key)
         {
             return (T)Provider.Get(key);
         }
@@ -129,7 +129,26 @@ namespace iEAS.Caching
         /// <param name="handler"></param>
         /// <param name="seconds"></param>
         /// <returns></returns>
-        public T Get<T>(string key, Func<T> handler, int seconds)
+        public static T Get<T>(string key, Func<T> handler)
+        {
+            T value = Get<T>(key);
+            if (value == null)
+            {
+                value = handler();
+                Insert(key, value);
+            }
+            return value;
+        }
+
+        /// <summary>
+        /// 获取缓存实体
+        /// </summary>
+        /// <typeparam name="T"></typeparam>
+        /// <param name="key"></param>
+        /// <param name="handler"></param>
+        /// <param name="seconds"></param>
+        /// <returns></returns>
+        public static T Get<T>(string key, Func<T> handler, int seconds)
         {
             T value = Get<T>(key);
             if (value == null)
@@ -148,7 +167,7 @@ namespace iEAS.Caching
         /// <param name="handler"></param>
         /// <param name="filePaths"></param>
         /// <returns></returns>
-        public object Get<T>(string key, Func<T> handler, string[] filePaths)
+        public static T Get<T>(string key, Func<T> handler, string[] filePaths)
         {
             T value = Get<T>(key);
             if (value == null)
@@ -157,6 +176,11 @@ namespace iEAS.Caching
                 Insert(key, value, filePaths);
             }
             return value;
+        }
+
+        public static void Remove(string key)
+        {
+            Provider.Remove(key);
         }
         
     }
