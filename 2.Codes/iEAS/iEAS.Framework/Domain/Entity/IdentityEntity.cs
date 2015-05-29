@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace iEAS.Domain
+namespace iEAS
 {
     /// <summary>
     /// 带有身份信息的实体对象
@@ -18,7 +18,7 @@ namespace iEAS.Domain
         /// <summary>
         /// 创建时间
         /// </summary>
-        public DateTime CreateTime { get; set; }
+        public DateTime? CreateTime { get; set; }
 
         /// <summary>
         /// 更新者
@@ -28,7 +28,7 @@ namespace iEAS.Domain
         /// <summary>
         /// 更新时间
         /// </summary>
-        public DateTime UpdateTime { get; set; }
+        public DateTime? UpdateTime { get; set; }
 
         /// <summary>
         /// 状态（0:草稿，1：有效，2：无效，其它的自定义）

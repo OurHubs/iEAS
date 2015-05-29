@@ -5,7 +5,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace iEAS.Domain
+namespace iEAS
 {
     public class BaseRepository : DbContext
     {

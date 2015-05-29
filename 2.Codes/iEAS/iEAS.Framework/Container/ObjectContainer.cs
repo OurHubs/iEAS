@@ -1,4 +1,5 @@
 ﻿using Autofac;
+using Autofac.Features.OwnedInstances;
 using Autofac.Integration.Web;
 using System;
 using System.Collections.Generic;
@@ -56,6 +57,16 @@ namespace iEAS
         public static TService GetOptionalService<TService>() where TService:class
         {
             return RequestContainer.ResolveOptional<TService>();
+        }
+
+        /// <summary>
+        /// 获取Owned服务对象
+        /// </summary>
+        /// <typeparam name="TService"></typeparam>
+        /// <returns></returns>
+        public static TService GetOwnedService<TService>() where TService:IDisposable
+        {
+            return RequestContainer.Resolve<Owned<TService>>().Value;
         }
 
         public static ILifetimeScope BeginLifetimeScope()

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace iEAS.Domain
+namespace iEAS
 {
     public class BaseEntity
     {
@@ -33,5 +33,7 @@ namespace iEAS.Domain
             }
             set { _Guid = value; }
         }
+
+        public int Version { get; set; }
     }
 }

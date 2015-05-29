@@ -1,5 +1,4 @@
-﻿using iEAS.Domain;
-using iEAS.Repository;
+﻿using iEAS.Repository;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -49,7 +48,7 @@ namespace iEAS.Log
             };
             try
             {
-                DomainService.Execute<iEASRepository>(rep => rep.Create(log));
+                DomainService.Execute<FrameworkRepository>(rep => rep.Create(log));
             }
             catch(Exception ex)
             {

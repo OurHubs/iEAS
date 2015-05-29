@@ -66,12 +66,15 @@
     <Compile Include="Caching\ICacheProvider.cs" />
     <Compile Include="Context\AppContext.cs" />
     <Compile Include="Container\ObjectContainer.cs" />
+    <Compile Include="Domain\EntityMapping.cs" />
     <Compile Include="Domain\Entity\BaseEntity.cs" />
     <Compile Include="Domain\DomainService.cs" />
     <Compile Include="Domain\Entity\IdentityEntity.cs" />
+    <Compile Include="Domain\IdentityEntityMapping.cs" />
     <Compile Include="Domain\IDomainService.cs" />
     <Compile Include="Domain\Entity\Orderable.cs" />
     <Compile Include="Domain\Entity\PagedResult.cs" />
+    <Compile Include="Domain\IRepository.cs" />
     <Compile Include="Exception\AuthorizationException.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\SystemException.cs" />
@@ -87,7 +90,7 @@
     <Compile Include="Module\ModuleInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\BaseRepository.cs" />
-    <Compile Include="Repository\iEASRepository.cs" />
+    <Compile Include="Repository\FrameworkRepository.cs" />
     <Compile Include="Security\UserInfo.cs" />
     <Compile Include="Utility\Helper.cs" />
     <Compile Include="Utility\XmlHelper.cs" />

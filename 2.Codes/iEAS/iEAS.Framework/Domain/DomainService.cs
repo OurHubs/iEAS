@@ -1,10 +1,11 @@
-﻿using System;
+﻿using iEAS.Repository;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace iEAS.Domain
+namespace iEAS
 {
     public class DomainService
     {
