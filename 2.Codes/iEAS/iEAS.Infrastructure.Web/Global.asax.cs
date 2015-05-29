@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using iEAS.BaseData;
+using iEAS.Caching;
 using iEAS.Repository;
 using iEAS.Web;
 using System;
@@ -18,10 +20,14 @@ namespace iEAS.Infrastructure.Web
 
         protected override void RegisterComponents(ContainerBuilder builder)
         {
-            builder.RegisterType<FrameworkRepository>().AsSelf();
-            builder.RegisterType<iEASRepository>().AsSelf();
+            builder.RegisterType<HttpCacheProvider>().As<ICacheProvider>().InstancePerRequest();
             builder.RegisterGeneric(typeof(DomainService<,>)).As(typeof(IDomainService<,>));
 
+
+            builder.RegisterType<FrameworkRepository>().AsSelf();
+            builder.RegisterType<iEASRepository>().AsSelf();
+            builder.RegisterType<BaseDataTypeService>().As<IBaseDataTypeService>();
+            builder.RegisterType<BaseDataItemService>().As<IBaseDataItemService>();
         }
     }
 }

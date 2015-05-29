@@ -76,6 +76,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
+    <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Welcome.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -84,10 +88,101 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\Database1.mdf" />
-    <Content Include="App_Data\Database1_log.ldf">
-      <DependentUpon>Database1.mdf</DependentUpon>
-    </Content>
+    <Content Include="App_Themes\Default\easyui.css" />
+    <Content Include="App_Themes\Default\images\accordion_arrows.png" />
+    <Content Include="App_Themes\Default\images\accordion_collapse.gif" />
+    <Content Include="App_Themes\Default\images\accordion_expand.gif" />
+    <Content Include="App_Themes\Default\images\blank.gif" />
+    <Content Include="App_Themes\Default\images\calendar_arrows.png" />
+    <Content Include="App_Themes\Default\images\combo_arrow.png" />
+    <Content Include="App_Themes\Default\images\datagrid_icons.png" />
+    <Content Include="App_Themes\Default\images\datebox_arrow.png" />
+    <Content Include="App_Themes\Default\images\layout_arrows.png" />
+    <Content Include="App_Themes\Default\images\linkbutton_bg.png" />
+    <Content Include="App_Themes\Default\images\loading.gif" />
+    <Content Include="App_Themes\Default\images\menu_arrows.png" />
+    <Content Include="App_Themes\Default\images\messager_icons.png" />
+    <Content Include="App_Themes\Default\images\pagination_icons.png" />
+    <Content Include="App_Themes\Default\images\panel_tools.png" />
+    <Content Include="App_Themes\Default\images\searchbox_button.png" />
+    <Content Include="App_Themes\Default\images\slider_handle.png" />
+    <Content Include="App_Themes\Default\images\spinner_arrows.png" />
+    <Content Include="App_Themes\Default\images\tabs_icons.png" />
+    <Content Include="App_Themes\Default\images\tree_icons.png" />
+    <Content Include="App_Themes\Default\images\validatebox_warning.png" />
+    <Content Include="Assets\common\css\Admin.css" />
+    <Content Include="Assets\common\images\accordion_collapse.gif" />
+    <Content Include="Assets\common\images\accordion_expand.gif" />
+    <Content Include="Assets\common\images\add_bg_001.gif" />
+    <Content Include="Assets\common\images\btn_002.gif" />
+    <Content Include="Assets\common\images\btn_add_bg_001.gif" />
+    <Content Include="Assets\common\images\btn_search_bg_clear.gif" />
+    <Content Include="Assets\common\images\common_btn_back.gif" />
+    <Content Include="Assets\common\images\common_btn_bg.gif" />
+    <Content Include="Assets\common\images\common_btn_close_bg.gif" />
+    <Content Include="Assets\common\images\datagrid_sort_asc.gif" />
+    <Content Include="Assets\common\images\datagrid_sort_desc.gif" />
+    <Content Include="Assets\common\images\delete_bg_001.gif" />
+    <Content Include="Assets\common\images\delete_bg_001.png" />
+    <Content Include="Assets\common\images\download_btn_bg.gif" />
+    <Content Include="Assets\common\images\edit_bg_001.gif" />
+    <Content Include="Assets\common\images\export.png" />
+    <Content Include="Assets\common\images\head_bg.png" />
+    <Content Include="Assets\common\images\head_bg_.png" />
+    <Content Include="Assets\common\images\input.png" />
+    <Content Include="Assets\common\images\left_menu_bg_002.gif" />
+    <Content Include="Assets\common\images\list_ico_bg.gif" />
+    <Content Include="Assets\common\images\logo.png" />
+    <Content Include="Assets\common\images\operator_start_bg.gif" />
+    <Content Include="Assets\common\images\operator_stop_bg.gif" />
+    <Content Include="Assets\common\images\right_list_operator_bg.gif" />
+    <Content Include="Assets\common\images\right_list_operator_split.gif" />
+    <Content Include="Assets\common\images\search.png" />
+    <Content Include="Assets\common\images\search_bg_002.gif" />
+    <Content Include="Assets\common\images\set_bg_001.gif" />
+    <Content Include="Assets\common\images\show_detail_bg.gif" />
+    <Content Include="Assets\common\images\split_001.gif" />
+    <Content Include="Assets\common\images\upload_btn_bg.gif" />
+    <Content Include="Assets\common\js\jquery.min.js" />
+    <Content Include="Assets\easyui\theme\color.css" />
+    <Content Include="Assets\easyui\theme\easyui.css" />
+    <Content Include="Assets\easyui\theme\icon.css" />
+    <Content Include="Assets\easyui\jquery.easyui.min.js" />
+    <Content Include="Assets\common\js\loaf.common.js" />
+    <Content Include="Assets\common\js\table.js" />
+    <Content Include="Assets\easyui\theme\icons\back.png" />
+    <Content Include="Assets\easyui\theme\icons\blank.gif" />
+    <Content Include="Assets\easyui\theme\icons\cancel.png" />
+    <Content Include="Assets\easyui\theme\icons\clear.png" />
+    <Content Include="Assets\easyui\theme\icons\cut.png" />
+    <Content Include="Assets\easyui\theme\icons\edit_add.png" />
+    <Content Include="Assets\easyui\theme\icons\edit_remove.png" />
+    <Content Include="Assets\easyui\theme\icons\filesave.png" />
+    <Content Include="Assets\easyui\theme\icons\filter.png" />
+    <Content Include="Assets\easyui\theme\icons\help.png" />
+    <Content Include="Assets\easyui\theme\icons\home.png" />
+    <Content Include="Assets\easyui\theme\icons\large_chart.png" />
+    <Content Include="Assets\easyui\theme\icons\large_clipart.png" />
+    <Content Include="Assets\easyui\theme\icons\large_picture.png" />
+    <Content Include="Assets\easyui\theme\icons\large_shapes.png" />
+    <Content Include="Assets\easyui\theme\icons\large_smartart.png" />
+    <Content Include="Assets\easyui\theme\icons\lock.png" />
+    <Content Include="Assets\easyui\theme\icons\man.png" />
+    <Content Include="Assets\easyui\theme\icons\mini_add.png" />
+    <Content Include="Assets\easyui\theme\icons\mini_edit.png" />
+    <Content Include="Assets\easyui\theme\icons\mini_refresh.png" />
+    <Content Include="Assets\easyui\theme\icons\more.png" />
+    <Content Include="Assets\easyui\theme\icons\no.png" />
+    <Content Include="Assets\easyui\theme\icons\ok.png" />
+    <Content Include="Assets\easyui\theme\icons\pencil.png" />
+    <Content Include="Assets\easyui\theme\icons\print.png" />
+    <Content Include="Assets\easyui\theme\icons\redo.png" />
+    <Content Include="Assets\easyui\theme\icons\reload.png" />
+    <Content Include="Assets\easyui\theme\icons\search.png" />
+    <Content Include="Assets\easyui\theme\icons\sum.png" />
+    <Content Include="Assets\easyui\theme\icons\tip.png" />
+    <Content Include="Assets\easyui\theme\icons\undo.png" />
+    <Content Include="Assets\easyui\theme\mobile.css" />
     <Content Include="Default.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Test.aspx" />
@@ -106,6 +201,20 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pages\BaseData\BaseDataTypeEdit.aspx.cs">
+      <DependentUpon>BaseDataTypeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataTypeEdit.aspx.designer.cs">
+      <DependentUpon>BaseDataTypeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.cs">
+      <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
+      <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
@@ -113,6 +222,13 @@
     </Compile>
     <Compile Include="Test.aspx.designer.cs">
       <DependentUpon>Test.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Welcome.aspx.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Welcome.aspx.designer.cs">
+      <DependentUpon>Welcome.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -129,6 +245,7 @@
       <Name>iEAS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

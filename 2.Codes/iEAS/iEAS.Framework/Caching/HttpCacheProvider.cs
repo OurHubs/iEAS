@@ -7,7 +7,7 @@ using System.Web.Caching;
 
 namespace iEAS.Caching
 {
-    class HttpCacheProvider:ICacheProvider
+    public class HttpCacheProvider:ICacheProvider
     {
         private Cache Cache
         {

@@ -194,5 +194,10 @@ namespace iEAS
             this.Set<TEntity>().RemoveRange(items);
             this.SaveChanges();
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }
