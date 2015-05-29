@@ -77,6 +77,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Pages\BaseData\BaseDataItemEdit.aspx" />
+    <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
     <Content Include="Welcome.aspx" />
@@ -200,6 +202,20 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataItemEdit.aspx.cs">
+      <DependentUpon>BaseDataItemEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataItemEdit.aspx.designer.cs">
+      <DependentUpon>BaseDataItemEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataItemList.aspx.cs">
+      <DependentUpon>BaseDataItemList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\BaseData\BaseDataItemList.aspx.designer.cs">
+      <DependentUpon>BaseDataItemList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataTypeEdit.aspx.cs">
       <DependentUpon>BaseDataTypeEdit.aspx</DependentUpon>

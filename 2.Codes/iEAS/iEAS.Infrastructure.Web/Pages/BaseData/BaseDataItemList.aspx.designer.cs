@@ -10,7 +10,7 @@
 namespace iEAS.Infrastructure.Web.Pages.BaseData {
     
     
-    public partial class BaseDataTypeList {
+    public partial class BaseDataItemList {
         
         /// <summary>
         /// form1 控件。

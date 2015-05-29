@@ -1,7 +1,6 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BaseDataTypeList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.BaseData.BaseDataTypeList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BaseDataItemList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.BaseData.BaseDataItemList" %>
 
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
@@ -27,14 +26,16 @@
                 <td style="width: 5%">
                     <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
                 </td>
-                <td style="width: 20%">
-                   <a  id="Sort_TypeID" href="javascript:Sort(this,'TypeID');" class="down" >类型名称</a>  
+                <td>
+                   <a  id="Sort_TypeID" href="javascript:Sort(this,'TypeID');" class="down" >名称</a>  
                 </td>
-                
                 <td style="width: 8%">
-                     <a  id="A1" href="javascript:Sort(this,'TypeID');" class="up" >类型编码</a>  
+                     <a  id="A1" href="javascript:Sort(this,'TypeID');" class="up" >值</a>  
                 </td>
-                <td style="width: 10%">
+                 <td>
+                     <a  id="A1" href="javascript:Sort(this,'TypeID');" class="up" >备注</a>  
+                </td>
+                <td style="width: 20%">
                     操作
                 </td>
             </tr>
@@ -48,11 +49,14 @@
                 <td >
                     张三
                 </td>
+                 <td >
+                    张三
+                </td>
                 <td >
-                    <a href="BaseDataItemList.aspx">查看数据项</a>|编辑|删除
+                    上移|下移|编辑|删除
                 </td>
             </tr>
-           <tr>
+          <tr>
                 <td >
                     <input type="checkbox" name="IDS" />
                 </td>
@@ -62,22 +66,11 @@
                 <td >
                     张三
                 </td>
-                <td >
-                    <a href="BaseDataItemList.aspx">查看数据项</a>|编辑|删除
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
+                 <td >
                     张三
                 </td>
                 <td >
-                   <a href="BaseDataItemList.aspx">查看数据项</a>|编辑|删除
+                    上移|下移|编辑|删除
                 </td>
             </tr>
             <tr>
@@ -90,8 +83,62 @@
                 <td >
                     张三
                 </td>
+                 <td >
+                    张三
+                </td>
                 <td >
-                    <a href="BaseDataItemList.aspx">查看数据项</a>|编辑|删除
+                    上移|下移|编辑|删除
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="checkbox" name="IDS" />
+                </td>
+                <td >
+                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
+                </td>
+                <td >
+                    张三
+                </td>
+                 <td >
+                    张三
+                </td>
+                <td >
+                    上移|下移|编辑|删除
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="checkbox" name="IDS" />
+                </td>
+                <td >
+                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
+                </td>
+                <td >
+                    张三
+                </td>
+                 <td >
+                    张三
+                </td>
+                <td >
+                    上移|下移|编辑|删除
+                </td>
+            </tr>
+            <tr>
+                <td >
+                    <input type="checkbox" name="IDS" />
+                </td>
+                <td >
+                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
+                </td>
+                <td >
+                    张三
+                </td>
+                 <td >
+                    张三
+                </td>
+                <td >
+                    上移|下移|编辑|删除
                 </td>
             </tr>
         </table>

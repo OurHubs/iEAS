@@ -13,5 +13,15 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
         {
 
         }
+
+        protected void btnSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("BaseDataTypeList.aspx");
+        }
     }
 }
