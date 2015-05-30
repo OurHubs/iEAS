@@ -77,6 +77,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Controls\Pager.ascx" />
     <Content Include="Pages\BaseData\BaseDataItemEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
@@ -193,6 +194,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controls\Pager.ascx.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Controls\Pager.ascx.designer.cs">
+      <DependentUpon>Pager.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

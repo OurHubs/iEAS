@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="BaseDataTypeList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.BaseData.BaseDataTypeList" %>
 
+<%@ Register src="../../Controls/Pager.ascx" tagname="Pager" tagprefix="uc1" %>
+
 <!DOCTYPE html>
 
 <html xmlns="http://www.w3.org/1999/xhtml">
@@ -36,6 +38,7 @@
                       </Fields>
                   </asp:DataPager>
           <iEAS:ObjectDataSource ID="odsQuery" runat="server"></iEAS:ObjectDataSource>
+           <uc1:Pager ID="Pager1" runat="server"  PagedControlID="lvQuery" />
         <table class="tabList"  >
              <tr class="title">
                 <td style="width: 5%">
