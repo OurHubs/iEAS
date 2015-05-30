@@ -22,6 +22,20 @@
              <li><a href="BaseDataTypeEdit.aspx" class="add" >增 加</a> </li>
              <li><a href="#" class="del">删 除</a></li>
         </ul>
+          <asp:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery">
+              <LayoutTemplate>
+                  <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+              </LayoutTemplate>
+              <ItemTemplate>
+                  <li><%# Container.DataItem %></li>
+              </ItemTemplate>
+          </asp:ListView>
+                            <asp:DataPager ID="dpList" runat="server" PageSize="10" PagedControlID="lvQuery">
+                      <Fields>
+                          <asp:NumericPagerField />
+                      </Fields>
+                  </asp:DataPager>
+          <iEAS:ObjectDataSource ID="odsQuery" runat="server"></iEAS:ObjectDataSource>
         <table class="tabList"  >
              <tr class="title">
                 <td style="width: 5%">

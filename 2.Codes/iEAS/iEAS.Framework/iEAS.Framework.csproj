@@ -54,6 +54,7 @@
     <Reference Include="System.Core" />
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,6 +97,9 @@
     <Compile Include="Utility\StringExtentions.cs" />
     <Compile Include="Utility\XmlHelper.cs" />
     <Compile Include="Web\iEASGlobal.cs" />
+    <Compile Include="Web\UI\DataPager.cs" />
+    <Compile Include="Web\UI\ListView.cs" />
+    <Compile Include="Web\UI\ObjectDataSource.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

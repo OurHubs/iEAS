@@ -22,6 +22,33 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
+        /// lvQuery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ListView lvQuery;
+        
+        /// <summary>
+        /// dpList 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DataPager dpList;
+        
+        /// <summary>
+        /// odsQuery 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::iEAS.Web.UI.ObjectDataSource odsQuery;
+        
+        /// <summary>
         /// hfSort 控件。
         /// </summary>
         /// <remarks>
