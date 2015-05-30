@@ -6,8 +6,9 @@ using System.Text;
 
 namespace iEAS
 {
-    public class Helper
+    public static class Helper
     {
+
         /// <summary>
         /// 确保文件父目录存在
         /// </summary>

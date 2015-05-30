@@ -93,6 +93,7 @@
     <Compile Include="Repository\FrameworkRepository.cs" />
     <Compile Include="Security\UserInfo.cs" />
     <Compile Include="Utility\Helper.cs" />
+    <Compile Include="Utility\StringExtentions.cs" />
     <Compile Include="Utility\XmlHelper.cs" />
     <Compile Include="Web\iEASGlobal.cs" />
   </ItemGroup>

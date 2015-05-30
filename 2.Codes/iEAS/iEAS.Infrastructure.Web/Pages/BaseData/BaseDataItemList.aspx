@@ -30,10 +30,10 @@
                    <a  id="Sort_TypeID" href="javascript:Sort(this,'TypeID');" class="down" >名称</a>  
                 </td>
                 <td style="width: 8%">
-                     <a  id="A1" href="javascript:Sort(this,'TypeID');" class="up" >值</a>  
+                     <a  id="a" href="javascript:Sort(this,'TypeID');" class="up" >值</a>  
                 </td>
                  <td>
-                     <a  id="A1" href="javascript:Sort(this,'TypeID');" class="up" >备注</a>  
+                     <a  id="b" href="javascript:Sort(this,'TypeID');" class="up" >备注</a>  
                 </td>
                 <td style="width: 20%">
                     操作

@@ -142,14 +142,13 @@ namespace iEAS
          /// <param name="entity"></param>
         public void CreateOrUpdate(TEntity entity)
         {
-            var orign=GetByID(entity.ID);
-            if (orign != null)
+            if(entity.ID==0)
             {
-                Update(entity);
+                Create(entity);
             }
             else
             {
-                Create(entity);
+                Update(entity);
             }
         }
 
@@ -234,8 +233,7 @@ namespace iEAS
             return Fetch<IList<TEntity>>(rep =>
             {
                 return rep.Query<TEntity>(predicate, orderBy).ToList();
-            }
-                , lazyLoad);
+            }, lazyLoad);
         }
 
          /// <summary>
@@ -263,8 +261,7 @@ namespace iEAS
             return Fetch<IList<TEntity>>(rep =>
             {
                 return rep.Query<TEntity>(predicate, orderBy, startRow, maxRows).ToList();
-            }
-            , lazyLoad);
+            }, lazyLoad);
         }
 
          /// <summary>
