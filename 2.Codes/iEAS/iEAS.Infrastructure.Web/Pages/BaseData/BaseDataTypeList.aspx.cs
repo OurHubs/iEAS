@@ -1,4 +1,5 @@
-﻿using System;
+﻿using iEAS.BaseData;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,31 +11,19 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
 {
     public partial class BaseDataTypeList : System.Web.UI.Page
     {
+        public IBaseDataTypeService BaseDataTypeService { get; set; }
+
         protected override void OnInit(EventArgs e)
         {
             base.OnInit(e);
-            odsQuery.Query += odsQuery_Query;
         }
 
-        PagedResult odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
+        protected PagedResult odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
         {
-            return new PagedResult<string>
-            {
-                RecordCount = 1000,
-                Items = new List<string>{
-                      "1111"+DateTime.Now,
-                      "2222222",
-                      "1111",
-                      "2222222",
-                      "1111",
-                      "2222222",
-                      "1111",
-                      "2222222",
-                      "1111",
-                      "2222222",
-                      "3333333"
-                  }
-            };
+            return BaseDataTypeService.PagedQuery(m =>m.Status==1,
+                                                        o=>o.Asc(m=>m.ID),
+                                                        args.startRowIndex,
+                                                        args.maxRows);
         }
     }
 }

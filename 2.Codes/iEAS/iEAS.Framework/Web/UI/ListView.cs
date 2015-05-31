@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Web.UI.WebControls;
 
 namespace iEAS.Web.UI
 {
@@ -9,12 +10,17 @@ namespace iEAS.Web.UI
     {
         public ListView()
         {
-            this.PagePropertiesChanging += ListView_PagePropertiesChanging;
+           
+        }
+        protected override void OnInit(EventArgs e)
+        {
+            base.OnInit(e);
         }
 
-        void ListView_PagePropertiesChanging(object sender, System.Web.UI.WebControls.PagePropertiesChangingEventArgs e)
+        public void ReBindData()
         {
-            this.SetPageProperties(e.StartRowIndex, e.MaximumRows, true);
+            IPageableItemContainer container = this as IPageableItemContainer;
+            container.SetPageProperties(this.StartRowIndex, this.MaximumRows, true);
         }
     }
 }
