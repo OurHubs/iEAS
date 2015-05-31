@@ -27,10 +27,11 @@ namespace iEAS
         {
             get
             {
-                UserInfo user=HttpContext.Current.Session[typeof(UserInfo).FullName] as UserInfo;
-                if (user == null)
-                    throw new AuthorizationException();
-                return user;
+                //UserInfo user=HttpContext.Current.Session[typeof(UserInfo).FullName] as UserInfo;
+                //if (user == null)
+                //    throw new AuthorizationException();
+                //return user;
+                return new UserInfo();
             }
         }
 

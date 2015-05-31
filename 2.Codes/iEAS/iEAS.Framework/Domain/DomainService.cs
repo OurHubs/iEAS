@@ -256,11 +256,16 @@ namespace iEAS
          /// <param name="maxRows"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public virtual IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
+        public virtual QueryResult<TEntity> QueryRecord(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
         {
-            return Fetch<IList<TEntity>>(rep =>
+            return Fetch<QueryResult<TEntity>>(rep =>
             {
-                return rep.Query<TEntity>(predicate, orderBy, startRow, maxRows).ToList();
+                return new QueryResult<TEntity>
+                {
+                    Items=rep.Query<TEntity>(predicate, orderBy, startRow, maxRows).ToList(),
+                    RecordCount=rep.Query<TEntity>(predicate).Count()
+                };
+                 
             }, lazyLoad);
         }
 
@@ -272,9 +277,9 @@ namespace iEAS
          /// <param name="maxRows"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public IList<TEntity> Query(Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
+        public QueryResult<TEntity> QueryRecord(Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false)
         {
-            return Query(null, orderBy, startRow, maxRows, lazyLoad);
+            return QueryRecord(null, orderBy, startRow, maxRows, lazyLoad);
         }
 
          /// <summary>
@@ -345,7 +350,7 @@ namespace iEAS
 
          public override void Update(Expression<Func<TEntity, bool>> predicate, Action<TEntity> handler)
          {
-             Update(predicate, m =>
+             base.Update(predicate, m =>
              {
                  m.UpdateTime = DateTime.Now;
                  m.Updator = AppContext.Current.User.Number;

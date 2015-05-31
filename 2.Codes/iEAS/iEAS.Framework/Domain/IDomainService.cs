@@ -154,7 +154,7 @@ namespace iEAS
         /// <param name="maxRows"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false);
+        QueryResult<TEntity> QueryRecord(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false);
 
         /// <summary>
         /// 列表查询
@@ -164,7 +164,7 @@ namespace iEAS
         /// <param name="maxRows"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        IList<TEntity> Query(Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false);
+        QueryResult<TEntity> QueryRecord(Action<Orderable<TEntity>> orderBy, int startRow, int maxRows, bool lazyLoad = false);
 
         /// <summary>
         /// 分页查询

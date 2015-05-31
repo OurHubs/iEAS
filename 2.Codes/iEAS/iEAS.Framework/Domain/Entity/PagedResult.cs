@@ -6,14 +6,23 @@ using System.Text;
 
 namespace iEAS
 {
-    public class PagedResult
+    public interface IPageableDataSource:IEnumerable
     {
-        public int RecordCount { get; set; }
-
-        internal virtual IEnumerable DataSource { get; private set; }
+        int RecordCount { get; set; }
     }
 
-    public class PagedResult<TEntity>:PagedResult
+    public class QueryResult<TEntity>:List<TEntity>,IPageableDataSource
+    {
+        public List<TEntity> Items
+        {
+            get { return this; }
+            set { this.AddRange(value); }
+        }
+
+        public int RecordCount { get; set; }
+    }
+
+    public class PagedResult<TEntity> :List<TEntity>,IPageableDataSource
     {
         public int PageIndex { get; set; }
 
@@ -21,14 +30,12 @@ namespace iEAS
 
         public int PageCount { get; set; }
 
-        public List<TEntity> Items { get; set; }
-
-        internal override IEnumerable DataSource
+        public List<TEntity> Items
         {
-            get
-            {
-                return Items;
-            }
+            get { return this; }
+            set { this.AddRange(value); }
         }
+
+        public int RecordCount { get; set; }
     }
 }

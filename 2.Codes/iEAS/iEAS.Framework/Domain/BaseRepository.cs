@@ -153,7 +153,7 @@ namespace iEAS
         /// <param name="entity"></param>
         public void Update<TEntity>(TEntity entity) where TEntity:class
         {
-            this.Entry<TEntity>(entity);
+            this.Entry<TEntity>(entity).State = EntityState.Modified;
             this.SaveChanges();
         }
 
@@ -170,6 +170,7 @@ namespace iEAS
             {
                 handler(item);
             }
+            this.SaveChanges();
         }
 
         /// <summary>

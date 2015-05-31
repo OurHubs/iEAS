@@ -13,17 +13,22 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
     {
         public IBaseDataTypeService BaseDataTypeService { get; set; }
 
-        protected override void OnInit(EventArgs e)
+        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
         {
-            base.OnInit(e);
-        }
-
-        protected PagedResult odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
-        {
-            return BaseDataTypeService.PagedQuery(m =>m.Status==1,
+            return BaseDataTypeService.QueryRecord(m =>m.Status==1,
                                                         o=>o.Asc(m=>m.ID),
                                                         args.startRowIndex,
                                                         args.maxRows);
+        }
+
+        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        {
+            if(e.CommandName=="Del")
+            {
+                int rid =e.CommandArgument.ToString().ToInt();
+                BaseDataTypeService.DeleteByID(rid);
+                lvQuery.LoadData();
+            }
         }
     }
 }

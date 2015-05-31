@@ -4,12 +4,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Web;
+using System.Web.UI.WebControls;
 
 namespace iEAS.Web.UI
 {
     public class ObjectDataSource : System.Web.UI.WebControls.ObjectDataSource
     {
-        private int _RecordCount = 0;
+        private IPageableDataSource _PageableDataSource = null;
 
         public ObjectDataSource()
         {
@@ -31,17 +32,16 @@ namespace iEAS.Web.UI
 
         public IEnumerable SelectRecords(int startRowIndex, int maxRows)
         {
-            var result=OnQuery(startRowIndex, maxRows);
-            _RecordCount = result.RecordCount;
-            return result.DataSource;
+            _PageableDataSource = OnQuery(startRowIndex, maxRows);
+            return _PageableDataSource;
         }
 
         public int GetRecordCount()
         {
-            return _RecordCount;
+            return _PageableDataSource.RecordCount;
         }
 
-        protected PagedResult OnQuery(int startRowIndex, int maxRows)
+        protected IPageableDataSource OnQuery(int startRowIndex, int maxRows)
         {
             if(Query!=null)
             {
@@ -50,11 +50,11 @@ namespace iEAS.Web.UI
                     maxRows=maxRows
                 });
             }
-            return new PagedResult();
+            return null;
         }
     }
 
-    public delegate PagedResult PagedQueryEventHandler(object sender,ObjectDataSourceEventArgs args);
+    public delegate IPageableDataSource PagedQueryEventHandler(object sender, ObjectDataSourceEventArgs args);
 
     public class ObjectDataSourceEventArgs:EventArgs
     {

@@ -10,6 +10,8 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
 {
     public partial class BaseDataTypeEdit : System.Web.UI.Page
     {
+        public IBaseDataTypeService BaseDataTypeService { get; set; }
+
         public int RecordID
         {
             get { return Request["rid"].ToInt(0); }
@@ -25,8 +27,7 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var baseDataTypeService = ObjectContainer.GetService<IBaseDataTypeService>();
-            var baseDataTyp = baseDataTypeService.GetByID(RecordID);
+            var baseDataTyp = BaseDataTypeService.GetByID(RecordID);
 
             if(baseDataTyp==null)
             {
@@ -36,16 +37,18 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             baseDataTyp.Name = txtName.Text.Trim();
             baseDataTyp.Code = txtCode.Text.Trim();
             baseDataTyp.Desc = txtDesc.Text.Trim();
+            baseDataTyp.Status = 1;
 
             try
             {
-                baseDataTypeService.CreateOrUpdate(baseDataTyp);
+                BaseDataTypeService.CreateOrUpdate(baseDataTyp);
             }
             catch(Exception ex)
             {
                 LogManager.GetLogger().Error("保存基础数据类型出错！", ex);
                 throw ex;
             }
+            Response.Redirect("BaseDataTypeList.aspx");
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -55,11 +58,13 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
 
         private void BindData()
         {
-            var baseDataTypeService = ObjectContainer.GetService<IBaseDataTypeService>();
-            var baseDataTyp=baseDataTypeService.GetByID(RecordID);
-            txtName.Text = baseDataTyp.Name;
-            txtCode.Text = baseDataTyp.Code;
-            txtDesc.Text = baseDataTyp.Desc;
+            var baseDataTyp=BaseDataTypeService.GetByID(RecordID);
+            if(baseDataTyp!=null)
+            { 
+                txtName.Text = baseDataTyp.Name;
+                txtCode.Text = baseDataTyp.Code;
+                txtDesc.Text = baseDataTyp.Desc;
+            }
         }
     }
 }

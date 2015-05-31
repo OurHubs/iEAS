@@ -17,7 +17,7 @@ namespace iEAS.Web.UI
             base.OnInit(e);
         }
 
-        public void ReBindData()
+        public void LoadData()
         {
             IPageableItemContainer container = this as IPageableItemContainer;
             container.SetPageProperties(this.StartRowIndex, this.MaximumRows, true);

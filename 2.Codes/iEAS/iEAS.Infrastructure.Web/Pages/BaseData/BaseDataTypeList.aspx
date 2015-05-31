@@ -27,19 +27,19 @@
                     <asp:NumericPagerField />
                 </Fields>
             </iEAS:DataPager>
-            <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery">
+            <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
                 <LayoutTemplate>
                     <table class="tabList">
                         <tr class="title">
                             <td style="width: 5%">
                                 <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
                             </td>
-                            <td style="width: 20%">
-                                <a id="Sort_TypeID" href="javascript:Sort(this,'TypeID');" class="down">类型名称</a>
+                            <td style="width: 20%">类型名称
                             </td>
 
-                            <td style="width: 8%">
-                                <a id="A1" href="javascript:Sort(this,'TypeID');" class="up">类型编码</a>
+                            <td style="width: 8%">类型编码
+                            </td>
+                            <td>描述
                             </td>
                             <td style="width: 10%">操作
                             </td>
@@ -53,17 +53,25 @@
                             <input type="checkbox" name="IDS" />
                         </td>
                         <td>
-                            <%# Container.DataItem %>
-                        </td>
-                        <td>张三
+                            <%# Eval("Name") %>
                         </td>
                         <td>
-                            <a href="BaseDataItemList.aspx">查看数据项</a>|编辑|删除
+                            <%# Eval("Code") %>
+                        </td>
+                        <td>
+                            <%# Eval("Desc") %>
+                        </td>
+                        <td>
+                            <a href="BaseDataItemList.aspx">查看数据项</a>
+                            |
+                            <a href="BaseDataTypeEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                         </td>
                     </tr>
                 </ItemTemplate>
             </iEAS:ListView>
-            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query"></iEAS:ObjectDataSource>
+            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
+            </iEAS:ObjectDataSource>
         </div>
         <asp:HiddenField ID="hfSort" runat="server" />
     </form>
