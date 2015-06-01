@@ -171,10 +171,11 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 #Pager_pager span.current{  color:#FF6600;}
 #Pager_pager span.total{ color:#575765;}
 #Pager_pager span.total b{ color:#FF6600;}
+#Pager_pager a.aspNetDisabled{ color:#656565;}
 
 /*#Pager_pager span.total{ float:left; margin-right:40px; }
 #Pager_pager span.total b{ color:#FF6600;}
-#Pager_pager span.aspNetDisabled{ color:#e6e6e6;}
+
 #Pager_pager span.current,a{text-decoration:none; min-width:20px; float:left; text-align:center;}*/
 
 
