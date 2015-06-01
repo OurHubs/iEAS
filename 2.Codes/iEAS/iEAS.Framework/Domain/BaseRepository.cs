@@ -69,17 +69,24 @@ namespace iEAS
         /// <summary>
         /// 数据查询
         /// </summary>
-        /// <typeparam name="TEntity"></typeparam>
-        /// <param name="predicate"></param>
-        /// <param name="orderby"></param>
-        /// <param name="startRow"></param>
-        /// <param name="maxRows"></param>
+        /// <typeparam name="TEntity">实体类型</typeparam>
+        /// <param name="predicate">查询条件</param>
+        /// <param name="orderby">排序</param>
+        /// <param name="startRow">开始行,如果小于等于0则忽略</param>
+        /// <param name="maxRows">最大行数，如果小于等于0则忽略</param>
         /// <returns></returns>
         public IQueryable<TEntity> Query<TEntity>(Expression<Func<TEntity,bool>> predicate,Action<Orderable<TEntity>> orderby,int startRow,int maxRows)
             where TEntity:class
         {
             var query = Query<TEntity>(predicate, orderby);
-            query=query.Skip(startRow).Take(maxRows);
+            if(startRow>0)
+            {
+                query = query.Skip(startRow);
+            }
+            if(maxRows>0)
+            {
+                query = query.Take(maxRows);
+            }
             return query;
         }
 

@@ -66,6 +66,9 @@
   <ItemGroup>
     <Folder Include="Account\" />
     <Folder Include="BaseData\Config\" />
+    <Folder Include="Module\Config\" />
+    <Folder Include="Module\Entity\" />
+    <Folder Include="Module\Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
