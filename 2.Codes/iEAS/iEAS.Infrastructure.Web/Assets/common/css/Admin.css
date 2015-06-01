@@ -46,6 +46,7 @@
 .table_detail tr th{height:30px;border:1px dotted  #A2B6CF;border-top:0px;border-left:0px; background:#FCFCFC; font-weight:normal;width:10%; } /*background:#f7f7ff;*/
 .table_detail tr th span{ color:#f00;}
 .table_detail tr td{height:30px;border:1px dotted #A2B6CF;border-top:0px;border-left:0px; padding-left:5px;width:23.33%;}
+.table_detail tr td.td_radio table td{ border:none;}
 input[type=text]{width:80%;height:18px;line-height:18px;padding-left:3px;padding: 2px 0 2px 5px;border: 1px solid #d0d0d0;background: #FFF url(../images/input.png) repeat-x; }
 select{width:82%;height:22px;line-height:22px;padding-left:3px; border: 1px solid #d0d0d0;}
 textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;background: #FFF url(../images/input.png) repeat-x;}
