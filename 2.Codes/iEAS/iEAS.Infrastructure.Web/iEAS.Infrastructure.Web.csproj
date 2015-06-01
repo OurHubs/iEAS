@@ -220,7 +220,6 @@
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataItemList.aspx.cs">
       <DependentUpon>BaseDataItemList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataItemList.aspx.designer.cs">
       <DependentUpon>BaseDataItemList.aspx</DependentUpon>

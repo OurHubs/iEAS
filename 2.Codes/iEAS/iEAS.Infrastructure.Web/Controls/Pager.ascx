@@ -4,7 +4,7 @@
     <Fields>
         <asp:TemplatePagerField>
             <PagerTemplate>
-                <span class="total">共<b><%=Math.Ceiling ((double)pager.TotalRowCount / pager.PageSize)%></b>页,共<b><%=pager.TotalRowCount%></b>条记录</span> &nbsp;&nbsp
+                <span class="total">共 <b><%=Math.Ceiling ((double)pager.TotalRowCount / pager.PageSize)%></b> 页,共 <b><%=pager.TotalRowCount%></b> 条记录</span> &nbsp;&nbsp
             </PagerTemplate>
         </asp:TemplatePagerField>
         <asp:NextPreviousPagerField ButtonType="Link" ShowFirstPageButton="True"
