@@ -129,7 +129,7 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 .tabList tr.title td a{ color:#3e7ab9; padding-right:15px;text-decoration:none;}
 .tabList tr.title td a.up{ background:url(../images/datagrid_sort_asc.gif) no-repeat right center;}
 .tabList tr.title td a.down{ background:url(../images/datagrid_sort_desc.gif) no-repeat right center;}
-.tabList td a{ text-decoration:none;}
+.tabList td a{ text-decoration:none; color:#3e7ab9;}
 .tabList tr td{height:25px;border-bottom:1px dotted #d6d6d6;color:#666; text-align:left; text-indent:5px;}
 .tabList tr.gray{background:#fcfcfc;} /*#f7f7ff*/
 .tabList tr.hover{background:#f5fafe; }
@@ -139,9 +139,6 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 .tabList_toolbar{ list-style:none; width:100%; padding-left:0px; height:30px; margin:0px; background:#fcfcfc;} /*border-bottom:1px solid #d6d6d6;*/
 .tabList_toolbar li{ float:left;}
 .tabList_toolbar li a{ text-decoration:none;}
-/*.tabList_toolbar li a{ display:block;min-width:50px; height:30px; line-height:30px; 
-					   background:url(../images/right_list_operator_split.gif) no-repeat right;
-					   color:#337ab7; padding:0px 10px; font-size:14px;text-decoration:none; text-align:center;}*/
 
 .tabList_toolbar li a.add{background:url(../images/add_bg_001.gif) no-repeat;float:right; color:#666;padding-left:20px;height:20px;	  padding-top:6px;margin-left:5px;width:38px;	 background-position:0px 6px;cursor:pointer;}
 .tabList_toolbar li a.edit{background:url(../images/edit_bg_001.gif) no-repeat;float:right;color:#666;padding-left:20px;height:20px;padding-top:6px;margin-left:5px;width:38px;background-position:0px 6px;cursor:pointer;}
