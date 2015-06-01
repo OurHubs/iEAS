@@ -17,11 +17,6 @@
                 <li><a href="BaseDataTypeEdit.aspx" class="add">增 加</a> </li>
                 <li><a href="#" class="del">删 除</a></li>
             </ul>
-            <iEAS:DataPager ID="DataPager1" runat="server" PageSize="10" PagedControlID="lvQuery">
-                <Fields>
-                    <asp:NumericPagerField />
-                </Fields>
-            </iEAS:DataPager>
             <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
                 <LayoutTemplate>
                     <table class="tabList">
@@ -65,6 +60,7 @@
                     </tr>
                 </ItemTemplate>
             </iEAS:ListView>
+            <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
             <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
             </iEAS:ObjectDataSource>
         </div>

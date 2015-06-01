@@ -79,7 +79,7 @@ namespace iEAS
             where TEntity:class
         {
             var query = Query<TEntity>(predicate, orderby);
-            query.Skip(startRow).Take(maxRows);
+            query=query.Skip(startRow).Take(maxRows);
             return query;
         }
 
