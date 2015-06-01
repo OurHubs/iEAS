@@ -21,7 +21,7 @@
                             <th>
                                 <span>*</span> 名称：
                             </th>
-                            <td class="td_value">
+                            <td>
                                 <asp:TextBox ID="txtName" runat="server"></asp:TextBox>
                             </td>
                         </tr>
@@ -29,7 +29,7 @@
                             <th>
                                 <span>*</span>编码：
                             </th>
-                            <td class="td_value">
+                            <td>
                                 <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
                             </td>
                         </tr>
@@ -37,7 +37,7 @@
                             <th>
                                 <span>*</span>是否支持树型结构：
                             </th>
-                            <td class="td_value">
+                            <td class="td_radio">
                                 <asp:RadioButtonList ID="rblTreeMode" runat="server" RepeatDirection="Horizontal">
                                     <asp:ListItem Text="是" Value="1"></asp:ListItem>
                                     <asp:ListItem Text="否" Value="0" Selected="True"></asp:ListItem>
@@ -48,7 +48,7 @@
                             <th>
                                 <span>*</span>备注：
                             </th>
-                            <td class="td_value">
+                            <td>
                                 <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" Rows="3" Width="500px"></asp:TextBox>
                             </td>
                         </tr>
