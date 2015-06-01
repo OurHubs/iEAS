@@ -83,7 +83,8 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 .bth_download{border-style:none;background:url(../images/download_btn_bg.gif);width:60px;height:23px;cursor:pointer;color:#666;margin-left:10px;padding-left:18px;}
 .btn_search_gj{border-style:none;background:url(../images/search_gj_bg_001.gif);width:80px;height:23px;cursor:pointer;color:#fff;padding-left:20px;margin-left:20px;}
 .btn_search_submit{border-style:none;background:url(../images/search_bg_002.gif);width:60px;height:23px;cursor:pointer;display:inline;}
-.btn{border-style:none;background:url(../images/common_btn_bg.gif);width:60px;height:23px;cursor:pointer;color:#666;margin-left:10px;padding-left:18px;}
+.btn{border-style:none;background:url(../images/common_btn_bg.gif);width:60px;cursor:pointer;color:#666;margin-left:10px;padding-left:18px;
+}
 .btn_back{border-style:none;background:url(../images/common_btn_back.gif);width:60px;height:23px;cursor:pointer;color:#666;margin-left:10px;padding-left:18px;}
 .btn_close{border-style:none;background:url(../images/common_btn_close_bg.gif);width:60px;height:23px;cursor:pointer;color:#666;margin-left:10px;padding-left:18px;}
 .btn_search_clear{border-style:none;background:url(../images/btn_search_bg_clear.gif);width:60px;height:23px;cursor:pointer;margin-left:10px;}

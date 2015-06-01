@@ -13,14 +13,14 @@ namespace iEAS.Log
         public SystemLogger()
         {
             var loggers = new List<ILogger>();
-            if(IsDBLoggerEnabled)
-            {
-                loggers.Add(ObjectContainer.GetService<ILogger>("filelogger"));
-            }
-            if (IsFileLoggerEnabled)
-            {
-                loggers.Add(ObjectContainer.GetService<ILogger>("dblogger"));
-            }
+            //if(IsDBLoggerEnabled)
+            //{
+            //    loggers.Add(ObjectContainer.GetService<ILogger>("filelogger"));
+            //}
+            //if (IsFileLoggerEnabled)
+            //{
+            //    loggers.Add(ObjectContainer.GetService<ILogger>("dblogger"));
+            //}
             _Loggers = loggers;
         }
 

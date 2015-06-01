@@ -17,6 +17,7 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             get { return Request["rid"].ToInt(0); }
         }
 
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if(!IsPostBack)

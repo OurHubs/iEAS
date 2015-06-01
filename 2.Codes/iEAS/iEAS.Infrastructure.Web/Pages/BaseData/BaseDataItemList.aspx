@@ -3,159 +3,73 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title>框架管理系统</title>
-     <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
-     <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
-     <script src="../../Assets/common/js/table.js"></script>
-     <script type="text/javascript">
-         $(function () {
-             InitSort(); //初始化排序
-         });
-    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>框架管理系统</title>
+    <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
+    <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="../../Assets/common/js/table.js"></script>
 </head>
 <body>
     <form id="form1" runat="server">
-      <div class="container">         
-           <ul class="tabList_toolbar">
-             <li><a href="BaseDataTypeEdit.aspx" class="add" >增 加</a> </li>
-             <li><a href="#" class="del">删 除</a></li>
-        </ul>
-        <table class="tabList"  >
-             <tr class="title">
-                <td style="width: 5%">
-                    <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
-                </td>
-                <td>
-                   <a  id="Sort_TypeID" href="javascript:Sort(this,'TypeID');" class="down" >名称</a>  
-                </td>
-                <td style="width: 8%">
-                     <a  id="a" href="javascript:Sort(this,'TypeID');" class="up" >值</a>  
-                </td>
-                 <td>
-                     <a  id="b" href="javascript:Sort(this,'TypeID');" class="up" >备注</a>  
-                </td>
-                <td style="width: 20%">
-                    操作
-                </td>
-            </tr>
-             <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-          <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-            <tr>
-                <td >
-                    <input type="checkbox" name="IDS" />
-                </td>
-                <td >
-                    <a href="agencyDetailInfo.htm">中智上海经济技术合作公司外企服务分公司</a>
-                </td>
-                <td >
-                    张三
-                </td>
-                 <td >
-                    张三
-                </td>
-                <td >
-                    上移|下移|编辑|删除
-                </td>
-            </tr>
-        </table>
-
-        <div class="fenye">
-            <div id="aspnetpageDiv">     
-<%--                <webthink:aspnetpager ID="pager"  CssClass="anpager" runat="server"  UrlPaging="false"
-                 ShowPageIndexBox="Never" PageIndexBoxType="DropDownList"    
-                 TextBeforePageIndexBox="转到: " HorizontalAlign="right" PageSize="15" 
-                 OnPageChanged="pager_PageChanged" EnableTheming="true" 
-                 FirstPageText="首页" LastPageText="尾页" NextPageText="下一页" PrevPageText="上一页">
-                </webthink:aspnetpager>--%>
-           </div>
+        <div class="container">
+            <ul class="tabList_toolbar">
+                <li><a href="BaseDataItemEdit.aspx?typeid=<%=TypeID %>" class="add">增 加</a> </li>
+                <li><a href="#" class="del">删 除</a></li>
+            </ul>
+            <table class="tabList">
+                <tr class="title">
+                    <td style="width: 5%">
+                        <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
+                    </td>
+                    <td style="width: 5%">ID
+                    </td>
+                    <td style="width: 10%">数据类型
+                    </td>
+                    <td style="width: 20%">名称
+                    </td>
+                    <td style="width: 10%">值
+                    </td>
+                    <td>备注
+                    </td>
+                    <td style="width: 15%">操作
+                    </td>
+                </tr>
+                <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
+                    <LayoutTemplate>
+                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
+                    </LayoutTemplate>
+                    <ItemTemplate>
+                        <tr>
+                            <td>
+                                <input type="checkbox" name="IDS" />
+                            </td>
+                            <td>
+                                <%# Eval("ID") %>
+                            </td>
+                            <td>
+                                <%# Eval("Type.Name") %>
+                            </td>
+                            <td>
+                                <%# Eval("Name") %>
+                            </td>
+                            <td>
+                                <%# Eval("Value") %>
+                            </td>
+                            <td>
+                                <%# Eval("Desc") %>
+                            </td>
+                            <td>
+                                <a href="BaseDataItemEdit.aspx?typeid=<%=TypeID %>&rid=<%# Eval("ID") %>">编辑</a>|
+                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </iEAS:ListView>
+            </table>
+            <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
+            </iEAS:ObjectDataSource>
         </div>
-      </div>
-    <!--用于辅助列表排序的 -->
-    <asp:HiddenField ID="hfSort" runat="server" />
     </form>
 </body>
 </html>
