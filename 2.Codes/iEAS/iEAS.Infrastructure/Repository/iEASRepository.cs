@@ -1,5 +1,7 @@
-﻿using iEAS.BaseData;
+﻿using iEAS.Account;
+using iEAS.BaseData;
 using iEAS.Log;
+using iEAS.Repository.Mapping.Account;
 using iEAS.Repository.Mapping.BaseData;
 using System;
 using System.Collections.Generic;
@@ -16,11 +18,13 @@ namespace iEAS.Repository
         {
             modelBuilder.Configurations.Add(new BaseDataTypeMapping());
             modelBuilder.Configurations.Add(new BaseDataItemMapping());
+            //modelBuilder.Configurations.Add(new PermissionMapping());
 
             base.OnModelCreating(modelBuilder);
         }
 
         public DbSet<BaseDataType> BaseDataTypes { get; set; }
         public DbSet<BaseDataItem> BaseDataItems { get; set; }
+        //public DbSet<Permission> Permissions { get; set; }
     }
 }

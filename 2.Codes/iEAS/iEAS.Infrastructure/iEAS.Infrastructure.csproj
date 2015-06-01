@@ -45,6 +45,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Account\Entity\Permission.cs" />
+    <Compile Include="Account\Entity\Role.cs" />
+    <Compile Include="Account\Entity\User.cs" />
     <Compile Include="BaseData\BaseDataHelper.cs" />
     <Compile Include="BaseData\Entity\BaseDataItem.cs" />
     <Compile Include="BaseData\Entity\BaseDataType.cs" />
@@ -54,6 +57,9 @@
     <Compile Include="BaseData\Service\IBaseDataItemService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\iEASRepository.cs" />
+    <Compile Include="Repository\Mapping\Account\PermissionMapping.cs" />
+    <Compile Include="Repository\Mapping\Account\RoleMapping.cs" />
+    <Compile Include="Repository\Mapping\Account\UserMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataTypeMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataItemMapping.cs" />
   </ItemGroup>
@@ -64,11 +70,15 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Account\" />
+    <Folder Include="Account\Config\" />
+    <Folder Include="Account\Service\" />
     <Folder Include="BaseData\Config\" />
     <Folder Include="Module\Config\" />
     <Folder Include="Module\Entity\" />
     <Folder Include="Module\Service\" />
+    <Folder Include="Navigtion\Config\" />
+    <Folder Include="Navigtion\Entity\" />
+    <Folder Include="Navigtion\Service\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
