@@ -23,9 +23,7 @@
                                 <span>*</span> 上级数据项：
                             </th>
                             <td>
-                                <asp:DropDownList ID="ddlParent" runat="server">
-                                    <asp:ListItem Text="请选择" Value=""></asp:ListItem>
-                                </asp:DropDownList>
+                                <asp:Label ID="lblParent" runat="server"></asp:Label>
                             </td>
                         </tr>
                         <tr>

@@ -23,8 +23,6 @@
                     </td>
                     <td style="width: 5%">ID
                     </td>
-                    <td style="width: 10%">数据类型
-                    </td>
                     <td style="width: 20%">名称
                     </td>
                     <td style="width: 10%">值
@@ -47,9 +45,6 @@
                                 <%# Eval("ID") %>
                             </td>
                             <td>
-                                <%# Eval("Type.Name") %>
-                            </td>
-                            <td>
                                 <%# Eval("Name") %>
                             </td>
                             <td>
@@ -59,8 +54,8 @@
                                 <%# Eval("Desc") %>
                             </td>
                             <td>
-                                <a href="BaseDataItemEdit.aspx?typeid=<%=TypeID %>&rid=<%# Eval("ID") %>">编辑</a>|
-                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                <a href="BaseDataItemEdit.aspx?typeid=<%=TypeID %>&parentID=<%# Eval("ID") %>">添加子项</a>|<a href="BaseDataItemEdit.aspx?typeid=<%=TypeID %>&rid=<%# Eval("ID") %>">编辑</a>|
+                                <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>

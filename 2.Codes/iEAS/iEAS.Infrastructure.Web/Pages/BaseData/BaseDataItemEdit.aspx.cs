@@ -29,6 +29,14 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             }
         }
 
+        public int? ParentID
+        {
+            get
+            {
+                return Request["parentID"].ToNInt();
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -44,6 +52,7 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             if (baseDataItem == null)
             {
                 baseDataItem = new BaseDataItem();
+                baseDataItem.ParentID = ParentID;
             }
             baseDataItem.TypeID = TypeID;
             baseDataItem.Name = txtName.Text.Trim();
@@ -70,12 +79,28 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
 
         private void BindData()
         {
-            var baseDataItem = BaseDataItemService.GetByID(RecordID);
+            var baseDataItem = BaseDataItemService.GetByID(RecordID,true);
             if (baseDataItem != null)
             {
                 txtName.Text = baseDataItem.Name;
                 txtValue.Text = baseDataItem.Value;
                 txtDesc.Text = baseDataItem.Desc;
+                if (baseDataItem.ParentID != null)
+                {
+                    lblParent.Text = baseDataItem.Parent.Name;
+                }
+            }
+            else if(ParentID!=null)
+            {
+                var parent= BaseDataItemService.GetByID(ParentID.Value);
+                if(parent!=null)
+                {
+                    lblParent.Text = parent.Name;
+                }
+            }
+            if(String.IsNullOrEmpty(lblParent.Text))
+            {
+                lblParent.Text = "顶级数据项";
             }
         }
     }
