@@ -61,7 +61,10 @@
                     </ItemTemplate>
                 </iEAS:ListView>
             </table>
-            <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+         
+                   <iEAS:Pager ID="Pager"  runat="server" PagedControlID="lvQuery" />
+          
+         
             <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
             </iEAS:ObjectDataSource>
         </div>

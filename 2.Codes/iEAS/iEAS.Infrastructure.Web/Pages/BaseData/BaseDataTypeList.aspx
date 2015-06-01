@@ -9,6 +9,7 @@
     <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
     <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
     <script src="../../Assets/common/js/table.js"></script>
+    
 </head>
 <body>
     <form id="form1" runat="server">
@@ -60,7 +61,10 @@
                     </ItemTemplate>
                 </iEAS:ListView>
             </table>
-            <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+            <div class="fenye">
+              <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+            </div>
+           
             <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
             </iEAS:ObjectDataSource>
         </div>

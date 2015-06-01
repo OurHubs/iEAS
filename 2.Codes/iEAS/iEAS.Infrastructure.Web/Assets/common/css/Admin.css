@@ -67,7 +67,9 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 					background: linear-gradient(top,#f5f5f5,#e8e8e8);
 					background: -moz-linear-gradient(top,#f5f5f5,#e8e8e8);
 					background: -o-linear-gradient(top,#f5f5f5,#e8e8e8);
-					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5',endColorstr='#e8e8e8');}
+					filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5',endColorstr='#e8e8e8');
+					
+}
 .form_panel_body{ padding:1px; }
 
 .form_panel_foot{background:#fCfCfC; padding:2px 3px; border-top:1px solid #d6d6d6; margin-top:-2px; }
@@ -126,6 +128,9 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
         background: -moz-linear-gradient(top,#f5f5f5,#e8e8e8);
         background: -o-linear-gradient(top,#f5f5f5,#e8e8e8);
         filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f5f5f5',endColorstr='#e8e8e8');
+		/*background-image:linear-gradient(rgb(248, 248, 248) 0px, rgb(238, 238, 238) 100%)*/
+		background-image:linear-gradient(#f5f5f5 0px, #e8e8e8 100%)
+
 }
 .tabList tr.title td a{ color:#3e7ab9; padding-right:15px;text-decoration:none;}
 .tabList tr.title td a.up{ background:url(../images/datagrid_sort_asc.gif) no-repeat right center;}
@@ -153,16 +158,24 @@ textarea{line-height:16px;padding:3px; margin:3px;border: 1px solid #d0d0d0;back
 /*** 分页 开始 **/
 /* 分页控件部分*/
 .fenye{	   
-	   background:#fcfcfc; 
+	   background:#f0f0f0; 
 	   height:25px; line-height:25px;
 	   border:1px solid #d4d4d4;
-	   border-top:0px;  margin-top:-5px;
+	   border-top:0px; 
+	 
 }
-.fenye #tab_btn_group{  float:left;}
-.fenye #aspnetpageDiv{  float:right; padding-right:10px;}
-.fenye a{ height:20px;  }
+#Pager_pager{ display:block;  height:25px; line-height:25px;float:right; clear:both; }
+#Pager_pager a{ text-decoration:none;color:#3e7ab9;
+				 text-shadow: 0 1px 0 rgba(255,255,255,.5);
+}
+#Pager_pager span.current{  color:#FF6600;}
+#Pager_pager span.total{ color:#575765;}
+#Pager_pager span.total b{ color:#FF6600;}
 
-
+/*#Pager_pager span.total{ float:left; margin-right:40px; }
+#Pager_pager span.total b{ color:#FF6600;}
+#Pager_pager span.aspNetDisabled{ color:#e6e6e6;}
+#Pager_pager span.current,a{text-decoration:none; min-width:20px; float:left; text-align:center;}*/
 
 
 
