@@ -9,11 +9,6 @@
     <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
     <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
     <script src="../../Assets/common/js/table.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            //InitSort(); //初始化排序
-        });
-    </script>
 </head>
 <body>
     <form id="form1" runat="server">
@@ -37,11 +32,11 @@
                             <td style="width: 20%">类型名称
                             </td>
 
-                            <td style="width: 8%">类型编码
+                            <td style="width: 10%">类型编码
                             </td>
                             <td>描述
                             </td>
-                            <td style="width: 10%">操作
+                            <td style="width: 15%">操作
                             </td>
                         </tr>
                         <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
