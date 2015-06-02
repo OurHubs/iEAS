@@ -62,7 +62,7 @@
                 </iEAS:ListView>
             </table>
             <div class="fenye">
-              <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+              <iEAS:Pager ID="Pager"  runat="server" PagedControlID="lvQuery" />
             </div>
            
             <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
