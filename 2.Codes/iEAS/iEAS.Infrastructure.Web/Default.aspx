@@ -40,6 +40,14 @@
                       <li data-sec_menu_url="TreeDemo.aspx"   data-url="List.aspx" >带有二级页面树</li>
                  </ul>
              </div>
+             <div title="用户权限" data-title="用户权限" style="padding: 10px; overflow: auto;">
+                 <ul class="ul_menu">
+                      <li data-url="Pages/Account/UserList.aspx" >用户管理</li>
+                    <li data-url="Pages/Account/RoleList.aspx" >角色管理</li>
+                      <li data-url="List.aspx" >模块管理</li>
+                      <li data-url="ListSimple.aspx" >菜单管理</li>
+                 </ul>
+             </div>
              <div title="lhgdialog弹出层试例" data-title="lhgdialog弹出层试例"  style="padding: 10px; overflow: auto;">
                  <ul class="ul_menu">
                      <li data-url="lhgDemo/lhgBase.aspx">基本应用</li>

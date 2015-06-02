@@ -78,6 +78,12 @@
   <ItemGroup>
     <Content Include="Assets\common\images\logo._png" />
     <Content Include="Controls\Pager.ascx" />
+    <Content Include="Pages\Account\PermissionEdit.aspx" />
+    <Content Include="Pages\Account\RoleEdit.aspx" />
+    <Content Include="Pages\Account\RoleList.aspx" />
+    <Content Include="Pages\Account\RoleUsers.aspx" />
+    <Content Include="Pages\Account\UserEdit.aspx" />
+    <Content Include="Pages\Account\UserList.aspx" />
     <Content Include="Pages\BaseData\BaseDataItemEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
@@ -215,6 +221,48 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Account\PermissionEdit.aspx.cs">
+      <DependentUpon>PermissionEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\PermissionEdit.aspx.designer.cs">
+      <DependentUpon>PermissionEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\RoleEdit.aspx.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\RoleEdit.aspx.designer.cs">
+      <DependentUpon>RoleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\RoleList.aspx.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\RoleList.aspx.designer.cs">
+      <DependentUpon>RoleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\RoleUsers.aspx.cs">
+      <DependentUpon>RoleUsers.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\RoleUsers.aspx.designer.cs">
+      <DependentUpon>RoleUsers.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\UserEdit.aspx.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\UserEdit.aspx.designer.cs">
+      <DependentUpon>UserEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\UserList.aspx.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\UserList.aspx.designer.cs">
+      <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\BaseData\BaseDataItemEdit.aspx.cs">
       <DependentUpon>BaseDataItemEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -245,24 +293,28 @@
     </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.designer.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\PortalEdit.aspx.cs">
       <DependentUpon>PortalEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\PortalEdit.aspx.designer.cs">
       <DependentUpon>PortalEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\PortalList.aspx.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
@@ -297,9 +349,7 @@
       <Name>iEAS.Infrastructure</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Pages\Account\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
