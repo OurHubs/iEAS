@@ -51,9 +51,9 @@
                                 <%# Eval("Desc") %>
                             </td>
                             <td>
-                                <a href="BaseDataItemList.aspx?typeid=<%# Eval("ID") %>">查看菜单项</a>
+                                <a href="MenuList.aspx?typeid=<%# Eval("ID") %>">查看菜单项</a>
                                 |
-                            <a href="BaseDataTypeEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                            <a href="PortalEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                             <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                             </td>
                         </tr>

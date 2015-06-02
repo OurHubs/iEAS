@@ -13,7 +13,7 @@
     <form id="form1" runat="server">
     <div class="container">
             <ul class="tabList_toolbar">
-                <li><a href="MenuEdit.aspx?typeid=<%=PortalTypeID %>" class="add">增 加</a> </li>
+                <li><a href="MenuEdit.aspx?portalid=<%=PortalID %>" class="add">增 加</a> </li>
                 <li><a href="#" class="del">删 除</a></li>
             </ul>
             <table class="tabList">
