@@ -48,7 +48,12 @@
     <Compile Include="Account\Entity\Permission.cs" />
     <Compile Include="Account\Entity\Role.cs" />
     <Compile Include="Account\Entity\User.cs" />
+    <Compile Include="Account\Service\Impl\PermissionService.cs" />
+    <Compile Include="Account\Service\Impl\RoleService.cs" />
+    <Compile Include="Account\Service\Impl\UserService.cs" />
     <Compile Include="Account\Service\IPermissionService.cs" />
+    <Compile Include="Account\Service\IRoleService.cs" />
+    <Compile Include="Account\Service\IUserService.cs" />
     <Compile Include="BaseData\BaseDataHelper.cs" />
     <Compile Include="BaseData\Entity\BaseDataItem.cs" />
     <Compile Include="BaseData\Entity\BaseDataType.cs" />

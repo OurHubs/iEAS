@@ -245,28 +245,24 @@
     </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.designer.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\PortalEdit.aspx.cs">
       <DependentUpon>PortalEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\PortalEdit.aspx.designer.cs">
       <DependentUpon>PortalEdit.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\PortalList.aspx.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
