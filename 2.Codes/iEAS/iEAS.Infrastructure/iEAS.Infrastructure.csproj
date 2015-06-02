@@ -48,6 +48,7 @@
     <Compile Include="Account\Entity\Permission.cs" />
     <Compile Include="Account\Entity\Role.cs" />
     <Compile Include="Account\Entity\User.cs" />
+    <Compile Include="Account\Service\IPermissionService.cs" />
     <Compile Include="BaseData\BaseDataHelper.cs" />
     <Compile Include="BaseData\Entity\BaseDataItem.cs" />
     <Compile Include="BaseData\Entity\BaseDataType.cs" />
@@ -79,7 +80,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Account\Config\" />
-    <Folder Include="Account\Service\" />
     <Folder Include="BaseData\Config\" />
     <Folder Include="Module\Config\" />
     <Folder Include="Module\Service\" />
