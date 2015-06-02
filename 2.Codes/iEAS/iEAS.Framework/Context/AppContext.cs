@@ -1,6 +1,5 @@
 ﻿using Autofac;
 using Autofac.Integration.Web;
-using iEAS.Module;
 using iEAS.Security;
 using System;
 using System.Collections.Generic;
@@ -32,14 +31,6 @@ namespace iEAS
                 //    throw new AuthorizationException();
                 //return user;
                 return new UserInfo();
-            }
-        }
-
-        public ModuleInfo Module
-        {
-            get
-            {
-                return null;
             }
         }
     }

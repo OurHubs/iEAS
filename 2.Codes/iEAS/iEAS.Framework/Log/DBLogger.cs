@@ -40,8 +40,8 @@ namespace iEAS.Log
             var log = new LogInfo
             {
                 Type = type.ToString(),
-                ModuleCode = AppContext.Current.Module.Code,
-                ModuleName = AppContext.Current.Module.Name,
+                //ModuleCode = AppContext.Current.Module.Code,
+                //ModuleName = AppContext.Current.Module.Name,
                 Message = str,
                 Creator = AppContext.Current.User.Name,
                 CreateTime = DateTime.Now

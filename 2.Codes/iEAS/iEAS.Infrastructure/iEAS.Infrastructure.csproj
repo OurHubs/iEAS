@@ -55,6 +55,10 @@
     <Compile Include="BaseData\Service\Impl\BaseDataItemService.cs" />
     <Compile Include="BaseData\Service\IBaseDataTypeService.cs" />
     <Compile Include="BaseData\Service\IBaseDataItemService.cs" />
+    <Compile Include="Module\Entity\Feature.cs" />
+    <Compile Include="Module\Entity\Menu.cs" />
+    <Compile Include="Module\Entity\ModuleInfo.cs" />
+    <Compile Include="Module\Entity\PortalInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\iEASRepository.cs" />
     <Compile Include="Repository\Mapping\Account\PermissionMapping.cs" />
@@ -74,7 +78,6 @@
     <Folder Include="Account\Service\" />
     <Folder Include="BaseData\Config\" />
     <Folder Include="Module\Config\" />
-    <Folder Include="Module\Entity\" />
     <Folder Include="Module\Service\" />
     <Folder Include="Navigtion\Config\" />
     <Folder Include="Navigtion\Entity\" />

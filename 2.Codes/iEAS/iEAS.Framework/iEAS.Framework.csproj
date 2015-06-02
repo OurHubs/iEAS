@@ -87,8 +87,6 @@
     <Compile Include="Log\Log4netLogger.cs" />
     <Compile Include="Log\LogManager.cs" />
     <Compile Include="Log\SystemLogger.cs" />
-    <Compile Include="Module\Impl\ModuleService.cs" />
-    <Compile Include="Module\ModuleInfo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\BaseRepository.cs" />
     <Compile Include="Repository\FrameworkRepository.cs" />
