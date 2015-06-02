@@ -150,5 +150,57 @@ namespace iEAS
                 return result;
             return null;
         }
+
+        public static string ToStr(this DateTime? dt, string format = null, string nullValue = "")
+        {
+            if(dt==null)
+            {
+                return nullValue;
+            }
+
+            if (String.IsNullOrWhiteSpace(format))
+                return dt.Value.ToString();
+
+            return dt.Value.ToString(format);
+        }
+
+        public static string ToStr<T>(this Nullable<T> obj, string nullOrEmptyValue = "") where T : struct
+        {
+            if (obj == null)
+                return nullOrEmptyValue;
+
+            string val = obj.ToString();
+            if (String.IsNullOrWhiteSpace(val))
+                return nullOrEmptyValue;
+
+            return val;
+        }
+
+        public static string ToStr(this object obj, string nullOrEmptyValue = "")
+        {
+            if (obj == null)
+                return nullOrEmptyValue;
+
+            string val = obj.ToString();
+            if (String.IsNullOrWhiteSpace(val))
+                return nullOrEmptyValue;
+
+            return val;
+        }
+
+        public static string ToStr(this object obj,Func<string,string> handler,string nullOrEmptyValue="")
+        {
+            if (obj == null)
+                return nullOrEmptyValue;
+
+            if (handler == null)
+                throw new BusinessException("转化字符串的处理函数不能为空");
+
+            string val = obj.ToString();
+            if (String.IsNullOrWhiteSpace(val))
+                return nullOrEmptyValue;
+
+            return handler(val);
+        }
     }
 }

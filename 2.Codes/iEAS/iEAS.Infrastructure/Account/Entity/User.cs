@@ -46,16 +46,19 @@ namespace iEAS.Account
         /// <summary>
         /// 邮编
         /// </summary>
-        public string Zip { get; set; }
+        public string HomeZip { get; set; }
         /// <summary>
         /// 住址
         /// </summary>
         public string HomeAddress { get; set; }
         /// <summary>
+        /// 工作邮编
+        /// </summary>
+        public string WorkZip { get; set; }
+        /// <summary>
         /// 工作地址
         /// </summary>
         public string WorkAddress { get; set; }
-
         /// <summary>
         /// 加密方式
         /// </summary>

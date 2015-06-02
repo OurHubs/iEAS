@@ -14,7 +14,7 @@
         <div class="container">
             <div class="form_panel">
                 <div class="from_panel_header">
-                    <span class="title icon_search">基础数据类型</span>
+                    <span class="title icon_search">角色管理</span>
                 </div>
                 <div class="form_panel_body">
                     <table class="table_detail">
