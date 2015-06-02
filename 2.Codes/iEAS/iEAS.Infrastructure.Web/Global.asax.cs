@@ -35,6 +35,7 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<RoleService>().As<IRoleService>();
             builder.RegisterType<PermissionService>().As<IPermissionService>();
             builder.RegisterType<PortalService>().As<IPortalService>();
+            builder.RegisterType<MenuService>().As<IMenuService>();
         }
     }
 }
