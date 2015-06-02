@@ -9,6 +9,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Security;
 using System.Web.SessionState;
+using iEAS.Module;
+
 
 namespace iEAS.Infrastructure.Web
 {
@@ -28,6 +30,7 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<iEASRepository>().AsSelf();
             builder.RegisterType<BaseDataTypeService>().As<IBaseDataTypeService>();
             builder.RegisterType<BaseDataItemService>().As<IBaseDataItemService>();
+            builder.RegisterType<PortalService>().As<IPortalService>();
         }
     }
 }

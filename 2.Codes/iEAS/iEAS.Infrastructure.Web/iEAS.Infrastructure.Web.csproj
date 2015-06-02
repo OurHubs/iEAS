@@ -82,6 +82,10 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Module\MenuEdit.aspx" />
+    <Content Include="Pages\Module\MenuList.aspx" />
+    <Content Include="Pages\Module\PortalEdit.aspx" />
+    <Content Include="Pages\Module\PortalList.aspx" />
     <Content Include="Welcome.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -238,6 +242,34 @@
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\MenuEdit.aspx.cs">
+      <DependentUpon>MenuEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\MenuEdit.aspx.designer.cs">
+      <DependentUpon>MenuEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\MenuList.aspx.cs">
+      <DependentUpon>MenuList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
+      <DependentUpon>MenuList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\PortalEdit.aspx.cs">
+      <DependentUpon>PortalEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\PortalEdit.aspx.designer.cs">
+      <DependentUpon>PortalEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\PortalList.aspx.cs">
+      <DependentUpon>PortalList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
+      <DependentUpon>PortalList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
