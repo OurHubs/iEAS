@@ -59,6 +59,14 @@
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />
     <Compile Include="Module\Entity\PortalInfo.cs" />
+    <Compile Include="Module\Service\IFeatureService.cs" />
+    <Compile Include="Module\Service\IMenuService.cs" />
+    <Compile Include="Module\Service\IModuleService.cs" />
+    <Compile Include="Module\Service\Imp\FeatureService.cs" />
+    <Compile Include="Module\Service\Imp\MenuService.cs" />
+    <Compile Include="Module\Service\Imp\ModuleService.cs" />
+    <Compile Include="Module\Service\Imp\PortalService.cs" />
+    <Compile Include="Module\Service\IPortalService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\iEASRepository.cs" />
     <Compile Include="Repository\Mapping\Account\PermissionMapping.cs" />
@@ -82,7 +90,6 @@
     <Folder Include="Account\Service\" />
     <Folder Include="BaseData\Config\" />
     <Folder Include="Module\Config\" />
-    <Folder Include="Module\Service\" />
     <Folder Include="Navigtion\Config\" />
     <Folder Include="Navigtion\Entity\" />
     <Folder Include="Navigtion\Service\" />

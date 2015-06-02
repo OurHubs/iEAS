@@ -34,7 +34,7 @@
              <div title="框架页面Demo" data-title="框架页面Demo" style="padding: 10px; overflow: auto;">
                  <ul class="ul_menu">
                       <li data-url="Pages/BaseData/BaseDataTypeList.aspx" >基础数据</li>
-                      <li data-url="Save_panel.aspx" >表单页面-面板</li>
+                    <li data-url="Pages/Module/PortalList.aspx" >入口</li>
                       <li data-url="List.aspx" >列表页面-带搜索</li>
                       <li data-url="ListSimple.aspx" >列表页面-简单</li>
                       <li data-sec_menu_url="TreeDemo.aspx"   data-url="List.aspx" >带有二级页面树</li>
