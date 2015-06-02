@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iEAS.Module.Service
+namespace iEAS.Module
 {
-    interface IFeatureService
+   public interface IFeatureService:IDomainService<Feature,iEAS.Repository.iEASRepository>
     {
+
     }
 }
