@@ -21,7 +21,15 @@ namespace iEAS.Module
         /// </summary>
         public string Code { get; set; }
 
-        public List<Feature> Features
+        /// <summary>
+        /// 描述信息
+        /// </summary>
+        public string Desc { get; set; }
+
+        /// <summary>
+        /// 功能列表
+        /// </summary>
+        public virtual List<Feature> Features
         {
             get { return _Features; }
             set { _Features = value; }

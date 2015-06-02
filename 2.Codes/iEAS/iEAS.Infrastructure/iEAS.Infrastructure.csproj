@@ -66,6 +66,10 @@
     <Compile Include="Repository\Mapping\Account\UserMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataTypeMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataItemMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\FeatureMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\MenuMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\ModuleInfoMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\PortalInfoMapping.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iEAS.Framework\iEAS.Framework.csproj">

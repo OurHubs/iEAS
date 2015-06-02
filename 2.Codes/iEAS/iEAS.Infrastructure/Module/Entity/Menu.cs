@@ -29,6 +29,10 @@ namespace iEAS.Module
         /// </summary>
         public string Code { get; set; }
         /// <summary>
+        /// 描述信息
+        /// </summary>
+        public string Desc { get; set; }
+        /// <summary>
         /// 类型
         /// </summary>
         public virtual PortalInfo Portal { get; set; }
