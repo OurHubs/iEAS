@@ -13,5 +13,14 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         {
 
         }
+
+        //入口
+        public int? PortalTypeID
+        {
+            get
+            {
+                return Request["pid"].ToInt(0);
+            }
+        }
     }
 }
