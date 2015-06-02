@@ -25,7 +25,7 @@
                     </td>
                     <td style="width: 20%">名称
                     </td>
-                    <td style="width: 10%">值
+                    <td style="width: 20%">编码
                     </td>
                     <td>备注
                     </td>
@@ -48,7 +48,7 @@
                                 <%# Eval("Name") %>
                             </td>
                             <td>
-                                <%# Eval("Value") %>
+                                <%# Eval("Code") %>
                             </td>
                             <td>
                                 <%# Eval("Desc") %>

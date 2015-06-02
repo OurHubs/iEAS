@@ -11,6 +11,7 @@ using System.Web.Security;
 using System.Web.SessionState;
 using iEAS.Module;
 using iEAS.Account;
+using iEAS.Framework.Log;
 
 
 namespace iEAS.Infrastructure.Web
@@ -26,7 +27,6 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<HttpCacheProvider>().As<ICacheProvider>().InstancePerRequest();
             builder.RegisterGeneric(typeof(DomainService<,>)).As(typeof(IDomainService<,>));
 
-
             builder.RegisterType<FrameworkRepository>().AsSelf();
             builder.RegisterType<iEASRepository>().AsSelf();
             builder.RegisterType<BaseDataTypeService>().As<IBaseDataTypeService>();
@@ -36,6 +36,8 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<PermissionService>().As<IPermissionService>();
             builder.RegisterType<PortalService>().As<IPortalService>();
             builder.RegisterType<MenuService>().As<IMenuService>();
+           // builder.RegisterType<ILogger>().As<Log4netLogger>();
+            
         }
     }
 }
