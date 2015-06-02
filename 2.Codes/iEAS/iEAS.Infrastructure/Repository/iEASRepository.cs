@@ -31,7 +31,9 @@ namespace iEAS.Repository
 
         public DbSet<BaseDataType> BaseDataTypes { get; set; }
         public DbSet<BaseDataItem> BaseDataItems { get; set; }
-        //public DbSet<Permission> Permissions { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Role> Roles { get; set; }
+        public DbSet<Permission> Permissions { get; set; }
         public DbSet<ModuleInfo> ModuleInfos { get; set; }
         public DbSet<Feature> Features { get; set; }
         public DbSet<PortalInfo> PortalInfos { get; set; }

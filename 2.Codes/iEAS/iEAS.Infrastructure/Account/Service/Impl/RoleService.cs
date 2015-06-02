@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iEAS.Account.Service
+namespace iEAS.Account
 {
     public class RoleService : IdentityDomainService<Role, iEASRepository>, IRoleService
     {
