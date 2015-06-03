@@ -7,7 +7,7 @@ using iEAS.Repository;
 
 namespace iEAS.Module
 {
-    public interface IMenuService : IDomainService<Menu, iEASRepository>
+    public interface IMenuService : IDomainService<Menu>
     {
 
     }

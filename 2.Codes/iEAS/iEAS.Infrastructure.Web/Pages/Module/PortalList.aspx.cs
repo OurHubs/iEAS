@@ -27,7 +27,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             {
                 int rid = e.CommandArgument.ToString().ToInt();
                 PortalService.DeleteByID(rid);
-                lvQuery.LoadData();
+                lvQuery.DataBind();
             }
         }
     }

@@ -88,8 +88,12 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Module\FeatureEdit.aspx" />
+    <Content Include="Pages\Module\FeatureList.aspx" />
     <Content Include="Pages\Module\MenuEdit.aspx" />
     <Content Include="Pages\Module\MenuList.aspx" />
+    <Content Include="Pages\Module\ModuleEdit.aspx" />
+    <Content Include="Pages\Module\ModuleList.aspx" />
     <Content Include="Pages\Module\PortalEdit.aspx" />
     <Content Include="Pages\Module\PortalList.aspx" />
     <Content Include="Welcome.aspx" />
@@ -291,6 +295,20 @@
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Module\FeatureEdit.aspx.cs">
+      <DependentUpon>FeatureEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\FeatureEdit.aspx.designer.cs">
+      <DependentUpon>FeatureEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\FeatureList.aspx.cs">
+      <DependentUpon>FeatureList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\FeatureList.aspx.designer.cs">
+      <DependentUpon>FeatureList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -304,6 +322,20 @@
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleEdit.aspx.cs">
+      <DependentUpon>ModuleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleEdit.aspx.designer.cs">
+      <DependentUpon>ModuleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleList.aspx.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleList.aspx.designer.cs">
+      <DependentUpon>ModuleList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\PortalEdit.aspx.cs">
       <DependentUpon>PortalEdit.aspx</DependentUpon>

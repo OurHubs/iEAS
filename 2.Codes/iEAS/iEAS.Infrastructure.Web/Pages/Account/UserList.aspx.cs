@@ -26,7 +26,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             {
                 int rid = e.CommandArgument.ToString().ToInt();
                 UserService.DeleteByID(rid);
-                lvQuery.LoadData();
+                lvQuery.DataBind();
             }
         }
     }

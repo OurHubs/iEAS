@@ -85,7 +85,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             {
                 int rid = e.CommandArgument.ToString().ToInt();
                 MenuService.DeleteByID(rid);
-                lvQuery.LoadData();
+                lvQuery.DataBind();
             }
         }
 

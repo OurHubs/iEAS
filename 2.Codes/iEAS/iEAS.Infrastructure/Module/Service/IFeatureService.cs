@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.Module
 {
-   public interface IFeatureService:IDomainService<Feature,iEAS.Repository.iEASRepository>
+   public interface IFeatureService:IDomainService<Feature>
     {
 
     }

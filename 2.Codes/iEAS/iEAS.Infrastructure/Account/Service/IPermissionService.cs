@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.Account
 {
-    public interface IPermissionService : IDomainService<Permission, iEASRepository>
+    public interface IPermissionService : IDomainService<Permission>
     {
     }
 }

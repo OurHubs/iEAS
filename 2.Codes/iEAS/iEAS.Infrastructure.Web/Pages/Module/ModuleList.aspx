@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoleList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Account.RoleList" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModuleList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.ModuleList" %>
 
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
     <form id="form1" runat="server">
         <div class="container">
             <ul class="tabList_toolbar">
-                <li><a href="RoleEdit.aspx" class="add">增 加</a> </li>
+                <li><a href="ModuleEdit.aspx" class="add">增 加</a> </li>
                 <li><a href="#" class="del">删 除</a></li>
             </ul>
             <table class="tabList">
@@ -24,9 +24,10 @@
                     <td style="width: 5%">
                         <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
                     </td>
-                    <td style="width: 20%">名称
+                    <td style="width: 20%">模块名称
                     </td>
-                    <td style="width: 10%">编码
+
+                    <td style="width: 10%">模块编码
                     </td>
                     <td>描述
                     </td>
@@ -52,11 +53,10 @@
                                 <%# Eval("Desc") %>
                             </td>
                             <td>
-                                <a href="PermissionEdit.aspx?typeid=<%# Eval("ID") %>">权限配置</a>|
-                                <a href="MenuConfig.aspx?typeid=<%# Eval("ID") %>">权限配置</a>|
-                                <a href="UserRoles.aspx?typeid=<%# Eval("ID") %>">用户列表</a>|
-                                <a href="RoleEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
-                                <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
+                                <a href="FeatureList.aspx?moduleID=<%# Eval("ID") %>">功能列表</a>
+                                |
+                            <a href="FeatureEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                             </td>
                         </tr>
                     </ItemTemplate>

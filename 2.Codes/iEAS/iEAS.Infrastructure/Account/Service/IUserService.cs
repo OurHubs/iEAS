@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.Account
 {
-    public interface IUserService:IDomainService<User,iEASRepository>
+    public interface IUserService:IDomainService<User>
     {
     }
 }

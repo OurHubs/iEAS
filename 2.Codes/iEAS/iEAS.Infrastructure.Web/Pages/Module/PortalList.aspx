@@ -51,7 +51,7 @@
                                 <%# Eval("Desc") %>
                             </td>
                             <td>
-                                <a href="MenuList.aspx?portalid=<%# Eval("ID") %>">查看菜单项</a>
+                                <a href="MenuList.aspx?portalid=<%# Eval("ID") %>">菜单</a>
                                 |
                             <a href="PortalEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                             <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>

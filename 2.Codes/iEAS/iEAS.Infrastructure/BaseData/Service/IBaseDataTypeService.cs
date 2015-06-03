@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.BaseData
 {
-    public interface IBaseDataTypeService : IDomainService<BaseDataType, iEASRepository>
+    public interface IBaseDataTypeService : IDomainService<BaseDataType>
     {
     }
 }

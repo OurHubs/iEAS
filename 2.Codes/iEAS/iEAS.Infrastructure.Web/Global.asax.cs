@@ -25,15 +25,18 @@ namespace iEAS.Infrastructure.Web
         protected override void RegisterComponents(ContainerBuilder builder)
         {
             builder.RegisterType<HttpCacheProvider>().As<ICacheProvider>().InstancePerRequest();
-            builder.RegisterGeneric(typeof(DomainService<,>)).As(typeof(IDomainService<,>));
+            builder.RegisterType<DomainService>().As<IDomainService>();
 
             builder.RegisterType<FrameworkRepository>().AsSelf();
             builder.RegisterType<iEASRepository>().AsSelf();
+
             builder.RegisterType<BaseDataTypeService>().As<IBaseDataTypeService>();
             builder.RegisterType<BaseDataItemService>().As<IBaseDataItemService>();
             builder.RegisterType<UserService>().As<IUserService>();
             builder.RegisterType<RoleService>().As<IRoleService>();
             builder.RegisterType<PermissionService>().As<IPermissionService>();
+            builder.RegisterType<ModuleService>().As<IModuleService>();
+            builder.RegisterType<FeatureService>().As<IFeatureService>();
             builder.RegisterType<PortalService>().As<IPortalService>();
             builder.RegisterType<MenuService>().As<IMenuService>();
            // builder.RegisterType<ILogger>().As<Log4netLogger>();

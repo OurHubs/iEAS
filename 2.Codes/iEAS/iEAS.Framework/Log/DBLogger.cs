@@ -48,7 +48,8 @@ namespace iEAS.Log
             };
             try
             {
-                DomainService.Execute<FrameworkRepository>(rep => rep.Create(log));
+                ObjectContainer.GetService<IDomainService>()
+                    .Execute<FrameworkRepository>(rep => rep.Create(log));
             }
             catch(Exception ex)
             {

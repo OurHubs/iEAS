@@ -7,7 +7,7 @@ using iEAS.Repository;
 
 namespace iEAS.Module
 {
-    public interface IPortalService : IDomainService<PortalInfo, iEASRepository>
+    public interface IPortalService : IDomainService<PortalInfo>
     {
 
     }

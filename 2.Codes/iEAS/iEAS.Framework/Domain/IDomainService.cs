@@ -10,7 +10,7 @@ namespace iEAS
     /// 领域服务接口
     /// </summary>
     /// <typeparam name="TRepository"></typeparam>
-    public interface IDomainService<TRepository>
+    public interface IDomainService
     {
         /// <summary>
         /// 从Repository中获取数据
@@ -19,13 +19,15 @@ namespace iEAS
         /// <param name="handler"></param>
         /// <param name="layzLoad"></param>
         /// <returns></returns>
-        TResult Fetch<TResult>(Func<TRepository, TResult> handler, bool layzLoad = false);
+        TResult Fetch<TRepository, TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
+            where TRepository : BaseRepository, new();
 
         /// <summary>
         /// 在Repository中执行数据操作
         /// </summary>
         /// <param name="handler"></param>
-        void Execute(Action<TRepository> handler);
+        void Execute<TRepository>(Action<TRepository> handler)
+            where TRepository : BaseRepository, new();
     }
 
     /// <summary>
@@ -33,7 +35,7 @@ namespace iEAS
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TRepository"></typeparam>
-    public interface IDomainService<TEntity,TRepository>
+    public interface IDomainService<TEntity>
     {
         /// <summary>
         /// 创建实体

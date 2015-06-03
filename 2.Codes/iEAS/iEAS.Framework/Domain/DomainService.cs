@@ -7,7 +7,7 @@ using System.Text;
 
 namespace iEAS
 {
-    public class DomainService
+    public class DomainService : IDomainService
     {
         /// <summary>
         /// 从Repository中获取返回值
@@ -17,7 +17,7 @@ namespace iEAS
         /// <param name="handler"></param>
         /// <param name="layzLoad"></param>
         /// <returns></returns>
-        public static TResult Fetch<TRepository, TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
+        public TResult Fetch<TRepository, TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
             where TRepository : BaseRepository, new()
         {
             if (layzLoad)
@@ -39,7 +39,7 @@ namespace iEAS
         /// </summary>
         /// <typeparam name="TRepository"></typeparam>
         /// <param name="handler"></param>
-        public static void Execute<TRepository>(Action<TRepository> handler)
+        public void Execute<TRepository>(Action<TRepository> handler)
             where TRepository : BaseRepository, new()
         {
             using (var rep = new TRepository())
@@ -49,7 +49,7 @@ namespace iEAS
         }
     }
 
-    public class DomainService<TRepository> : DomainService
+    public abstract class DomainService<TRepository> : DomainService, IDomainService
         where TRepository:BaseRepository,new()
      {
         /// <summary>
@@ -61,7 +61,7 @@ namespace iEAS
         /// <returns></returns>
          public TResult Fetch<TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
          {
-             return DomainService.Fetch<TRepository, TResult>(handler, layzLoad);
+             return this.Fetch<TRepository, TResult>(handler, layzLoad);
          }
 
         /// <summary>
@@ -70,12 +70,12 @@ namespace iEAS
         /// <param name="handler"></param>
          public void Execute(Action<TRepository> handler)
          {
-             DomainService.Execute<TRepository>(handler);
+             this.Execute<TRepository>(handler);
          }
      }
 
      public class DomainService<TEntity, TRepository>
-        :DomainService<TRepository>,IDomainService<TEntity,TRepository> 
+        :DomainService<TRepository>,IDomainService<TEntity> 
         where TRepository:BaseRepository,new()
         where TEntity:BaseEntity
     {
@@ -309,7 +309,7 @@ namespace iEAS
     }
 
      public class IdentityDomainService<TEntity, TRepository>
-        : DomainService<TEntity,TRepository>, IDomainService<TEntity, TRepository>
+        : DomainService<TEntity,TRepository>, IDomainService<TEntity>
              where TRepository : BaseRepository, new()
              where TEntity : IdentityEntity
      {
