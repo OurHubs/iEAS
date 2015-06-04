@@ -21,9 +21,8 @@
                     <td style="width: 5%">
                         <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
                     </td>
-                    <td style="width: 5%">ID
-                    </td>
-                    <td style="width: 20%">名称
+                 
+                    <td style="width: 40%">名称
                     </td>
                     <td style="width: 20%">编码
                     </td>
@@ -41,9 +40,7 @@
                             <td>
                                 <input type="checkbox" name="IDS" />
                             </td>
-                            <td>
-                                <%# Eval("ID") %>
-                            </td>
+                         
                             <td>
                                 <%# Eval("Name") %>
                             </td>
