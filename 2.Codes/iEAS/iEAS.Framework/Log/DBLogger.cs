@@ -43,8 +43,8 @@ namespace iEAS.Log
                 //ModuleCode = AppContext.Current.Module.Code,
                 //ModuleName = AppContext.Current.Module.Name,
                 Message = str,
-                Creator = AppContext.Current.User.Name,
-                CreateTime = DateTime.Now
+                CreateTime=DateTime.Now,
+                Creator=""
             };
             try
             {

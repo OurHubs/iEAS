@@ -137,15 +137,14 @@ namespace iEAS
         /// <param name="orderBy"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false);
+        IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy=null, bool lazyLoad = false);
 
         /// <summary>
         /// 列表查询
         /// </summary>
-        /// <param name="orderBy"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        IList<TEntity> Query(Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false);
+        IList<TEntity> QueryAll(bool lazyLoad = false);
 
         /// <summary>
         /// 列表查询

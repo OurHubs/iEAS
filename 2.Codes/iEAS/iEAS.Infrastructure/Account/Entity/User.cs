@@ -7,7 +7,7 @@ using iEAS.Security;
 
 namespace iEAS.Account
 {
-    public class User : IdentityEntity
+    public class User : IdentityEntity,IUserInfo
     {
         private List<Role> _Roles = new List<Role>();
 

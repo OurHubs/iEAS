@@ -77,8 +77,40 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Assets\ztree\css\demo.css" />
+    <Content Include="Assets\ztree\css\metroStyle\img\line_conn.png" />
+    <Content Include="Assets\ztree\css\metroStyle\img\loading.gif" />
+    <Content Include="Assets\ztree\css\metroStyle\img\metro.gif" />
+    <Content Include="Assets\ztree\css\metroStyle\img\metro.png" />
+    <Content Include="Assets\ztree\css\metroStyle\metroStyle.css" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\1_close.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\1_open.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\2.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\3.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\4.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\5.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\6.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\7.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\8.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\diy\9.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\line_conn.gif" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\loading.gif" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\zTreeStandard.gif" />
+    <Content Include="Assets\ztree\css\zTreeStyle\img\zTreeStandard.png" />
+    <Content Include="Assets\ztree\css\zTreeStyle\zTreeStyle.css" />
+    <Content Include="Assets\ztree\js\jquery-1.4.4.min.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.all-3.5.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.all-3.5.min.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.core-3.5.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.core-3.5.min.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.excheck-3.5.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.excheck-3.5.min.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.exedit-3.5.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.exedit-3.5.min.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
+    <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
     <Content Include="Controls\Pager.ascx" />
-    <Content Include="Pages\Account\PermissionEdit.aspx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -90,8 +122,10 @@
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
     <Content Include="Pages\Module\FeatureEdit.aspx" />
     <Content Include="Pages\Module\FeatureList.aspx" />
+    <Content Include="Pages\Module\MenuAuthorization.aspx" />
     <Content Include="Pages\Module\MenuEdit.aspx" />
     <Content Include="Pages\Module\MenuList.aspx" />
+    <Content Include="Pages\Module\ModuleAuthorization.aspx" />
     <Content Include="Pages\Module\ModuleEdit.aspx" />
     <Content Include="Pages\Module\ModuleList.aspx" />
     <Content Include="Pages\Module\PortalEdit.aspx" />
@@ -225,13 +259,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Account\PermissionEdit.aspx.cs">
-      <DependentUpon>PermissionEdit.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Account\PermissionEdit.aspx.designer.cs">
-      <DependentUpon>PermissionEdit.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Pages\Account\RoleEdit.aspx.cs">
       <DependentUpon>RoleEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -309,6 +336,13 @@
     <Compile Include="Pages\Module\FeatureList.aspx.designer.cs">
       <DependentUpon>FeatureList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Module\MenuAuthorization.aspx.cs">
+      <DependentUpon>MenuAuthorization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\MenuAuthorization.aspx.designer.cs">
+      <DependentUpon>MenuAuthorization.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.cs">
       <DependentUpon>MenuEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -322,6 +356,13 @@
     </Compile>
     <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleAuthorization.aspx.cs">
+      <DependentUpon>ModuleAuthorization.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ModuleAuthorization.aspx.designer.cs">
+      <DependentUpon>ModuleAuthorization.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\ModuleEdit.aspx.cs">
       <DependentUpon>ModuleEdit.aspx</DependentUpon>
@@ -351,6 +392,7 @@
     <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Module\StringBuild.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>

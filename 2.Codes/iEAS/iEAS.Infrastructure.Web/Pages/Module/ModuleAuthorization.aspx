@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PermissionEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Account.PermissionEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModuleAuthorization.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.ModuleAuthorization" %>
 
 <!DOCTYPE html>
 

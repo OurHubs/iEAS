@@ -151,6 +151,23 @@ namespace iEAS
             return null;
         }
 
+        public static Guid ToGuid(this string str)
+        {
+            Guid result;
+            if (Guid.TryParse(str, out result))
+                return result;
+
+            throw new Exception("不是有效的Guid数据");
+        }
+
+        public static Guid? ToNGuid(this string str)
+        {
+            Guid result;
+            if (Guid.TryParse(str, out result))
+                return result;
+            return null;
+        }
+
         public static string ToStr(this DateTime? dt, string format = null, string nullValue = "")
         {
             if(dt==null)

@@ -52,8 +52,8 @@
                                 <%# Eval("Desc") %>
                             </td>
                             <td>
-                                <a href="PermissionEdit.aspx?typeid=<%# Eval("ID") %>">权限配置</a>|
-                                <a href="MenuConfig.aspx?typeid=<%# Eval("ID") %>">权限配置</a>|
+                                <a href="../Module/MenuAuthorization.aspx?ownerGuid=<%# Eval("Guid") %>&ownerType=ROLE">菜单配置</a>|
+                                <a href="../Module/ModuleAuthorization.aspx?ownerGuid=<%# Eval("Guid") %>&ownerType=ROLE">权限配置</a>|
                                 <a href="UserRoles.aspx?typeid=<%# Eval("ID") %>">用户列表</a>|
                                 <a href="RoleEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>

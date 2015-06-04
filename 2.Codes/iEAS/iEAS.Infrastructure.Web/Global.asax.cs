@@ -30,6 +30,8 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<FrameworkRepository>().AsSelf();
             builder.RegisterType<iEASRepository>().AsSelf();
 
+            builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();
+
             builder.RegisterType<BaseDataTypeService>().As<IBaseDataTypeService>();
             builder.RegisterType<BaseDataItemService>().As<IBaseDataItemService>();
             builder.RegisterType<UserService>().As<IUserService>();
@@ -41,6 +43,15 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<MenuService>().As<IMenuService>();
            // builder.RegisterType<ILogger>().As<Log4netLogger>();
             
+        }
+    }
+
+    public class CurrentUserProvider:ICurrentUserProvider
+    {
+
+        public IUserInfo GetCurrentUserInfo()
+        {
+            return new User();
         }
     }
 }

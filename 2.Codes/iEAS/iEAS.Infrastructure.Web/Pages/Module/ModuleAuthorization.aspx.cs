@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace iEAS.Infrastructure.Web.Pages.Account
+namespace iEAS.Infrastructure.Web.Pages.Module
 {
-    public partial class PermissionEdit : System.Web.UI.Page
+    public partial class ModuleAuthorization : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

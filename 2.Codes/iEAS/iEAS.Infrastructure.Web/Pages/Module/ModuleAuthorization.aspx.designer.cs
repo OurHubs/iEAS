@@ -7,11 +7,11 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web.Pages.Account
+namespace iEAS.Infrastructure.Web.Pages.Module
 {
 
 
-    public partial class PermissionEdit
+    public partial class ModuleAuthorization
     {
 
         /// <summary>

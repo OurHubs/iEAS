@@ -65,8 +65,9 @@
     <Compile Include="Caching\CacheHelper.cs" />
     <Compile Include="Caching\HttpCacheProvider.cs" />
     <Compile Include="Caching\ICacheProvider.cs" />
-    <Compile Include="Context\AppContext.cs" />
     <Compile Include="Container\ObjectContainer.cs" />
+    <Compile Include="Domain\Entity\IUserInfo.cs" />
+    <Compile Include="Domain\DomainExtentions.cs" />
     <Compile Include="Domain\EntityMapping.cs" />
     <Compile Include="Domain\Entity\BaseEntity.cs" />
     <Compile Include="Domain\DomainService.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Domain\Entity\Orderable.cs" />
     <Compile Include="Domain\Entity\PagedResult.cs" />
     <Compile Include="Domain\IRepository.cs" />
+    <Compile Include="Domain\ICurrentUserProvider.cs" />
     <Compile Include="Exception\AuthorizationException.cs" />
     <Compile Include="Exception\BusinessException.cs" />
     <Compile Include="Exception\SystemException.cs" />
@@ -106,6 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Collection\" />
+    <Folder Include="Context\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="log4net.xml" />

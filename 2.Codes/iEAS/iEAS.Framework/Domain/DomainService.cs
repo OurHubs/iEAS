@@ -228,7 +228,7 @@ namespace iEAS
          /// <param name="orderBy"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public virtual IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false)
+        public virtual IList<TEntity> Query(Expression<Func<TEntity, bool>> predicate, Action<Orderable<TEntity>> orderBy, bool lazyLoad = false)
         {
             return Fetch<IList<TEntity>>(rep =>
             {
@@ -236,15 +236,15 @@ namespace iEAS
             }, lazyLoad);
         }
 
-         /// <summary>
-         /// 列表查询
-         /// </summary>
-         /// <param name="orderBy"></param>
-         /// <param name="lazyLoad"></param>
-         /// <returns></returns>
-        public IList<TEntity> Query(Action<Orderable<TEntity>> orderBy = null, bool lazyLoad = false)
+        /// <summary>
+        /// 列表查询
+        /// </summary>
+        /// <param name="orderBy"></param>
+        /// <param name="lazyLoad"></param>
+        /// <returns></returns>
+        public IList<TEntity> QueryAll(bool lazyLoad = false)
         {
-            return Query(null, orderBy, lazyLoad);
+            return Query(null, null, lazyLoad);
         }
 
          /// <summary>
@@ -315,22 +315,13 @@ namespace iEAS
      {
          public override void Create(IEnumerable<TEntity> items)
          {
-             foreach(var item in items)
-             {
-                 item.Creator = AppContext.Current.User.Number;
-                 item.CreateTime = DateTime.Now;
-                 item.Updator = AppContext.Current.User.Number;
-                 item.UpdateTime = DateTime.Now;
-             }
+             items.AllBindCreator();
              base.Create(items);
          }
 
          public override void Create(TEntity entity)
          {
-             entity.Creator = AppContext.Current.User.Number;
-             entity.CreateTime = DateTime.Now;
-             entity.Updator = AppContext.Current.User.Number;
-             entity.UpdateTime = DateTime.Now;
+             entity.BindCreator();
              base.Create(entity);
          }
 
@@ -352,16 +343,14 @@ namespace iEAS
          {
              base.Update(predicate, m =>
              {
-                 m.UpdateTime = DateTime.Now;
-                 m.Updator = AppContext.Current.User.Number;
+                 m.BindUpdator();
                  handler(m);
              });
          }
 
          public override void Update(TEntity entity)
          {
-             entity.Updator = AppContext.Current.User.Number;
-             entity.UpdateTime = DateTime.Now;
+             entity.BindUpdator();
              base.Update(entity);
          }
      }
