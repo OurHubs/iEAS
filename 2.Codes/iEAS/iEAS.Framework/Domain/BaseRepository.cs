@@ -203,9 +203,28 @@ namespace iEAS
             this.SaveChanges();
         }
 
+        public void Commit()
+        {
+            this.SaveChanges();
+        }
+
+        private List<IDomainService> _IncludedServices = new List<IDomainService>();
+
+        public void RegisterServices(IDomainService domainService)
+        {
+            _IncludedServices.Add(domainService);
+        }
+
         protected override void Dispose(bool disposing)
         {
+            foreach(var item in _IncludedServices)
+            {
+                item.DetachContext();
+            }
+            _IncludedServices.Clear();
+
             base.Dispose(disposing);
         }
+
     }
 }

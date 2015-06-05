@@ -1,5 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="UserEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Account.UserEdit" %>
 
+<%@ Register src="UxControls/RoleSelect.ascx" tagname="RoleSelect" tagprefix="ux" %>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head id="Head1" runat="server">
@@ -114,6 +116,14 @@
                             </th>
                             <td>
                                 <asp:TextBox ID="txtHomeZip" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                         <tr>
+                            <th>
+                                <span>*</span>：所属角色
+                            </th>
+                            <td>
+                                <ux:RoleSelect ID="uxRoleSelect" runat="server" />
                             </td>
                         </tr>
                     </table>

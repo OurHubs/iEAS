@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -12,6 +13,18 @@ namespace iEAS
     /// <typeparam name="TRepository"></typeparam>
     public interface IDomainService
     {
+        /// <summary>
+        /// 加入数据上下文
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <param name="dbContext"></param>
+        void JoinContext(BaseRepository dbContext);
+
+        /// <summary>
+        /// 移除数据上下文
+        /// </summary>
+        void DetachContext();
+
         /// <summary>
         /// 从Repository中获取数据
         /// </summary>
@@ -37,6 +50,19 @@ namespace iEAS
     /// <typeparam name="TRepository"></typeparam>
     public interface IDomainService<TEntity>
     {
+        /// <summary>
+        /// 加入数据上下文
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <param name="dbContext"></param>
+        void JoinContext(BaseRepository dbContext);
+
+        /// <summary>
+        /// 创建数据上下文
+        /// </summary>
+        /// <returns></returns>
+        BaseRepository BeginContext();
+
         /// <summary>
         /// 创建实体
         /// </summary>

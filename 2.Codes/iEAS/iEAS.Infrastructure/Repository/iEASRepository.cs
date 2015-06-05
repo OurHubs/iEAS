@@ -20,11 +20,15 @@ namespace iEAS.Repository
         {
             modelBuilder.Configurations.Add(new BaseDataTypeMapping());
             modelBuilder.Configurations.Add(new BaseDataItemMapping());
-            //modelBuilder.Configurations.Add(new PermissionMapping());
+            
             modelBuilder.Configurations.Add(new ModuleInfoMapping());
             modelBuilder.Configurations.Add(new FeatureMapping());
             modelBuilder.Configurations.Add(new PortalInfoMapping());
             modelBuilder.Configurations.Add(new MenuMapping());
+
+            modelBuilder.Configurations.Add(new PermissionMapping());
+            modelBuilder.Configurations.Add(new UserMapping());
+            modelBuilder.Configurations.Add(new RoleMapping());
 
             base.OnModelCreating(modelBuilder);
         }

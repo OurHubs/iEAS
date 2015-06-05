@@ -41,12 +41,9 @@
                         <li data-url="Pages/Account/RoleList.aspx">角色管理</li>
                     </ul>
                 </div>
-                <div title="用户权限" data-title="用户权限" style="padding: 10px; overflow: auto;">
+                <div title="站点管理" data-title="站点管理" style="padding: 10px; overflow: auto;">
                     <ul class="ul_menu">
-                        <li data-url="Pages/Account/UserList.aspx">用户管理</li>
-                        <li data-url="Pages/Account/RoleList.aspx">角色管理</li>
-                        <li data-url="List.aspx">模块管理</li>
-                        <li data-url="ListSimple.aspx">菜单管理</li>
+                        <li data-url="Test.aspx">生成数据库</li>
                     </ul>
                 </div>
                 <div title="lhgdialog弹出层试例" data-title="lhgdialog弹出层试例" style="padding: 10px; overflow: auto;">

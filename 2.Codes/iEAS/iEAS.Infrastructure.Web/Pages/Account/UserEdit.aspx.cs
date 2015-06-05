@@ -12,6 +12,8 @@ namespace iEAS.Infrastructure.Web.Pages.Account
     {
         public IUserService UserService { get; set; }
 
+        public IRoleService RoleService { get; set; }
+
         public int RecordID
         {
             get { return Request["rid"].ToInt(0); }
@@ -28,34 +30,45 @@ namespace iEAS.Infrastructure.Web.Pages.Account
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            var user = UserService.GetByID(RecordID);
+            var userService = ObjectContainer.GetService<IUserService>();
+            var roleService = ObjectContainer.GetService<IRoleService>();
 
-            if (user == null)
+            using (var ctx = userService.BeginContext())
             {
-                user = new User();
-            }
-            user.LoginName = txtLoginName.Text.Trim();
-            user.Password = txtPassword.Text.Trim();
-            user.Name = txtName.Text.Trim();
-            user.Nick = txtNick.Text.Trim();
-            user.Gender = rblGender.SelectedValue.ToNInt();
-            user.Birthday = txtBirthday.Text.Trim().ToNDateTime();
-            user.Telephone = txtTelephone.Text.Trim();
-            user.Email = txtEmail.Text.Trim();
-            user.HomeZip = txtHomeZip.Text.Trim();
-            user.HomeAddress = txtHomeAddress.Text.Trim();
-            user.WorkZip = txtWorkZip.Text.Trim();
-            user.WorkAddress = txtWorkAddress.Text.Trim();
-            user.Status = 1;
+                roleService.JoinContext(ctx);
 
-            try
-            {
-                UserService.CreateOrUpdate(user);
-            }
-            catch (Exception ex)
-            {
-                LogManager.GetLogger().Error("保存用户信息出错！", ex);
-                throw ex;
+                var user = userService.GetByID(RecordID);
+                if (user == null)
+                {
+                    user = new User();
+                }
+                user.LoginName = txtLoginName.Text.Trim();
+                user.Password = txtPassword.Text.Trim();
+                user.Name = txtName.Text.Trim();
+                user.Nick = txtNick.Text.Trim();
+                user.Gender = rblGender.SelectedValue.ToNInt();
+                user.Birthday = txtBirthday.Text.Trim().ToNDateTime();
+                user.Telephone = txtTelephone.Text.Trim();
+                user.Email = txtEmail.Text.Trim();
+                user.HomeZip = txtHomeZip.Text.Trim();
+                user.HomeAddress = txtHomeAddress.Text.Trim();
+                user.WorkZip = txtWorkZip.Text.Trim();
+                user.WorkAddress = txtWorkAddress.Text.Trim();
+                user.Status = 1;
+
+                try
+                {
+                    user.Roles.Clear();
+                    var roleIds = uxRoleSelect.GetRoleIds();
+                    user.Roles = roleService.Query(m => roleIds.Contains(m.ID)).ToList();
+                    userService.CreateOrUpdate(user);
+                }
+                catch (Exception ex)
+                {
+                    LogManager.GetLogger().Error("保存用户信息出错！", ex);
+                    throw ex;
+                }
+                ctx.Commit();
             }
             Response.Redirect("UserList.aspx");
         }
@@ -67,7 +80,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
 
         private void BindData()
         {
-            var user = UserService.GetByID(RecordID);
+            var user = UserService.GetByID(RecordID,true);
             if (user != null)
             {
                 txtLoginName.Text = user.LoginName;
@@ -82,6 +95,11 @@ namespace iEAS.Infrastructure.Web.Pages.Account
                 txtHomeAddress.Text = user.HomeAddress;
                 txtWorkZip.Text = user.WorkZip;
                 txtWorkAddress.Text = user.WorkAddress;
+                uxRoleSelect.BindRoles(user.Roles);
+            }
+            else
+            {
+                uxRoleSelect.BindRoles(new List<Role>());
             }
         }
     }

@@ -48,6 +48,7 @@
     <Compile Include="Account\Entity\Permission.cs" />
     <Compile Include="Account\Entity\Role.cs" />
     <Compile Include="Account\Entity\User.cs" />
+    <Compile Include="Account\Entity\UserRoleRel.cs" />
     <Compile Include="Account\Service\Impl\PermissionService.cs" />
     <Compile Include="Account\Service\Impl\RoleService.cs" />
     <Compile Include="Account\Service\Impl\UserService.cs" />
@@ -79,6 +80,7 @@
     <Compile Include="Repository\Mapping\Account\PermissionMapping.cs" />
     <Compile Include="Repository\Mapping\Account\RoleMapping.cs" />
     <Compile Include="Repository\Mapping\Account\UserMapping.cs" />
+    <Compile Include="Repository\Mapping\Account\UserRoleRelMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataTypeMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataItemMapping.cs" />
     <Compile Include="Repository\Mapping\Module\FeatureMapping.cs" />

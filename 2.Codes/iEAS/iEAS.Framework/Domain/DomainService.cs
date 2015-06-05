@@ -9,6 +9,23 @@ namespace iEAS
 {
     public class DomainService : IDomainService
     {
+        private BaseRepository _Repository;
+
+        /// <summary>
+        /// 加入数据上下文
+        /// </summary>
+        /// <typeparam name="TDbContext"></typeparam>
+        /// <param name="dbContext"></param>
+        public void JoinContext(BaseRepository dbContext)
+        {
+            _Repository = dbContext;
+        }
+
+        public void DetachContext()
+        {
+            _Repository = null;
+        }
+
         /// <summary>
         /// 从Repository中获取返回值
         /// </summary>
@@ -20,7 +37,20 @@ namespace iEAS
         public TResult Fetch<TRepository, TResult>(Func<TRepository, TResult> handler, bool layzLoad = false)
             where TRepository : BaseRepository, new()
         {
-            if (layzLoad)
+            if(_Repository!=null)
+            {
+                if (layzLoad)
+                {
+                    throw new SystemException("已经有指定的DbContext实体，不能设置lazyLoad为True！");
+                }
+                TRepository rep=_Repository as TRepository;
+                if(rep==null)
+                {
+                    throw new SystemException("当前DbContext实体与与需要的类型不相符！");
+                }
+                return handler(rep);
+            }
+            else if (layzLoad)
             {
                 var rep = ObjectContainer.GetService<TRepository>();
                 return handler(rep);
@@ -42,9 +72,21 @@ namespace iEAS
         public void Execute<TRepository>(Action<TRepository> handler)
             where TRepository : BaseRepository, new()
         {
-            using (var rep = new TRepository())
+            if (_Repository != null)
             {
+                TRepository rep = _Repository as TRepository;
+                if (rep == null)
+                {
+                    throw new SystemException("当前DbContext实体与与需要的类型不相符！");
+                }
                 handler(rep);
+            }
+            else
+            {
+                using (var rep = new TRepository())
+                {
+                    handler(rep);
+                }
             }
         }
     }
@@ -79,6 +121,17 @@ namespace iEAS
         where TRepository:BaseRepository,new()
         where TEntity:BaseEntity
     {
+        /// <summary>
+        /// 创建数据上下文
+        /// </summary>
+        /// <returns></returns>
+        public BaseRepository BeginContext()
+        {
+            var rep = new TRepository();
+            JoinContext(rep);
+            return rep;
+        }
+
          /// <summary>
          /// 创建实体
          /// </summary>
