@@ -9,6 +9,11 @@ namespace iEAS.Module
 {
     public interface IPortalService : IDomainService<PortalInfo>
     {
-
+        /// <summary>
+        /// 根据Code查询Portal
+        /// </summary>
+        /// <param name="code"></param>
+        /// <returns></returns>
+        PortalInfo GetPortalByCode(string code);
     }
 }

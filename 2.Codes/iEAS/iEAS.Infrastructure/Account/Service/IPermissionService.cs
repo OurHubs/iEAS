@@ -10,7 +10,40 @@ namespace iEAS.Account
     public interface IPermissionService : IDomainService<Permission>
     {
         /// <summary>
-        /// 获取资源列表
+        /// 获取用户的权限信息
+        /// </summary>
+        /// <param name="userID"></param>
+        /// <returns></returns>
+        IEnumerable<Permission> GetUserPermissions(int userID);
+
+        /// <summary>
+        /// 获取用户权限信息
+        /// </summary>
+        /// <param name="guid"></param>
+        /// <returns></returns>
+        IEnumerable<Permission> GetUserPermissions(Guid guid);
+
+
+        /// <summary>
+        /// 获取权限列表
+        /// </summary>
+        /// <param name="ownerType"></param>
+        /// <param name="ownerID"></param>
+        /// <param name="resourceType"></param>
+        /// <returns></returns>
+        IEnumerable<Permission> GetPermissions(string ownerType, string ownerID);
+
+        /// <summary>
+        /// 获取权限列表
+        /// </summary>
+        /// <param name="ownerType"></param>
+        /// <param name="ownerIds"></param>
+        /// <param name="resourceType"></param>
+        /// <returns></returns>
+        IEnumerable<Permission> GetPermissions(string ownerType, IEnumerable<string> ownerIds);
+
+        /// <summary>
+        /// 获取权限列表
         /// </summary>
         /// <param name="ownerType"></param>
         /// <param name="ownerID"></param>

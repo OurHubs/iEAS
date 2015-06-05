@@ -9,5 +9,6 @@ namespace iEAS.Account
 {
     public interface IUserService:IDomainService<User>
     {
+        IEnumerable<Role> GetUserRoles(int userID);
     }
 }
