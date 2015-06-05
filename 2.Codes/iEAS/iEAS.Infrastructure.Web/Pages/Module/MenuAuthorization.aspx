@@ -1,8 +1,6 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MenuAuthorization.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.MenuAuthorization" %>
 
-
 <!DOCTYPE html>
-
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -21,6 +19,13 @@
         data: {
             simpleData: {
                 enable: true
+            }
+        },
+        callback:{
+            beforeClick: function beforeClick(treeId, treeNode) {
+                var zTree = $.fn.zTree.getZTreeObj("treeMenu");
+                zTree.checkNode(treeNode, !treeNode.checked, null, true);
+                return false;
             }
         }
     };

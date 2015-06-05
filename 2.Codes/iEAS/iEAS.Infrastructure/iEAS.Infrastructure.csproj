@@ -64,6 +64,7 @@
     <Compile Include="Module\Entity\Feature.cs" />
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />
+    <Compile Include="Module\Entity\ResourceType.cs" />
     <Compile Include="Module\Entity\PortalInfo.cs" />
     <Compile Include="Module\Service\IFeatureService.cs" />
     <Compile Include="Module\Service\IMenuService.cs" />

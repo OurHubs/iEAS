@@ -129,17 +129,5 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             hfSelectedMenus.Value = String.Join(",", selectedMenus.Select(m => m.ResouceID).ToArray());
             return sbMenuData.ToString();
         }
-
-        private void BindSubMenu(TreeNode node,Menu parentMenu, IEnumerable<Menu> allMenus)
-        {
-            var subMenus = allMenus.Where(m => m.ParentID == parentMenu.ID);
-            foreach(var subMenu in subMenus)
-            {
-                TreeNode subNode = new TreeNode(subMenu.Name);
-                node.SelectAction = TreeNodeSelectAction.SelectExpand;
-                node.Value = subMenu.Guid.ToString();
-                node.ChildNodes.Add(subNode);
-            }
-        }
     }
 }

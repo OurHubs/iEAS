@@ -30,7 +30,7 @@
                     </td>
                     <td>描述
                     </td>
-                    <td style="width: 15%">操作
+                    <td style="width: 30%">操作
                     </td>
                 </tr>
                 <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">

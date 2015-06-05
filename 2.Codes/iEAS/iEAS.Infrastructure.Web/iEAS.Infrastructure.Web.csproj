@@ -392,7 +392,6 @@
     <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Module\StringBuild.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
