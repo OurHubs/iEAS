@@ -18,13 +18,10 @@ namespace iEAS.Account
         {
             List<Permission> results = new List<Permission>();
 
-            IUserService userService = ObjectContainer.GetService<IUserService>();
             IPermissionService permissionService = ObjectContainer.GetService<IPermissionService>();
-
             using (var ctx = permissionService.BeginContext())
             {
-                userService.JoinContext(ctx);
-
+                IUserService userService=ctx.GetService<IUserService>();
                 User user = userService.GetByID(userID);
 
                 var userPermissions = permissionService.GetPermissions("USER", user.Guid.ToString());
@@ -47,15 +44,12 @@ namespace iEAS.Account
         {
             List<Permission> results = new List<Permission>();
 
-            IUserService userService = ObjectContainer.GetService<IUserService>();
             IPermissionService permissionService=ObjectContainer.GetService<IPermissionService>();
-
             using(var ctx=permissionService.BeginContext())
             {
-                userService.JoinContext(ctx);
+                IUserService userService = ctx.GetService<IUserService>();
 
                 var userPermissions = permissionService.GetPermissions("USER", guid.ToString());
-
 
                 User user=userService.GetByGuid(guid);
                 string[] roleGuids = user.Roles.Select(m => m.Guid.ToString()).ToArray();
@@ -65,7 +59,6 @@ namespace iEAS.Account
                 results.AddRange(rolePermissions);
             }
             return results.Distinct();
-
         }
 
         /// <summary>

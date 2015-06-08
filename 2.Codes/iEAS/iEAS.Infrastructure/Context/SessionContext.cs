@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web;
+using System.Web.Security;
 
 namespace iEAS
 {
@@ -51,7 +52,17 @@ namespace iEAS
             {
                 if(_User==null)
                 {
-                    throw new BusinessException("当前用户不存在！");
+                    string userID = HttpContext.Current.User.Identity.Name;
+                    Guid? guid = userID.ToNGuid();
+                    if(guid==null)
+                    {
+                        throw new SystemException("无效的用户ID");
+                    }
+                    _User=ObjectContainer.GetService<IUserService>().GetByGuid(userID.ToGuid());
+                    if (_User == null)
+                    {
+                        throw new BusinessException("当前用户不存在！");
+                    }
                 }
                 return _User;
             }
@@ -110,14 +121,19 @@ namespace iEAS
             }
         }
 
-        public void Init(int userID,string portalCode)
+        public void Init(Guid userID, string portalCode)
         {
             ClearAccount();
-            _User = ObjectContainer.GetService<IUserService>().GetByID(userID);
-            ChangePortal(portalCode);
+            _User = ObjectContainer.GetService<IUserService>().GetByGuid(userID);
+            RegisterPortal(portalCode);
         }
 
-        public void ChangePortal(string portalCode)
+        public void RegisterUserID(Guid userID)
+        {
+           FormsAuthentication.SetAuthCookie(userID.ToString(),true);
+        }
+
+        public void RegisterPortal(string portalCode)
         {
             ClearResources();
             _Portal = ObjectContainer.GetService<IPortalService>().GetPortalByCode(portalCode);

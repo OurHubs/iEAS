@@ -64,6 +64,13 @@ namespace iEAS
             return entities;
         }
 
+        public static TService GetService<TService>(this BaseRepository repository) where TService:IContextService
+        {
+            TService service=ObjectContainer.GetService<TService>();
+            service.JoinContext(repository);
+            return service;
+        }
+
         private static IUserInfo CurrentUser
         {
             get

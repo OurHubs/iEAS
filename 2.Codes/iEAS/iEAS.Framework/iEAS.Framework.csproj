@@ -72,6 +72,7 @@
     <Compile Include="Domain\Entity\BaseEntity.cs" />
     <Compile Include="Domain\DomainService.cs" />
     <Compile Include="Domain\Entity\IdentityEntity.cs" />
+    <Compile Include="Domain\IContextService.cs" />
     <Compile Include="Domain\IdentityEntityMapping.cs" />
     <Compile Include="Domain\IDomainService.cs" />
     <Compile Include="Domain\Entity\Orderable.cs" />

@@ -48,21 +48,8 @@ namespace iEAS
     /// </summary>
     /// <typeparam name="TEntity"></typeparam>
     /// <typeparam name="TRepository"></typeparam>
-    public interface IDomainService<TEntity>
+    public interface IDomainService<TEntity>:IContextService
     {
-        /// <summary>
-        /// 加入数据上下文
-        /// </summary>
-        /// <typeparam name="TDbContext"></typeparam>
-        /// <param name="dbContext"></param>
-        void JoinContext(BaseRepository dbContext);
-
-        /// <summary>
-        /// 创建数据上下文
-        /// </summary>
-        /// <returns></returns>
-        BaseRepository BeginContext();
-
         /// <summary>
         /// 创建实体
         /// </summary>

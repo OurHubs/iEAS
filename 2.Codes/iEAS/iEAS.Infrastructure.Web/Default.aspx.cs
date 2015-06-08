@@ -11,6 +11,16 @@ namespace iEAS.Infrastructure.Web
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            try { 
+             var user=SessionContext.Current.User;
+             var roles = SessionContext.Current.Roles;
+             var modules = SessionContext.Current.Modules;
+             var menus = SessionContext.Current.Menus;
+                }
+            catch(Exception ex)
+            {
+                Response.Redirect("~/Test.aspx");
+            }
         }
     }
 }

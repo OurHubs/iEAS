@@ -8,6 +8,7 @@ namespace iEAS.Module
 {
     public class PortalInfo:IdentityEntity
     {
+        private List<Menu> _Menus = new List<Menu>();
         /// <summary>
         /// 名称
         /// </summary>
@@ -26,6 +27,10 @@ namespace iEAS.Module
         /// <summary>
         /// 菜单
         /// </summary>
-        public virtual List<Menu> Menus { get; set; }
+        public virtual List<Menu> Menus
+        {
+            get { return _Menus; }
+            set { _Menus = value; }
+        }
     }
 }

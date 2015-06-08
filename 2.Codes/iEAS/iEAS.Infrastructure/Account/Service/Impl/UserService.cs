@@ -11,7 +11,7 @@ namespace iEAS.Account
     {
         public IEnumerable<Role> GetUserRoles(int userID)
         {
-            return this.GetByID(userID).Roles.ToList();
+            return this.GetByID(userID,true).Roles.ToList();
         }
     }
 }
