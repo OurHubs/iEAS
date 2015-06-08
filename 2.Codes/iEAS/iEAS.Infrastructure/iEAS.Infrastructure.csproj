@@ -37,6 +37,7 @@
       <HintPath>..\Library\EntityFramework\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Security" />
     <Reference Include="System.Web" />
@@ -66,6 +67,12 @@
     <Compile Include="BaseData\Service\IBaseDataItemService.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Context\SessionContext.cs" />
+    <Compile Include="Model\Data\DataItem.cs" />
+    <Compile Include="Model\Data\DataItemCollection.cs" />
+    <Compile Include="Model\Data\DBEngine.cs" />
+    <Compile Include="Model\Data\Record.cs" />
+    <Compile Include="Model\Data\RecordCollection.cs" />
+    <Compile Include="Model\Data\RecordStatus.cs" />
     <Compile Include="Module\Entity\Feature.cs" />
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />

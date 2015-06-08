@@ -32,18 +32,23 @@
         </div>
         <div data-options="region:'west',title:'&nbsp;系统菜单',split:true" style="width: 170px;" id="">
             <div class="easyui-accordion" fit='true' border='false' id='div_main_left_menu'>
-                <div title="框架页面Demo" data-title="框架页面Demo" style="padding: 10px; overflow: auto;">
+                <% foreach(var item in SessionContext.Current.Menus.Where(m=>m.ParentID==null)){ %>
+                 <div title="<%=item.Name %>" data-title="<%=item.Name %>" style="padding: 10px; overflow: auto;">
+                    <ul class="ul_menu">
+                        <% foreach(var subItem in SessionContext.Current.Menus.Where(m=>m.ParentID==item.ID)){ %>
+                        <li data-url="<%=Page.ResolveUrl(subItem.Url) %>"><%=subItem.Name %></li>
+                        <%} %>
+                    </ul>
+                </div>
+                <%} %>
+                
+                <div title="站点管理" data-title="站点管理" style="padding: 10px; overflow: auto;">
                     <ul class="ul_menu">
                         <li data-url="Pages/BaseData/BaseDataTypeList.aspx">基础数据</li>
                         <li data-url="Pages/Module/PortalList.aspx">Portal</li>
                         <li data-url="Pages/Module/ModuleList.aspx">模块管理</li>
                         <li data-url="Pages/Account/UserList.aspx">用户管理</li>
                         <li data-url="Pages/Account/RoleList.aspx">角色管理</li>
-                    </ul>
-                </div>
-                <div title="站点管理" data-title="站点管理" style="padding: 10px; overflow: auto;">
-                    <ul class="ul_menu">
-                        <li data-url="Test.aspx">生成数据库</li>
                     </ul>
                 </div>
                 <div title="lhgdialog弹出层试例" data-title="lhgdialog弹出层试例" style="padding: 10px; overflow: auto;">
