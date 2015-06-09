@@ -67,6 +67,23 @@
     <Compile Include="BaseData\Service\IBaseDataItemService.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Context\SessionContext.cs" />
+    <Compile Include="Model\Config\ModelColumn.cs" />
+    <Compile Include="Model\Config\ModelColumnCollection.cs" />
+    <Compile Include="Model\Config\ModelConfig.cs" />
+    <Compile Include="Model\Config\ModelField.cs" />
+    <Compile Include="Model\Config\ModelFieldCollection.cs" />
+    <Compile Include="Model\Config\ModelForm.cs" />
+    <Compile Include="Model\Config\ModelFormCollection.cs" />
+    <Compile Include="Model\Config\ModelGroup.cs" />
+    <Compile Include="Model\Config\ModelGroupCollection.cs" />
+    <Compile Include="Model\Config\ModelList.cs" />
+    <Compile Include="Model\Config\ModelListCollection.cs" />
+    <Compile Include="Model\Config\ModelParam.cs" />
+    <Compile Include="Model\Config\ModelParamCollection.cs" />
+    <Compile Include="Model\Config\ModelSubForm.cs" />
+    <Compile Include="Model\Config\ModelSubFormCollection.cs" />
+    <Compile Include="Model\Config\ModelTable.cs" />
+    <Compile Include="Model\Config\ModelTableCollection.cs" />
     <Compile Include="Model\Data\DataItem.cs" />
     <Compile Include="Model\Data\DataItemCollection.cs" />
     <Compile Include="Model\Data\DBEngine.cs" />
@@ -108,6 +125,7 @@
   <ItemGroup>
     <Folder Include="Account\Config\" />
     <Folder Include="BaseData\Config\" />
+    <Folder Include="Model\Service\" />
     <Folder Include="Module\Config\" />
     <Folder Include="Navigtion\Config\" />
     <Folder Include="Navigtion\Entity\" />

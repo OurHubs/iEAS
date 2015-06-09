@@ -11,11 +11,9 @@
     <form id="form1" runat="server">
     <div>
         <asp:Button ID="btnGenerateDB" runat="server" Text="生成数据库" OnClick="btnGenerateDB_Click" />
-    
-        <asp:Button ID="btnCreate" runat="server" Text="创建数据" OnClick="btnCreate_Click" />
-
         <asp:Button ID="btnLogin" runat="server" Text="登陆" OnClick="btnLogin_Click" />
-    
+        <br />
+        <asp:Button ID="btnSaveModelFile" runat="server" Text="生成模型文件" OnClick="btnSaveModelFile_Click" />    
     </div>
     </form>
 </body>

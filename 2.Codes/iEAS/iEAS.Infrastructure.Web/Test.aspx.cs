@@ -1,5 +1,6 @@
 ﻿using iEAS.Account;
 using iEAS.BaseData;
+using iEAS.Model.Config;
 using iEAS.Module;
 using iEAS.Repository;
 using System;
@@ -124,6 +125,53 @@ namespace iEAS.Infrastructure.Web
             SessionContext.Current.RegisterUserID("bb62d704-01f2-4187-9c32-9c2c7670940e".ToGuid());
             SessionContext.Current.RegisterPortal("Default");
             Response.Redirect("~/Default.aspx");
+        }
+
+        protected void btnSaveModelFile_Click(object sender, EventArgs e)
+        {
+            ModelConfig config = new ModelConfig();
+            config.Code = "Test";
+            config.Name = "测试模型";
+
+
+            ModelForm form = new ModelForm();
+            form.Code = "测试表单";
+            form.Control = "TowColumns";
+            form.Fields.Add(new ModelField
+            {
+                Code = "1",
+                Control = "2",
+                Title = "T"
+            });
+            form.Groups.Add(new ModelGroup
+            {
+                 Fields=new ModelFieldCollection(),
+                  Forms=new ModelSubFormCollection()
+            });
+            form.Params.Add(new ModelParam
+            {
+                Value = "1",
+                Name = "2",
+                Content = "C"
+            });
+            config.Forms.Add(form);
+
+            config.Lists.Add(new ModelList
+            {
+                Code = "111",
+                Columns = new ModelColumnCollection{
+                      new ModelColumn{ Code="12", Title="223"}
+                  }
+            });
+
+            config.Tables.Add(new ModelTable
+            {
+                 Code="c",
+                  Name="N",
+                   Type="1"
+            });
+
+            config.Save();
         }
     }
 }
