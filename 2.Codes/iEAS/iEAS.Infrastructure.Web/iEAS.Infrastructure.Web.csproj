@@ -110,7 +110,14 @@
     <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Config\Model\Article.xml" />
+    <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
+    <Content Include="Model\Controls\Field\TextInput.ascx" />
+    <Content Include="Model\ModelEdit.aspx" />
+    <Content Include="Model\ModelQuery.aspx" />
+    <Content Include="Model\Controls\Field\GridEditor.ascx" />
+    <Content Include="Model\Template\Form\OneColumn.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -259,6 +266,41 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Field\TextInput.ascx.cs">
+      <DependentUpon>TextInput.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Field\TextInput.ascx.designer.cs">
+      <DependentUpon>TextInput.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelEdit.aspx.cs">
+      <DependentUpon>ModelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\ModelEdit.aspx.designer.cs">
+      <DependentUpon>ModelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\ModelQuery.aspx.cs">
+      <DependentUpon>ModelQuery.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\ModelQuery.aspx.designer.cs">
+      <DependentUpon>ModelQuery.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Field\GridEditor.ascx.cs">
+      <DependentUpon>GridEditor.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Field\GridEditor.ascx.designer.cs">
+      <DependentUpon>GridEditor.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Template\Form\OneColumn.ascx.cs">
+      <DependentUpon>OneColumn.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Template\Form\OneColumn.ascx.designer.cs">
+      <DependentUpon>OneColumn.ascx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Account\RoleEdit.aspx.cs">
       <DependentUpon>RoleEdit.aspx</DependentUpon>
@@ -431,6 +473,8 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Model\Controls\Column\" />
+    <Folder Include="Model\Template\List\" />
     <Folder Include="Pages\Model\" />
   </ItemGroup>
   <PropertyGroup>

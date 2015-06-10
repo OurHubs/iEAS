@@ -23,7 +23,7 @@ namespace iEAS.Model.Config
         [XmlAttribute]
         public string Table { get; set; }
         [XmlAttribute]
-        public string Control { get; set; }
+        public string Template { get; set; }
         [XmlAttribute]
         public string Desc { get; set; }
         [XmlArray]

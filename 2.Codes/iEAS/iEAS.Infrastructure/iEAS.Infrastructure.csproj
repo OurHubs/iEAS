@@ -90,6 +90,14 @@
     <Compile Include="Model\Data\Record.cs" />
     <Compile Include="Model\Data\RecordCollection.cs" />
     <Compile Include="Model\Data\RecordStatus.cs" />
+    <Compile Include="Model\UI\ModelContext.cs" />
+    <Compile Include="Model\UI\ModelFieldControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\UI\ModelFieldContainer.cs" />
+    <Compile Include="Model\UI\ModelFormControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Module\Entity\Feature.cs" />
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />

@@ -10,5 +10,9 @@ namespace iEAS.Model.Config
     [Serializable]
     public class ModelFormCollection:Collection<ModelForm>
     {
+        public ModelForm GetForm(string code)
+        {
+            return this.FirstOrDefault(m => m.Code == code);
+        }
     }
 }

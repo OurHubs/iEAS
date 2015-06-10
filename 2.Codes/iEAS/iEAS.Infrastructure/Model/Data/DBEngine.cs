@@ -29,9 +29,9 @@ namespace iEAS.Model.Data
             }
 
             int index=0;
-            foreach(var item in record.Items)
+            foreach(var item in items)
             {
-                string fieldName=String.Format("{0}",item.Key);
+                string fieldName=String.Format("[{0}]",item.Key);
                 string paramName=String.Format("@{0}_{1}",item.Key,index++);
                 sbFields.AppendFormat("{0},",fieldName);
                 sbValues.AppendFormat("{0},",paramName);
@@ -41,7 +41,7 @@ namespace iEAS.Model.Data
             sbFields.Trim(',');
             sbValues.Trim(',');
 
-            string sql= String.Format("INSERT INTO {0}({1}) VALUES(2)", record.Table, sbFields, sbValues);
+            string sql= String.Format("INSERT INTO [{0}]({1}) VALUES({2})", record.Table, sbFields, sbValues);
             ExecuteSql(sql, parameters.ToArray());
         }
 
@@ -85,6 +85,12 @@ namespace iEAS.Model.Data
 
         public void ExecuteRecord(Record record)
         {
+            if (record.RecordID == Guid.Empty)
+            {
+                record.Status = RecordStatus.Created;
+                record.RecordID = Guid.NewGuid();
+            }
+
             switch (record.Status)
             {
                 case RecordStatus.Created:

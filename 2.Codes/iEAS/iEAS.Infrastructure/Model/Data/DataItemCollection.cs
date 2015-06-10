@@ -42,6 +42,18 @@ namespace iEAS.Model.Data
             return item != null ? item.Value : null;
         }
 
+        public void AddValues(Dictionary<string,object> values)
+        {
+            foreach(var kvp in values)
+            {
+                this.Add(new DataItem
+                {
+                     Key=kvp.Key,
+                      Value=kvp.Value
+                });
+            }
+        }
+
         public DbType GetType(string key)
         {
             var item = this[key];

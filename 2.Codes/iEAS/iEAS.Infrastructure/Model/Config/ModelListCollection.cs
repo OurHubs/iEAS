@@ -10,5 +10,9 @@ namespace iEAS.Model.Config
     [Serializable]
     public class ModelListCollection:Collection<ModelList>
     {
+        public ModelList GetList(string listCode)
+        {
+            return this.FirstOrDefault(m => m.Code == listCode);
+        }
     }
 }

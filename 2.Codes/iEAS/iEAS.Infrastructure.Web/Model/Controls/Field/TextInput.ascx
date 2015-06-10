@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TextInput.ascx.cs" Inherits="iEAS.Infrastructure.Web.Model.Controls.Field.TextInput" %>
+<asp:TextBox ID="txtValue" runat="server"></asp:TextBox>

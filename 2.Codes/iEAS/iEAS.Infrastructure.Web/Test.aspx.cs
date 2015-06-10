@@ -136,7 +136,7 @@ namespace iEAS.Infrastructure.Web
 
             ModelForm form = new ModelForm();
             form.Code = "测试表单";
-            form.Control = "TowColumns";
+            form.Template = "TowColumns";
             form.Fields.Add(new ModelField
             {
                 Code = "1",
@@ -172,6 +172,11 @@ namespace iEAS.Infrastructure.Web
             });
 
             config.Save();
+        }
+
+        protected void btnModelEdit_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Model/ModelEdit.aspx?model=Article");
         }
     }
 }

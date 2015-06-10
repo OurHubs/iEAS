@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web {
+namespace iEAS.Infrastructure.Web.Model.Template.Form {
     
     
-    public partial class Test {
+    public partial class OneColumn {
         
         /// <summary>
         /// form1 控件。
@@ -22,39 +22,21 @@ namespace iEAS.Infrastructure.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnGenerateDB 控件。
+        /// rptForm 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerateDB;
+        protected global::System.Web.UI.WebControls.Repeater rptForm;
         
         /// <summary>
-        /// btnLogin 控件。
+        /// btnSave 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
-        
-        /// <summary>
-        /// btnSaveModelFile 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveModelFile;
-        
-        /// <summary>
-        /// btnModelEdit 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModelEdit;
+        protected global::System.Web.UI.WebControls.Button btnSave;
     }
 }
