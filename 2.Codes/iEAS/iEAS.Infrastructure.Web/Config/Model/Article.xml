@@ -18,10 +18,36 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="111">
+    <List Code="111" Template="PagedQuery">
+      <Conditions>
+        <Condition Title="标题" Code="Title" Control="TextInput"></Condition>
+      </Conditions>
       <Columns>
-        <Column Title="223" Code="12" />
+        <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
+        <Column Title="标题" Code="Title" Control="Text" />
+        <Column Title="简介" Code="Desc" Control="Text" />
       </Columns>
+      <DBCommand>
+        <Query>
+          <Sql>
+            <![CDATA[
+              SELECT * FROM Article
+            ]]>
+          </Sql>
+          <OrderBy>
+            <![CDATA[
+            RecordID ASC
+            ]]>
+          </OrderBy>
+        </Query>
+        <Delete>
+          <Sql>
+            <![CDATA[
+            DELETE FROM Article WHERE RecordID=@ID
+            ]]>
+          </Sql>
+        </Delete>
+      </DBCommand>
     </List>
   </Lists>
   <Tables>

@@ -10,13 +10,37 @@ namespace iEAS.Model.Config
     [Serializable]
     public class ModelList
     {
+        private string _Template = "PagedQuery";
+        private ModelConditionCollection _Conditions = new ModelConditionCollection();
+        private ModelColumnCollection _Columns = new ModelColumnCollection();
+        private ModelDBCommand _DBCommand = new ModelDBCommand();
+
         [XmlAttribute]
         public string Title { get; set; }
         [XmlAttribute]
         public string Code { get; set; }
+        [XmlAttribute]
+        public string Template { get; set; }
+        [XmlArray]
+        [XmlArrayItem("Condition")]
+        public ModelConditionCollection Conditions
+        {
+            get { return _Conditions; }
+            set { _Conditions = value; }
+        }
         [XmlArray]
         [XmlArrayItem("Column")]
-        public ModelColumnCollection Columns { get; set; }
+        public ModelColumnCollection Columns
+        {
+            get { return _Columns; }
+            set { _Columns = value; }
+        }
 
+        [XmlElement("DBCommand")]
+        public ModelDBCommand DBCommand
+        {
+            get { return _DBCommand; }
+            set { _DBCommand = value; }
+        }
     }
 }

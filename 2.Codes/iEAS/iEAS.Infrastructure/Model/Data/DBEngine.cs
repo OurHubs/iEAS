@@ -1,6 +1,8 @@
-﻿using System;
+﻿using iEAS.Model.Config;
+using System;
 using System.Collections.Generic;
 using System.Configuration;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,6 +12,22 @@ namespace iEAS.Model.Data
 {
     public class DBEngine
     {
+        public ModelResult PagedQuery(ModelList modelList,Dictionary<string,object> paramValues,int startRow,int maxRows)
+        {
+            StringBuilder sbSql = new StringBuilder();
+            List<SqlParameter> lstParameters=new List<SqlParameter>();
+
+            string mainSQL = modelList.DBCommand.Query.Sql.Trim().Substring(6);
+            string fromSQL = modelList.DBCommand.Query.Sql.Substring(modelList.DBCommand.Query.Sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
+
+            string sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<{3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow, startRow + maxRows);
+            DataTable dt = QueryTable(sql, lstParameters.ToArray());
+
+            sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
+            int count = (int)ExecuteScalar(sql, lstParameters.ToArray());
+            return new ModelResult(count,dt);
+        }
+
         public void Save(Record record)
         {
             ExecuteRecord(record);
@@ -83,6 +101,14 @@ namespace iEAS.Model.Data
             ExecuteSql(sql, parameters.ToArray());
         }
 
+        public void DeleteRecord(ModelList modelList,Guid id)
+        {
+            string sql = modelList.DBCommand.Delete.Sql;
+            ExecuteSql(sql, new SqlParameter[]{
+                new SqlParameter("@ID",id)
+            });
+        }
+
         public void ExecuteRecord(Record record)
         {
             if (record.RecordID == Guid.Empty)
@@ -115,22 +141,56 @@ namespace iEAS.Model.Data
         {
             return String.Format("@{0}_{1}", field, index);
         }
-  
-        private void ExecuteSql(string sql,SqlParameter[] paramters)
+
+        private void ExecuteSql(string sql, SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(DBConn))
             {
                 conn.Open();
                 using(SqlCommand command=new SqlCommand(sql,conn))
                 {
-                    if (paramters != null && paramters.Length > 0)
+                    if (parameters != null && parameters.Length > 0)
                     {
-                        command.Parameters.AddRange(paramters);
+                        command.Parameters.AddRange(parameters);
                     }
                     command.ExecuteNonQuery();
                 }
             }
         }
+
+       private DataTable QueryTable(string sql,SqlParameter[] parameters)
+       {
+            using (SqlConnection conn = new SqlConnection(DBConn))
+            {
+                conn.Open();
+                using (SqlDataAdapter sda = new SqlDataAdapter(sql, conn))
+                {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        sda.SelectCommand.Parameters.AddRange(parameters);
+                    }
+                    DataTable dt = new DataTable();
+                    sda.Fill(dt);
+                    return dt;
+                }
+            }
+        }
+
+       private object ExecuteScalar(string sql, SqlParameter[] parameters)
+       {
+           using (SqlConnection conn = new SqlConnection(DBConn))
+           {
+               conn.Open();
+               using (SqlCommand command = new SqlCommand(sql, conn))
+               {
+                   if (parameters != null && parameters.Length > 0)
+                   {
+                       command.Parameters.AddRange(parameters);
+                   }
+                   return command.ExecuteScalar();
+               }
+           }
+       }
 
         private string DBConn
         {

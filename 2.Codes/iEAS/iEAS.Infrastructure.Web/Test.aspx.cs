@@ -178,5 +178,10 @@ namespace iEAS.Infrastructure.Web
         {
             Response.Redirect("~/Model/ModelEdit.aspx?model=Article");
         }
+
+        protected void btnModelQuery_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("~/Model/ModelQuery.aspx?model=Article");
+        }
     }
 }

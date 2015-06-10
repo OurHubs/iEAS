@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web {
+namespace iEAS.Infrastructure.Web.Model.Template.List {
     
     
-    public partial class Test {
+    public partial class PagedQuery {
         
         /// <summary>
         /// form1 控件。
@@ -22,48 +22,39 @@ namespace iEAS.Infrastructure.Web {
         protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnGenerateDB 控件。
+        /// rptHeader 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnGenerateDB;
+        protected global::System.Web.UI.WebControls.Repeater rptHeader;
         
         /// <summary>
-        /// btnLogin 控件。
+        /// lvQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnLogin;
+        protected global::iEAS.Web.UI.ListView lvQuery;
         
         /// <summary>
-        /// btnSaveModelFile 控件。
+        /// Pager 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnSaveModelFile;
+        protected global::iEAS.Infrastructure.Web.Controls.Pager Pager;
         
         /// <summary>
-        /// btnModelEdit 控件。
+        /// odsQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModelEdit;
-        
-        /// <summary>
-        /// btnModelQuery 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnModelQuery;
+        protected global::iEAS.Web.UI.ObjectDataSource odsQuery;
     }
 }

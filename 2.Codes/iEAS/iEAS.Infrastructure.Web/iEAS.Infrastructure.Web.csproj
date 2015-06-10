@@ -118,6 +118,7 @@
     <Content Include="Model\ModelQuery.aspx" />
     <Content Include="Model\Controls\Field\GridEditor.ascx" />
     <Content Include="Model\Template\Form\OneColumn.ascx" />
+    <Content Include="Model\Template\List\PagedQuery.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -302,6 +303,13 @@
     <Compile Include="Model\Template\Form\OneColumn.ascx.designer.cs">
       <DependentUpon>OneColumn.ascx</DependentUpon>
     </Compile>
+    <Compile Include="Model\Template\List\PagedQuery.ascx.cs">
+      <DependentUpon>PagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Template\List\PagedQuery.ascx.designer.cs">
+      <DependentUpon>PagedQuery.ascx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Account\RoleEdit.aspx.cs">
       <DependentUpon>RoleEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,7 +482,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Model\Controls\Column\" />
-    <Folder Include="Model\Template\List\" />
     <Folder Include="Pages\Model\" />
   </ItemGroup>
   <PropertyGroup>
