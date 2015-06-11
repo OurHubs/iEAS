@@ -219,5 +219,23 @@ namespace iEAS
 
             return handler(val);
         }
+
+        public static Guid ToGuid(this object obj)
+        {
+            if (obj == null)
+                throw new SystemException("传入的参数不能为空");
+
+            string strVal = obj.ToString();
+            return strVal.ToGuid();
+        }
+
+        public static Guid? ToNGuid(this object obj)
+        {
+            if (obj == null)
+                return null;
+
+            string strVal = obj.ToString();
+            return strVal.ToGuid();
+        }
     }
 }

@@ -5,7 +5,6 @@
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
-        <Field Title="操作" Code="RecordID" Control="Command"/>
       </Fields>
       <Groups>
         <Group>

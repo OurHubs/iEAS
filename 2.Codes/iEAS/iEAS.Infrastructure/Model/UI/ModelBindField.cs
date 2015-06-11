@@ -35,6 +35,20 @@ namespace iEAS.Model.UI
         {
             base.InitializeCell(cell, cellType, rowState,rowIndex);
 
+            cell.Init += (sender, e) =>
+            {
+                if (cellType == DataControlCellType.DataCell)
+                {
+                    if (ModelColumn.Control != "Text")
+                    {
+                        cell.Controls.Clear();
+                        ModelFieldTemplate tpl = cell.Page.LoadControl("~/Model/Controls/Column/" + ModelColumn.Control + ".ascx") as ModelFieldTemplate;
+                        tpl.ModelColumn = ModelColumn;
+                        cell.Controls.Add(tpl);
+                    }
+                }
+            };
+
             cell.DataBinding += (sender, e) =>
             {
                 if(cellType==DataControlCellType.DataCell)
@@ -47,24 +61,22 @@ namespace iEAS.Model.UI
                         values[column.ColumnName] = dtRow[column];
                     }
                     HttpHelper.GetViewState(row)["DataSource"] = values;
-                }
-            };
 
-            cell.PreRender += (sender, e) =>
-            {
-                if (cellType == DataControlCellType.DataCell)
-                {
-                    GridViewRow row = cell.NamingContainer as GridViewRow;
-
-                    Dictionary<string,object> values=row.GetViewState()["DataSource"] as Dictionary<string,object>;
                     if (ModelColumn.Control == "Text")
                     {
                         cell.Text = values[ModelColumn.Code] + "";
                     }
                     else
                     {
-                        Control ctr = cell.Page.LoadControl("~/Model/Controls/Column/" + ModelColumn.Control + ".ascx");
-                        cell.Controls.Add(ctr);
+                        foreach(var control in cell.Controls)
+                        {
+                            ModelFieldTemplate tpl = control as ModelFieldTemplate;
+                            if(tpl!=null)
+                            {
+                                tpl.Data = values;
+                                tpl.BindData(values);
+                            }
+                        }
                     }
                 }
             };

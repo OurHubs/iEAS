@@ -12,7 +12,27 @@ namespace iEAS.Model.Data
 {
     public class DBEngine
     {
-        public ModelResult PagedQuery(ModelList modelList,Dictionary<string,object> paramValues,int startRow,int maxRows)
+
+
+        public ModelResult PagedQuery(ModelList modelList, Dictionary<string, object> paramValues, int pageIndex, int pageSize)
+        {
+            int startRow = (pageIndex - 1) * pageSize;
+            int endRow = pageIndex * pageSize;
+
+            StringBuilder sbSql = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            string mainSQL = modelList.DBCommand.Query.Sql.Trim().Substring(6);
+            string fromSQL = modelList.DBCommand.Query.Sql.Substring(modelList.DBCommand.Query.Sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
+
+            string sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<{3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow,endRow);
+            DataTable dt = QueryTable(sql, lstParameters.ToArray());
+
+            sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
+            int count = (int)ExecuteScalar(sql, lstParameters.ToArray());
+            return new ModelResult(count, dt);
+        }
+        public ModelResult Query(ModelList modelList,Dictionary<string,object> paramValues,int startRow,int maxRows)
         {
             StringBuilder sbSql = new StringBuilder();
             List<SqlParameter> lstParameters=new List<SqlParameter>();

@@ -1,2 +1,3 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Command.ascx.cs" Inherits="iEAS.Infrastructure.Web.Model.Controls.Column.Command" %>
-<asp:LinkButton ID="btnDelte" runat="server" Text="删除" CommandName="Del"></asp:LinkButton>
+<asp:LinkButton ID="btnEdit" runat="server" Text="编辑" CommandName="Edit" CommandArgument='<%# Data["RecordID"] %>'></asp:LinkButton>
+|<asp:LinkButton ID="btnDelte" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Data["RecordID"] %>'></asp:LinkButton>

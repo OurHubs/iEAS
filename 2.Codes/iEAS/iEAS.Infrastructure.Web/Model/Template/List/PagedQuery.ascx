@@ -13,21 +13,12 @@
     <form id="form1" runat="server">
         <div class="container">
             <ul class="tabList_toolbar">
-                <li><a href="RoleEdit.aspx" class="add">增 加</a> </li>
-                <li><a href="#" class="del">删 除</a></li>
+                <li><a href="ModelEdit.aspx?model=<%=ModelContext.Current.Config.Code %>" class="add">增 加</a> </li>
             </ul>
             <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" CssClass="tabList"  OnRowCommand="gvList_RowCommand">
-                <Columns>
-                    <asp:TemplateField>
-                        <HeaderTemplate></HeaderTemplate>
-                        <ItemTemplate></ItemTemplate>
-                        <FooterTemplate></FooterTemplate>
-                    </asp:TemplateField>
-                </Columns>
             </iEAS:GridView>
             <div class="fenye">
-                <asp:Button ID="btnQuery" runat="server" Text="Query" />
-                <iEAS:AspNetPager ID="Pager" runat="server"></iEAS:AspNetPager>
+                <iEAS:AspNetPager ID="Pager" runat="server" OnPageChanging="Pager_PageChanging"></iEAS:AspNetPager>
             </div>
         </div>
     </form>

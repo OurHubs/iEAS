@@ -34,17 +34,30 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
         private void BindData()
         {
             DBEngine engine = new DBEngine();
-            gvList.DataSource = engine.PagedQuery(ModelContext.Current.List, new Dictionary<string, object>(), 0, 10);
-                gvList.DataBind();
+            ModelResult result = engine.PagedQuery(ModelContext.Current.List, new Dictionary<string, object>(),Pager.CurrentPageIndex,Pager.PageSize);
+
+            gvList.DataSource = result;
+            gvList.DataBind();
+
+            Pager.RecordCount = result.RecordCount;
         }
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
-
+                DBEngine engine = new DBEngine();
+                engine.DeleteRecord(ModelContext.Current.List, e.CommandArgument.ToString().ToGuid());
             }
 
+            e.Handled = true;
+
+            BindData();
+        }
+
+        protected void Pager_PageChanging(object src, Wuqi.Webdiyer.PageChangingEventArgs e)
+        {
+            Pager.CurrentPageIndex = e.NewPageIndex;
             BindData();
         }
     }
