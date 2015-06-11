@@ -10,16 +10,16 @@ namespace iEAS.Model.Config
     [Serializable]
     public class ModelColumn
     {
-        private string _Type = "Text";
+        private string _Control = "Text";
         [XmlAttribute]
         public string Title { get; set; }
         [XmlAttribute]
         public string Code { get; set; }
         [XmlAttribute]
-        public string Type
+        public string Control
         {
-            get { return _Type; }
-            set { _Type = value; }
+            get { return _Control; }
+            set { _Control = value; }
         }
     }
 }

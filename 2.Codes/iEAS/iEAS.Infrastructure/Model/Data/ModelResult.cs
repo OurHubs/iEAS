@@ -27,7 +27,7 @@ namespace iEAS.Model.Data
 
         public IEnumerator GetEnumerator()
         {
-            return _DataTable.AsDataView().GetEnumerator();
+            return _DataTable.Rows.GetEnumerator();
         }
     }
 }

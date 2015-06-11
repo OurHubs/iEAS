@@ -16,57 +16,36 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
         {
             if(!IsPostBack)
             {
-                BindHeader();
+                InitGrid();
+                BindData();
             }
         }
 
-        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
+        private void InitGrid()
         {
-            return new DBEngine().PagedQuery(ModelContext.Current.List, new Dictionary<string, object>(), args.startRowIndex, args.maxRows);
+            foreach(var column in ModelContext.Current.List.Columns)
+            {
+                ModelBindField field = new ModelBindField();
+                field.ModelColumn = column;
+                gvList.Columns.Add(field);
+            }
         }
 
-        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        private void BindData()
+        {
+            DBEngine engine = new DBEngine();
+            gvList.DataSource = engine.PagedQuery(ModelContext.Current.List, new Dictionary<string, object>(), 0, 10);
+                gvList.DataBind();
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
-                Guid rid = e.CommandArgument.ToString().ToGuid();
-                new DBEngine().DeleteRecord(ModelContext.Current.List, rid);
-                lvQuery.DataBind();
+
             }
-        }
 
-        protected object UxEval(RepeaterItem container)
-        {
-            object record = ((ListViewItem)container.NamingContainer).DataItem;
-            ModelColumn column = container.DataItem as ModelColumn;
-            return DataBinder.Eval(record, column.Code);
-        }
-
-        protected void rptCells_ItemDataBound(object sender, RepeaterItemEventArgs e)
-        {
-            object record = ((ListViewItem)e.Item.NamingContainer.NamingContainer).DataItem;
-            ModelColumn column = e.Item.DataItem as ModelColumn;
-            if (column.Type == "Text")
-            {
-                e.Item.FindControl("phContainer").Controls.Add(new Literal() { Text = DataBinder.Eval(record, column.Code) + "" });
-            }
-        }
-
-        private void BindHeader()
-        {
-            rptHeader.DataSource = ModelContext.Current.List.Columns;
-            rptHeader.DataBind();
-        }
-
-        private void BindCells(Repeater rptCells)
-        {
-            rptCells.DataSource = ModelContext.Current.List.Columns;
-            rptCells.DataBind();
-        }
-
-        protected void lvQuery_ItemDataBound(object sender, ListViewItemEventArgs e)
-        {
-            BindCells(e.Item.FindControl("rptCells") as Repeater);
+            BindData();
         }
     }
 }

@@ -95,6 +95,7 @@
     <Compile Include="Model\Data\RecordCollection.cs" />
     <Compile Include="Model\Data\RecordStatus.cs" />
     <Compile Include="Model\UI\ModelContext.cs" />
+    <Compile Include="Model\UI\ModelBindField.cs" />
     <Compile Include="Model\UI\ModelFieldControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

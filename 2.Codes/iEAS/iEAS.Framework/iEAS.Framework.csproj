@@ -101,8 +101,10 @@
     <Compile Include="Utility\XmlHelper.cs" />
     <Compile Include="Web\iEASGlobal.cs" />
     <Compile Include="Web\UI\DataPager.cs" />
+    <Compile Include="Web\UI\GridView.cs" />
     <Compile Include="Web\UI\ListView.cs" />
     <Compile Include="Web\UI\ObjectDataSource.cs" />
+    <Compile Include="Web\UI\Repeater.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

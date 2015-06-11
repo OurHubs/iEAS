@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Command.ascx.cs" Inherits="iEAS.Infrastructure.Web.Model.Controls.Column.Command" %>
+<asp:LinkButton ID="btnDelte" runat="server" Text="删除" CommandName="Del"></asp:LinkButton>

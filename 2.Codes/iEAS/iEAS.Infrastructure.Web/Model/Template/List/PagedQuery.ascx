@@ -16,34 +16,19 @@
                 <li><a href="RoleEdit.aspx" class="add">增 加</a> </li>
                 <li><a href="#" class="del">删 除</a></li>
             </ul>
-            <table class="tabList">
-                <tr class="title">
-                    <asp:Repeater ID="rptHeader" runat="server">
-                        <ItemTemplate>
-                            <td><%# Eval("Title") %></td>
-                        </ItemTemplate>
-                    </asp:Repeater>
-                </tr>
-                <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="RecordID" OnItemCommand="lvQuery_ItemCommand" OnItemDataBound="lvQuery_ItemDataBound">
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <asp:Repeater ID="rptCells" runat="server" OnItemDataBound="rptCells_ItemDataBound">
-                                <ItemTemplate>
-                                    <td><asp:PlaceHolder ID="phContainer" runat="server"></asp:PlaceHolder></td>
-                                </ItemTemplate>
-                            </asp:Repeater>
-                        </tr>
-                    </ItemTemplate>
-                </iEAS:ListView>
-            </table>
+            <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" CssClass="tabList"  OnRowCommand="gvList_RowCommand">
+                <Columns>
+                    <asp:TemplateField>
+                        <HeaderTemplate></HeaderTemplate>
+                        <ItemTemplate></ItemTemplate>
+                        <FooterTemplate></FooterTemplate>
+                    </asp:TemplateField>
+                </Columns>
+            </iEAS:GridView>
             <div class="fenye">
-                <iEAS:Pager ID="Pager" runat="server" PagedControlID="lvQuery" />
+                <asp:Button ID="btnQuery" runat="server" Text="Query" />
+                <iEAS:AspNetPager ID="Pager" runat="server"></iEAS:AspNetPager>
             </div>
-            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query">
-            </iEAS:ObjectDataSource>
         </div>
     </form>
 </body>

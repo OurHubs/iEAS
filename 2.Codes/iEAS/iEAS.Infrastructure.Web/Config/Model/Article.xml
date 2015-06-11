@@ -5,6 +5,7 @@
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
+        <Field Title="操作" Code="RecordID" Control="Command"/>
       </Fields>
       <Groups>
         <Group>
@@ -26,6 +27,7 @@
         <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
         <Column Title="标题" Code="Title" Control="Text" />
         <Column Title="简介" Code="Desc" Control="Text" />
+        <Column Title="操作" Code="Command" Control="Command" />
       </Columns>
       <DBCommand>
         <Query>

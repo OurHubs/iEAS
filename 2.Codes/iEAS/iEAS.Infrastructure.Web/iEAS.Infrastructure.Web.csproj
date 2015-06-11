@@ -113,6 +113,7 @@
     <Content Include="Config\Model\Article.xml" />
     <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
+    <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
     <Content Include="Model\ModelEdit.aspx" />
     <Content Include="Model\ModelQuery.aspx" />
@@ -267,6 +268,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Column\Command.ascx.cs">
+      <DependentUpon>Command.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Column\Command.ascx.designer.cs">
+      <DependentUpon>Command.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Field\TextInput.ascx.cs">
       <DependentUpon>TextInput.ascx</DependentUpon>
@@ -479,11 +487,12 @@
       <Project>{eab8a63f-8aa7-40d9-9802-b8dd0e7d0798}</Project>
       <Name>iEAS.Infrastructure</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Plugins\AspNetPager\AspNetPager.csproj">
+      <Project>{0fac7937-3cdd-41f6-9dc8-c743c9f727f1}</Project>
+      <Name>AspNetPager</Name>
+    </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Model\Controls\Column\" />
-    <Folder Include="Pages\Model\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
