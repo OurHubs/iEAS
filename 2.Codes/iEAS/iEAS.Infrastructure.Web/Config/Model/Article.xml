@@ -18,7 +18,7 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="Default" Template="PagedQuery">
+    <List Code="Default" Template="TabPagedQuery">
       <Conditions>
         <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>
       </Conditions>

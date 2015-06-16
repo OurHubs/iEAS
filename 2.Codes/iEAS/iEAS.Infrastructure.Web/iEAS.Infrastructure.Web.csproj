@@ -76,7 +76,10 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Assets\common\css\style.css" />
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Assets\common\js\common.js" />
+    <Content Include="Assets\common\js\lockTableTitle.js" />
     <Content Include="Assets\ztree\css\demo.css" />
     <Content Include="Assets\ztree\css\metroStyle\img\line_conn.png" />
     <Content Include="Assets\ztree\css\metroStyle\img\loading.gif" />
@@ -120,6 +123,7 @@
     <Content Include="Model\Controls\Field\GridEditor.ascx" />
     <Content Include="Model\Template\Form\OneColumn.ascx" />
     <Content Include="Model\Template\List\PagedQuery.ascx" />
+    <Content Include="Model\Template\List\TabPagedQuery.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -317,6 +321,10 @@
     </Compile>
     <Compile Include="Model\Template\List\PagedQuery.ascx.designer.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Template\List\TabPagedQuery.ascx.cs">
+      <DependentUpon>TabPagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Account\RoleEdit.aspx.cs">
       <DependentUpon>RoleEdit.aspx</DependentUpon>

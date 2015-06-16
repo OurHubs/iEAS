@@ -33,6 +33,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             {
                 ModelBindField field = new ModelBindField();
                 field.ModelColumn = column;
+                field.HeaderStyle.Width = Unit.Parse("200px");
                 gvList.Columns.Add(field);
             }
         }
