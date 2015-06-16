@@ -141,7 +141,9 @@ namespace iEAS.Infrastructure.Web
             {
                 Code = "1",
                 Control = "2",
-                Title = "T"
+                Title = "T",
+                 IgnoreNullOrEmpty=true
+                
             });
             form.Groups.Add(new ModelGroup
             {

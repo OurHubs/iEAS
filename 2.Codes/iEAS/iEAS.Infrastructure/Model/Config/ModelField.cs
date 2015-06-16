@@ -20,6 +20,12 @@ namespace iEAS.Model.Config
 
         [XmlAttribute]
         public string Control { get; set; }
+        /// <summary>
+        /// 忽略空值
+        /// </summary>
+        [XmlAttribute]
+        public bool IgnoreNullOrEmpty { get; set; }
+
         [XmlArray]
         [XmlArrayItem("Param")]
         public ModelParamCollection Params

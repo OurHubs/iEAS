@@ -1,9 +1,9 @@
 <?xml version="1.0"?>
 <ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Test">
   <Forms>
-    <Form Code="测试表单" Control="TowColumns">
+    <Form Code="测试表单" Template="TowColumns">
       <Fields>
-        <Field Title="T" Code="1" Control="2">
+        <Field Title="T" Code="1" Control="2" IgnoreNullOrEmpty="true">
           <Params />
         </Field>
       </Fields>
@@ -20,9 +20,14 @@
   </Forms>
   <Lists>
     <List Code="111">
+      <Conditions />
       <Columns>
-        <Column Title="223" Code="12" />
+        <Column Title="223" Code="12" Control="Text" />
       </Columns>
+      <DBCommand>
+        <Query />
+        <Delete />
+      </DBCommand>
     </List>
   </Lists>
   <Tables>

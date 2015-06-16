@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
-<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Test">
+<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Article">
   <Forms>
-    <Form Title="新闻" Code="Article" Table="Article" Template="OneColumn">
+    <Form Title="新闻" Code="Default" Table="Article" Template="OneColumn">
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
@@ -18,9 +18,9 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="111" Template="PagedQuery">
+    <List Code="Default" Template="PagedQuery">
       <Conditions>
-        <Condition Title="标题" Code="Title" Control="TextInput"></Condition>
+        <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>
       </Conditions>
       <Columns>
         <Column Title="RecordID" Code="RecordID" Control="Text"></Column>

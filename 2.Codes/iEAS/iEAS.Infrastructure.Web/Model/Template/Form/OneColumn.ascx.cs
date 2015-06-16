@@ -14,7 +14,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.Form
     {
         protected override void OnInit(EventArgs e)
         {
-            BindData();
+            IntitModel();
             base.OnInit(e);
         }
 
@@ -22,17 +22,49 @@ namespace iEAS.Infrastructure.Web.Model.Template.Form
         {
         }
 
-        private void BindData()
+        private void IntitModel()
         {
             rptForm.DataSource = ModelContext.Current.Form.Fields;
             rptForm.DataBind();
         }
+        private Record _Record;
+        protected Record Record
+        {
+            get
+            {
+                if(_Record==null)
+                {
+                    Guid? rid = Request["rid"].ToNGuid();
+                    if(rid!=null)
+                    { 
+                        _Record = new DBEngine().GetRecord(ModelContext.Current.Form,rid.Value);
+                    }
+                    if (_Record == null)
+                    {
+                        _Record = new Record();
+                    }
+                }
+                return _Record;
+            }
+        }
+
+
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
             Record record = new Record();
             record.Table = ModelContext.Current.Form.Table;
-            record.Status = RecordStatus.Created;
+
+            Guid? rid = Request["rid"].ToNGuid();
+            if (rid != null)
+            {
+                record.RecordID = rid.Value;
+                record.Status = RecordStatus.Modified;
+            }
+            else
+            {
+                record.Status = RecordStatus.Created;
+            }
 
             foreach(RepeaterItem item in rptForm.Items)
             {
@@ -41,13 +73,14 @@ namespace iEAS.Infrastructure.Web.Model.Template.Form
             }
             DBEngine engine = new DBEngine();
             engine.Save(record);
+            Response.Redirect("ModelQuery.aspx?model=" + ModelContext.Current.Config.Code);
         }
 
         protected void rptForm_ItemDataBound(object sender, RepeaterItemEventArgs e)
         {
             ModelFieldContainer ctField = e.Item.FindControl("ctField") as ModelFieldContainer;
             ctField.FieldCode = (e.Item.DataItem as ModelField).Code;
-            ctField.BindField(null);
+            ctField.BindField(Record);
         }
     }
 }

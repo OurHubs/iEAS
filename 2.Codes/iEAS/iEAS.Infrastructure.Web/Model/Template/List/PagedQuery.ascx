@@ -15,10 +15,30 @@
             <ul class="tabList_toolbar">
                 <li><a href="ModelEdit.aspx?model=<%=ModelContext.Current.Config.Code %>" class="add">增 加</a> </li>
             </ul>
-            <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" CssClass="tabList"  OnRowCommand="gvList_RowCommand">
+            <table>
+                <asp:Repeater ID="rptConditions" runat="server" OnItemDataBound="rptConditions_ItemDataBound">
+                    <ItemTemplate>
+                        <%# Container.ItemIndex%3==0?"<tr>":"" %>
+                        <th><%# Eval("Title") %></th>
+                        <td>
+                            <iEAS:ModelFieldContainer ID="ctField" runat="server"></iEAS:ModelFieldContainer>
+                        </td>
+                        <%# Container.ItemIndex%3==2?"</tr>":"" %>
+                    </ItemTemplate>
+                </asp:Repeater>
+                <tr>
+                    <td colspan="6">
+                        <asp:Button ID="btnQuery" runat="server" Text="查询" OnClick="btnQuery_Click" />
+                    </td>
+                </tr>
+            </table>
+            <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" CssClass="tabList" GridLines="None" OnRowCommand="gvList_RowCommand">
             </iEAS:GridView>
             <div class="fenye">
-                <iEAS:AspNetPager ID="Pager" runat="server" OnPageChanging="Pager_PageChanging"></iEAS:AspNetPager>
+                <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Right" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
+                    PagingButtonLayoutType="Span" CustomInfoHTML="第%CurrentPageIndex%页，共%PageCount%页，第页显示%PageSize%条"
+                    OnPageChanging="Pager_PageChanging">
+                </iEAS:AspNetPager>
             </div>
         </div>
     </form>

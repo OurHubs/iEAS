@@ -32,6 +32,20 @@ namespace iEAS.Model.UI
             }
         }
 
+        public bool IsCondition
+        {
+            get
+            {
+                if (ViewState["IsCondition"] == null)
+                    return false;
+                return (bool)ViewState["IsCondition"];
+            }
+            set
+            {
+                ViewState["IsCondition"] = value;
+            }
+        }
+
         public ModelFieldContainer()
         {
             //this.DataBinding += ModelFieldContainer_DataBinding;
@@ -50,18 +64,29 @@ namespace iEAS.Model.UI
             {
                 if(_Field==null)
                 {
-                    _Field = Form.Fields.FirstOrDefault(m => m.Code == FieldCode);
-                    if(_Field==null)
+                    if (!IsCondition)
                     {
-                        _Field = Form.Groups.SelectMany(m => m.Fields).FirstOrDefault(m => m.Code == FieldCode);
+                        _Field = Form.Fields.FirstOrDefault(m => m.Code == FieldCode);
+                        if (_Field == null)
+                        {
+                            _Field = Form.Groups.SelectMany(m => m.Fields).FirstOrDefault(m => m.Code == FieldCode);
+                        }
                     }
-                    if(_Field==null)
+                    else
+                    {
+                        _Field = List.Conditions.FirstOrDefault(m => m.Code == FieldCode);
+                    }
+                    if (_Field == null)
                     {
                         throw new SystemException("模型字段配置不存在！");
                     }
                     return _Field;
                 }
                 return _Field;
+            }
+            set
+            {
+                _Field = value;
             }
         }
 
@@ -81,6 +106,14 @@ namespace iEAS.Model.UI
             }
         }
 
+        public ModelList List
+        {
+            get
+            {
+                return ModelContext.Current.List;
+            }
+        }
+
         public void BindField(Record record)
         {
             if (Field.Control == "GridEditor")
@@ -90,7 +123,7 @@ namespace iEAS.Model.UI
                 {
                     throw new SystemException("模型控件" + Field.Control + "不存在！");
                 }
-                ctr.InitControl(null);
+                ctr.InitControl(record.Records);
                 this.Controls.Clear();
                 this.Controls.Add(ctr);
             }
@@ -102,7 +135,7 @@ namespace iEAS.Model.UI
                     throw new SystemException("模型控件" + Field.Control + "不存在！");
                 }
                 ctr.Field = Field;
-                ctr.InitControl(null);
+                ctr.InitControl(record);
                 this.Controls.Clear();
                 this.Controls.Add(ctr);
             }

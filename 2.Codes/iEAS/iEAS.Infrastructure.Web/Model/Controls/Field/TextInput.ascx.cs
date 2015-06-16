@@ -1,4 +1,5 @@
-﻿using iEAS.Model.UI;
+﻿using iEAS.Model.Data;
+using iEAS.Model.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,15 +18,25 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
 
         public override void InitControl(iEAS.Model.Data.Record record)
         {
-            base.InitControl(record);
+            if (record != null)
+            {
+                DataItem item = record.Items[Field.Code];
+                if (item != null)
+                {
+                    txtValue.Text = item.Value.ToStr();
+                }
+            }
         }
 
         public override Dictionary<string, object> GetValues()
         {
+            Dictionary<string,object> result=new Dictionary<string,object>();
             string val = txtValue.Text.Trim();
-            return new Dictionary<string, object>{
-                {Field.Code,val}
-            };
+            if(!String.IsNullOrEmpty(val) || !Field.IgnoreNullOrEmpty)
+            {
+                result.Add(Field.Code, val);
+            }
+            return result;
         }
     }
 }

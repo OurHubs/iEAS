@@ -7,24 +7,8 @@ using System.Xml.Serialization;
 
 namespace iEAS.Model.Config
 {
-    public class ModelCondition
+    public class ModelCondition:ModelField
     {
-        /// <summary>
-        /// 标题
-        /// </summary>
-        [XmlAttribute]
-        public string Title { get; set; }
-        /// <summary>
-        /// 编码
-        /// </summary>
-        [XmlAttribute]
-        public string Code { get; set; }
-        /// <summary>
-        /// 控件
-        /// </summary>
-        [XmlAttribute]
-        public string Control { get; set; }
-
         /// <summary>
         /// 操作
         /// </summary>
