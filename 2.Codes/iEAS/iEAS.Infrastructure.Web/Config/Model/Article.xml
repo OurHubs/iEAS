@@ -20,9 +20,9 @@
   <Lists>
     <List Code="Default" Template="TabPagedQuery">
       <TopBar>
-        <Item Title="添加" Command="Add"></Item>
-        <Item Title="导出" Command="Export"></Item>
-        <Item Title="删除" Command="DeleteAll"></Item>
+        <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
+        <Item Title="导出" Command="Export" Class="btn btn-info"></Item>
+        <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
       </TopBar>
       <Conditions>
         <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>

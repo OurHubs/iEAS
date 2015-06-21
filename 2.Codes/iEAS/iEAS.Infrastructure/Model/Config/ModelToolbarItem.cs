@@ -17,5 +17,8 @@ namespace iEAS.Model.Config
 
         [XmlAttribute]
         public string Style { get; set; }
+        
+        [XmlAttribute("Class")]
+        public string CssClass { get; set; }
     }
 }
