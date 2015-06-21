@@ -10,7 +10,7 @@
 <html>
 <!--<![endif]-->
 <head>
-    <title>天生创想OA政务版</title>
+    <title>iEAS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
     <link rel="stylesheet" type="text/css" href="../assets/common/css/style.css">
@@ -78,7 +78,7 @@
                 </div>
                 <div class="pager_operation">
                     <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Left" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
-                        PagingButtonLayoutType="UnorderedList" CustomInfoHTML="<div class='page-info-block'>共<span id='total_records'>176</span>条  <span id='total_page'>%PageSize%</span>条/页 共<span id='current_page'>%PageCount%</span>页</div> "
+                        PagingButtonLayoutType="UnorderedList" CustomInfoHTML="<div class='page-info-block'>共<span id='total_records'>%RecordCount%</span>条  <span id='total_page'>%PageSize%</span>条/页 共<span id='current_page'>%PageCount%</span>页</div> "
                         OnPageChanging="Pager_PageChanging" PageSize="2"
                      CurrentPageButtonTextFormatString="{0}"
                      NumericButtonTextFormatString="{0}"
