@@ -60,7 +60,7 @@ namespace iEAS.Model.UI
                     {
                         values[column.ColumnName] = dtRow[column];
                     }
-                    HttpHelper.GetViewState(row)["DataSource"] = values;
+                    //HttpHelper.GetViewState(row)["DataSource"] = values;
 
                     if (ModelColumn.Control == "Text")
                     {

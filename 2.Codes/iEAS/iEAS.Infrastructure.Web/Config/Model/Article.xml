@@ -2,11 +2,6 @@
 <ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Article">
   <Forms>
     <Form Title="新闻" Code="Default" Table="Article" Template="OneColumn">
-      <Commonds>
-        <Command Title="添加" Type="Add"></Command>
-        <Command Title="导出" Type="Export"></Command>
-        <Command Title="删除" Type="DeleteAll"></Command>
-      </Commonds>
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
@@ -24,6 +19,11 @@
   </Forms>
   <Lists>
     <List Code="Default" Template="TabPagedQuery">
+      <TopBar>
+        <Item Title="添加" Command="Add"></Item>
+        <Item Title="导出" Command="Export"></Item>
+        <Item Title="删除" Command="DeleteAll"></Item>
+      </TopBar>
       <Conditions>
         <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>
       </Conditions>

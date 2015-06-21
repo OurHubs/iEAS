@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.Model.Config
 {
-    public class ModelCommandCollection : Collection<ModelCommand>
+    public class ModelToolbarItemCollection : Collection<ModelToolbarItem>
     {
     }
 }

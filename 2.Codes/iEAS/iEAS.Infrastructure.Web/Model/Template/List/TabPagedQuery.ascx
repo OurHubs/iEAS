@@ -1,4 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="TabPagedQuery.ascx.cs" Inherits="iEAS.Infrastructure.Web.Model.Template.List.TabPagedQuery" %>
+<%@ Register src="ModelToolBar.ascx" tagname="ModelToolBar" tagprefix="iEAS" %>
 <!DOCTYPE html>
 <!--[if IE 6 ]> <html class="ie6 lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
 <!--[if lte IE 6 ]> <html class="lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
@@ -70,9 +71,10 @@
         <div class="data-wrap">
             <div class="data-operation">
                 <div class="button-operation">
-                    <button type="button" class="btn btn-success">新建任务</button>
+<%--                    <button type="button" class="btn btn-success">新建任务</button>
                     <button type="button" class="btn btn-danger">清理数据</button>
-                    <button type="button" id="query_export" class="btn btn-info">导出查询列表</button>
+                    <button type="button" id="query_export" class="btn btn-info">导出查询列表</button>--%>
+                    <iEAS:ModelToolBar ID="uxToolBar" runat="server" />
                 </div>
                 <div class="pagination" id="work-pager-block">
                     <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Never" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"

@@ -14,6 +14,8 @@ namespace iEAS.Model.Config
         private ModelConditionCollection _Conditions = new ModelConditionCollection();
         private ModelColumnCollection _Columns = new ModelColumnCollection();
         private ModelDBCommand _DBCommand = new ModelDBCommand();
+        private ModelToolbarItemCollection _TopBar = new ModelToolbarItemCollection();
+        private ModelToolbarItemCollection _FooterBar = new ModelToolbarItemCollection();
 
         [XmlAttribute]
         public string Title { get; set; }
@@ -41,6 +43,22 @@ namespace iEAS.Model.Config
         {
             get { return _DBCommand; }
             set { _DBCommand = value; }
+        }
+
+        [XmlArray("TopBar")]
+        [XmlArrayItem("Item")]
+        public ModelToolbarItemCollection TopBar
+        {
+            get { return _TopBar; }
+            set { _TopBar = value; }
+        }
+
+        [XmlArray("FooterBar")]
+        [XmlArrayItem("Item")]
+        public ModelToolbarItemCollection FooterBar
+        {
+            get { return _FooterBar; }
+            set { _FooterBar = value; }
         }
     }
 }

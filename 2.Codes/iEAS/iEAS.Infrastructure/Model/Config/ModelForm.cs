@@ -13,7 +13,7 @@ namespace iEAS.Model.Config
         private List<ModelField> _Fields = new List<ModelField>();
         private List<ModelGroup> _Groups = new List<ModelGroup>();
         private List<ModelParam> _Params = new List<ModelParam>();
-        private ModelCommandCollection _Commands = new ModelCommandCollection();
+        private ModelToolbarItemCollection _Commands = new ModelToolbarItemCollection();
 
         [XmlAttribute]
         public string Scene { get; set; }
@@ -51,7 +51,7 @@ namespace iEAS.Model.Config
 
         [XmlArray("Commands")]
         [XmlArrayItem("Command")]
-        public ModelCommandCollection Commands
+        public ModelToolbarItemCollection Commands
         {
             get { return _Commands; }
             set { _Commands = value; }

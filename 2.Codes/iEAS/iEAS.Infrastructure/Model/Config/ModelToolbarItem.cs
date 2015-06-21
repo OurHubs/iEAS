@@ -7,13 +7,13 @@ using System.Xml.Serialization;
 
 namespace iEAS.Model.Config
 {
-    public class ModelCommand
+    public class ModelToolbarItem
     {
         [XmlAttribute]
         public string Title { get; set; }
 
         [XmlAttribute]
-        public string Type { get; set; }
+        public string Command { get; set; }
 
         [XmlAttribute]
         public string Style { get; set; }
