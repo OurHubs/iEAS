@@ -35,9 +35,12 @@
             <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" CssClass="tabList" GridLines="None" OnRowCommand="gvList_RowCommand">
             </iEAS:GridView>
             <div class="fenye">
-                <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Right" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
+                <iEAS:AspNetPager ID="Pager" runat="server" CssClass="111" AlwaysShow="true" ShowCustomInfoSection="Right" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
                     PagingButtonLayoutType="Span" CustomInfoHTML="第%CurrentPageIndex%页，共%PageCount%页，第页显示%PageSize%条"
-                    OnPageChanging="Pager_PageChanging">
+                    OnPageChanging="Pager_PageChanging" PageSize="1"
+                     CurrentPageButtonTextFormatString="<span>{0}</span>"
+                     NumericButtonTextFormatString="<span>{9}</sapn>"
+                    >
                 </iEAS:AspNetPager>
             </div>
         </div>

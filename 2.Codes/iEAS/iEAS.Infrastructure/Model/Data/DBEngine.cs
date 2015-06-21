@@ -95,7 +95,7 @@ namespace iEAS.Model.Data
             string mainSQL = sql.Substring(6);
             string fromSQL = sql.Substring(sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
 
-            sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<{3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow,endRow);
+            sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<={3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow,endRow);
             DataTable dt = QueryTable(sql, lstParameters.ToArray());
 
             sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
@@ -111,7 +111,7 @@ namespace iEAS.Model.Data
             string mainSQL = modelList.DBCommand.Query.Sql.Trim().Substring(6);
             string fromSQL = modelList.DBCommand.Query.Sql.Substring(modelList.DBCommand.Query.Sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
 
-            string sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<{3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow, startRow + maxRows);
+            string sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<={3} ", modelList.DBCommand.Query.OrderBy, mainSQL, startRow, startRow + maxRows);
             DataTable dt = QueryTable(sql, lstParameters.ToArray());
 
             sql = String.Format("SELECT COUNT(1) {0}", fromSQL);

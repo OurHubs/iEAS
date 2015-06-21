@@ -44,59 +44,64 @@ namespace Wuqi.Webdiyer
 
         private void RenderCustomInfoSection(HtmlTextWriter writer)
         {
-            if (Height != Unit.Empty)
-                writer.AddStyleAttribute(HtmlTextWriterStyle.Height, Height.ToString());
-            string customUnit = CustomInfoSectionWidth.ToString();
-            if (CustomInfoClass != null && CustomInfoClass.Trim().Length > 0)
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, CustomInfoClass);
-            if (CustomInfoStyle != null && CustomInfoStyle.Trim().Length > 0)
-                writer.AddAttribute(HtmlTextWriterAttribute.Style, CustomInfoStyle);
-            writer.AddStyleAttribute(HtmlTextWriterStyle.Width, customUnit);
-            if (CustomInfoTextAlign != HorizontalAlign.NotSet)
-                writer.AddAttribute(HtmlTextWriterAttribute.Align, CustomInfoTextAlign.ToString().ToLower());
-            if (LayoutType == LayoutType.Table)
-            {
-                writer.AddAttribute(HtmlTextWriterAttribute.Valign, "bottom");
-                writer.AddAttribute(HtmlTextWriterAttribute.Nowrap, "true");
-                writer.RenderBeginTag(HtmlTextWriterTag.Td);
-            }
-            else
-            {
-                writer.AddStyleAttribute("float", "left");
-                writer.RenderBeginTag(HtmlTextWriterTag.Div);
-            }
+            //if (Height != Unit.Empty)
+            //    writer.AddStyleAttribute(HtmlTextWriterStyle.Height, Height.ToString());
+            //string customUnit = CustomInfoSectionWidth.ToString();
+            //if (CustomInfoClass != null && CustomInfoClass.Trim().Length > 0)
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Class, CustomInfoClass);
+            //if (CustomInfoStyle != null && CustomInfoStyle.Trim().Length > 0)
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Style, CustomInfoStyle);
+            //writer.AddStyleAttribute(HtmlTextWriterStyle.Width, customUnit);
+            //if (CustomInfoTextAlign != HorizontalAlign.NotSet)
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Align, CustomInfoTextAlign.ToString().ToLower());
+            //if (LayoutType == LayoutType.Table)
+            //{
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Valign, "bottom");
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Nowrap, "true");
+            //    writer.RenderBeginTag(HtmlTextWriterTag.Td);
+            //}
+            //else
+            //{
+            //    writer.AddStyleAttribute("float", "left");
+            //    writer.RenderBeginTag(HtmlTextWriterTag.Div);
+            //}
             writer.Write(GetCustomInfoHtml(CustomInfoHTML));
-            writer.RenderEndTag();
+            //writer.RenderEndTag();
         }
 
         private void RenderNavigationSection(HtmlTextWriter writer)
         {
-            if (CustomInfoSectionWidth.Type == UnitType.Percentage)
-            {
-                writer.AddStyleAttribute(HtmlTextWriterStyle.Width,
-                                         (Unit.Percentage(100 - CustomInfoSectionWidth.Value)).ToString());
-            }
-            if (HorizontalAlign != HorizontalAlign.NotSet)
-                writer.AddAttribute(HtmlTextWriterAttribute.Align, HorizontalAlign.ToString().ToLower());
-            if (!string.IsNullOrEmpty(CssClass))
-                writer.AddAttribute(HtmlTextWriterAttribute.Class, CssClass);
-            if (LayoutType == LayoutType.Table)
-            {
-                writer.AddAttribute(HtmlTextWriterAttribute.Valign, "bottom");
-                writer.AddAttribute(HtmlTextWriterAttribute.Nowrap, "true");
-                writer.RenderBeginTag(HtmlTextWriterTag.Td); //<td>
-            }
-            else
-            {
-                writer.AddStyleAttribute("float", "left");
-                writer.RenderBeginTag(HtmlTextWriterTag.Div); //<div>
-            }
+            //if (CustomInfoSectionWidth.Type == UnitType.Percentage)
+            //{
+            //    writer.AddStyleAttribute(HtmlTextWriterStyle.Width,
+            //                             (Unit.Percentage(100 - CustomInfoSectionWidth.Value)).ToString());
+            //}
+            //if (HorizontalAlign != HorizontalAlign.NotSet)
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Align, HorizontalAlign.ToString().ToLower());
+            //if (!string.IsNullOrEmpty(CssClass))
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Class, CssClass);
+            //if (LayoutType == LayoutType.Table)
+            //{
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Valign, "bottom");
+            //    writer.AddAttribute(HtmlTextWriterAttribute.Nowrap, "true");
+            //    writer.RenderBeginTag(HtmlTextWriterTag.Td); //<td>
+            //}
+            //else
+            //{
+            //    writer.AddStyleAttribute("float", "left");
+            //    writer.RenderBeginTag(HtmlTextWriterTag.Div); //<div>
+            //}
             RenderPagingElements(writer);
-            writer.RenderEndTag(); //</div> or </td>
+            //writer.RenderEndTag(); //</div> or </td>
         }
 
         private void RenderPagingElements(HtmlTextWriter writer)
         {
+            writer.AddAttribute(HtmlTextWriterAttribute.Class, "pagination");
+            writer.AddAttribute(HtmlTextWriterAttribute.Id, "work-pager-block");
+            writer.RenderBeginTag(HtmlTextWriterTag.Div);//hjtang
+            writer.RenderBeginTag(HtmlTextWriterTag.Ul); //hjtang
+
             int startIndex = ((CurrentPageIndex - 1) / NumericButtonCount) * NumericButtonCount;
             //this is an important trick, it's not the same as CurrentPageIndex-1
             if (PageCount > NumericButtonCount && CurrentPageButtonPosition != PagingButtonPosition.Fixed)
@@ -277,6 +282,9 @@ namespace Wuqi.Webdiyer
                         writer.Write(TextAfterPageIndexBox);
                 }
             }
+
+            writer.RenderEndTag();//hjtang
+            writer.RenderEndTag();//hjtang
         }
 
         /// <summary>
@@ -491,8 +499,12 @@ namespace Wuqi.Webdiyer
                 if (!ShowDisabledButtons && disabled)
                     return;
             AddPagingButtonLayoutTag(writer); //<li> or <span>
+
+            //writer.RenderBeginTag(HtmlTextWriterTag.Span);
+
+
                 pageIndex = (btn == NavigationButton.First) ? 1 : (CurrentPageIndex - 1);
-                writeSpacingStyle(writer);
+                writeSpacingStyle(writer);//hjtang
                 if (PagingButtonLayoutType == PagingButtonLayoutType.None) //add css class and style attribute to pager item directly
                 {
                     if (btn == NavigationButton.First || btn == NavigationButton.Last) //first page or last page button
@@ -609,8 +621,10 @@ namespace Wuqi.Webdiyer
                     writer.RenderEndTag();
                 }
             }
+            //writer.RenderEndTag();
             if (PagingButtonLayoutType != PagingButtonLayoutType.None)
                 writer.RenderEndTag(); //</li> or </span>
+
         }
 
         /// <summary>
@@ -659,6 +673,7 @@ namespace Wuqi.Webdiyer
                     AddClassAndStyle(PagingButtonsClass, PagingButtonsStyle, writer);
                 AddPagingButtonLayoutTag(writer); //<li>
             }
+            writer.RenderBeginTag(HtmlTextWriterTag.Span);//hjtang
 
             if (/*PagingButtonType == PagingButtonType.Image && */NumericButtonType == PagingButtonType.Image)
             {
@@ -713,6 +728,7 @@ namespace Wuqi.Webdiyer
                 }
                 else
                 {
+
                     if (Enabled)
                     {
                         writer.AddAttribute("href", GetHrefString(index), false);
@@ -721,6 +737,7 @@ namespace Wuqi.Webdiyer
                     //WriteCssClass(writer);
                     AddToolTip(writer, index);
                     AddHyperlinkTarget(writer);
+                    
                     writer.RenderBeginTag(HtmlTextWriterTag.A);
                     if (!string.IsNullOrEmpty(NumericButtonTextFormatString))
                         writer.Write(String.Format(NumericButtonTextFormatString, index));
@@ -731,6 +748,7 @@ namespace Wuqi.Webdiyer
             }
             if ((!isCurrent && PagingButtonLayoutType != PagingButtonLayoutType.None) || (isCurrent && PagingButtonLayoutType == PagingButtonLayoutType.UnorderedList))
                 writer.RenderEndTag(); //</li>
+            writer.RenderEndTag();//hjtang
         }
 
         /// <summary>

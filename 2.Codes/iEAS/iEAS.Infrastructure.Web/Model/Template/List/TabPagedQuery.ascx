@@ -76,10 +76,14 @@
                     <button type="button" id="query_export" class="btn btn-info">导出查询列表</button>--%>
                     <iEAS:ModelToolBar ID="uxToolBar" runat="server" />
                 </div>
-                <div class="pagination" id="work-pager-block">
-                    <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Never" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
-                        PagingButtonLayoutType="Span" CustomInfoHTML="第%CurrentPageIndex%页，共%PageCount%页，第页显示%PageSize%条"
-                        OnPageChanging="Pager_PageChanging">
+                <div class="pager_operation">
+                    <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Left" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
+                        PagingButtonLayoutType="UnorderedList" CustomInfoHTML="<div class='page-info-block'>共<span id='total_records'>176</span>条  <span id='total_page'>%PageSize%</span>条/页 共<span id='current_page'>%PageCount%</span>页</div> "
+                        OnPageChanging="Pager_PageChanging" PageSize="2"
+                     CurrentPageButtonTextFormatString="{0}"
+                     NumericButtonTextFormatString="{0}"
+                        PagingButtonSpacing="0">
+                             
                     </iEAS:AspNetPager>
                 </div>
             </div>
