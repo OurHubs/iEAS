@@ -21,6 +21,11 @@ namespace iEAS.Model.Config
         [XmlAttribute]
         public string Control { get; set; }
         /// <summary>
+        /// 是否必填项
+        /// </summary>
+        [XmlAttribute]
+        public bool IsRequired { get; set; }
+        /// <summary>
         /// 忽略空值
         /// </summary>
         [XmlAttribute]

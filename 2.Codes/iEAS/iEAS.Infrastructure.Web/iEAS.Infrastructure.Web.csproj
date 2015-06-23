@@ -78,6 +78,7 @@
   <ItemGroup>
     <Content Include="Assets\common\css\style.css" />
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Assets\common\images\notify_new.gif" />
     <Content Include="Assets\common\js\common.js" />
     <Content Include="Assets\common\js\lockTableTitle.js" />
     <Content Include="Assets\ztree\css\demo.css" />

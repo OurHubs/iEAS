@@ -1,9 +1,9 @@
 ﻿<?xml version="1.0"?>
 <ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Article">
   <Forms>
-    <Form Title="新闻" Code="Default" Table="Article" Template="OneColumn">
+    <Form Title="新闻" Code="Article" Table="Article" Template="OneColumn">
       <Fields>
-        <Field Title="标题" Code="Title" Control="TextInput"/>
+        <Field Title="标题" Code="Title" Control="TextInput" IsRequired="true"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
       </Fields>
       <Groups>
@@ -18,7 +18,7 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="Default" Template="TabPagedQuery">
+    <List Code="Article" Template="TabPagedQuery">
       <TopBar>
         <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
         <Item Title="导出" Command="Export" Class="btn btn-info"></Item>
