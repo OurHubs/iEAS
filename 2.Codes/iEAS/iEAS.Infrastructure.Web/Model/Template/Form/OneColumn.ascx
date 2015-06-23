@@ -5,9 +5,11 @@
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="../assets/common/css/style.css" />
-    <script src="DatePicker/WdatePicker.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="../assets/formvalidator/themes/default/" />
+    <script src="../assets/common/js/jQuery.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="../assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
     <title>企业应用服务平台</title>
-
 </head>
 <body class="bodycolor">
     <table width="90%" border="0" align="center" cellpadding="3" cellspacing="0" class="small">
@@ -42,6 +44,17 @@
             </tr>
         </table>
     </form>
+    <script type="text/javascript">
+        $(function () {
+            $.formValidator.initConfig({
+                theme: "default", submitOnce: true, formID: "<%=form1.ClientID%>",
+                onError: function (msg) { alert(msg); },
+                submitAfterAjaxPrompt: '有数据正在异步验证，请稍等...'
+            });
+
+            <%=ModelFieldControl.ValidateScripts %>
+        });
+    </script>
 </body>
 </html>
 
