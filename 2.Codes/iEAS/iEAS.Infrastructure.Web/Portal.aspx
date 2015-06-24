@@ -52,7 +52,7 @@
     </div>
     	<div class="col-1">
         	<div class="content" style="position:relative; overflow:hidden; width:100%;">
-                <iframe name="right" id="rightMain" frameborder="false" src="home.php" scrolling="auto" style="border:none;" width="100%" height="auto" allowtransparency="true"></iframe>
+                <iframe name="right" id="rightMain" frameborder="false" src="desktop.aspx" scrolling="auto" style="border:none;" width="100%" height="auto" allowtransparency="true"></iframe>
         	</div>
         </div>
     </div>
@@ -211,7 +211,7 @@
             $('#btnx').css('display', 'none');
         }
     }
-    _M(0, 'home.php');
+    _M(0, 'Desktop.aspx');
     function _MP(menuid, targetUrl) {
         targetUrl = targetUrl || "";
 

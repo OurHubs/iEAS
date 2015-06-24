@@ -78,10 +78,12 @@
   <ItemGroup>
     <Content Include="Ajax\LMenu.aspx" />
     <Content Include="Ajax\TMenu.aspx" />
+    <Content Include="Assets\common\css\desktop.css" />
     <Content Include="Assets\common\css\reset.css" />
     <Content Include="Assets\common\css\style.css" />
     <Content Include="Assets\common\css\style2015.css" />
     <Content Include="Assets\common\css\zh-cn-system.css" />
+    <Content Include="Assets\common\images\0.png" />
     <Content Include="Assets\common\images\2014_1.png" />
     <Content Include="Assets\common\images\2014_2.png" />
     <Content Include="Assets\common\images\2014_3.png" />
@@ -134,6 +136,7 @@
     <Content Include="Config\Model\Article.xml" />
     <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
+    <Content Include="Desktop.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
     <Content Include="Model\ModelEdit.aspx" />
@@ -303,6 +306,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Desktop.aspx.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Desktop.aspx.designer.cs">
+      <DependentUpon>Desktop.aspx</DependentUpon>
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
