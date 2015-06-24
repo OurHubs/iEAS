@@ -69,6 +69,8 @@
     <Compile Include="Context\SessionContext.cs" />
     <Compile Include="Model\Config\ModelColumn.cs" />
     <Compile Include="Model\Config\ModelColumnCollection.cs" />
+    <Compile Include="Model\Config\ModelNavigation.cs" />
+    <Compile Include="Model\Config\ModelNavigationCollection.cs" />
     <Compile Include="Model\Config\ModelToolbarItem.cs" />
     <Compile Include="Model\Config\ModelToolbarItemCollection.cs" />
     <Compile Include="Model\Config\ModelCondition.cs" />

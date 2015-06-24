@@ -27,7 +27,7 @@
     	<div class="log white cut_line">您好！测试1  [系统管理组]<span style="color:#A30100;">|</span><a href="">[退出]</a>
     	</div>
         <ul class="nav white" id="top_menu">
-		    <li id="_M0" class="on top_menu"><a href="javascript:_M(0,'')" hidefocus="true" style="outline:none;">个人桌面</a></li>
+		    <li id="_M0" class="on top_menu"><a href="javascript:_M(0,'Desktop.aspx')" hidefocus="true" style="outline:none;">个人桌面</a></li>
 		    <li id="_M3" class="top_menu"><a href="javascript:_M(3,'')" hidefocus="true" style="outline:none;">个人办公</a></li>																																																																														<li id="_M410" class="top_menu"><a href="javascript:_M(410,'admin.php?ac=list&fileurl=apps')" hidefocus="true" style="outline:none;">公文管理</a></li>
 			<li id="_M10" class="top_menu"><a href="javascript:_M(10,'home.php?mid=10')" hidefocus="true" style="outline:none;">行政事务</a></li>
 		    <li id="_M6" class="top_menu"><a href="javascript:_M(6,'home.php?mid=6')" hidefocus="true" style="outline:none;">档案管理</a></li>

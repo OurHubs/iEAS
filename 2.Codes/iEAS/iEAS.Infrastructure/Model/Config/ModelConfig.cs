@@ -20,6 +20,7 @@ namespace iEAS.Model.Config
 
         public static ModelConfig GetConfig(string code)
         {
+            code=code.Split('.')[0];
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Config/Model" ,code + ".xml");
             return XmlHelper.Deserialize<ModelConfig>(filePath);
         }

@@ -30,7 +30,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             switch (e.CommandName)
             {
                 case "Add":
-                    Response.Redirect("~/Model/ModelEdit.aspx?model=" + ModelContext.Current.Config.Code);
+                    Response.Redirect("~/Model/ModelEdit.aspx?model=" + ModelContext.Current.List.Code);
                     break;
 
                 default:

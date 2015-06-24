@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
 <ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="测试模型" Code="Article">
   <Forms>
-    <Form Title="新闻" Code="Article" Table="Article" Template="OneColumn">
+    <Form Title="消息" Code="Article" Table="Article" Template="OneColumn">
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput" IsRequired="true"/>
         <Field Title="简介" Code="Desc" Control="TextInput"/>
@@ -18,7 +18,52 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="Article" Template="TabPagedQuery">
+    <List Code="Article.Recive" Template="TabPagedQuery">
+      <Navigations>
+        <Navigation Title="消息接收列表" Type="ModelList" Url="Article.Recive" IsCurrent="true"></Navigation>
+        <Navigation Title="消息发送列表" Type="ModelList" Url="Article.Send"></Navigation>
+      </Navigations>
+      <TopBar>
+        <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
+        <Item Title="导出" Command="Export" Class="btn btn-info"></Item>
+        <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
+      </TopBar>
+      <Conditions>
+        <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>
+      </Conditions>
+      <Columns>
+        <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
+        <Column Title="标题" Code="Title" Control="Text" />
+        <Column Title="简介" Code="Desc" Control="Text" />
+        <Column Title="操作" Code="Command" Control="Command" />
+      </Columns>
+      <DBCommand>
+        <Query>
+          <Sql>
+            <![CDATA[
+              SELECT * FROM Article
+            ]]>
+          </Sql>
+          <OrderBy>
+            <![CDATA[
+            RecordID ASC
+            ]]>
+          </OrderBy>
+        </Query>
+        <Delete>
+          <Sql>
+            <![CDATA[
+            DELETE FROM Article WHERE RecordID=@ID
+            ]]>
+          </Sql>
+        </Delete>
+      </DBCommand>
+    </List>
+    <List Code="Article.Send" Template="TabPagedQuery">
+      <Navigations>
+        <Navigation Title="消息接收列表" Type="ModelList" Url="Article.Recive"></Navigation>
+        <Navigation Title="消息发送列表" Type="ModelList" Url="Article.Send" IsCurrent="true"></Navigation>
+      </Navigations>
       <TopBar>
         <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
         <Item Title="导出" Command="Export" Class="btn btn-info"></Item>

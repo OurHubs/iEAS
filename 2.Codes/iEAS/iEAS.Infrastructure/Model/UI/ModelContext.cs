@@ -12,8 +12,6 @@ namespace iEAS.Model.UI
     public class ModelContext
     {
         private static readonly string ConfigKey = "model";
-        private static readonly string FormKey = "form";
-        private static readonly string ListKey = "list";
 
         private ModelConfig _Config;
         private ModelForm _Form;
@@ -59,16 +57,14 @@ namespace iEAS.Model.UI
             get
             {
                 if(_Form==null)
-                { 
-                    string formCode = HttpHelper.ValueRequest(FormKey);
-                    if (String.IsNullOrWhiteSpace(formCode))
+                {
+                    string modelCode = HttpHelper.ValueRequest(ConfigKey);
+                    _Form = Config.Forms.GetForm(modelCode);
+                    if(_Form==null)
                     {
-                        _Form = Config.Forms.FirstOrDefault();
+                        _Form = Config.Forms.GetForm(modelCode.Split('.')[0]);
                     }
-                    else
-                    {
-                        _Form = Config.Forms.GetForm(formCode);
-                    }
+
                     if(_Form==null)
                     {
                         throw new SystemException("没有可用的模型表单配置");
@@ -84,15 +80,14 @@ namespace iEAS.Model.UI
             {
                 if (_List == null)
                 {
-                    string listCode = HttpHelper.ValueRequest(ListKey);
-                    if (String.IsNullOrWhiteSpace(listCode))
+                    string modelCode = HttpHelper.ValueRequest(ConfigKey);
+                    _List = Config.Lists.GetList(modelCode);
+
+                    if (_List == null)
                     {
-                        _List = Config.Lists.FirstOrDefault();
+                        _List = Config.Lists.GetList(modelCode.Split('.')[0]);
                     }
-                    else
-                    {
-                        _List = Config.Lists.GetList(listCode);
-                    }
+                    
                     if (_List == null)
                     {
                         throw new SystemException("没有可用的模型列表配置");

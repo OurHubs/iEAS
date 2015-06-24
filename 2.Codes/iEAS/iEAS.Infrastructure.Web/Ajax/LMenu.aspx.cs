@@ -14,28 +14,29 @@ namespace iEAS.Infrastructure.Web.Ajax
             string menuStr = @"
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,'Model/ModelQuery.aspx?model=Article'); hidefocus='true' style='outline:none;'>消息管理</a>
+    <a href=javascript:_MP(19,'Model/ModelQuery.aspx?model=Article.Recive'); hidefocus='true' style='outline:none;'>消息管理</a>
 </h3>
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,'Test.aspx'); hidefocus='true' style='outline:none;'>在线考勤</a>
+    <a href=javascript:_MP(19,'Test.aspx'); hidefocus='true' style='outline:none;'>生成测试数据</a>
 </h3>
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>在线考勤</a>
+    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>用户管理</a>
 </h3>
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>在线考勤</a>
+    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>角色管理</a>
 </h3>
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>在线考勤</a>
+    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>菜单管理</a>
 </h3>
 <h3 class='f14'>
     <span class='cu' title='点击操作'></span>
-    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>在线考勤</a>
-</h3><h3 class='f14'>
+    <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>权限配置</a>
+</h3>
+<h3 class='f14'>
     <span class='cu' title='点击操作'></span>
     <a href=javascript:_MP(19,''); hidefocus='true' style='outline:none;'>在线考勤</a>
 </h3>

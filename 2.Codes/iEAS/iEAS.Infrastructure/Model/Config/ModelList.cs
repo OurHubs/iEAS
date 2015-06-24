@@ -16,6 +16,7 @@ namespace iEAS.Model.Config
         private ModelDBCommand _DBCommand = new ModelDBCommand();
         private ModelToolbarItemCollection _TopBar = new ModelToolbarItemCollection();
         private ModelToolbarItemCollection _FooterBar = new ModelToolbarItemCollection();
+        private ModelNavigationCollection _Navigations = new ModelNavigationCollection();
 
         [XmlAttribute]
         public string Title { get; set; }
@@ -59,6 +60,14 @@ namespace iEAS.Model.Config
         {
             get { return _FooterBar; }
             set { _FooterBar = value; }
+        }
+
+        [XmlArray("Navigations")]
+        [XmlArrayItem("Navigation")]
+        public ModelNavigationCollection Navigations
+        {
+            get { return _Navigations; }
+            set { _Navigations = value; }
         }
     }
 }

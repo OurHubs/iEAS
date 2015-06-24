@@ -16,7 +16,7 @@
             <td class="Big">
                 <img src="../assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 新增<%=ModelContext.Current.Form.Title %></span>&nbsp;&nbsp;&nbsp;&nbsp;
 	            <span style="font-size: 12px; float: right; margin-right: 20px;">
-                    <a href="ModelQuery.aspx?model=<%=ModelContext.Current.Form.Code %>" style="font-size: 12px;">&lt;&lt;返回列表页</a>
+                    <a href="ModelQuery.aspx?model=<%=ModelContext.Current.List.Code %>" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
             </td>
         </tr>

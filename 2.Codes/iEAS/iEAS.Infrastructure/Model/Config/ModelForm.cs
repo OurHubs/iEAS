@@ -14,6 +14,7 @@ namespace iEAS.Model.Config
         private List<ModelGroup> _Groups = new List<ModelGroup>();
         private List<ModelParam> _Params = new List<ModelParam>();
         private ModelToolbarItemCollection _Commands = new ModelToolbarItemCollection();
+        private ModelNavigationCollection _Navigations = new ModelNavigationCollection();
 
         [XmlAttribute]
         public string Scene { get; set; }
@@ -47,6 +48,14 @@ namespace iEAS.Model.Config
         {
             get { return _Params; }
             set { _Params = value; }
+        }
+
+        [XmlArray("Navigations")]
+        [XmlArrayItem("Navigation")]
+        public ModelNavigationCollection Navigations
+        {
+            get { return _Navigations; }
+            set { _Navigations = value; }
         }
 
         [XmlArray("Commands")]

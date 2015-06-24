@@ -73,7 +73,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.Form
             }
             DBEngine engine = new DBEngine();
             engine.Save(record);
-            Response.Redirect("ModelQuery.aspx?model=" + ModelContext.Current.Config.Code);
+            Response.Redirect("ModelQuery.aspx?model=" + ModelContext.Current.List.Code);
         }
 
         protected void rptForm_ItemDataBound(object sender, RepeaterItemEventArgs e)

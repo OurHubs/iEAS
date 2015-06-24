@@ -50,10 +50,17 @@
     <form runat="server">
         <div class="tabbable work-nav">
             <ul id="myTab" class="nav nav-tabs">
-                <li class="active"><a href="admin.php?ac=duty&fileurl=duty" data-toggle="tab">所有任务</a></li>
-                <li><a href="admin.php?ac=duty&fileurl=duty&dkey=1" data-toggle="tab">进行中任务</a></li>
-                <li><a href="admin.php?ac=duty&fileurl=duty&dkey=2" data-toggle="tab">未完成任务</a></li>
-                <li><a href="admin.php?ac=duty&fileurl=duty&dkey=3" data-toggle="tab">己完成任务</a></li>
+                <% foreach(var item in ModelContext.Current.List.Navigations){ %>
+                <% if(item.IsCurrent){ %>
+                    <li class="active">
+                <%} else { %>
+                    <li>
+                <%} %>
+                <% if(item.Type=="ModelList"){ %>
+                    <a href="Modelquery.aspx?model=<%=item.Url %>" data-toggle="tab">
+                <%} %>                    
+                    <%=item.Title %></a></li>
+                <%} %>
             </ul>
         </div>
         <div class="search_area">
