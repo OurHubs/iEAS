@@ -67,7 +67,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             }
             else if (e.CommandName == "Edit")
             {
-                Response.Redirect("ModelEdit.aspx?model=" + ModelContext.Current.Config.Code + "&rid=" + e.CommandArgument.ToGuid());
+                Response.Redirect("ModelEdit.aspx?model=" + ModelContext.Current.List.Code + "&rid=" + e.CommandArgument.ToGuid());
             }
 
             e.Handled = true;
