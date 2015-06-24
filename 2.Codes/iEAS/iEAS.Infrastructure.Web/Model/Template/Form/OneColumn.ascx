@@ -5,7 +5,6 @@
 <head>
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="../assets/common/css/style.css" />
-    <link rel="stylesheet" type="text/css" href="../assets/formvalidator/themes/default/" />
     <script src="../assets/common/js/jQuery.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="../assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="../assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
@@ -47,7 +46,8 @@
     <script type="text/javascript">
         $(function () {
             $.formValidator.initConfig({
-                theme: "default", submitOnce: true, formID: "<%=form1.ClientID%>",
+                formID: "<%=form1.ClientID%>",
+                theme: "default",
                 onError: function (msg) { alert(msg); },
                 submitAfterAjaxPrompt: '有数据正在异步验证，请稍等...'
             });

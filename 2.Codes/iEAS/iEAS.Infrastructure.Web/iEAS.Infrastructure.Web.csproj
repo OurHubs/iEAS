@@ -76,11 +76,28 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Ajax\LMenu.aspx" />
+    <Content Include="Ajax\TMenu.aspx" />
+    <Content Include="Assets\common\css\reset.css" />
     <Content Include="Assets\common\css\style.css" />
+    <Content Include="Assets\common\css\style2015.css" />
+    <Content Include="Assets\common\css\zh-cn-system.css" />
+    <Content Include="Assets\common\images\2014_1.png" />
+    <Content Include="Assets\common\images\2014_2.png" />
+    <Content Include="Assets\common\images\2014_3.png" />
+    <Content Include="Assets\common\images\2014_4.png" />
+    <Content Include="Assets\common\images\2014_5.png" />
+    <Content Include="Assets\common\images\2014_6.png" />
+    <Content Include="Assets\common\images\left_bg.png" />
+    <Content Include="Assets\common\images\left_menu.png" />
     <Content Include="Assets\common\images\logo._png" />
+    <Content Include="Assets\common\images\logo2.png" />
+    <Content Include="Assets\common\images\nav_bg.png" />
     <Content Include="Assets\common\images\notify_new.gif" />
+    <Content Include="Assets\common\images\scroll_bg.png" />
     <Content Include="Assets\common\js\common.js" />
     <Content Include="Assets\common\js\lockTableTitle.js" />
+    <Content Include="Assets\common\js\styleswitch.js" />
     <Content Include="Assets\ztree\css\demo.css" />
     <Content Include="Assets\ztree\css\metroStyle\img\line_conn.png" />
     <Content Include="Assets\ztree\css\metroStyle\img\loading.gif" />
@@ -146,6 +163,7 @@
     <Content Include="Pages\Module\ModuleList.aspx" />
     <Content Include="Pages\Module\PortalEdit.aspx" />
     <Content Include="Pages\Module\PortalList.aspx" />
+    <Content Include="Portal.aspx" />
     <Content Include="Welcome.aspx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -258,6 +276,20 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Ajax\LMenu.aspx.cs">
+      <DependentUpon>LMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\LMenu.aspx.designer.cs">
+      <DependentUpon>LMenu.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Ajax\TMenu.aspx.cs">
+      <DependentUpon>TMenu.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ajax\TMenu.aspx.designer.cs">
+      <DependentUpon>TMenu.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Controls\Pager.ascx.cs">
       <DependentUpon>Pager.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -474,6 +506,13 @@
     </Compile>
     <Compile Include="Pages\Module\PortalList.aspx.designer.cs">
       <DependentUpon>PortalList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portal.aspx.cs">
+      <DependentUpon>Portal.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portal.aspx.designer.cs">
+      <DependentUpon>Portal.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">

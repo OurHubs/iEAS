@@ -13,11 +13,10 @@
     <title>iEAS</title>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
-    <link rel="stylesheet" type="text/css" href="../assets/common/css/style.css">
+    <link rel="stylesheet" type="text/css" href="../assets/common/css/style2015.css">
     <script type="text/javascript" src="../assets/common/js/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/common/js/lockTableTitle.js"></script>
     <script type="text/javascript" src="../assets/common/js/common.js"></script>
-    <script type="text/javascript" src="../assets/DatePicker/WdatePicker.js"></script>
     <script type="text/javascript">
 
         var locktb;
@@ -79,11 +78,7 @@
                 <div class="pager_operation">
                     <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Left" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
                         PagingButtonLayoutType="UnorderedList" CustomInfoHTML="<div class='page-info-block'>共<span id='total_records'>%RecordCount%</span>条  <span id='total_page'>%PageSize%</span>条/页 共<span id='current_page'>%PageCount%</span>页</div> "
-                        OnPageChanging="Pager_PageChanging" PageSize="2"
-                     CurrentPageButtonTextFormatString="{0}"
-                     NumericButtonTextFormatString="{0}"
-                        PagingButtonSpacing="0">
-                             
+                        OnPageChanging="Pager_PageChanging" PageSize="10" CurrentPageButtonTextFormatString="{0}" NumericButtonTextFormatString="{0}" PagingButtonSpacing="0">
                     </iEAS:AspNetPager>
                 </div>
             </div>
