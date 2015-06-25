@@ -82,6 +82,7 @@
     <Content Include="Assets\common\css\reset.css" />
     <Content Include="Assets\common\css\style.css" />
     <Content Include="Assets\common\css\style2015.css" />
+    <Content Include="Assets\common\css\viplogin_130319.css" />
     <Content Include="Assets\common\css\zh-cn-system.css" />
     <Content Include="Assets\common\images\0.png" />
     <Content Include="Assets\common\images\2014_1.png" />
@@ -90,13 +91,27 @@
     <Content Include="Assets\common\images\2014_4.png" />
     <Content Include="Assets\common\images\2014_5.png" />
     <Content Include="Assets\common\images\2014_6.png" />
+    <Content Include="Assets\common\images\btn_login.png" />
+    <Content Include="Assets\common\images\btn_login2.png" />
+    <Content Include="Assets\common\images\btn_login3.png" />
+    <Content Include="Assets\common\images\btn_register.png" />
+    <Content Include="Assets\common\images\foot_icon.png" />
+    <Content Include="Assets\common\images\header_bg.png" />
+    <Content Include="Assets\common\images\icon.gif" />
     <Content Include="Assets\common\images\left_bg.png" />
     <Content Include="Assets\common\images\left_menu.png" />
+    <Content Include="Assets\common\images\loginloading1.gif" />
     <Content Include="Assets\common\images\logo._png" />
     <Content Include="Assets\common\images\logo2.png" />
+    <Content Include="Assets\common\images\mailname1.png" />
     <Content Include="Assets\common\images\nav_bg.png" />
     <Content Include="Assets\common\images\notify_new.gif" />
+    <Content Include="Assets\common\images\password1.png" />
     <Content Include="Assets\common\images\scroll_bg.png" />
+    <Content Include="Assets\common\images\slogin.gif" />
+    <Content Include="Assets\common\images\slogin.png" />
+    <Content Include="Assets\common\images\sp2013_2.jpg" />
+    <Content Include="Assets\common\images\vip_logo.png" />
     <Content Include="Assets\common\js\common.js" />
     <Content Include="Assets\common\js\lockTableTitle.js" />
     <Content Include="Assets\common\js\styleswitch.js" />
@@ -137,6 +152,7 @@
     <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
     <Content Include="Desktop.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
     <Content Include="Model\ModelEdit.aspx" />
@@ -316,6 +332,13 @@
     </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Column\Command.ascx.cs">
       <DependentUpon>Command.ascx</DependentUpon>
