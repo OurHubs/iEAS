@@ -36,7 +36,7 @@
                         <asp:TextBox ID="txtPassword" runat="server" CssClass="password" TabIndex="2"></asp:TextBox>
                     </li>
                     <li class="btn">
-                        <asp:Button ID="btnLogin" runat="server" Text="登陆" CssClass="loginBtn" />
+                        <asp:Button ID="btnLogin" runat="server" Text="登陆" CssClass="loginBtn" OnClick="btnLogin_Click" />
                     </li>
                 </ul>
             </form>
