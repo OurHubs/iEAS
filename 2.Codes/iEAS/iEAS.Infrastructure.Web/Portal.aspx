@@ -199,7 +199,7 @@
         $("html").removeClass("on");
         $("#openClose").data('clicknum', 0);
         $("#current_pos").data('clicknum', 1);
-        if (menuid == 3) {
+        if (menuid == 1) {
             $(".left_menu").addClass("left_menu_on");
             $(this).addClass("close");
             $("html").addClass("on");
@@ -211,7 +211,7 @@
             $('#btnx').css('display', 'none');
         }
     }
-    _M(3, 'Desktop.aspx');
+    _M(1, 'Desktop.aspx');
     function _MP(menuid, targetUrl) {
         targetUrl = targetUrl || "";
 

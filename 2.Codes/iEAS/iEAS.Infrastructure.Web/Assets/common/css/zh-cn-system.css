@@ -32,7 +32,8 @@ body fieldset.blue legend{padding:3px 8px;font-weight:700;color:#347add; backgro
 .vote_bar div span{ display:block; position:absolute; left:0; top:0; width:180px; text-align:center; height:16px; font-size:10px; line-height:12px; vertical-align:middle}
 
 /*头部*/
-.crumbs,.tab-web-panel li a:hover,.tab-web-panel li.on a{background: url(../images/icon_use.png) no-repeat}
+/*.crumbs,*/
+.tab-web-panel li a:hover,.tab-web-panel li.on a{background: url(../images/icon_use.png) no-repeat}
 .header {background:#BF1316 url(../images/h_bg.gif) repeat-x left bottom; height:80px; position:relative}
 .header .logo{float:left;width:136px;height:80px;margin-right:10px;_margin-right:7px;background: url(../images/logo2.png) no-repeat;}
 .header .logo a{display:block;height:80px;text-decoration: none;}

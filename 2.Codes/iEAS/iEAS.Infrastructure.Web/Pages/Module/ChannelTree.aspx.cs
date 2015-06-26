@@ -1,0 +1,50 @@
+﻿using iEAS.Module;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
+
+namespace iEAS.Infrastructure.Web.Pages.Module
+{
+    public partial class ChannelTree : System.Web.UI.Page
+    {
+        public IChannelService ChannelService { get; set; }
+
+        protected void Page_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        public string BuildChannel()
+        {
+            var channels = ChannelService.Query(m =>  m.Status == 1, o => o.Asc(m => m.Sort));
+
+            StringBuilder sbChannel = new StringBuilder();
+            sbChannel.Append("[");
+
+            foreach (var channel in channels)
+            {
+                sbChannel.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,url:'{4}',target:'main'}},", channel.ID, channel.ParentID.ToStr("null"), channel.Name, channel.Guid, GetUrl(channel));
+            }
+            sbChannel.Trim(',').Append(']');
+            return sbChannel.ToString();
+        }
+
+        private string GetUrl(Channel channel)
+        {
+            switch (channel.ChannelType)
+            {
+                case "URL":
+                    return channel.Url;
+                case "NODE":
+                    return "";
+                case "MODEL":
+                    return "/Model/ModelQuery.aspx?model=" + channel.Model + "&cid=" + channel.ID;
+            }
+            return String.Empty;
+        }
+    }
+}

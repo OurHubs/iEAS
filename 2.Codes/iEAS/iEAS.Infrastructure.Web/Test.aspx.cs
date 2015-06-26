@@ -53,48 +53,62 @@ namespace iEAS.Infrastructure.Web
             };
 
             context.PortalInfos.Add(portal);
+            context.SaveChanges();
+
+
 
             portal.Menus.Add(new iEAS.Module.Menu
             {
                 Name = "个人桌面",
                 Url = "Desktop.aspx",
                 Status = 1,
-                Sort=1
+                Sort = 1
             });
 
+            context.SaveChanges();
+
+            portal = context.Get<PortalInfo>(m => m.Guid == portal.Guid);
+
+            portal.Menus.Add(new iEAS.Module.Menu
+            {
+                Name = "内容管理",
+                Status = 1,
+                Children = new List<Module.Menu>
+                 {
+                      new Module.Menu{ Name="栏目内容", Url="Pages/Module/ChannelIndex.aspx",Status=1, Sort=1,PortalID=portal.ID}
+                 },
+                Sort = 2
+            });
             portal.Menus.Add(new iEAS.Module.Menu
             {
                 Name = "人事运营",
                 Status = 1,
                 Children = new List<Module.Menu>
                  {
-                      new Module.Menu{ Name="基础数据管理", Url="Pages/BaseData/BaseDataTypeList.aspx",Status=1, Sort=1},
-                     new Module.Menu{ Name="用户管理", Url="Pages/Account/UserList.aspx",Status=1, Sort=2},
-                      new Module.Menu{ Name="角色管理", Url="Pages/Account/RoleList.aspx",Status=1, Sort=3},
-                       new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1, Sort=4},
-                        new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1, Sort=5},
-                         new Module.Menu{ Name="测试数据", Url="Test.aspx",Status=1, Sort=6},
+                      new Module.Menu{ Name="基础数据管理", Url="Pages/BaseData/BaseDataTypeList.aspx",Status=1, Sort=1,PortalID=portal.ID},
+                     new Module.Menu{ Name="用户管理", Url="Pages/Account/UserList.aspx",Status=1, Sort=2,PortalID=portal.ID},
+                      new Module.Menu{ Name="角色管理", Url="Pages/Account/RoleList.aspx",Status=1, Sort=3,PortalID=portal.ID},
+                       new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1, Sort=4,PortalID=portal.ID},
+                        new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1, Sort=5,PortalID=portal.ID},
+                         new Module.Menu{ Name="测试数据", Url="Test.aspx",Status=1, Sort=6,PortalID=portal.ID},
 
                  },
-                Sort = 2
+                Sort = 3
             });
-
             portal.Menus.Add(new iEAS.Module.Menu
             {
                 Name = "系统设置",
                 Status = 1,
                 Children = new List<Module.Menu>
                  {
-                      new Module.Menu{ Name="基础数据管理", Url="Pages/BaseData/BaseDataTypeList.aspx",Status=1},
-                     new Module.Menu{ Name="用户管理", Url="Pages/Account/UserList.aspx",Status=1},
-                      new Module.Menu{ Name="角色管理", Url="Pages/Account/RoleList.aspx",Status=1},
-                       new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1},
-                        new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1},
-
+                     new Module.Menu{ Name="基础数据管理", Url="Pages/BaseData/BaseDataTypeList.aspx",Status=1,PortalID=portal.ID},
+                     new Module.Menu{ Name="用户管理", Url="Pages/Account/UserList.aspx",Status=1,PortalID=portal.ID},
+                     new Module.Menu{ Name="角色管理", Url="Pages/Account/RoleList.aspx",Status=1,PortalID=portal.ID},
+                     new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1,PortalID=portal.ID},
+                     new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1,PortalID=portal.ID},
                  },
-                Sort = 3
+                Sort = 4
             });
-
             context.SaveChanges();
 
 

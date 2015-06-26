@@ -40,7 +40,8 @@ namespace iEAS
             {
                 if (_Portal == null)
                 {
-                    throw new BusinessException("当前Portal不存在！");
+                    RegisterPortal("Default");
+                    //throw new BusinessException("当前Portal不存在！");
                 }
                 return _Portal;
             }
