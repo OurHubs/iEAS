@@ -18,6 +18,7 @@ namespace iEAS.Repository.Mapping.Module
             this.Property(m => m.Desc, "DESC", 200);
             this.Property(m => m.ModuleID, "MODULE_ID");
             this.Property(m => m.ParentID, "PARENT_ID");
+            this.Property(m => m.Sort, "SORT");
 
             this.HasRequired(m => m.Module).WithMany(m => m.Features).HasForeignKey(m => m.ModuleID);
             this.HasOptional(m => m.Parent).WithMany(m => m.Children).HasForeignKey(m => m.ParentID);

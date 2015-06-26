@@ -37,6 +37,10 @@ namespace iEAS.Module
         /// </summary>
         public string Desc { get; set; }
         /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get;set; }
+        /// <summary>
         /// 类型
         /// </summary>
         public virtual PortalInfo Portal { get; set; }
@@ -44,14 +48,7 @@ namespace iEAS.Module
         /// 上级
         /// </summary>
         public virtual Menu Parent { get; set; }
-        /// <summary>
-        /// 子菜单
-        /// </summary>
-        //public virtual List<Menu> Children
-        //{
-        //    get { return _Children; }
-        //    set { _Children = value; }
-        //}
+
 
         public virtual List<Menu> Children { get; set; }
     }

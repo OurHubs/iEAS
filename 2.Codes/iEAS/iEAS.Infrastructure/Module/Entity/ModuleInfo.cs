@@ -27,6 +27,11 @@ namespace iEAS.Module
         public string Desc { get; set; }
 
         /// <summary>
+        /// 排序
+        /// </summary>
+        public int Sort { get; set; }
+
+        /// <summary>
         /// 功能列表
         /// </summary>
         public virtual List<Feature> Features

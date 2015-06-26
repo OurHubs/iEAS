@@ -16,6 +16,7 @@ namespace iEAS.Repository.Mapping.Module
             this.Property(m => m.Name, "NAME", 50);
             this.Property(m => m.Code, "CODE", 50);
             this.Property(m => m.Desc, "DESC", 200);
+            this.Property(m => m.Sort, "SORT");
         }
     }
 }

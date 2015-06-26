@@ -19,6 +19,7 @@ namespace iEAS.Repository.Mapping.Module
             this.Property(m => m.PortalID, "PORTAL_ID");
             this.Property(m => m.ParentID, "PARENT_ID");
             this.Property(m => m.Url, "URL", 255);
+            this.Property(m => m.Sort, "SORT");
 
             this.HasRequired(m => m.Portal).WithMany(m => m.Menus).HasForeignKey(m => m.PortalID);
             this.HasOptional(m => m.Parent).WithMany(m => m.Children).HasForeignKey(m => m.ParentID);

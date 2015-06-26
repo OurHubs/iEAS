@@ -33,7 +33,7 @@
                         <a class="clearname" href="#" style="display: none;"></a></li>
                     <li class="mailpass" style="margin-top: 5px;">
                         <label class="placeholder" for="vippassword">输入密码</label>
-                        <asp:TextBox ID="txtPassword" runat="server" CssClass="password" TabIndex="2"></asp:TextBox>
+                        <asp:TextBox ID="txtPassword" runat="server" TextMode="Password" CssClass="password" TabIndex="2"></asp:TextBox>
                     </li>
                     <li class="btn">
                         <asp:Button ID="btnLogin" runat="server" Text="登陆" CssClass="loginBtn" OnClick="btnLogin_Click" />
@@ -98,7 +98,7 @@
             $(".placeholder").click(function () {
                 $(this).next().focus();
             });
-            $("input:text").focus(function () {
+            $("input:text,input:password").focus(function () {
                 $(this).prev().hide();
             }).blur(function () {
                 if ($(this).val()=="") {
@@ -109,7 +109,7 @@
                 }
             });
 
-            $("input:text").each(function () {
+            $("input:text,input:password").each(function () {
                 if ($(this).val() == "") {
                     $(this).prev().show();
                 }

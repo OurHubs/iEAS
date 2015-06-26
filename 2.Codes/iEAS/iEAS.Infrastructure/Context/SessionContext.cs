@@ -124,7 +124,7 @@ namespace iEAS
         public void Init(Guid userID, string portalCode)
         {
             ClearAccount();
-            _User = ObjectContainer.GetService<IUserService>().GetByGuid(userID);
+            RegisterUserID(userID);
             RegisterPortal(portalCode);
         }
 
