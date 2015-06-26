@@ -75,7 +75,17 @@ namespace iEAS.Infrastructure.Web
                 Status = 1,
                 Children = new List<Module.Menu>
                  {
+<<<<<<< HEAD
                       new Module.Menu{ Name="栏目内容", Url="Pages/Module/ChannelIndex.aspx",Status=1, Sort=1,PortalID=portal.ID}
+=======
+                      new Module.Menu{ Name="基础数据管理", Url="Pages/BaseData/BaseDataTypeList.aspx",Status=1, Sort=1},
+                     new Module.Menu{ Name="用户管理", Url="Pages/Account/UserList.aspx",Status=1, Sort=2},
+                      new Module.Menu{ Name="角色管理", Url="Pages/Account/RoleList.aspx",Status=1, Sort=3},
+                       new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1, Sort=4},
+                        new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1, Sort=5},
+                         new Module.Menu{ Name="测试数据", Url="Test.aspx",Status=1, Sort=6},
+                          new Module.Menu{ Name="Channel", Url="Pages/Module/ChannelList.aspx",Status=1, Sort=7},
+>>>>>>> origin/master
                  },
                 Sort = 2
             });
