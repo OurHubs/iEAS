@@ -25,6 +25,7 @@ namespace iEAS.Repository
             modelBuilder.Configurations.Add(new FeatureMapping());
             modelBuilder.Configurations.Add(new PortalInfoMapping());
             modelBuilder.Configurations.Add(new MenuMapping());
+            modelBuilder.Configurations.Add(new ChannelMapping());
 
             modelBuilder.Configurations.Add(new PermissionMapping());
             modelBuilder.Configurations.Add(new UserMapping());
@@ -42,5 +43,6 @@ namespace iEAS.Repository
         public DbSet<Feature> Features { get; set; }
         public DbSet<PortalInfo> PortalInfos { get; set; }
         public DbSet<Menu> Menus { get; set; }
+        public DbSet<Channel> Channels { get; set; }
     }
 }

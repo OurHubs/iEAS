@@ -35,10 +35,18 @@
                         </tr>
                         <tr>
                             <th>
-                                <span>*</span>值：
+                                <span>*</span>编码：
                             </th>
                             <td>
                                 <asp:TextBox ID="txtValue" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>
+                                <span>*</span>Url：
+                            </th>
+                            <td>
+                                <asp:TextBox ID="txtUrl" runat="server"></asp:TextBox>
                             </td>
                         </tr>
                         <tr>

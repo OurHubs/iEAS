@@ -110,6 +110,7 @@
     <Compile Include="Model\UI\ModelFormControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Module\Entity\Channel.cs" />
     <Compile Include="Module\Entity\Feature.cs" />
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />
@@ -119,9 +120,11 @@
     <Compile Include="Module\Service\IMenuService.cs" />
     <Compile Include="Module\Service\IModuleService.cs" />
     <Compile Include="Module\Service\Imp\FeatureService.cs" />
+    <Compile Include="Module\Service\Imp\ChannelService.cs" />
     <Compile Include="Module\Service\Imp\MenuService.cs" />
     <Compile Include="Module\Service\Imp\ModuleService.cs" />
     <Compile Include="Module\Service\Imp\PortalService.cs" />
+    <Compile Include="Module\Service\IChannelService.cs" />
     <Compile Include="Module\Service\IPortalService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\iEASRepository.cs" />
@@ -131,6 +134,7 @@
     <Compile Include="Repository\Mapping\Account\UserRoleRelMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataTypeMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataItemMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\ChannelMapping.cs" />
     <Compile Include="Repository\Mapping\Module\FeatureMapping.cs" />
     <Compile Include="Repository\Mapping\Module\MenuMapping.cs" />
     <Compile Include="Repository\Mapping\Module\ModuleInfoMapping.cs" />

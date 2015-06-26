@@ -28,6 +28,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtName.Text = menu.Name;
                 txtValue.Text = menu.Code;
                 txtDesc.Text = menu.Desc;
+                txtUrl.Text = menu.Url;
                 if (menu.ParentID != null)
                 {
                     lblParent.Text = menu.Parent.Name;
@@ -60,6 +61,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             menu.Name = txtName.Text.Trim();
             menu.Code = txtValue.Text.Trim();
             menu.Desc = txtDesc.Text.Trim();
+            menu.Url = txtUrl.Text.Trim();
             menu.Status = 1;
 
             try

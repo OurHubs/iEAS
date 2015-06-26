@@ -28,9 +28,10 @@
     	</div>
         <ul class="nav white" id="top_menu">
             <%
+                int i = 0;
                 foreach (var menu in TopMenus)
                { %>
-		    <li id="_M<%=menu.ID %>" class="on top_menu"><a href="javascript:_M('<%=menu.ID %>','<%=menu.Url %>')" hidefocus="true" style="outline:none;"><%=menu.Name %></a></li>
+		    <li id="_M<%=menu.ID %>" class="top_menu"><a href="javascript:_M('<%=menu.ID %>','<%=menu.Url %>')" hidefocus="true" style="outline:none;"><%=menu.Name %></a></li>
 		    <%} %>
         </ul>
     </div>
@@ -198,7 +199,7 @@
         $("html").removeClass("on");
         $("#openClose").data('clicknum', 0);
         $("#current_pos").data('clicknum', 1);
-        if (menuid == 0) {
+        if (menuid == 3) {
             $(".left_menu").addClass("left_menu_on");
             $(this).addClass("close");
             $("html").addClass("on");
@@ -210,7 +211,7 @@
             $('#btnx').css('display', 'none');
         }
     }
-    _M(0, 'Desktop.aspx');
+    _M(3, 'Desktop.aspx');
     function _MP(menuid, targetUrl) {
         targetUrl = targetUrl || "";
 
