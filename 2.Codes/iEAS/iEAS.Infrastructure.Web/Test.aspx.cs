@@ -74,7 +74,7 @@ namespace iEAS.Infrastructure.Web
                        new Module.Menu{ Name="Portal管理", Url="Pages/Module/PortalList.aspx",Status=1, Sort=4},
                         new Module.Menu{ Name="模块管理", Url="Pages/Module/ModuleList.aspx",Status=1, Sort=5},
                          new Module.Menu{ Name="测试数据", Url="Test.aspx",Status=1, Sort=6},
-                          new Module.Menu{ Name="Channel", Url="Pages/Module/Channel.aspx",Status=1, Sort=7},
+                          new Module.Menu{ Name="Channel", Url="Pages/Module/ChannelList.aspx",Status=1, Sort=7},
                  },
                 Sort = 2
             });

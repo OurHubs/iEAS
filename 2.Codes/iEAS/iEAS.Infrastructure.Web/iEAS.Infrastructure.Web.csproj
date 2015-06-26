@@ -172,6 +172,8 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Module\ChannelEdit.aspx" />
+    <Content Include="Pages\Module\ChannelList.aspx" />
     <Content Include="Pages\Module\FeatureEdit.aspx" />
     <Content Include="Pages\Module\FeatureList.aspx" />
     <Content Include="Pages\Module\MenuAuthorization.aspx" />
@@ -469,6 +471,20 @@
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelEdit.aspx.cs">
+      <DependentUpon>ChannelEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelEdit.aspx.designer.cs">
+      <DependentUpon>ChannelEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelList.aspx.cs">
+      <DependentUpon>ChannelList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelList.aspx.designer.cs">
+      <DependentUpon>ChannelList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\FeatureEdit.aspx.cs">
       <DependentUpon>FeatureEdit.aspx</DependentUpon>

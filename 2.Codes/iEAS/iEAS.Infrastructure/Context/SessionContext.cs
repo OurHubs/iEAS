@@ -40,7 +40,8 @@ namespace iEAS
             {
                 if (_Portal == null)
                 {
-                    throw new BusinessException("当前Portal不存在！");
+                    //throw new BusinessException("当前Portal不存在！");
+                    return ObjectContainer.GetService<IPortalService>().Get(m => m.Code == "Default");
                 }
                 return _Portal;
             }
