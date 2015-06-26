@@ -28,8 +28,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtCode.Text = model.Code;
                 txtName.Text = model.Name;
                 txtDesc.Text = model.Desc;
-                txtModel.Text = model.Model;
-                txtModelChannel.Text = model.ModelChannel;
+               
                 txtTemplate.Text = model.Template;
                 ddlChannelType.SelectedValue = model.ChannelType;
             }
@@ -57,8 +56,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             model.Name = txtName.Text.Trim();
             model.Code = txtCode.Text.Trim();
             model.Desc = txtDesc.Text.Trim();
-            model.Model = txtModel.Text.Trim();
-            model.ModelChannel = txtModelChannel.Text.Trim();
+           
             model.Template = txtTemplate.Text.Trim();
             ChannelService.CreateOrUpdate(model);
 

@@ -41,22 +41,7 @@
                                 <asp:TextBox ID="txtCode" runat="server"></asp:TextBox>
                             </td>
                         </tr>
-                        <tr>
-                            <th>
-                                <span>*</span>模块：
-                            </th>
-                            <td>
-                                <asp:TextBox ID="txtModel" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th>
-                                <span>*</span>模块栏目：
-                            </th>
-                            <td>
-                                <asp:TextBox ID="txtModelChannel" runat="server"></asp:TextBox>
-                            </td>
-                        </tr>
+                       
                         <tr>
                             <th>
                                 <span>*</span>栏目类别：
