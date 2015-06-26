@@ -98,10 +98,8 @@
     <Content Include="Assets\common\images\foot_icon.png" />
     <Content Include="Assets\common\images\header_bg.png" />
     <Content Include="Assets\common\images\icon.gif" />
-    <Content Include="Assets\common\images\icon_use.png" />
     <Content Include="Assets\common\images\left_bg.png" />
     <Content Include="Assets\common\images\left_menu.png" />
-    <Content Include="Assets\common\images\left_menu_openClose.png" />
     <Content Include="Assets\common\images\loginloading1.gif" />
     <Content Include="Assets\common\images\logo._png" />
     <Content Include="Assets\common\images\logo2.png" />
@@ -161,10 +159,10 @@
     <Content Include="Model\ModelQuery.aspx" />
     <Content Include="Model\Controls\Field\GridEditor.ascx" />
     <Content Include="Model\Template\Form\OneColumn.ascx" />
+    <Content Include="Model\Template\List\ChannelTabPagedQuery.ascx" />
     <Content Include="Model\Template\List\ModelToolBar.ascx" />
     <Content Include="Model\Template\List\PagedQuery.ascx" />
     <Content Include="Model\Template\List\TabPagedQuery.ascx" />
-    <Content Include="Model\Template\List\ChannelTabPagedQuery.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -175,13 +173,10 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
-<<<<<<< HEAD
-    <Content Include="Pages\Module\ChannelIndex.aspx" />
-    <Content Include="Pages\Module\ChannelTree.aspx" />
-=======
     <Content Include="Pages\Module\ChannelEdit.aspx" />
+    <Content Include="Pages\Module\ChannelIndex.aspx" />
     <Content Include="Pages\Module\ChannelList.aspx" />
->>>>>>> origin/master
+    <Content Include="Pages\Module\ChannelTree.aspx" />
     <Content Include="Pages\Module\FeatureEdit.aspx" />
     <Content Include="Pages\Module\FeatureList.aspx" />
     <Content Include="Pages\Module\MenuAuthorization.aspx" />
@@ -480,21 +475,6 @@
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
     </Compile>
-<<<<<<< HEAD
-    <Compile Include="Pages\Module\ChannelIndex.aspx.cs">
-      <DependentUpon>ChannelIndex.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Module\ChannelIndex.aspx.designer.cs">
-      <DependentUpon>ChannelIndex.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Module\ChannelTree.aspx.cs">
-      <DependentUpon>ChannelTree.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Module\ChannelTree.aspx.designer.cs">
-      <DependentUpon>ChannelTree.aspx</DependentUpon>
-=======
     <Compile Include="Pages\Module\ChannelEdit.aspx.cs">
       <DependentUpon>ChannelEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -502,13 +482,26 @@
     <Compile Include="Pages\Module\ChannelEdit.aspx.designer.cs">
       <DependentUpon>ChannelEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Module\ChannelIndex.aspx.cs">
+      <DependentUpon>ChannelIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelIndex.aspx.designer.cs">
+      <DependentUpon>ChannelIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Module\ChannelList.aspx.cs">
       <DependentUpon>ChannelList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Module\ChannelList.aspx.designer.cs">
       <DependentUpon>ChannelList.aspx</DependentUpon>
->>>>>>> origin/master
+    </Compile>
+    <Compile Include="Pages\Module\ChannelTree.aspx.cs">
+      <DependentUpon>ChannelTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Module\ChannelTree.aspx.designer.cs">
+      <DependentUpon>ChannelTree.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\FeatureEdit.aspx.cs">
       <DependentUpon>FeatureEdit.aspx</DependentUpon>

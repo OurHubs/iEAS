@@ -34,12 +34,14 @@
         html,body{
             padding:0;
             margin:0;
+            width:100%;
+            background:#F6EDA4;
         }
 
     </style>
 </head>
-<body style="padding:10px;">
-    <div style="background:#fff; margin:0 8px; height:600px;">
+<body>
+    <div style="background:#fefefe; margin:0 10px 0 0; height:600px;">
     <ul id="treeModule" class="ztree"></ul>
         </div>
 </body>
