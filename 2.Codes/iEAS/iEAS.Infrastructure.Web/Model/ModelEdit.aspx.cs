@@ -13,7 +13,7 @@ namespace iEAS.Infrastructure.Web.Model
         protected override void OnPreInit(EventArgs e)
         {
             this.Controls.Clear();
-            var ctr = Page.LoadControl("~/Model/Template/Form/" + ModelContext.Current.Form.Template + ".ascx");
+            var ctr = Page.LoadControl("~/Model/Controls/Form/" + ModelContext.Current.Form.Template + ".ascx");
             this.Controls.Add(ctr);
             base.OnPreInit(e);
         }

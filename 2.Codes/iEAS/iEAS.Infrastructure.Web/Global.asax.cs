@@ -12,6 +12,7 @@ using System.Web.SessionState;
 using iEAS.Module;
 using iEAS.Account;
 using iEAS.Framework.Log;
+using System.Web.Routing;
 
 
 namespace iEAS.Infrastructure.Web
@@ -20,6 +21,9 @@ namespace iEAS.Infrastructure.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            RouteTable.Routes.MapPageRoute("Home", "", "~/Portal/TemplateEngine/Home.aspx");
+            RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx");
+            RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Channel.aspx");
         }
 
         protected override void RegisterComponents(ContainerBuilder builder)
@@ -42,12 +46,12 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<PortalService>().As<IPortalService>();
             builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<ChannelService>().As<IChannelService>();
-           // builder.RegisterType<ILogger>().As<Log4netLogger>();
-            
+            // builder.RegisterType<ILogger>().As<Log4netLogger>();
+
         }
     }
 
-    public class CurrentUserProvider:ICurrentUserProvider
+    public class CurrentUserProvider : ICurrentUserProvider
     {
 
         public IUserInfo GetCurrentUserInfo()

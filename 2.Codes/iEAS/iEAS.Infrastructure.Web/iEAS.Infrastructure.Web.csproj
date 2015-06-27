@@ -158,11 +158,11 @@
     <Content Include="Model\ModelEdit.aspx" />
     <Content Include="Model\ModelQuery.aspx" />
     <Content Include="Model\Controls\Field\GridEditor.ascx" />
-    <Content Include="Model\Template\Form\OneColumn.ascx" />
-    <Content Include="Model\Template\List\ChannelTabPagedQuery.ascx" />
-    <Content Include="Model\Template\List\ModelToolBar.ascx" />
-    <Content Include="Model\Template\List\PagedQuery.ascx" />
-    <Content Include="Model\Template\List\TabPagedQuery.ascx" />
+    <Content Include="Model\Controls\Form\OneColumn.ascx" />
+    <Content Include="Model\Controls\List\ChannelTabPagedQuery.ascx" />
+    <Content Include="Model\Controls\List\ModelToolBar.ascx" />
+    <Content Include="Model\Controls\List\PagedQuery.ascx" />
+    <Content Include="Model\Controls\List\TabPagedQuery.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -188,7 +188,13 @@
     <Content Include="Pages\Module\PortalEdit.aspx" />
     <Content Include="Pages\Module\PortalList.aspx" />
     <Content Include="Portal.aspx" />
+    <Content Include="Portal\Default.aspx" />
+    <Content Include="Portal\TemplateEngine\Channel.aspx" />
+    <Content Include="Portal\TemplateEngine\Detail.aspx" />
+    <Content Include="Portal\TemplateEngine\Home.aspx" />
     <Content Include="Welcome.aspx" />
+    <Content Include="_Templates\Default\ChannelList.ascx" />
+    <Content Include="_Templates\Default\Home.ascx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -380,28 +386,28 @@
     <Compile Include="Model\Controls\Field\GridEditor.ascx.designer.cs">
       <DependentUpon>GridEditor.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Template\Form\OneColumn.ascx.cs">
+    <Compile Include="Model\Controls\Form\OneColumn.ascx.cs">
       <DependentUpon>OneColumn.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\Template\Form\OneColumn.ascx.designer.cs">
+    <Compile Include="Model\Controls\Form\OneColumn.ascx.designer.cs">
       <DependentUpon>OneColumn.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Template\List\ModelToolBar.ascx.cs">
+    <Compile Include="Model\Controls\List\ModelToolBar.ascx.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\Template\List\ModelToolBar.ascx.designer.cs">
+    <Compile Include="Model\Controls\List\ModelToolBar.ascx.designer.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Template\List\PagedQuery.ascx.cs">
+    <Compile Include="Model\Controls\List\PagedQuery.ascx.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\Template\List\PagedQuery.ascx.designer.cs">
+    <Compile Include="Model\Controls\List\PagedQuery.ascx.designer.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Template\List\TabPagedQuery.ascx.cs">
+    <Compile Include="Model\Controls\List\TabPagedQuery.ascx.cs">
       <DependentUpon>TabPagedQuery.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
@@ -580,6 +586,34 @@
     <Compile Include="Portal.aspx.designer.cs">
       <DependentUpon>Portal.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Portal\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portal\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Channel.aspx.cs">
+      <DependentUpon>Channel.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Channel.aspx.designer.cs">
+      <DependentUpon>Channel.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Detail.aspx.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Detail.aspx.designer.cs">
+      <DependentUpon>Detail.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Portal\TemplateEngine\Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Test.aspx.cs">
       <DependentUpon>Test.aspx</DependentUpon>
@@ -614,7 +648,13 @@
       <Name>AspNetPager</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Model\Pages\" />
+    <Folder Include="_Templates\Default\Assets\Controls\" />
+    <Folder Include="_Templates\Default\Assets\Css\" />
+    <Folder Include="_Templates\Default\Assets\Images\" />
+    <Folder Include="_Templates\Default\Assets\JS\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

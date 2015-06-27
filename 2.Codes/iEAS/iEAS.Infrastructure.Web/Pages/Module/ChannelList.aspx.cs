@@ -14,15 +14,28 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if(!IsPostBack)
+            {
+                BindData();
+            }
         }
 
-        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
+       
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            var result = ChannelService.QueryRecord(m => m.Status == 1,
-                                                        o => o.Asc(m => m.ID),
-                                                        args.startRowIndex,
-                                                        args.maxRows, true);
+            if (e.CommandName == "Del")
+            {
+                int rid = e.CommandArgument.ToString().ToInt();
+                ChannelService.DeleteByID(rid);
+                //删除子项
+
+                BindData();
+            }
+        }
+        private void BindData()
+        {
+            var result = ChannelService.Query(m => m.Status == 1, null, true);
 
             List<iEAS.Module.Channel> records = new List<iEAS.Module.Channel>();
             var roots = result.Where(m => m.ParentID == null).ToList();
@@ -45,23 +58,8 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             }
 
-            return new QueryResult<iEAS.Module.Channel>
-            {
-                Items = records,
-                RecordCount = result.RecordCount
-            };
-        }
-
-        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
-        {
-            if (e.CommandName == "Del")
-            {
-                int rid = e.CommandArgument.ToString().ToInt();
-                ChannelService.DeleteByID(rid);
-                //删除子项
-
-                lvQuery.DataBind();
-            }
+            gvList.DataSource = records;
+            gvList.DataBind();
         }
 
         private void BuildItems(iEAS.Module.Channel item, List<iEAS.Module.Channel> records, string prefix)

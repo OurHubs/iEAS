@@ -8,8 +8,9 @@
 //------------------------------------------------------------------------------
 
 namespace iEAS.Infrastructure.Web {
-    
-    
-    public partial class Portal {
+
+
+    public partial class _Portal
+    {
     }
 }

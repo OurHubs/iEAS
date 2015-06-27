@@ -58,6 +58,9 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             model.Desc = txtDesc.Text.Trim();
            
             model.Template = txtTemplate.Text.Trim();
+
+            model.ChannelType = "MODEL";
+            model.Model = "Article.Send";
             ChannelService.CreateOrUpdate(model);
 
             Response.Redirect("ChannelList.aspx");

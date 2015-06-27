@@ -1,66 +1,68 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.ChannelList" %>
 
 <!DOCTYPE html>
-
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-     <title></title>
-     <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
-     <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
-     <script src="../../Assets/common/js/table.js"></script>
+<!--[if IE 6 ]> <html class="ie6 lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 6 ]> <html class="lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 9 ]> <html class="lte_ie9"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+<head>
+    <title>iEAS</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
+    <link rel="stylesheet" type="text/css" href="../../assets/common/css/style2015.css">
+    <script type="text/javascript" src="../../assets/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="../../assets/common/js/lockTableTitle.js"></script>
+    <script type="text/javascript" src="../../assets/common/js/common.js"></script>
 </head>
-<body>
-    <form id="form1" runat="server">
-   <div class="container">
-            <ul class="tabList_toolbar">
-                <li><a href="ChannelEdit.aspx" class="add">增 加</a> </li>
-                <li><a href="#" class="del">删 除</a></li>
+<body class="body-wrap">
+    <form runat="server">
+        <div class="tabbable work-nav">
+            <ul id="myTab" class="nav nav-tabs">
+                <li class="active"><a href="ChannelEdit.aspx" data-toggle="tab">栏目管理</a></li>
             </ul>
-            <table class="tabList">
-                <tr class="title">
-                    <td style="width: 5%">
-                        <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
-                    </td>
-                 
-                    <td style="width: 40%">名称
-                    </td>
-                    <td style="width: 20%">编码
-                    </td>
-                    <td>备注
-                    </td>
-                    <td style="width: 15%">操作
-                    </td>
-                </tr>
-                <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="IDS" />
-                            </td>
-                         
-                            <td>
-                                <%# Eval("Name") %>
-                            </td>
-                            <td>
-                                <%# Eval("Code") %>
-                            </td>
-                            <td>
-                                <%# Eval("Desc") %>
-                            </td>
-                            <td>
-                                <a href="ChannelEdit.aspx?parentID=<%# Eval("ID") %>">添加子项</a>|<a href="ChannelEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+        </div>
+        <div class="data-wrap">
+            <div class="data-operation">
+                <div class="button-operation">
+                    <button type="button" class="btn btn-success">新建栏目</button>
+                </div>
+                <div class="pager_operation">
+                </div>
+            </div>
+        </div>
+        <div class="data-list">
+            <iEAS:GridView ID="gvList" runat="server" AutoGenerateColumns="false" ShowHeaderWhenEmpty="true"
+                CssClass="table table-bordered table-hover" Width="100%" GridLines="None" OnRowCommand="gvList_RowCommand" Style="border-collapse: separate">
+                <Columns>
+                    <asp:TemplateField HeaderText="栏目名称">
+                        <ItemTemplate>
+                            <%# Eval("Name") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="栏目编码" HeaderStyle-Width="200px">
+                        <ItemTemplate>
+                            <%# Eval("Code") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="备注" HeaderStyle-Width="200px">
+                        <ItemTemplate>
+                            <%# Eval("Desc") %>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                    <asp:TemplateField HeaderText="操作" HeaderStyle-Width="300px">
+                        <ItemTemplate>
+                             <a href="ChannelEdit.aspx?parentID=<%# Eval("ID") %>">添加子项</a>|<a href="ChannelEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                </iEAS:ListView>
-            </table>
-            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
-            </iEAS:ObjectDataSource>
+                        </ItemTemplate>
+                    </asp:TemplateField>
+                </Columns>
+                <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />
+                <RowStyle Wrap="true" />
+            </iEAS:GridView>
         </div>
     </form>
 </body>

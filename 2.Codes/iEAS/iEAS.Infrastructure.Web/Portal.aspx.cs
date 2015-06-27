@@ -8,7 +8,7 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web
 {
-    public partial class Portal : System.Web.UI.Page
+    public partial class _Portal : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
