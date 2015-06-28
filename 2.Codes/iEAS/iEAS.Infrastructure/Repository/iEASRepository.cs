@@ -8,6 +8,8 @@ using iEAS.Repository.Mapping.Module;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -31,6 +33,8 @@ namespace iEAS.Repository
             modelBuilder.Configurations.Add(new UserMapping());
             modelBuilder.Configurations.Add(new RoleMapping());
 
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();//移除复数表名的契约
+            modelBuilder.Conventions.Remove<IncludeMetadataConvention>();//防止黑幕交易 要不然每次都要访问 EdmMetadata这个表
             base.OnModelCreating(modelBuilder);
         }
 
