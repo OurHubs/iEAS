@@ -7,22 +7,21 @@ using System.Xml.Serialization;
 
 namespace iEAS.Model.Config
 {
-    [Serializable]
-    public class ModelTable
+    public class ModelRegistry
     {
-        private ModelTableColumnCollection _Columns = new ModelTableColumnCollection();
-
         [XmlAttribute]
         public string Name { get; set; }
         [XmlAttribute]
         public string Code { get; set; }
+        [XmlAttribute]
+        public string Desc { get; set; }
+        [XmlAttribute]
+        public string Module { get; set; }
+        [XmlAttribute]
+        public string Path { get; set; }
 
-        [XmlArray("Columns")]
-        [XmlArrayItem("Column")]
-        public ModelTableColumnCollection Columns
+        public static void Save()
         {
-            get { return _Columns; }
-            set { _Columns = value; }
         }
     }
 }

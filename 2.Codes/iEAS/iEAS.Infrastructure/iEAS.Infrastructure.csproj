@@ -72,6 +72,10 @@
     <Compile Include="Model\Config\ModelColumnCollection.cs" />
     <Compile Include="Model\Config\ModelNavigation.cs" />
     <Compile Include="Model\Config\ModelNavigationCollection.cs" />
+    <Compile Include="Model\Config\ModelRegistry.cs" />
+    <Compile Include="Model\Config\ModelRegistryCollection.cs" />
+    <Compile Include="Model\Config\ModelTableColumn.cs" />
+    <Compile Include="Model\Config\ModelTableColumnCollection.cs" />
     <Compile Include="Model\Config\ModelToolbarItem.cs" />
     <Compile Include="Model\Config\ModelToolbarItemCollection.cs" />
     <Compile Include="Model\Config\ModelCondition.cs" />

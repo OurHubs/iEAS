@@ -15,7 +15,8 @@
         <br />
         <asp:Button ID="btnSaveModelFile" runat="server" Text="生成模型文件" OnClick="btnSaveModelFile_Click" />    
         <asp:Button ID="btnModelEdit" runat="server" Text="模型编辑" OnClick="btnModelEdit_Click" />    
-        <asp:Button ID="btnModelQuery" runat="server" Text="模型查询" OnClick="btnModelQuery_Click" />    
+        <asp:Button ID="btnModelQuery" runat="server" Text="模型查询" OnClick="btnModelQuery_Click" />   
+        <asp:Button ID="btnModelRegistry" runat="server" Text="模型注册" OnClick="btnModelRegistry_Click" />
     </div>
     </form>
 </body>

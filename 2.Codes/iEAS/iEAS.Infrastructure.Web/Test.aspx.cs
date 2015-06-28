@@ -216,7 +216,10 @@ namespace iEAS.Infrastructure.Web
             {
                 Code = "c",
                 Name = "N",
-                Type = "1"
+                Columns = new ModelTableColumnCollection
+                {
+                    new ModelTableColumn()
+                }
             });
 
             config.Save();
@@ -230,6 +233,13 @@ namespace iEAS.Infrastructure.Web
         protected void btnModelQuery_Click(object sender, EventArgs e)
         {
             Response.Redirect("~/Model/ModelQuery.aspx?model=Article");
+        }
+
+        protected void btnModelRegistry_Click(object sender, EventArgs e)
+        {
+            ModelRegistryCollection regs = new ModelRegistryCollection();
+            regs.Add(new ModelRegistry { Name = "1", Desc = "d", Module = "M", Path = "Article.xml" });
+            regs.Save();
         }
     }
 }

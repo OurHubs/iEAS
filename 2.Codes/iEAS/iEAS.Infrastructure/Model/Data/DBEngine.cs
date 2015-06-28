@@ -247,12 +247,12 @@ namespace iEAS.Model.Data
             return record;
         }
 
-        private string BuildParamName(string field,int index)
+        private string BuildParamName(string field, int index)
         {
             return String.Format("@{0}_{1}", field, index);
         }
 
-        private void ExecuteSql(string sql, SqlParameter[] parameters)
+        public void ExecuteSql(string sql, SqlParameter[] parameters)
         {
             using (SqlConnection conn = new SqlConnection(DBConn))
             {
@@ -268,7 +268,7 @@ namespace iEAS.Model.Data
             }
         }
 
-       private DataTable QueryTable(string sql,SqlParameter[] parameters)
+       public DataTable QueryTable(string sql, SqlParameter[] parameters)
        {
             using (SqlConnection conn = new SqlConnection(DBConn))
             {
@@ -286,7 +286,7 @@ namespace iEAS.Model.Data
             }
         }
 
-       private object ExecuteScalar(string sql, SqlParameter[] parameters)
+       public object ExecuteScalar(string sql, SqlParameter[] parameters)
        {
            using (SqlConnection conn = new SqlConnection(DBConn))
            {

@@ -173,6 +173,7 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Model\ModelRegistryList.aspx" />
     <Content Include="Pages\Module\ChannelEdit.aspx" />
     <Content Include="Pages\Module\ChannelIndex.aspx" />
     <Content Include="Pages\Module\ChannelList.aspx" />
@@ -195,6 +196,7 @@
     <Content Include="Welcome.aspx" />
     <Content Include="_Templates\Default\ChannelList.ascx" />
     <Content Include="_Templates\Default\Home.ascx" />
+    <Content Include="Config\Model\ModelRegistry.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -481,6 +483,13 @@
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Model\ModelRegistryList.aspx.cs">
+      <DependentUpon>ModelRegistryList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Model\ModelRegistryList.aspx.designer.cs">
+      <DependentUpon>ModelRegistryList.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Module\ChannelEdit.aspx.cs">
       <DependentUpon>ChannelEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -649,7 +658,6 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Model\Pages\" />
     <Folder Include="_Templates\Default\Assets\Controls\" />
     <Folder Include="_Templates\Default\Assets\Css\" />
     <Folder Include="_Templates\Default\Assets\Images\" />
