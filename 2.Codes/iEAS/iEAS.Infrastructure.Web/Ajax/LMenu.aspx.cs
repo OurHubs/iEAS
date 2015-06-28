@@ -13,12 +13,16 @@ namespace iEAS.Infrastructure.Web.Ajax
         protected void Page_Load(object sender, EventArgs e)
         {
             int menuId = Request["menuid"].ToInt();
-            var menus = SessionContext.Current.Menus.Where(m => m.ParentID == menuId).OrderBy(m=>m.Sort);
+            string portal = Request["portal"];
+            var portalMenus = AccountContext.Current.GetPortalMenus(portal);
+            var menus = portalMenus
+                .Where(m => m.ParentID == menuId)
+                .OrderBy(m => m.Sort);
 
             StringBuilder sbMenus = new StringBuilder();
             foreach(var menu in menus)
             {
-                var subMenus = SessionContext.Current.Menus.Where(m => m.ParentID == menu.ID).OrderBy(m => m.Sort).ToList();
+                var subMenus = portalMenus.Where(m => m.ParentID == menu.ID).OrderBy(m => m.Sort).ToList();
                 if (subMenus.Count > 0)
                 {
                     sbMenus.AppendFormat(@"<h3 class=""f14""><span class=""switchs cu on"" title=""展开与收缩""></span>{0}</h3>",menu.Name);

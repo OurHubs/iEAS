@@ -169,8 +169,7 @@ namespace iEAS.Infrastructure.Web
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-            SessionContext.Current.RegisterUserID("bb62d704-01f2-4187-9c32-9c2c7670940e".ToGuid());
-            SessionContext.Current.RegisterPortal("Default");
+            AccountContext.Current.RegisterUserID("bb62d704-01f2-4187-9c32-9c2c7670940e".ToGuid());
             Response.Redirect("~/Default.aspx");
         }
 

@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Context;
 using iEAS.Module;
 using iEAS.Security;
 using System;
@@ -11,38 +12,25 @@ using System.Web.Security;
 
 namespace iEAS
 {
-    public class SessionContext
+    public class AccountContext
     {
         private User _User;
-        private PortalInfo _Portal;
         private IEnumerable<Role> _Roles;
         private IEnumerable<ModuleInfo> _Modules;
-        private IEnumerable<Menu> _Menus;
         private IEnumerable<Permission> _Permissions;
+        private Dictionary<string, IEnumerable<Menu>> _PortalMenus = new Dictionary<string, IEnumerable<Menu>>();
 
-        public static SessionContext Current
+        public static AccountContext Current
         {
             get
             {
-                SessionContext ctx = HttpContext.Current.Session[typeof(SessionContext).FullName] as SessionContext;
+                AccountContext ctx = HttpContext.Current.Session[typeof(AccountContext).FullName] as AccountContext;
                 if(ctx==null)
                 {
-                    ctx = new SessionContext();
-                    HttpContext.Current.Session[typeof(SessionContext).FullName] = ctx;
+                    ctx = new AccountContext();
+                    HttpContext.Current.Session[typeof(AccountContext).FullName] = ctx;
                 }
                 return ctx;
-            }
-        }
-
-        public PortalInfo Portal
-        {
-            get
-            {
-                if (_Portal == null)
-                {
-                    RegisterPortal("Default");
-                }
-                return _Portal;
             }
         }
 
@@ -80,20 +68,6 @@ namespace iEAS
             }
         }
 
-        public IEnumerable<Menu> Menus
-        {
-            get
-            {
-                if (_Menus == null)
-                {
-                    _Menus = ObjectContainer.GetService<IMenuService>().Query(m => m.Status == 1 && m.PortalID==Portal.ID)
-                        .Where(m => Permissions.Any(p => p.ResourceType == ResourceType.Menu))
-                        .ToList();
-                }
-                return _Menus;
-            }
-        }
-
         public IEnumerable<ModuleInfo> Modules
         {
             get
@@ -121,22 +95,24 @@ namespace iEAS
             }
         }
 
-        public void Init(Guid userID, string portalCode)
-        {
-            ClearAccount();
-            RegisterUserID(userID);
-            RegisterPortal(portalCode);
-        }
-
         public void RegisterUserID(Guid userID)
         {
+           ClearAccount();
            FormsAuthentication.SetAuthCookie(userID.ToString(),true);
         }
 
-        public void RegisterPortal(string portalCode)
+        public IEnumerable<Menu> GetPortalMenus(string portalCode)
         {
-            ClearResources();
-            _Portal = ObjectContainer.GetService<IPortalService>().GetPortalByCode(portalCode);
+            if(!_PortalMenus.ContainsKey(portalCode))
+            {
+                var portal=PortalContext.Current.GetPortal(portalCode);
+                var menus = portal.Menus
+                    .Where(m => Permissions.Any(p => p.ResouceID == m.Guid.ToString()))
+                    .ToList();
+
+                _PortalMenus.Add(portalCode, menus);
+            }
+            return _PortalMenus[portalCode];
         }
 
         private void ClearAccount()
@@ -144,12 +120,13 @@ namespace iEAS
             _User = null;
             _Roles = null;
             _Permissions = null;
+            _Modules = null;
+
+            _PortalMenus.Clear();
         }
 
         private void ClearResources()
         {
-            _Portal = null;
-            _Menus = null;
             _Modules = null;
         }
     }

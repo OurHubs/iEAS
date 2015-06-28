@@ -10,6 +10,8 @@ namespace iEAS.Infrastructure.Web
 {
     public partial class _Portal : System.Web.UI.Page
     {
+        private PortalInfo _PortalInfo;
+
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -21,10 +23,17 @@ namespace iEAS.Infrastructure.Web
             {
                 if(_TopMenus==null)
                 {
-                    _TopMenus = SessionContext.Current.Menus.Where(m => m.ParentID == null).OrderBy(m => m.Sort);
+                    _TopMenus = AccountContext.Current.GetPortalMenus(PortalCode)
+                        .Where(m=>m.ParentID==null)
+                        .OrderBy(m => m.Sort);
                 }
                 return _TopMenus;
             }
+        }
+
+        public string PortalCode
+        {
+            get { return Request["code"].ToStr("Default"); }
         }
     }
 }

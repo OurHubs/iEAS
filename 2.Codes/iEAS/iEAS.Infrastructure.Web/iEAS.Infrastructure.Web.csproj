@@ -653,7 +653,7 @@
     <Folder Include="_Templates\Default\Assets\Controls\" />
     <Folder Include="_Templates\Default\Assets\Css\" />
     <Folder Include="_Templates\Default\Assets\Images\" />
-    <Folder Include="_Templates\Default\Assets\JS\" />
+    <Folder Include="_Templates\Default\Assets\Js\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

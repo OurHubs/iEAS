@@ -24,6 +24,11 @@ namespace iEAS.Infrastructure.Web
             RouteTable.Routes.MapPageRoute("Home", "", "~/Portal/TemplateEngine/Home.aspx");
             RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx");
             RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Channel.aspx");
+
+            RouteValueDictionary defaults = new RouteValueDictionary();
+            defaults.Add("PortalCode", "Default");
+
+            RouteTable.Routes.MapPageRoute("Portal", "Portal/{PortalCode}", "~/Portal.aspx");
         }
 
         protected override void RegisterComponents(ContainerBuilder builder)

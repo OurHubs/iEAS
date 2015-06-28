@@ -33,7 +33,7 @@ namespace iEAS.Infrastructure.Web
             }
             else
             {
-                SessionContext.Current.Init(user.Guid, "Default");
+                AccountContext.Current.RegisterUserID(user.Guid);
                 Response.Redirect("~/Portal.aspx");
             }
         }

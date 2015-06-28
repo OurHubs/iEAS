@@ -6,6 +6,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
 <title>iEAS企业应用平台 </title>
+
 <link href="assets/common/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="assets/common/css/zh-cn-system.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="assets/common/js/jquery.min.js"></script>
@@ -182,7 +183,7 @@
         $("#bigid").val(menuid);
         $("#paneladd").html('<a class="panel-add" href="javascript:add_panel();"><em>添加</em></a>');
 
-        $("#leftMain").load("Ajax/LMenu.aspx?menuid=" + menuid, { limit: 25 }, function () {
+        $("#leftMain").load("Ajax/LMenu.aspx?portal=<%=PortalCode %>&menuid=" + menuid, { limit: 25 }, function () {
             windowW();
         });
         $("#rightMain").attr('src', targetUrl);
@@ -229,7 +230,7 @@
         $("#rightMain").attr('src', targetUrl);
         $('.sub_menu').removeClass("on fb blue");
         $('#_MP' + menuid).addClass("on fb blue");
-        $.get("Ajax/LMenu.aspx?menuid=" + menuid, function (data) {
+        $.get("Ajax/LMenu.aspx?portal=<%=PortalCode %>&menuid=" + menuid, function (data) {
             $("#current_pos").html(data + '<span id="current_pos_attr"></span>');
         });
         $("#current_pos").data('clicknum', 1);
