@@ -4,7 +4,7 @@
     <Form Title="消息" Code="Article" Table="Article" Template="OneColumn">
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput" IsRequired="true"/>
-        <Field Title="简介" Code="Desc" Control="TextInput"/>
+        <Field Title="简介" Code="Desc" Control="TextEditor"/>
       </Fields>
       <Groups>
         <Group>
