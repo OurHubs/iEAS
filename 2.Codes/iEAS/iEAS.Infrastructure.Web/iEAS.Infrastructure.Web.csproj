@@ -481,12 +481,14 @@
     <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Config\Model\Case.xml" />
     <Content Include="Config\Model\Article.xml" />
     <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
     <Content Include="Desktop.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
+    <Content Include="Model\Controls\Field\ImageUpload.ascx" />
     <Content Include="Model\Controls\Field\TextEditor.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
     <Content Include="Model\ModelEdit.aspx" />
@@ -528,7 +530,59 @@
     <Content Include="Portal\TemplateEngine\Detail.aspx" />
     <Content Include="Portal\TemplateEngine\Home.aspx" />
     <Content Include="Welcome.aspx" />
+    <Content Include="_Templates\Default\Assets\Images\bbody.jpg" />
+    <Content Include="_Templates\Default\Assets\Images\logo.png" />
+    <Content Include="_Templates\Default\Assets\Images\msg_subNav.png" />
+    <Content Include="_Templates\Default\Assets\Images\nav.png" />
+    <Content Include="_Templates\Default\Assets\Images\t.jpg" />
+    <Content Include="_Templates\Default\Controls\Header.ascx" />
+    <Content Include="_Templates\Default\Controls\ProductShow.ascx" />
+    <Content Include="_Templates\Default\Assets\Css\public.css" />
+    <Content Include="_Templates\Default\Assets\Css\reset.css" />
+    <Content Include="_Templates\Default\Assets\Css\style.css" />
+    <Content Include="_Templates\Default\Assets\Css\style1.css" />
+    <Content Include="_Templates\Default\Assets\Images\01.gif" />
+    <Content Include="_Templates\Default\Assets\Images\02.gif" />
+    <Content Include="_Templates\Default\Assets\Images\03.gif" />
+    <Content Include="_Templates\Default\Assets\Images\04.gif" />
+    <Content Include="_Templates\Default\Assets\Images\05.gif" />
+    <Content Include="_Templates\Default\Assets\Images\06.gif" />
+    <Content Include="_Templates\Default\Assets\Images\07.gif" />
+    <Content Include="_Templates\Default\Assets\Images\08.gif" />
+    <Content Include="_Templates\Default\Assets\Images\09.gif" />
+    <Content Include="_Templates\Default\Assets\Images\1.png" />
+    <Content Include="_Templates\Default\Assets\Images\10.gif" />
+    <Content Include="_Templates\Default\Assets\Images\10.png" />
+    <Content Include="_Templates\Default\Assets\Images\11.gif" />
+    <Content Include="_Templates\Default\Assets\Images\11.png" />
+    <Content Include="_Templates\Default\Assets\Images\12.gif" />
+    <Content Include="_Templates\Default\Assets\Images\12.png" />
+    <Content Include="_Templates\Default\Assets\Images\13.png" />
+    <Content Include="_Templates\Default\Assets\Images\2.png" />
+    <Content Include="_Templates\Default\Assets\Images\3.png" />
+    <Content Include="_Templates\Default\Assets\Images\4.png" />
+    <Content Include="_Templates\Default\Assets\Images\5.png" />
+    <Content Include="_Templates\Default\Assets\Images\6.png" />
+    <Content Include="_Templates\Default\Assets\Images\7.png" />
+    <Content Include="_Templates\Default\Assets\Images\8.png" />
+    <Content Include="_Templates\Default\Assets\Images\pic1.gif" />
+    <Content Include="_Templates\Default\Assets\Images\r7.gif" />
+    <Content Include="_Templates\Default\Assets\Images\sina_weibo.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts1.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts2.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts3.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts4.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts5.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts6.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts7.png" />
+    <Content Include="_Templates\Default\Assets\Images\ts8.png" />
+    <Content Include="_Templates\Default\Assets\Js\jquery.min.js" />
+    <Content Include="_Templates\Default\Assets\Js\jquery.mousewheel.min.js" />
+    <Content Include="_Templates\Default\Assets\Js\script.js" />
+    <Content Include="_Templates\Default\Assets\Js\source.js" />
     <Content Include="_Templates\Default\ChannelList.ascx" />
+    <Content Include="_Templates\Default\Controls\Special.ascx" />
+    <Content Include="_Templates\Default\Controls\TopMenu.ascx" />
     <Content Include="_Templates\Default\Home.ascx" />
     <Content Include="Config\Model\ModelRegistry.config" />
     <Content Include="Assets\ckeditor\CHANGES.md" />
@@ -542,6 +596,7 @@
     <Content Include="Assets\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
     <Content Include="Assets\ckeditor\samples\sample_posteddata.php" />
     <Content Include="Assets\ckeditor\skins\moono\readme.md" />
+    <Content Include="Config\Site.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -704,6 +759,13 @@
     </Compile>
     <Compile Include="Model\Controls\Column\Command.ascx.designer.cs">
       <DependentUpon>Command.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Field\ImageUpload.ascx.cs">
+      <DependentUpon>ImageUpload.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Field\ImageUpload.ascx.designer.cs">
+      <DependentUpon>ImageUpload.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Field\TextEditor.ascx.cs">
       <DependentUpon>TextEditor.ascx</DependentUpon>
@@ -1009,12 +1071,7 @@
       <Name>AspNetPager</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="_Templates\Default\Assets\Controls\" />
-    <Folder Include="_Templates\Default\Assets\Css\" />
-    <Folder Include="_Templates\Default\Assets\Images\" />
-    <Folder Include="_Templates\Default\Assets\Js\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

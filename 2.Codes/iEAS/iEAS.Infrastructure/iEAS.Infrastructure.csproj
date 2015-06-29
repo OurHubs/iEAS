@@ -65,6 +65,7 @@
     <Compile Include="BaseData\Service\Impl\BaseDataItemService.cs" />
     <Compile Include="BaseData\Service\IBaseDataTypeService.cs" />
     <Compile Include="BaseData\Service\IBaseDataItemService.cs" />
+    <Compile Include="Config\SiteConfig.cs" />
     <Compile Include="Context\ApplicationContext.cs" />
     <Compile Include="Context\PortalContext.cs" />
     <Compile Include="Context\AccountContext.cs" />

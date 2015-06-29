@@ -1,0 +1,51 @@
+body{ background:#9d9d9d url(../images/bbody.jpg) repeat-y top center; color:#606060;}
+.blue{ color:#346399}
+a{ color:#606060}
+.wp,.header,.footer{ width:980px; margin:auto}
+.top-nav a,.m-slide-btn li,ul.anli-tab li,ul.anli-tab li a,ul.anli-tab li a span,.sub-nav li,.sub-nav li a,.sub-nav li a span,.mini-btn a,.mini-btn a span,.sub-nav-2 *{display:inline-block;zoom:1;*display:inline;}
+
+.header{height:133px; position:relative; z-index:10}
+.header .logo{ background:url(../images/logo.png) no-repeat; height:133px; float:left; width:450px}
+.header .logo a{ display:block; height:133px; width:133px}
+.header .right-box{float:right; width:520px}
+.header .nav{ float:right}
+.header .nav ul li{ float:left; margin-left:8px; position:relative}
+.header .nav ul li a,.header .nav ul li a span{ display:block;background:url(../images/nav.png);_background:url(../images/ie6_nav.png); height:26px; float:left; color:#dde0e3;}
+.header .nav ul li a span{ background-position:top right; margin-left:3px; padding:0 13px 0 10px; line-height:26px; font-weight:bold; position:relative; margin-right:-2px}
+.header .nav ul li a:hover,.header .nav ul li.on a{ background-position:0 -28px; text-decoration:none}
+.header .nav ul li a:hover span,.header .nav ul li.on a span{ background-position:right -28px}
+.header .nav ul li.select em{ background:url(../images/icon.png) no-repeat right -84px; padding-right:12px;}
+
+a.more{ color:#346399; font-family:"ËÎÌו"; font-size:12px; position:absolute; right:0; top:9px; background:url(../images/icon.png) no-repeat right -112px; padding-right:10px}
+
+.top-nav{ text-align:right; margin:30px 0 24px}
+.top-nav a{background:url(../images/icon.png) no-repeat 0 3px;padding-left:14px; margin-left:10px; color:#4c5159}
+	.top-nav a.a1{background-position:0 -27px}
+	.top-nav a.a2{background-position:0 -58px}
+	.top-nav a.a3{background-position:-2px -287px}
+
+.footer{background:url(../images/ftbg.png) no-repeat 0 30px; height:80px; color:#707070; text-align:center; line-height:24px; padding-top:39px;}
+.footer p span{ color:#a1a1a1}
+.footer a{ color:#707070}
+
+.msgNav{position:absolute; z-index:100;width:149px}
+.msgNav .o,
+	.msgNav .t,
+	.msgNav .c,
+	.msgNav .b{background:url(../images/msg_subNav.png) no-repeat;}
+.msgNav .o{width:9px; height:5px; margin-left:20px; overflow:hidden}
+.msgNav .t{ background-position:-17px 0; height:5px; overflow:hidden}
+.msgNav .c{ background-position:-174px 0; background-repeat:repeat-y; padding:0 6px 0}
+.msgNav .b{ background-position:-331px 0; height:5px; overflow:hidden}
+
+.header .nav ul li .msgNav .c a{color:#4b5258; display:block; height:28px; line-height:28px; padding:0 6px; background-image:none; float:none}
+.msgNav .c a:hover{ background-color:#e5e8ec}
+.msgNav .c ul{overflow:hidden}
+.header .nav ul li .msgNav .c ul li{border-top:1px solid #c3c3c3;overflow:hidden; float:none; margin:0}
+
+.msg-help .o{margin-left:110px}
+.msg-help .msgNav{ left:-85px; top:26px}
+
+.crumbs{ background: url(../images/crumb.png) no-repeat 5px center; padding-left:27px; line-height:32px; height:32px}
+.crumbs span {color: #606060;font-family: Comic Sans MS;margin: 0 2px}
+.crumbs a{ color:#606060}
