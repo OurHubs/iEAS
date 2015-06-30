@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using iEAS.Module;
+using iEAS.Context;
 
 
 namespace iEAS.Infrastructure.Web.Pages.Module
@@ -89,6 +90,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
                 lvQuery.DataBind();
             }
+            PortalContext.Current.ResetPortal();
         }
 
         //入口

@@ -481,9 +481,13 @@
     <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
-    <Content Include="Config\Model\Case.xml" />
+    <Content Include="Config\Model\PageContent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\Model\UserCase.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Model\Article.xml" />
-    <Content Include="Config\Model\Test.xml" />
     <Content Include="Controls\Pager.ascx" />
     <Content Include="Desktop.aspx" />
     <Content Include="Login.aspx" />
@@ -535,7 +539,7 @@
     <Content Include="_Templates\Default\Assets\Images\msg_subNav.png" />
     <Content Include="_Templates\Default\Assets\Images\nav.png" />
     <Content Include="_Templates\Default\Assets\Images\t.jpg" />
-    <Content Include="_Templates\Default\Controls\Header.ascx" />
+    <Content Include="_Templates\Default\Controls\Header\Header.ascx" />
     <Content Include="_Templates\Default\Controls\ProductShow.ascx" />
     <Content Include="_Templates\Default\Assets\Css\public.css" />
     <Content Include="_Templates\Default\Assets\Css\reset.css" />
@@ -1071,7 +1075,9 @@
       <Name>AspNetPager</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="_Templates\Default\Controls\News\" />
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

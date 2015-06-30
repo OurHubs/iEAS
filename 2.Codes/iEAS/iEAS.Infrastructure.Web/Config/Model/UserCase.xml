@@ -11,7 +11,7 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="Article.Recive" Template="TabPagedQuery">
+    <List Code="UserCase" Template="TabPagedQuery">
       <Navigations>
         <Navigation Title="用户案例" Type="ModelList" Url="UserCase" IsCurrent="true"></Navigation>
       </Navigations>
@@ -24,8 +24,9 @@
       </Conditions>
       <Columns>
         <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
-        <Column Title="名称" Code="Title" Control="Text" />
+        <Column Title="名称" Code="Name" Control="Text" />
         <Column Title="简介" Code="Desc" Control="Text" />
+        <Column Title="序号" Code="Sort" Control="Text" />
         <Column Title="操作" Code="Command" Control="Command" />
       </Columns>
       <DBCommand>
@@ -37,55 +38,14 @@
           </Sql>
           <OrderBy>
             <![CDATA[
-            RecordID ASC
+            Sort ASC
             ]]>
           </OrderBy>
         </Query>
         <Delete>
           <Sql>
             <![CDATA[
-            DELETE FROM Article WHERE RecordID=@ID
-            ]]>
-          </Sql>
-        </Delete>
-      </DBCommand>
-    </List>
-    <List Code="Article.Send" Template="TabPagedQuery">
-      <Navigations>
-        <Navigation Title="消息接收列表" Type="ModelList" Url="Article.Recive"></Navigation>
-        <Navigation Title="消息发送列表" Type="ModelList" Url="Article.Send" IsCurrent="true"></Navigation>
-      </Navigations>
-      <TopBar>
-        <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
-        <Item Title="导出" Command="Export" Class="btn btn-info"></Item>
-        <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
-      </TopBar>
-      <Conditions>
-        <Condition Title="标题" Code="Title" Control="TextInput" Operation="%LIKE%" IgnoreNullOrEmpty="true"></Condition>
-      </Conditions>
-      <Columns>
-        <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
-        <Column Title="标题" Code="Title" Control="Text" />
-        <Column Title="简介" Code="Desc" Control="Text" />
-        <Column Title="操作" Code="Command" Control="Command" />
-      </Columns>
-      <DBCommand>
-        <Query>
-          <Sql>
-            <![CDATA[
-              SELECT * FROM Article
-            ]]>
-          </Sql>
-          <OrderBy>
-            <![CDATA[
-            RecordID ASC
-            ]]>
-          </OrderBy>
-        </Query>
-        <Delete>
-          <Sql>
-            <![CDATA[
-            DELETE FROM Article WHERE RecordID=@ID
+            DELETE FROM UserCase WHERE RecordID=@ID
             ]]>
           </Sql>
         </Delete>
@@ -93,20 +53,13 @@
     </List>
   </Lists>
   <Tables>
-    <Table Name="文章" Code="Article">
+    <Table Name="用户案例" Code="UserCase">
       <Columns>
         <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
-        <Column Name="标题" Code="Title" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
-        <Column Name="备注" Code="Desc" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
-        <Column Name="内容" Code="Content" Type="ntext" Nullable="true"></Column>
-      </Columns>
-    </Table>
-    <Table Name="文章2" Code="Article2">
-      <Columns>
-        <Column Name="RecordID" Code="RecordID" Type="guid" MaxLength="900" Nullable="true" PrimaryKey="true"></Column>
-        <Column Name="标题" Code="Title" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
-        <Column Name="备注" Code="Desc" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
-        <Column Name="内容" Code="Content" Type="ntext" Nullable="true"></Column>
+        <Column Name="名称" Code="Name" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
+        <Column Name="简介" Code="Desc" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
+        <Column Name="图片" Code="Thumbnail" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
+        <Column Name="序号" Code="Sort" Type="int" Nullable="true"></Column>
       </Columns>
     </Table>
   </Tables>

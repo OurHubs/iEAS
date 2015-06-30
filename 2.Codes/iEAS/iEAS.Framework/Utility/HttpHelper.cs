@@ -22,6 +22,11 @@ namespace iEAS.Utility
             return Request[key];
         }
 
+        public static string RouteValue(string key)
+        {
+            return Page.RouteData.Values[key].ToStr(null);
+        }
+
         public static HttpRequest Request
         {
             get { return HttpContext.Current.Request; }
@@ -30,6 +35,11 @@ namespace iEAS.Utility
         public static HttpResponse Response
         {
             get { return HttpContext.Current.Response; }
+        }
+
+        public static Page Page
+        {
+            get { return HttpContext.Current.Handler as Page; }
         }
     }
 }

@@ -37,7 +37,7 @@ namespace iEAS.Model.UI
             {
                 if(_Config==null)
                 {
-                    string cfgCode=HttpHelper.ValueRequest(ConfigKey);
+                    string cfgCode=HttpHelper.RouteValue(ConfigKey);
                     if(String.IsNullOrWhiteSpace(cfgCode))
                         throw new SystemException("model值不存在！");
 
@@ -58,7 +58,7 @@ namespace iEAS.Model.UI
             {
                 if(_Form==null)
                 {
-                    string modelCode = HttpHelper.ValueRequest(ConfigKey);
+                    string modelCode = HttpHelper.RouteValue(ConfigKey);
                     _Form = Config.Forms.GetForm(modelCode);
                     if(_Form==null)
                     {
@@ -80,7 +80,7 @@ namespace iEAS.Model.UI
             {
                 if (_List == null)
                 {
-                    string modelCode = HttpHelper.ValueRequest(ConfigKey);
+                    string modelCode = HttpHelper.RouteValue(ConfigKey);
                     _List = Config.Lists.GetList(modelCode);
 
                     if (_List == null)

@@ -23,7 +23,9 @@ namespace iEAS.Infrastructure.Web
         {
             RouteTable.Routes.MapPageRoute("Home", "", "~/Portal/TemplateEngine/Home.aspx");
             RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx");
-            RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Channel.aspx");
+            RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Detail.aspx");
+            RouteTable.Routes.MapPageRoute("ModelQuery", "ModelQuery/{Model}", "~/Model/ModelQuery.aspx");
+            RouteTable.Routes.MapPageRoute("ModelEdit", "ModelEdit/{Model}", "~/Model/ModelEdit.aspx");
 
             RouteValueDictionary defaults = new RouteValueDictionary();
             defaults.Add("PortalCode", "Default");

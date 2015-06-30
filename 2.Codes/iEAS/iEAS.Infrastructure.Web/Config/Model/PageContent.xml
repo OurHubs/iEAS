@@ -1,0 +1,64 @@
+﻿<?xml version="1.0"?>
+<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="单页数据" Code="PageContent">
+  <Forms>
+    <Form Title="单页数据" Code="PageContent" Table="PageContent" Template="OneColumn">
+      <Fields>
+        <Field Title="栏目" Code="ChannelID" Control="TextInput" IsRequired="true"/>
+        <Field Title="内容" Code="Content" Control="TextEditor"/>
+        <Field Title="更新人" Code="Updator" Control="TextInput"/>
+        <Field Title="更新时间" Code="UpdateTime" Control="TextInput"/>
+      </Fields>
+    </Form>
+  </Forms>
+  <Lists>
+    <List Title="单页数据" Code="PageContent" Template="TabPagedQuery">
+      <Navigations>
+        <Navigation Title="单页数据" Type="ModelList" Url="PageContent" IsCurrent="true"></Navigation>
+      </Navigations>
+      <TopBar>
+        <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
+        <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
+      </TopBar>
+      <Columns>
+        <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
+        <Column Title="栏目名称" Code="ChannelName" Control="Text" />
+        <Column Title="更新人" Code="Updator" Control="Text" />
+        <Column Title="更新时间" Code="UpdateTime" Control="Text" />
+        <Column Title="操作" Code="Command" Control="Command" />
+      </Columns>
+      <DBCommand>
+        <Query>
+          <Sql>
+            <![CDATA[
+              SELECT * FROM PageContent
+            ]]>
+          </Sql>
+          <OrderBy>
+            <![CDATA[
+            UpdateTime DESC
+            ]]>
+          </OrderBy>
+        </Query>
+        <Delete>
+          <Sql>
+            <![CDATA[
+            DELETE FROM PageContent WHERE RecordID=@ID
+            ]]>
+          </Sql>
+        </Delete>
+      </DBCommand>
+    </List>
+  </Lists>
+  <Tables>
+    <Table Name="单页数据" Code="PageContent">
+      <Columns>
+        <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
+        <Column Name="栏目ID" Code="ChannelID" Type="int" Nullable="true"></Column>
+        <Column Name="栏目名称" Code="ChannelName" Type="nvarchar" MaxLength="100" Nullable="true"></Column>
+        <Column Name="内容" Code="Content" Type="ntext" MaxLength="50" Nullable="true"></Column>
+        <Column Name="更新人" Code="Updator" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
+        <Column Name="更新时间" Code="UpdateTime" Type="DateTime" Nullable="true"></Column>
+      </Columns>
+    </Table>
+  </Tables>
+</ModelConfig>

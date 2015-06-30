@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using iEAS.Module;
+using iEAS.Context;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
@@ -67,6 +68,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             try
             {
                 MenuService.CreateOrUpdate(menu);
+                PortalContext.Current.ResetPortal();
             }
             catch (Exception ex)
             {
