@@ -481,6 +481,9 @@
     <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Config\Model\News.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Model\PageContent.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -492,6 +495,7 @@
     <Content Include="Desktop.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
+    <Content Include="Model\Controls\Field\ChannelRequest.ascx" />
     <Content Include="Model\Controls\Field\ImageUpload.ascx" />
     <Content Include="Model\Controls\Field\TextEditor.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
@@ -540,7 +544,7 @@
     <Content Include="_Templates\Default\Assets\Images\nav.png" />
     <Content Include="_Templates\Default\Assets\Images\t.jpg" />
     <Content Include="_Templates\Default\Controls\Header\Header.ascx" />
-    <Content Include="_Templates\Default\Controls\ProductShow.ascx" />
+    <Content Include="_Templates\Default\Controls\ProductShow\ProductShow.ascx" />
     <Content Include="_Templates\Default\Assets\Css\public.css" />
     <Content Include="_Templates\Default\Assets\Css\reset.css" />
     <Content Include="_Templates\Default\Assets\Css\style.css" />
@@ -585,8 +589,8 @@
     <Content Include="_Templates\Default\Assets\Js\script.js" />
     <Content Include="_Templates\Default\Assets\Js\source.js" />
     <Content Include="_Templates\Default\ChannelList.ascx" />
-    <Content Include="_Templates\Default\Controls\Special.ascx" />
-    <Content Include="_Templates\Default\Controls\TopMenu.ascx" />
+    <Content Include="_Templates\Default\Controls\Special\Special.ascx" />
+    <Content Include="_Templates\Default\Controls\Menu\TopMenu.ascx" />
     <Content Include="_Templates\Default\Home.ascx" />
     <Content Include="Config\Model\ModelRegistry.config" />
     <Content Include="Assets\ckeditor\CHANGES.md" />
@@ -763,6 +767,13 @@
     </Compile>
     <Compile Include="Model\Controls\Column\Command.ascx.designer.cs">
       <DependentUpon>Command.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Field\ChannelRequest.ascx.cs">
+      <DependentUpon>ChannelRequest.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Field\ChannelRequest.ascx.designer.cs">
+      <DependentUpon>ChannelRequest.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Field\ImageUpload.ascx.cs">
       <DependentUpon>ImageUpload.ascx</DependentUpon>

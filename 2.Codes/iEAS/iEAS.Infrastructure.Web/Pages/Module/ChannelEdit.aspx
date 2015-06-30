@@ -62,6 +62,14 @@
                                 <asp:TextBox ID="txtURL" runat="server"></asp:TextBox>
                             </td>
                         </tr>
+                        <tr>
+                            <th>
+                                <span>*</span>模型：
+                            </th>
+                            <td>
+                                <asp:TextBox ID="txtModel" runat="server"></asp:TextBox>
+                            </td>
+                        </tr>
                          <tr>
                             <th>
                                 <span>*</span>模板：

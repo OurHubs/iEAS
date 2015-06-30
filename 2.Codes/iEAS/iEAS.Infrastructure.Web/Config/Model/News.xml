@@ -1,30 +1,37 @@
 ﻿<?xml version="1.0"?>
-<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="单页数据" Code="PageContent">
+<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="新闻动态" Code="News">
   <Forms>
-    <Form Title="单页数据" Code="PageContent" Table="PageContent" Template="OneColumn">
+    <Form Title="新闻动态" Code="News" Table="News" Template="OneColumn">
       <Fields>
         <Field Title="栏目" Code="ChannelID" Control="ChannelRequest" Visible="false">
-          <Param Name="NameField" Value="ChannelName"></Param>
-          <Param Name="GuidField" Value="ChannelGuid"></Param>
+          <Params>
+            <Param Name="NameField" Value="ChannelName"></Param>
+          </Params>
         </Field>
+        <Field Title="标题" Code="Title" Control="TextInput"/>
         <Field Title="内容" Code="Content" Control="TextEditor"/>
+        <Field Title="简介" Code="Brief" Control="TextInput"/>
+        <Field Title="缩略图" Code="Thumbnail" Control="TextInput"/>
+        <Field Title="作者" Code="Author" Control="TextInput"/>
         <Field Title="更新人" Code="Updator" Control="TextInput"/>
         <Field Title="更新时间" Code="UpdateTime" Control="TextInput"/>
       </Fields>
     </Form>
   </Forms>
   <Lists>
-    <List Title="单页数据" Code="PageContent" Template="TabPagedQuery">
+    <List Title="新闻动态" Code="News" Template="TabPagedQuery">
       <Navigations>
-        <Navigation Title="单页数据" Type="ModelList" Url="PageContent" IsCurrent="true"></Navigation>
+        <Navigation Title="新闻动态" Type="ModelList" Url="News" IsCurrent="true"></Navigation>
       </Navigations>
       <TopBar>
         <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
         <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
       </TopBar>
       <Columns>
-        <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
-        <Column Title="栏目名称" Code="ChannelName" Control="Text" />
+        <Column Title="栏目" Code="ChannelName" Control="Text" />
+        <Column Title="标题" Code="Title" Control="Text" />
+        <Column Title="简介" Code="Brief" Control="Text" />
+        <Column Title="作者" Code="Author" Control="Text" />
         <Column Title="更新人" Code="Updator" Control="Text" />
         <Column Title="更新时间" Code="UpdateTime" Control="Text" />
         <Column Title="操作" Code="Command" Control="Command" />
@@ -33,7 +40,7 @@
         <Query>
           <Sql>
             <![CDATA[
-              SELECT * FROM PageContent
+              SELECT * FROM News
             ]]>
           </Sql>
           <OrderBy>
@@ -45,7 +52,7 @@
         <Delete>
           <Sql>
             <![CDATA[
-            DELETE FROM PageContent WHERE RecordID=@ID
+            DELETE FROM News WHERE RecordID=@ID
             ]]>
           </Sql>
         </Delete>
@@ -53,12 +60,16 @@
     </List>
   </Lists>
   <Tables>
-    <Table Name="单页数据" Code="PageContent">
+    <Table Name="新闻动态" Code="News">
       <Columns>
         <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
         <Column Name="栏目ID" Code="ChannelID" Type="int" Nullable="true"></Column>
         <Column Name="栏目名称" Code="ChannelName" Type="nvarchar" MaxLength="100" Nullable="true"></Column>
-        <Column Name="内容" Code="Content" Type="ntext" MaxLength="50" Nullable="true"></Column>
+        <Column Name="标题" Code="Title" Type="nvarchar" MaxLength="500" Nullable="true"></Column>
+        <Column Name="内容" Code="Content" Type="ntext" Nullable="true"></Column>
+        <Column Name="简介" Code="Brief" Type="ntext" Nullable="true"></Column>
+        <Column Name="缩略图" Code="Thumbnail" Type="nvarchar" MaxLength="255" Nullable="true"></Column>
+        <Column Name="作者" Code="Author" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
         <Column Name="更新人" Code="Updator" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
         <Column Name="更新时间" Code="UpdateTime" Type="DateTime" Nullable="true"></Column>
       </Columns>

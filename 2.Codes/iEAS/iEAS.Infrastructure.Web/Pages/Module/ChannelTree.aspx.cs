@@ -42,7 +42,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 case "NODE":
                     return "";
                 case "MODEL":
-                    return "/Model/ModelQuery.aspx?model=" + channel.Model + "&cid=" + channel.ID;
+                    return "/ModelQuery/" + channel.Model + "?cid=" + channel.ID;
             }
             return String.Empty;
         }

@@ -11,6 +11,7 @@ namespace iEAS.Model.Config
     public class ModelField
     {
         private ModelParamCollection _Params = new ModelParamCollection();
+        private bool _Visible = true;
 
         [XmlAttribute]
         public string Title { get; set; }
@@ -25,6 +26,13 @@ namespace iEAS.Model.Config
         /// </summary>
         [XmlAttribute]
         public bool IsRequired { get; set; }
+
+        [XmlAttribute]
+        public bool Visible
+        {
+            get { return _Visible; }
+            set { _Visible = value; }
+        }
         /// <summary>
         /// 忽略空值
         /// </summary>

@@ -31,6 +31,11 @@ namespace iEAS.Model.Data
             }
         }
 
+        public bool ContainsKey(string key)
+        {
+            return this.Any(m => m.Key == key);
+        }
+
         /// <summary>
         /// 获取指定Key的值
         /// </summary>

@@ -1,8 +1,8 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" %>
 
-<%@ Register src="Controls/ProductShow.ascx" tagname="ProductShow" tagprefix="ux" %>
-<%@ Register src="Controls/Header.ascx" tagname="Header" tagprefix="ux" %>
-<%@ Register src="Controls/Special.ascx" tagname="Special" tagprefix="ux" %>
+<%@ Register src="Controls/ProductShow/ProductShow.ascx" tagname="ProductShow" tagprefix="ux" %>
+<%@ Register src="Controls/Header/Header.ascx" tagname="Header" tagprefix="ux" %>
+<%@ Register src="Controls/Special/Special.ascx" tagname="Special" tagprefix="ux" %>
 
 <!DOCTYPE HTML>
 <html>

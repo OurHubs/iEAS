@@ -1,5 +1,6 @@
 ﻿using iEAS.Model.Config;
 using iEAS.Model.UI;
+using iEAS.Utility;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,7 +31,15 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             switch (e.CommandName)
             {
                 case "Add":
-                    Response.Redirect("~/Model/ModelEdit.aspx?model=" + ModelContext.Current.List.Code);
+                    string queryString = HttpHelper.GetQueryString();
+                    if (!String.IsNullOrEmpty(queryString))
+                    {
+                        Response.Redirect("/ModelEdit/" + ModelContext.Current.List.Code+"?"+queryString);
+                    }
+                    else
+                    {
+                        Response.Redirect("/ModelEdit/" + ModelContext.Current.List.Code);
+                    }
                     break;
 
                 default:

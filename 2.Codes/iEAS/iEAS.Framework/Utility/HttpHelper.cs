@@ -17,7 +17,7 @@ namespace iEAS.Utility
             return bag;
         }
 
-        public static string ValueRequest(string key)
+        public static string RequestValue(string key)
         {
             return Request[key];
         }
@@ -26,6 +26,21 @@ namespace iEAS.Utility
         {
             return Page.RouteData.Values[key].ToStr(null);
         }
+
+        public static string GetQueryString()
+        {
+            StringBuilder sbStr = new StringBuilder();
+            foreach(string key in Request.QueryString.AllKeys)
+            {
+                string[] values=Request.QueryString.GetValues(key);
+                foreach(var value in values)
+                {
+                    sbStr.AppendFormat("{0}={1}&", key, value);
+                }
+            }
+            sbStr.Trim('&');
+            return sbStr.ToString();
+        } 
 
         public static HttpRequest Request
         {

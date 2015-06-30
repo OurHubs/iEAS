@@ -57,7 +57,7 @@
                     <li>
                 <%} %>
                 <% if(item.Type=="ModelList"){ %>
-                    <a href="Modelquery.aspx?model=<%=item.Url %>" data-toggle="tab">
+                    <a href="/ModelQuery/<%=item.Url %>" data-toggle="tab">
                 <%} %>                    
                     <%=item.Title %></a></li>
                 <%} %>

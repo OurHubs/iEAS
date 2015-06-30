@@ -28,6 +28,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtCode.Text = model.Code;
                 txtName.Text = model.Name;
                 txtDesc.Text = model.Desc;
+                txtModel.Text = model.Model;
                
                 txtTemplate.Text = model.Template;
                 ddlChannelType.SelectedValue = model.ChannelType;
@@ -60,7 +61,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             model.Template = txtTemplate.Text.Trim();
 
             model.ChannelType = "MODEL";
-            model.Model = "Article.Send";
+            model.Model = txtModel.Text.Trim();
             ChannelService.CreateOrUpdate(model);
 
             Response.Redirect("ChannelList.aspx");
