@@ -16,6 +16,7 @@ namespace iEAS.Model.Config
         private ModelFormCollection _Forms = new ModelFormCollection();
         private ModelListCollection _Lists = new ModelListCollection();
         private ModelTableCollection _Tables = new ModelTableCollection();
+        private ModelDataSourceCollection _DataSource = new ModelDataSourceCollection();
 
 
         public static ModelConfig GetConfig(string code)
@@ -23,6 +24,12 @@ namespace iEAS.Model.Config
             code=code.Split('.')[0];
             string filePath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Config/Model" ,code + ".xml");
             return XmlHelper.Deserialize<ModelConfig>(filePath);
+        }
+
+        public static ModelDataSource GetDataSource(string code)
+        {
+            var cfg=GetConfig(code);
+            return cfg.DataSources[code].Clone();
         }
 
         public void Save()
@@ -55,11 +62,21 @@ namespace iEAS.Model.Config
         }
 
         [XmlArray]
+        [XmlArrayItem("DataSource")]
+        public ModelDataSourceCollection DataSources
+        {
+            get { return _DataSource; }
+            set { _DataSource = value; }
+        }
+
+        [XmlArray]
         [XmlArrayItem("Table")]
         public ModelTableCollection Tables
         {
             get { return _Tables; }
             set { _Tables = value; }
         }
+
+
     }
 }

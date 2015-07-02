@@ -3,6 +3,7 @@
 <%@ Register src="Controls/ProductShow/ProductShow.ascx" tagname="ProductShow" tagprefix="ux" %>
 <%@ Register src="Controls/Header/Header.ascx" tagname="Header" tagprefix="ux" %>
 <%@ Register src="Controls/Special/Special.ascx" tagname="Special" tagprefix="ux" %>
+<%@ Register src="Controls/News/News.ascx" tagname="News" tagprefix="ux" %>
 
 <!DOCTYPE HTML>
 <html>
@@ -91,6 +92,7 @@
 
             </div>
         </div>
+        <ux:News Id="n1" runat="server"></ux:News>
         <div class="col-right m-news">
             <div class="box">
                 <div class="title"><span>新闻动态</span><span class="bg">新闻动态</span></div>
