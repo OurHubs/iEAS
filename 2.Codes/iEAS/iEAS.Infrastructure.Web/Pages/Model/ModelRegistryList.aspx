@@ -68,9 +68,11 @@
                     </asp:TemplateField>
                     <asp:TemplateField HeaderText="操作" HeaderStyle-Width="300px">
                         <ItemTemplate>
-                            <asp:LinkButton ID="btnGenerateTable" runat="server" Text="生成表结构" CommandName="GenerateTable" CommandArgument='<%# Eval("Code") %>'></asp:LinkButton>
+                             <asp:LinkButton ID="btnGenerateTable" runat="server" Text="生成表结构" CommandName="GenerateTable" CommandArgument='<%# Eval("Code") %>'></asp:LinkButton>
                             |<asp:LinkButton ID="btnBuildTableFields" runat="server" Text="生成表结构配置" CommandName="TableFields" CommandArgument='<%# Eval("Code") %>'></asp:LinkButton>
                             |<asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("Code") %>'></asp:LinkButton>
+                            |<a href="ModelTempEditIframe.aspx?code=<%# Eval("Code") %>">模板编辑</a>
+
                         </ItemTemplate>
                     </asp:TemplateField>
                 </Columns>
