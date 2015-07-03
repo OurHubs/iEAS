@@ -6,13 +6,14 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI;
 
 namespace iEAS.Model.UI
 {
-    public delegate string IteratorHandler(Func<IReadOnlyDictionary<string, object>, string> handler);
-    public delegate string CollectionHandler(Func<IReadOnlyList<IReadOnlyDictionary<string, object>>,string> handler);
-    public delegate string RecordHandler(Func<IReadOnlyDictionary<string, object>,string> handler);
+    public delegate void IteratorHandler(Action<IReadOnlyDictionary<string, object>> handler);
+    public delegate void CollectionHandler(Action<IReadOnlyList<IReadOnlyDictionary<string, object>>> handler);
+    public delegate void RecordHandler(Action<IReadOnlyDictionary<string, object>> handler);
 
     public class UxModelControl : UserControl
     {
@@ -30,11 +31,15 @@ namespace iEAS.Model.UI
             _Record = ExecuteRecord;
         }
 
+        public string Title { get; set; }
+
         public virtual string DataSourceCode
         {
             get { return _DataSourceCode; }
             set { _DataSourceCode = value; }
         }
+
+        public string RecordID { get; set; }
 
         public int PageSize
         {
@@ -54,7 +59,7 @@ namespace iEAS.Model.UI
             get { return _Record; }
         }
 
-        protected virtual string  ExecuteIterator(Func<IReadOnlyDictionary<string, object>, string> handler)
+        protected virtual void  ExecuteIterator(Action<IReadOnlyDictionary<string, object>> handler)
         {
             var config = ModelConfig.GetDataSource(DataSourceCode);
             config.PageSize = PageSize;
@@ -64,28 +69,48 @@ namespace iEAS.Model.UI
             IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config);
             foreach (var dict in records)
             {
-                sbHtml.Append(handler(dict));
+                handler(dict);
             }
-            return sbHtml.ToString();
+            //HttpContext.Current.Response.Write(sbHtml);
         }
 
-        protected virtual string ExecuteCollection(Func<IReadOnlyList<IReadOnlyDictionary<string, object>>,string> handler)
+        protected virtual void ExecuteCollection(Action<IReadOnlyList<IReadOnlyDictionary<string, object>>> handler)
         {
             var config = ModelConfig.GetDataSource(DataSourceCode);
             config.PageSize = PageSize;
 
             DBEngine engine = new DBEngine();
             IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config);
-            return handler(records);
+            handler(records);
         }
 
-        protected virtual string ExecuteRecord(Func<IReadOnlyDictionary<string, object>,string> handler)
+        protected virtual void ExecuteRecord(Action<IReadOnlyDictionary<string, object>> handler)
         {
             var config = ModelConfig.GetDataSource(DataSourceCode);
+            Dictionary<string, object> values = BuildValues(config);
 
             DBEngine engine = new DBEngine();
-            IReadOnlyDictionary<string, object> record = engine.GetRecord(config);
-            return handler(record);
+            IReadOnlyDictionary<string, object> record = engine.GetRecord(config,values);
+            handler(record);
+        }
+
+        private Dictionary<string,object> BuildValues(ModelDataSource dsConfig)
+        {
+            Dictionary<string,object> values=new Dictionary<string,object>();
+
+            foreach(var item in dsConfig.Params)
+            {
+                switch (item.Source.ToStr().ToLower())
+                {
+                    case "recordid":
+                        values.Add(item.Name, RecordID);
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            return values;
         }
     }
 }

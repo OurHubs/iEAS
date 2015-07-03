@@ -485,6 +485,9 @@
     <Content Include="Config\Model\LXGLBF.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\Model\HtmlPart.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Model\News.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -549,6 +552,7 @@
     <Content Include="_Templates\Default\Assets\Images\nav.png" />
     <Content Include="_Templates\Default\Assets\Images\t.jpg" />
     <Content Include="_Templates\Default\Controls\Header\Header.ascx" />
+    <Content Include="_Templates\Default\Controls\HtmlPart\HtmlPart.ascx" />
     <Content Include="_Templates\Default\Controls\News\News.ascx" />
     <Content Include="_Templates\Default\Controls\ProductShow\ProductShow.ascx" />
     <Content Include="_Templates\Default\Assets\Css\public.css" />
@@ -595,6 +599,7 @@
     <Content Include="_Templates\Default\Assets\Js\script.js" />
     <Content Include="_Templates\Default\Assets\Js\source.js" />
     <Content Include="_Templates\Default\ChannelList.ascx" />
+    <Content Include="_Templates\Default\Controls\UserCase\UserCase.ascx" />
     <Content Include="_Templates\Default\Controls\Special\Special.ascx" />
     <Content Include="_Templates\Default\Controls\Menu\TopMenu.ascx" />
     <Content Include="_Templates\Default\Home.ascx" />

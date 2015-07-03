@@ -36,7 +36,7 @@ namespace iEAS.Model.UI
             }
         }
 
-        protected override string ExecuteIterator(Func<IReadOnlyDictionary<string, object>, string> handler)
+        protected override void ExecuteIterator(Action<IReadOnlyDictionary<string, object>> handler)
         {
             StringBuilder sbHtml = new StringBuilder();
 
@@ -48,12 +48,11 @@ namespace iEAS.Model.UI
             IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config);
             foreach (var dict in records)
             {
-                sbHtml.Append(handler(dict));
+                handler(dict);
             }
-            return sbHtml.ToString();
         }
 
-        protected override string ExecuteCollection(Func<IReadOnlyList<IReadOnlyDictionary<string, object>>, string> handler)
+        protected override void ExecuteCollection(Action<IReadOnlyList<IReadOnlyDictionary<string, object>>> handler)
         {
             var config = ModelConfig.GetDataSource(DataSourceCode);
             config.PageSize = PageSize;
@@ -61,7 +60,7 @@ namespace iEAS.Model.UI
 
             DBEngine engine = new DBEngine();
             IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config);
-            return handler(records);
+            handler(records);
         }
     }
 }

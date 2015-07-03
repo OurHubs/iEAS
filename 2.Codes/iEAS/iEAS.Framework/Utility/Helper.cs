@@ -56,7 +56,7 @@ namespace iEAS
         }
         public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name)
         {
-            return dict[name].ToStr();
+            return dict.ContainsKey(name) ? dict[name].ToStr() : String.Empty;
         }
         public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name,string format)
         {

@@ -52,6 +52,13 @@
       </DBCommand>
     </List>
   </Lists>
+  <DataSources>
+    <DataSource Code="UserCase.List">
+      <Sql>SELECT * FROM UserCase</Sql>
+      <OrderBy></OrderBy>
+      <Params></Params>
+    </DataSource>
+  </DataSources>
   <Tables>
     <Table Name="用户案例" Code="UserCase">
       <Columns>
