@@ -71,6 +71,8 @@
     <Compile Include="Context\AccountContext.cs" />
     <Compile Include="Model\Config\ModelColumn.cs" />
     <Compile Include="Model\Config\ModelColumnCollection.cs" />
+    <Compile Include="Model\Config\ModelDataSource.cs" />
+    <Compile Include="Model\Config\ModelDataSourceCollection.cs" />
     <Compile Include="Model\Config\ModelNavigation.cs" />
     <Compile Include="Model\Config\ModelNavigationCollection.cs" />
     <Compile Include="Model\Config\ModelRegistry.cs" />
@@ -116,13 +118,10 @@
     <Compile Include="Model\UI\ModelFormControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\UI\ModelUxDetailControl.cs">
+    <Compile Include="Model\UI\UxModelControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\UI\ModelUxListControl.cs">
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Model\UI\ModelUxPagedListControl.cs">
+    <Compile Include="Model\UI\UxModelPagedControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Module\Entity\Channel.cs" />

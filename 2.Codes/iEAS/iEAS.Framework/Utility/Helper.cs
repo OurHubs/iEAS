@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Text;
+using System.Web.UI;
 
 namespace iEAS
 {
@@ -31,6 +32,35 @@ namespace iEAS
             {
                 file.Directory.Create();
             }
+        }
+
+        public static int GetInt(this IReadOnlyDictionary<string, object> dict,string name)
+        {
+            return (int)dict[name];
+        }
+        public static decimal GetDecimal(this IReadOnlyDictionary<string, object> dict, string name)
+        {
+            return (decimal)dict[name];
+        }
+        public static bool GetBoolean(this IReadOnlyDictionary<string, object> dict, string name)
+        {
+            return (bool)dict[name];
+        }
+        public static byte GetByte(this IReadOnlyDictionary<string, object> dict, string name)
+        {
+            return (byte)dict[name];
+        }
+        public static DateTime GetDateTime(this IReadOnlyDictionary<string, object> dict, string name)
+        {
+            return (DateTime)dict[name];
+        }
+        public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name)
+        {
+            return dict[name].ToStr();
+        }
+        public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name,string format)
+        {
+            return String.Format(format, dict[name]);
         }
     }
 }

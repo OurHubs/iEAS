@@ -6,10 +6,40 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
 using System.Web.UI.WebControls;
 
 namespace iEAS.Model.UI
 {
+    public class ModelFieldRegistry
+    {
+        private List<ModelFieldContainer> fields = new List<ModelFieldContainer>();
+
+        public static ModelFieldRegistry Current
+        {
+            get
+            {
+                ModelFieldRegistry registry = HttpContext.Current.Items[typeof(ModelFieldRegistry)] as ModelFieldRegistry;
+                if(registry==null)
+                {
+                    registry = new ModelFieldRegistry();
+                    HttpContext.Current.Items[typeof(ModelFieldRegistry)] = registry;
+                }
+                return registry;
+            }
+        }
+
+        public IEnumerable<ModelFieldContainer> Fields
+        {
+            get { return fields; }
+        }
+
+        public void Add(ModelFieldContainer field)
+        {
+            fields.Add(field);
+        }
+    }
+
     public class ModelFieldContainer:PlaceHolder
     {
         private ModelField _Field;
@@ -48,7 +78,7 @@ namespace iEAS.Model.UI
 
         public ModelFieldContainer()
         {
-            //this.DataBinding += ModelFieldContainer_DataBinding;
+            ModelFieldRegistry.Current.Add(this);
         }
 
         void ModelFieldContainer_DataBinding(object sender, EventArgs e)

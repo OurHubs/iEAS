@@ -1,5 +1,5 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" %>
-<%@ Register Src="TopMenu.ascx" TagName="TopMenu" TagPrefix="ux" %>
+<%@ Register Src="../Menu/TopMenu.ascx" TagName="TopMenu" TagPrefix="ux" %>
 <div class="header">
     <div class="logo"><a href="<%=SiteConfig.Instance.Url %>" title="<%=SiteConfig.Instance.Title %>"></a></div>
     <div class="right-box">

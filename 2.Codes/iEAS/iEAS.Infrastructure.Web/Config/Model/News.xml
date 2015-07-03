@@ -59,6 +59,15 @@
       </DBCommand>
     </List>
   </Lists>
+  <DataSources>
+    <DataSource>
+      <Sql></Sql>
+      <OrderBy></OrderBy>
+      <Params>
+        <Param Name="" Value=""></Param>
+      </Params>
+    </DataSource>
+  </DataSources>
   <Tables>
     <Table Name="新闻动态" Code="News">
       <Columns>

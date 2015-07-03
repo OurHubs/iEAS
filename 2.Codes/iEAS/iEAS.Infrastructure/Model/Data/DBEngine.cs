@@ -12,8 +12,6 @@ namespace iEAS.Model.Data
 {
     public class DBEngine
     {
-
-
         public ModelResult PagedQuery(ModelList modelList, Dictionary<string, object> paramValues, int pageIndex, int pageSize)
         {
             int startRow = (pageIndex - 1) * pageSize;
@@ -247,6 +245,82 @@ namespace iEAS.Model.Data
             return record;
         }
 
+        public SqlDataReader ExecuteReaader(ModelDataSource source)
+        {
+            return ExecuteReaader(source.Sql, null);
+        }
+
+        public IReadOnlyList<IReadOnlyDictionary<string, object>> GetRecords(ModelDataSource source)
+        {
+            List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
+
+            string sql = source.Sql;
+            SqlParameter[] parameters = null;
+
+            using (SqlConnection conn = new SqlConnection(DBConn))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        comm.Parameters.AddRange(parameters);
+                    }
+                    using(SqlDataReader reader=comm.ExecuteReader())
+                    {
+                        while (reader.NextResult())
+                        {
+                            Dictionary<string, object> record = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount;i++)
+                            {
+                                record.Add(reader.GetName(i), reader.GetValue(i));
+                            }
+                            result.Add(record);
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public IReadOnlyDictionary<string, object> GetRecord(ModelDataSource source)
+        {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+
+            string sql = source.Sql;
+            SqlParameter[] parameters = null;
+
+            using (SqlConnection conn = new SqlConnection(DBConn))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sql, conn))
+                {
+                    if (parameters != null && parameters.Length > 0)
+                    {
+                        comm.Parameters.AddRange(parameters);
+                    }
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        if(reader.NextResult())
+                        {
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                result.Add(reader.GetName(i), reader.GetValue(i));
+                            }
+                        }
+                    }
+                }
+            }
+            return result;
+        }
+
+        public int GetRecordCount(ModelDataSource source)
+        {
+            string sql = source.Sql.Substring(source.Sql.IndexOf("FROM",StringComparison.OrdinalIgnoreCase));
+            sql = "SELECT COUNT(1) " + sql;
+            return (int)ExecuteScalar(sql,null);
+        }
+
         private string BuildParamName(string field, int index)
         {
             return String.Format("@{0}_{1}", field, index);
@@ -300,6 +374,20 @@ namespace iEAS.Model.Data
                    return command.ExecuteScalar();
                }
            }
+       }
+
+        public SqlDataReader ExecuteReaader(string sql,SqlParameter[] parameters)
+       {
+            SqlConnection conn = new SqlConnection(DBConn);
+            conn.Open();
+            using (SqlCommand comm = new SqlCommand(sql, conn))
+            {
+                if (parameters != null && parameters.Length > 0)
+                {
+                    comm.Parameters.AddRange(parameters);
+                }
+                return comm.ExecuteReader();
+            }
        }
 
         private string DBConn
