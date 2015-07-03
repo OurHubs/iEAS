@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="LXGLBF.ascx.cs" Inherits="iEAS.Infrastructure.Web._Templates.Default.Model.LXGLBF" %>
+﻿<%@ Control Language="C#" AutoEventWireup="true" %>
 <table border="1" style="border-collapse:collapse">
     <tr>
         <td rowspan="2" width="60px">序号</td>

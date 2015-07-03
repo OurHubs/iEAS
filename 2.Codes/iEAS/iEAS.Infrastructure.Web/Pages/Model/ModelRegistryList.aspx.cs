@@ -32,12 +32,19 @@ namespace iEAS.Infrastructure.Web.Pages.Model
                 ScriptHelper.Alert("操作成功！");
                 BindData();
             }
-            else if(e.CommandName=="Del")
+            else if (e.CommandName == "TableFields")
             {
-                var regs=ModelRegistryCollection.GetRegistries();
+                TableFields(modelCode);
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else if (e.CommandName == "Del")
+            {
+                var regs = ModelRegistryCollection.GetRegistries();
                 regs.Remove(regs.FirstOrDefault(m => m.Code == modelCode));
                 regs.Save();
                 BindData();
+                ScriptHelper.Alert("操作成功！");
             }
         }
         private void BindData()
@@ -46,21 +53,50 @@ namespace iEAS.Infrastructure.Web.Pages.Model
             gvList.DataBind();
         }
 
+        private void TableFields(string code)
+        {
+            ModelConfig config = ModelConfig.GetConfig(code);
+            ModelForm form = config.Forms.FirstOrDefault();
+            if (form != null)
+            {
+                config.Tables.Clear();
+                ModelTable table = new ModelTable();
+                table.Code = form.Table;
+                table.Name = form.Title;
+
+                foreach (var field in form.Fields)
+                {
+                    var column = new ModelTableColumn
+                    {
+                        Code = field.Code,
+                        Name = field.Title,
+                        Nullable = true,
+                        Type = "nvarchar"
+
+                    };
+                    BuildDBType(column, field);
+                    table.Columns.Add(column);
+                }
+                config.Tables.Add(table);
+            }
+            config.Save();
+        }
+
         private void GenerateTable(string code)
         {
-            ModelConfig config=ModelConfig.GetConfig(code);
+            ModelConfig config = ModelConfig.GetConfig(code);
             DBEngine engine = new DBEngine();
 
-            StringBuilder sqlBuilder=new StringBuilder();
+            StringBuilder sqlBuilder = new StringBuilder();
 
-            foreach(var table in config.Tables)
+            foreach (var table in config.Tables)
             {
                 sqlBuilder.AppendFormat(@"IF NOT EXISTS (SELECT * FROM SYS.OBJECTS WHERE OBJECT_ID = OBJECT_ID(N'[DBO].[{0}]') AND TYPE IN (N'U'))
 BEGIN                                            
 CREATE TABLE {0}( [RecordID] uniqueidentifier PRIMARY KEY NOT NULL)
 END;", table.Code).AppendLine();
 
-                foreach(var column in table.Columns)
+                foreach (var column in table.Columns)
                 {
                     if (column.PrimaryKey)
                         continue;
@@ -118,13 +154,50 @@ BEGIN", table.Code, column.Code).AppendLine();
                         }
                         sqlBuilder.AppendFormat("END;").AppendLine();
                     }
-                    catch(Exception ex)
+                    catch (Exception ex)
                     {
 
                     }
                 }
 
                 engine.ExecuteSql(sqlBuilder.ToStr(), null);
+            }
+        }
+
+        private void BuildDBType(ModelTableColumn column,ModelField field)
+        {
+            if (field.Code == "RecordID")
+            {
+                column.Type = "guid";
+                column.MaxLength = 0;
+                column.PrimaryKey = true;
+            }
+            else
+            {
+                switch (field.DataType.ToStr())
+                {
+                    case "string":
+                        column.Type = "nvarchar";
+                        column.MaxLength = 50;
+                        break;
+                    case "int":
+                        column.Type = "int";
+                        column.MaxLength = 0;
+                        break;
+                    case "decimal":
+                        column.Type = "decimal";
+                        column.MaxLength = 8;
+                        column.MinLength = 2;
+                        break;
+                    case "guid":
+                        column.Type = "guid";
+                        column.PrimaryKey = true;
+                        column.Nullable = false;
+                        break;
+                    default:
+                        column.Type = field.DataType;
+                        break;
+                }
             }
         }
     }

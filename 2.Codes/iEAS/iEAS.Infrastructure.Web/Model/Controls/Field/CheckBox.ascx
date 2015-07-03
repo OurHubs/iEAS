@@ -1,0 +1,2 @@
+﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="CheckBox.ascx.cs" Inherits="iEAS.Infrastructure.Web.Model.Controls.Field.CheckBox" %>
+<asp:CheckBox ID="txtValue" runat="server" CssClass="BigInput"></asp:CheckBox>

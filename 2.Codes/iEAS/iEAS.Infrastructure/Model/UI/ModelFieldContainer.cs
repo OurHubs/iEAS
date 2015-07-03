@@ -108,7 +108,7 @@ namespace iEAS.Model.UI
                     }
                     if (_Field == null)
                     {
-                        throw new SystemException("模型字段配置不存在！");
+                        throw new SystemException("模型字段"+FieldCode+"不存在！");
                     }
                     return _Field;
                 }
