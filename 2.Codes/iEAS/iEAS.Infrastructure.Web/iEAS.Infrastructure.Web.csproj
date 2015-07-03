@@ -481,6 +481,7 @@
     <Content Include="Assets\ztree\js\jquery.ztree.exedit.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.js" />
     <Content Include="Assets\ztree\js\jquery.ztree.exhide-3.5.min.js" />
+    <Content Include="Config\Model\LXGLBF.ascx" />
     <Content Include="Config\Model\LXGLBF.xml">
       <SubType>Designer</SubType>
     </Content>
