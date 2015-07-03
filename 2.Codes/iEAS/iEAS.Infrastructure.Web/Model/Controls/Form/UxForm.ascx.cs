@@ -15,7 +15,7 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Form
         protected override void OnInit(EventArgs e)
         {
             plForm.Controls.Clear();
-            Control ctr = this.LoadControl("~/_Templates/Default/Model/LXGLBF.ascx");
+            Control ctr = this.LoadControl("~/Config/Model/"+ModelContext.Current.Form.Code+".ascx");
             plForm.Controls.Add(ctr);
             BindData();
             base.OnInit(e);
