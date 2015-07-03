@@ -46,6 +46,7 @@ namespace iEAS.Infrastructure.Web.Pages.Model
                 BindData();
                 ScriptHelper.Alert("操作成功！");
             }
+            
         }
         private void BindData()
         {

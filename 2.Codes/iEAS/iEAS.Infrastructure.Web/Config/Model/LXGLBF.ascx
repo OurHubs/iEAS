@@ -321,7 +321,7 @@
             <iEAS:ModelFieldContainer ID="ModelFieldContainer66" runat="server" FieldCode="R5R1C6"></iEAS:ModelFieldContainer>
         </td>
         <td rowspan="2">≤±3°
-        </td>
+        </td> 
     </tr>
     <tr>
         <td>理论边界2:</td>

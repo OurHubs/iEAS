@@ -527,6 +527,10 @@
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
     <Content Include="Pages\Model\ModelRegistryList.aspx" />
+    <Content Include="Pages\Model\ModelTempEdit.aspx" />
+    <Content Include="Pages\Model\ModelTempEditIframe.aspx" />
+    <Content Include="Pages\Model\ModelTempEditIframe2.aspx" />
+    <Content Include="Pages\Model\TempIframe.aspx" />
     <Content Include="Pages\Module\ChannelEdit.aspx" />
     <Content Include="Pages\Module\ChannelIndex.aspx" />
     <Content Include="Pages\Module\ChannelList.aspx" />
@@ -944,6 +948,34 @@
     </Compile>
     <Compile Include="Pages\Model\ModelRegistryList.aspx.designer.cs">
       <DependentUpon>ModelRegistryList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEdit.aspx.cs">
+      <DependentUpon>ModelTempEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEdit.aspx.designer.cs">
+      <DependentUpon>ModelTempEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEditIframe.aspx.cs">
+      <DependentUpon>ModelTempEditIframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEditIframe.aspx.designer.cs">
+      <DependentUpon>ModelTempEditIframe.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEditIframe2.aspx.cs">
+      <DependentUpon>ModelTempEditIframe2.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Model\ModelTempEditIframe2.aspx.designer.cs">
+      <DependentUpon>ModelTempEditIframe2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Model\TempIframe.aspx.cs">
+      <DependentUpon>TempIframe.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Model\TempIframe.aspx.designer.cs">
+      <DependentUpon>TempIframe.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\ChannelEdit.aspx.cs">
       <DependentUpon>ChannelEdit.aspx</DependentUpon>
