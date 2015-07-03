@@ -12,15 +12,32 @@ namespace iEAS.Model.Config
     {
         private ModelParamCollection _Params = new ModelParamCollection();
         private bool _Visible = true;
+        private string _DataType = "string";
+        private string _Title;
 
         [XmlAttribute]
-        public string Title { get; set; }
+        public string Title
+        {
+            get
+            {
+                return !String.IsNullOrWhiteSpace(_Title) ? _Title : Code;
+            }
+            set { _Title = value; }
+        }
 
         [XmlAttribute]
         public string Code { get; set; }
 
         [XmlAttribute]
         public string Control { get; set; }
+
+        [XmlAttribute]
+        public string DataType
+        {
+            get { return _DataType; }
+            set { _DataType = value; }
+        }
+
         /// <summary>
         /// 是否必填项
         /// </summary>

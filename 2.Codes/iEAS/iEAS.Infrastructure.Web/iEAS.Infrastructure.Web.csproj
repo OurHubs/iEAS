@@ -499,6 +499,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\ChannelRequest.ascx" />
+    <Content Include="Model\Controls\Field\CheckBox.ascx" />
     <Content Include="Model\Controls\Field\ImageUpload.ascx" />
     <Content Include="Model\Controls\Field\TextEditor.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
@@ -779,6 +780,13 @@
     </Compile>
     <Compile Include="Model\Controls\Field\ChannelRequest.ascx.designer.cs">
       <DependentUpon>ChannelRequest.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Field\CheckBox.ascx.cs">
+      <DependentUpon>CheckBox.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Field\CheckBox.ascx.designer.cs">
+      <DependentUpon>CheckBox.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Field\ImageUpload.ascx.cs">
       <DependentUpon>ImageUpload.ascx</DependentUpon>

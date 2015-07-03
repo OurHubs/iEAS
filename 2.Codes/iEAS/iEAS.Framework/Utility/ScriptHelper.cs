@@ -19,7 +19,10 @@ namespace iEAS
 
         public static void Alert(string message)
         {
-            Page.ClientScript.RegisterClientScriptBlock(Page.GetType(), "alert:" + message, "alert('" + message + "')", true);
+            if(!Page.ClientScript.IsStartupScriptRegistered(Page.GetType(),"alert:" + message))
+            {
+                Page.ClientScript.RegisterStartupScript(Page.GetType(), "alert:" + message, "alert('" + message + "')", true);
+            }
         }
     }
 }
