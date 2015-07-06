@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iEAS.Utility;
 
 namespace iEAS.Infrastructure.Web.Pages.Model
 {
@@ -11,7 +12,11 @@ namespace iEAS.Infrastructure.Web.Pages.Model
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            if (!IsPostBack)
+            {
+               
+            }
         }
+       
     }
 }

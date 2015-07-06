@@ -9,9 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-   
-         模板编辑页面
+    <div> 
         <textarea id="txtName" rows="3" cols="80">
 
         </textarea>

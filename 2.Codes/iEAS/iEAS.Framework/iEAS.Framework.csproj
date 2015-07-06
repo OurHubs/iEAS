@@ -99,6 +99,7 @@
     <Compile Include="Security\EncryptionType.cs" />
     <Compile Include="Security\UserInfo.cs" />
     <Compile Include="Utility\Helper.cs" />
+    <Compile Include="Utility\HtmlHelper.cs" />
     <Compile Include="Utility\HttpHelper.cs" />
     <Compile Include="Utility\ScriptHelper.cs" />
     <Compile Include="Utility\StringExtentions.cs" />

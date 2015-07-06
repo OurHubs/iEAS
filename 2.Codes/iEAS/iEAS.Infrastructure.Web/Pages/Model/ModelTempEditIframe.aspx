@@ -10,7 +10,7 @@
 </head>
 <body>
    <form id="form1" runat="server">
-       <asp:TextBox ID="txtValue" runat="server" onblur="setEditorValue(this)" TextMode="MultiLine" CssClass="ckeditor"></asp:TextBox>
+       <asp:TextBox ID="txtTempalte" runat="server" onblur="setEditorValue(this)" TextMode="MultiLine" CssClass="ckeditor"></asp:TextBox>
 
 
         <script type="text/javascript">
@@ -24,8 +24,8 @@
                         var ckeditorPage = 'TempIframe.aspx?timestamp=' + timestamp;
                         return {
                             title: '选择一个服务器控件',
-                            minWidth: 390,
-                            minHeight: 200,
+                            minWidth: 700,
+                            minHeight: 400,
                             contents: [
                                {
                                    id: 'tab1',
@@ -78,7 +78,7 @@
 
             });
             //告诉CKEDITOR我们有定义了一个插件.
-            CKEDITOR.replace('txtValue', {
+            CKEDITOR.replace('txtTempalte', {
                 extraPlugins: 'myplugin'
             });
     </script>
