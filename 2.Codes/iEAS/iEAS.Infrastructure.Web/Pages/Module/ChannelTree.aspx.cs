@@ -35,6 +35,9 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         private string GetUrl(Channel channel)
         {
+            if (String.IsNullOrWhiteSpace(channel.ChannelType))
+                return String.Empty;
+
             switch (channel.ChannelType.ToUpper())
             {
                 case "URL":

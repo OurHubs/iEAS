@@ -17,34 +17,6 @@
     <script type="text/javascript" src="../assets/common/js/jquery.min.js"></script>
     <script type="text/javascript" src="../assets/common/js/lockTableTitle.js"></script>
     <script type="text/javascript" src="../assets/common/js/common.js"></script>
-    <script type="text/javascript">
-
-        var locktb;
-        $(function () {
-            <%--locktb = new Kkctf.table.lockTableSingle({
-                tMain: $('#<%=gvList.ClientID %>').closest("div"),            //table的层
-                padWidth: 15,                        //单元格左右的padding的值总和数值
-                borWidth: 2,                        //表格左右边框宽度总和值
-                subtHeig: 50,                    //表格高度减去多少
-                dinamicDiv: $('#dynamicDiv'),      //动态层的高度.表格会根据动态层的显示或隐藏进行表格大小的动态调整(可选)
-                autoHeight: true                 //表格窗口是否随着窗口的高度改变自动调整高度(可选)
-            });--%>
-        });
-
-        function formview() {
-
-            if ($('#dynamicDiv').is(':visible')) {
-                $('#dynamicDiv').hide();
-            } else {
-                $('#dynamicDiv').show();
-            }
-
-            locktb.autoHeightFn();
-        }
-        function sendForm() {
-            document.save.submit();
-        }
-    </script>
 </head>
 <body class="body-wrap">
     <form runat="server">
@@ -77,9 +49,6 @@
         <div class="data-wrap">
             <div class="data-operation">
                 <div class="button-operation">
-<%--                    <button type="button" class="btn btn-success">新建任务</button>
-                    <button type="button" class="btn btn-danger">清理数据</button>
-                    <button type="button" id="query_export" class="btn btn-info">导出查询列表</button>--%>
                     <iEAS:ModelToolBar ID="uxToolBar" runat="server" />
                 </div>
                 <div class="pager_operation">

@@ -33,7 +33,6 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             {
                 ModelBindField field = new ModelBindField();
                 field.ModelColumn = column;
-                field.HeaderStyle.Width = Unit.Parse("200px");
                 gvList.Columns.Add(field);
             }
         }
@@ -44,7 +43,7 @@ namespace iEAS.Infrastructure.Web.Model.Template.List
             rptConditions.DataBind();
         }
 
-        private void BindData()
+        public void BindData()
         {
             Dictionary<string, object> parameters = PopulateParameters();
 

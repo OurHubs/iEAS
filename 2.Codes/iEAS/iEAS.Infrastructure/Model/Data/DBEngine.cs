@@ -204,6 +204,18 @@ namespace iEAS.Model.Data
             });
         }
 
+        public void DeleteRecord(ModelList modelList,string[] ids)
+        {
+            StringBuilder sbIds = new StringBuilder();
+            foreach (var id in ids)
+            {
+                sbIds.AppendFormat("'{0}',", id);
+            }
+            sbIds.Trim(',');
+            string sql = modelList.DBCommand.DeleteAll.Sql.Replace("${ID}",sbIds.ToStr());
+            ExecuteSql(sql, null);
+        }
+
         public void ExecuteRecord(Record record)
         {
             if (record.RecordID == Guid.Empty)
