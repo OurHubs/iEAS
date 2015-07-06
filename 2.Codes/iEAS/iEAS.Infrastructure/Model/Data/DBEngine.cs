@@ -251,6 +251,41 @@ namespace iEAS.Model.Data
             return record;
         }
 
+        public Record GetRecord(ModelForm modelForm,Dictionary<string,object> values)
+        {
+            
+            StringBuilder sbSql = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            sbSql.AppendFormat("SELECT * FROM {0} WHERE 1=1 ", modelForm.Table);
+            foreach(var kvp in values)
+            {
+                sbSql.AppendFormat(" AND {0}=@{0}", kvp.Key);
+                lstParameters.Add(new SqlParameter
+                {
+                     ParameterName="@"+kvp.Key,
+                     Value=kvp.Value
+                });
+            }
+
+            DataTable dt = QueryTable(sbSql.ToString(),lstParameters.ToArray());
+            if (dt.Rows.Count > 0)
+            {
+                Record record = new Record();
+                DataRow row = dt.Rows[0];
+                foreach (DataColumn column in dt.Columns)
+                {
+                    record.Items.Add(new DataItem
+                    {
+                        Key = column.ColumnName,
+                        Value = row[column]
+                    });
+                }
+                return record;
+            }
+            return null;
+        }
+
         public SqlDataReader ExecuteReaader(ModelDataSource source)
         {
             return ExecuteReaader(source.Sql, null);

@@ -28,7 +28,7 @@
         <div class="data-wrap">
             <div class="data-operation">
                 <div class="button-operation">
-                    <button type="button" class="btn btn-success">新建栏目</button>
+                    <asp:Button ID="btnAdd" runat="server" Text="新建栏目" OnClick="btnAdd_Click" />
                 </div>
                 <div class="pager_operation">
                 </div>

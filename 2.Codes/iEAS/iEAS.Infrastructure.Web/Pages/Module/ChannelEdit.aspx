@@ -50,6 +50,7 @@
                                 <asp:DropDownList ID="ddlChannelType"  runat="server" Width="200">
                                      <asp:ListItem Text="URL" Value="URL"></asp:ListItem>
                                      <asp:ListItem Text="模型" Value="MODEL"></asp:ListItem>
+                                     <asp:ListItem Text="单页模型" Value="PModel"></asp:ListItem>
                                      <asp:ListItem Text="节点" Value="NODE"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>

@@ -60,7 +60,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
            
             model.Template = txtTemplate.Text.Trim();
 
-            model.ChannelType = "MODEL";
+            model.ChannelType = ddlChannelType.SelectedValue;
             model.Model = txtModel.Text.Trim();
             ChannelService.CreateOrUpdate(model);
 

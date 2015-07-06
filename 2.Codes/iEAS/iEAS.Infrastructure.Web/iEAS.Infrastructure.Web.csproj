@@ -491,7 +491,13 @@
     <Content Include="Config\Model\News.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\Model\Page.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Model\PageContent.xml">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Config\Model\Special.xml">
       <SubType>Designer</SubType>
     </Content>
     <Content Include="Config\Model\UserCase.xml">
@@ -507,6 +513,7 @@
     <Content Include="Model\Controls\Field\ImageUpload.ascx" />
     <Content Include="Model\Controls\Field\TextEditor.ascx" />
     <Content Include="Model\Controls\Field\TextInput.ascx" />
+    <Content Include="Model\Controls\Form\OCPage.ascx" />
     <Content Include="Model\Controls\Form\UxForm.ascx" />
     <Content Include="Model\ModelEdit.aspx" />
     <Content Include="Model\ModelQuery.aspx" />
@@ -817,6 +824,13 @@
     </Compile>
     <Compile Include="Model\Controls\Field\TextInput.ascx.designer.cs">
       <DependentUpon>TextInput.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\Controls\Form\OCPage.ascx.cs">
+      <DependentUpon>OCPage.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\Controls\Form\OCPage.ascx.designer.cs">
+      <DependentUpon>OCPage.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Form\UxForm.ascx.cs">
       <DependentUpon>UxForm.ascx</DependentUpon>

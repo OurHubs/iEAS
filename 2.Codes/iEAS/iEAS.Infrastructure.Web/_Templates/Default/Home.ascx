@@ -25,7 +25,7 @@
     <ux:Header ID="Header" runat="server" />
     <ux:ProductShow ID="ProductShow1" runat="server" />
     <div class="wp clear">
-        <ux:Special ID="Special" runat="server" />
+        <ux:Special ID="Special" runat="server" Title="产品特色" DataSourceCode="Special.List" />
         <div class="col-left w720">
             <ux:UserCase Id="UserCase1" runat="server" title="客户案例" DataSourceCode="UserCase.List"></ux:UserCase>
         </div>   
