@@ -24,63 +24,10 @@ namespace iEAS.Model.Data
             string sql = modelList.DBCommand.Query.Sql.Trim();
 
             int index = 0;
-            string paramName = String.Empty;
+            
             foreach(var condition in modelList.Conditions)
             {
-                switch (condition.Operation)
-                {
-                    case "=":
-                    case "<>":
-                    case ">=":
-                    case ">":
-                    case "<=":
-                    case "<":
-                    case "LIKE":
-                        if(!paramValues.ContainsKey(condition.Code))
-                            continue;
-
-                        paramName = BuildParamName(condition.Code, index++);
-                        sbWhere.AppendFormat("AND {0} {1} {2} ", condition.Code, condition.Operation, paramName);
-                        SqlParameter parameter = new SqlParameter(paramName, paramValues[condition.Code]);
-                        lstParameters.Add(parameter);
-                        break;
-                    case "LIKE%":
-                    case "%LIKE":
-                    case "%LIKE%":
-                        if (!paramValues.ContainsKey(condition.Code))
-                            continue;
-
-                        paramName = BuildParamName(condition.Code, index++);
-                        sbWhere.AppendFormat("AND {0} LIKE {1} ", condition.Code, paramName);
-                        string value = condition.Operation.Replace("LIKE", paramValues[condition.Code]+"");
-                        parameter = new SqlParameter(paramName,value);
-                        lstParameters.Add(parameter);
-                        break;
-                    case "BETWEEN":
-                    case "BETWEEN=":
-                    case "=BETWEEN":
-                    case "=BETWEEN=":
-
-                        string leftOp =condition.Operation.StartsWith("=")?">=":">";
-                        string rightOp =condition.Operation.EndsWith("=")?"<=":"<";
-
-                        if(paramValues.ContainsKey(condition.Code+"_B"))
-                        {
-                            paramName = BuildParamName(condition.Code, index++);
-                            sbWhere.AppendFormat("AND {0} {1} {2} ", condition.Code,leftOp, paramName);
-                            parameter = new SqlParameter(paramName, paramValues[condition.Code+"_B"]);
-                            lstParameters.Add(parameter);
-                        }
-
-                        if (paramValues.ContainsKey(condition.Code+"_E"))
-                        {
-                            paramName = BuildParamName(condition.Code, index++);
-                            sbWhere.AppendFormat("AND {0} {1} {2} ", condition.Code, rightOp, paramName);
-                            parameter = new SqlParameter(paramName, paramValues[condition.Code+"_E"]);
-                            lstParameters.Add(parameter);
-                        }
-                        break;
-                }
+                BuildSQLWhere(condition.Code,condition.Operation,paramValues, sbWhere, lstParameters, index++);
             }
 
             if(sbWhere.Length>0)
@@ -99,6 +46,65 @@ namespace iEAS.Model.Data
             sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
             int count = (int)ExecuteScalar(sql, lstParameters.Select(m=>new SqlParameter(m.ParameterName,m.Value)).ToArray());
             return new ModelResult(count, dt);
+        }
+
+        private void BuildSQLWhere(string code,string operation,Dictionary<string, object> paramValues, StringBuilder sbWhere, List<SqlParameter> lstParameters, int index)
+        {
+            string paramName = String.Empty;
+            switch (operation)
+            {
+                case "=":
+                case "<>":
+                case ">=":
+                case ">":
+                case "<=":
+                case "<":
+                case "LIKE":
+                    if (!paramValues.ContainsKey(code))
+                        return;
+
+                    paramName = BuildParamName(code, index++);
+                    sbWhere.AppendFormat("AND {0} {1} {2} ", code, operation, paramName);
+                    SqlParameter parameter = new SqlParameter(paramName, paramValues[code]);
+                    lstParameters.Add(parameter);
+                    break;
+                case "LIKE%":
+                case "%LIKE":
+                case "%LIKE%":
+                    if (!paramValues.ContainsKey(code))
+                        return;
+
+                        paramName = BuildParamName(code, index++);
+                    sbWhere.AppendFormat("AND {0} LIKE {1} ", code, paramName);
+                    string value = operation.Replace("LIKE", paramValues[code] + "");
+                    parameter = new SqlParameter(paramName, value);
+                    lstParameters.Add(parameter);
+                    break;
+                case "BETWEEN":
+                case "BETWEEN=":
+                case "=BETWEEN":
+                case "=BETWEEN=":
+
+                    string leftOp = operation.StartsWith("=") ? ">=" : ">";
+                    string rightOp = operation.EndsWith("=") ? "<=" : "<";
+
+                    if (paramValues.ContainsKey(code + "_B"))
+                    {
+                        paramName = BuildParamName(code, index++);
+                        sbWhere.AppendFormat("AND {0} {1} {2} ", code, leftOp, paramName);
+                        parameter = new SqlParameter(paramName, paramValues[code + "_B"]);
+                        lstParameters.Add(parameter);
+                    }
+
+                    if (paramValues.ContainsKey(code + "_E"))
+                    {
+                        paramName = BuildParamName(code, index++);
+                        sbWhere.AppendFormat("AND {0} {1} {2} ", code, rightOp, paramName);
+                        parameter = new SqlParameter(paramName, paramValues[code + "_E"]);
+                        lstParameters.Add(parameter);
+                    }
+                    break;
+            }
         }
 
         public ModelResult Query(ModelList modelList,Dictionary<string,object> paramValues,int startRow,int maxRows)
@@ -250,25 +256,32 @@ namespace iEAS.Model.Data
             return ExecuteReaader(source.Sql, null);
         }
 
-        public IReadOnlyList<IReadOnlyDictionary<string, object>> GetRecords(ModelDataSource source)
+        public IReadOnlyList<IReadOnlyDictionary<string, object>> GetRecords(ModelDataSource source,Dictionary<string,object> values=null)
         {
             List<Dictionary<string, object>> result = new List<Dictionary<string, object>>();
 
             string sql = source.Sql;
-            SqlParameter[] parameters = null;
+            int index = 0;
+            StringBuilder sbWhere = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            foreach (var condition in source.Params)
+            {
+                BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+            }
 
             using (SqlConnection conn = new SqlConnection(DBConn))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
-                    if (parameters != null && parameters.Length > 0)
+                    if (lstParameters.Count > 0)
                     {
-                        comm.Parameters.AddRange(parameters);
+                        comm.Parameters.AddRange(lstParameters.ToArray());
                     }
                     using(SqlDataReader reader=comm.ExecuteReader())
                     {
-                        while (reader.NextResult())
+                        while (reader.Read())
                         {
                             Dictionary<string, object> record = new Dictionary<string, object>();
                             for (int i = 0; i < reader.FieldCount;i++)
@@ -283,25 +296,40 @@ namespace iEAS.Model.Data
             return result;
         }
 
-        public IReadOnlyDictionary<string, object> GetRecord(ModelDataSource source)
+        public IReadOnlyDictionary<string, object> GetRecord(ModelDataSource source,Dictionary<string,object> values=null)
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
 
             string sql = source.Sql;
-            SqlParameter[] parameters = null;
+            int index = 0;
+            StringBuilder sbWhere = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            foreach (var param in source.Params)
+            {
+                if(param.Queryable)
+                {
+                    BuildSQLWhere(param.Name, param.Operation, values, sbWhere, lstParameters, index++);
+                }
+            }
+            if(sbWhere.Length>0)
+            {
+                sbWhere.Remove(0, 4);
+                sql += "  WHERE " + sbWhere;
+            }
 
             using (SqlConnection conn = new SqlConnection(DBConn))
             {
                 conn.Open();
                 using (SqlCommand comm = new SqlCommand(sql, conn))
                 {
-                    if (parameters != null && parameters.Length > 0)
+                    if (lstParameters.Count> 0)
                     {
-                        comm.Parameters.AddRange(parameters);
+                        comm.Parameters.AddRange(lstParameters.ToArray());
                     }
                     using (SqlDataReader reader = comm.ExecuteReader())
                     {
-                        if(reader.NextResult())
+                        if (reader.Read())
                         {
                             for (int i = 0; i < reader.FieldCount; i++)
                             {

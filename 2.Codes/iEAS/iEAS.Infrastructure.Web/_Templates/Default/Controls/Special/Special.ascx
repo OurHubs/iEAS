@@ -1,4 +1,4 @@
-﻿<%@ Control Language="C#" AutoEventWireup="true" CodeBehind="Special.ascx.cs"%>
+﻿<%@ Control Language="C#" AutoEventWireup="true"%>
 <div class="box">
     <div class="title" title="<%=SiteConfig.Instance.Title %>"><span>产品特色</span><span class="bg">产品特色</span><a href="product.html" class="more" target="_blank">了解产品特色</a></div>
     <div class="box-content tese">

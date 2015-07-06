@@ -73,6 +73,8 @@
     <Compile Include="Model\Config\ModelColumnCollection.cs" />
     <Compile Include="Model\Config\ModelDataSource.cs" />
     <Compile Include="Model\Config\ModelDataSourceCollection.cs" />
+    <Compile Include="Model\Config\ModelDataSourceParameter.cs" />
+    <Compile Include="Model\Config\ModelDataSourceParameterCollection.cs" />
     <Compile Include="Model\Config\ModelNavigation.cs" />
     <Compile Include="Model\Config\ModelNavigationCollection.cs" />
     <Compile Include="Model\Config\ModelRegistry.cs" />
