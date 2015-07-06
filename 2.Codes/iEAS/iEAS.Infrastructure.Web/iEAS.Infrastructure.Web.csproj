@@ -526,7 +526,6 @@
     <Content Include="Pages\Model\ModelRegistryList.aspx" />
     <Content Include="Pages\Model\ModelTempEdit.aspx" />
     <Content Include="Pages\Model\ModelTempEditIframe.aspx" />
-    <Content Include="Pages\Model\ModelTempEditIframe2.aspx" />
     <Content Include="Pages\Model\TempIframe.aspx" />
     <Content Include="Pages\Module\ChannelEdit.aspx" />
     <Content Include="Pages\Module\ChannelIndex.aspx" />
@@ -957,13 +956,6 @@
     </Compile>
     <Compile Include="Pages\Model\ModelTempEditIframe.aspx.designer.cs">
       <DependentUpon>ModelTempEditIframe.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Pages\Model\ModelTempEditIframe2.aspx.cs">
-      <DependentUpon>ModelTempEditIframe2.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Pages\Model\ModelTempEditIframe2.aspx.designer.cs">
-      <DependentUpon>ModelTempEditIframe2.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Model\TempIframe.aspx.cs">
       <DependentUpon>TempIframe.aspx</DependentUpon>
