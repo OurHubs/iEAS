@@ -81,6 +81,7 @@
             CKEDITOR.replace('txtTempalte', {
                 extraPlugins: 'myplugin'
             });
+            //CKEDITOR.replace('textarea_id', { allowedContent: true });
     </script>
     </form>
 </body>

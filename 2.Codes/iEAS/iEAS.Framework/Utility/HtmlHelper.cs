@@ -26,9 +26,8 @@ namespace iEAS
         {
             string re = string.Empty;
             using (StreamReader sr = new StreamReader(HtmlPath + "/" + FileName, Encoding.UTF8))
-            {
+            {             
                 re = sr.ReadToEnd();
-
             }
             return re;
         }
