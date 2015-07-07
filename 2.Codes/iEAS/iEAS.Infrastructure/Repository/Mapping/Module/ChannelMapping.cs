@@ -23,6 +23,10 @@ namespace iEAS.Repository.Mapping.Module
             this.Property(m => m.Url, "URL", 500);
             this.Property(m => m.Template, "TEMPLATE", 500);
             this.Property(m => m.Sort, "SORT");
+            this.Property(m => m.FullPath, "FULL_PATH", 500);
+            this.Property(m => m.FullName, "FULL_NAME", 500);
+            this.Property(m => m.ParentPath, "PARENT_PATH", 500);
+            this.Property(m => m.ParentName, "PARENT_NAME", 500);
 
             this.HasOptional(m => m.Parent).WithMany(m => m.Children).HasForeignKey(m => m.ParentID);
         }
