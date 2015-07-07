@@ -18,9 +18,13 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
 
         public override void InitControl(iEAS.Model.Data.Record record)
         {
-            if(!Page.ClientScript.IsClientScriptIncludeRegistered("fckeditor"))
+            if(!Page.ClientScript.IsClientScriptIncludeRegistered("ckeditor"))
             {
-                Page.ClientScript.RegisterClientScriptInclude("fckeditor",ResolveUrl("~/Assets/ckeditor/ckeditor.js"));
+                Page.ClientScript.RegisterClientScriptInclude("ckeditor",ResolveUrl("~/Assets/ckeditor/ckeditor.js"));
+            }
+            if (!Page.ClientScript.IsClientScriptIncludeRegistered("ckfinder"))
+            {
+                Page.ClientScript.RegisterClientScriptInclude("ckfinder", ResolveUrl("~/Assets/ckfinder/ckfinder.js"));
             }
 
 

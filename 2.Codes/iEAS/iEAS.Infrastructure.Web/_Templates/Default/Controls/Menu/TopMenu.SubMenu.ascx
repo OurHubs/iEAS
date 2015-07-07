@@ -1,7 +1,7 @@
 ﻿<%@ Control Language="C#" AutoEventWireup="true" Inherits="iEAS.Model.UI.UxModelControl" %>
 <div class="wp banner-box">
     <div class="lf">
-       <% ExecuteRecord(m =>{%><%=m.GetStr("DESC") %><%}, "Channel.SecondMenu"); %>
+       <% ExecuteRecord(m =>{%><%=m.GetStr("DESC") %><%}, "Channel.CurrentMenu"); %>
     </div>
     <ul class="sub-nav-2 cu-span">
         <% Iterator(m =>
