@@ -17,6 +17,7 @@ namespace iEAS.Infrastructure.Web.Pages.Model
                 BindData();
             }
         }
+
         private void BindData()
         {
             if (!string.IsNullOrEmpty(Code))
@@ -25,7 +26,7 @@ namespace iEAS.Infrastructure.Web.Pages.Model
                 //取出模板html
                string tempHtml= HtmlHelper.ReadTemplate(tempName, Server.MapPath("~/Config/Model/"));
                tempHtml= tempHtml.Replace("<%@ Control Language=\"C#\" AutoEventWireup=\"true\" %>","");
-               tempHtml = Regex.Replace(tempHtml, "<iEAS:ModelFieldContainer [^>]* FieldCode=\"(\\w+)\"></iEAS:ModelFieldContainer>", "<span style=\"background:#FF0\">< $1 ></span>");
+               tempHtml = Regex.Replace(tempHtml, "<iEAS:ModelFieldContainer [^>]* FieldCode=\"(\\w+)\"[^>]*></iEAS:ModelFieldContainer>", "<span style=\"background:#FF0\" data-code=\"$1\" data-ctlname=\"field\" >< $1 ></span>");
                txtTempalte.Text = tempHtml;
             }
         }

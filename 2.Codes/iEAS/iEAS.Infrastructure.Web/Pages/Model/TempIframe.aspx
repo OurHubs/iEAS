@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
     <div> 
-        <textarea id="txtName" rows="3" cols="80">
+        <textarea id="txtName" runat="server" rows="3" cols="80">
 
         </textarea>
     </div>

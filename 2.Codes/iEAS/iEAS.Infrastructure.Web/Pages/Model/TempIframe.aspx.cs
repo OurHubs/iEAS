@@ -14,7 +14,10 @@ namespace iEAS.Infrastructure.Web.Pages.Model
         {
             if (!IsPostBack)
             {
-               
+                if (Request["code"]!=null)
+                {
+                    txtName.Value = Request["code"];
+                }
             }
         }
        
