@@ -1,0 +1,27 @@
+﻿<?xml version="1.0"?>
+<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="栏目导航" Code="Channel">
+  <DataSources>
+    <DataSource Code="Channel.TopMenu">
+      <Sql>SELECT * FROM CHANNEL</Sql>
+      <OrderBy>SORT ASC</OrderBy>
+      <Params>
+        <Param Name="STATUS" Source="Const" Operation="=" Value="1"></Param>
+        <Param Name="PARENT_ID" Source="Const" Operation="IS" Value="NULL"></Param>
+      </Params>
+    </DataSource>
+    <DataSource Code="Channel.SecondMenu">
+      <Sql>SELECT * FROM CHANNEL WHERE PARENT_ID = (SELECT PARENT_ID FROM CHANNEL WHERE ID=@ID)</Sql>
+      <OrderBy>SORT ASC</OrderBy>
+      <Params>
+        <Param Name="ID" Source="ROUTE" Value="ChannelID" Queryable="false"></Param>
+      </Params>
+    </DataSource>
+    <DataSource Code="Channel.SecondParentMenu">
+      <Sql>SELECT * FROM CHANNEL WHERE ID = (SELECT PARENT_ID FROM CHANNEL WHERE ID=@ID)</Sql>
+      <OrderBy>SORT ASC</OrderBy>
+      <Params>
+        <Param Name="ID" Source="ROUTE" Value="ChannelID" Queryable="false"></Param>
+      </Params>
+    </DataSource>
+  </DataSources>
+</ModelConfig>

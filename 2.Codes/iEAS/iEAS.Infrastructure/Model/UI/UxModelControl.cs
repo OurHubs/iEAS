@@ -61,22 +61,32 @@ namespace iEAS.Model.UI
 
         protected virtual void  ExecuteIterator(Action<IReadOnlyDictionary<string, object>> handler)
         {
-            var config = ModelConfig.GetDataSource(DataSourceCode);
+            ExecuteIterator(handler, DataSourceCode);
+        }
+
+        protected virtual void ExecuteIterator(Action<IReadOnlyDictionary<string, object>> handler,string configName)
+        {
+            var config = ModelConfig.GetDataSource(configName);
             config.PageSize = PageSize;
+            Dictionary<string, object> values = BuildValues(config);
 
             DBEngine engine = new DBEngine();
             StringBuilder sbHtml = new StringBuilder();
-            IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config);
+            IReadOnlyList<IReadOnlyDictionary<string, object>> records = engine.GetRecords(config, values);
             foreach (var dict in records)
             {
                 handler(dict);
             }
-            //HttpContext.Current.Response.Write(sbHtml);
         }
 
         protected virtual void ExecuteCollection(Action<IReadOnlyList<IReadOnlyDictionary<string, object>>> handler)
         {
-            var config = ModelConfig.GetDataSource(DataSourceCode);
+            ExecuteCollection(handler, DataSourceCode);
+        }
+
+        protected virtual void ExecuteCollection(Action<IReadOnlyList<IReadOnlyDictionary<string, object>>> handler, string configName)
+        {
+            var config = ModelConfig.GetDataSource(configName);
             config.PageSize = PageSize;
 
             DBEngine engine = new DBEngine();
@@ -86,11 +96,16 @@ namespace iEAS.Model.UI
 
         protected virtual void ExecuteRecord(Action<IReadOnlyDictionary<string, object>> handler)
         {
-            var config = ModelConfig.GetDataSource(DataSourceCode);
+            ExecuteRecord(handler, DataSourceCode);
+        }
+
+        protected virtual void ExecuteRecord(Action<IReadOnlyDictionary<string, object>> handler,string configName)
+        {
+            var config = ModelConfig.GetDataSource(configName);
             Dictionary<string, object> values = BuildValues(config);
 
             DBEngine engine = new DBEngine();
-            IReadOnlyDictionary<string, object> record = engine.GetRecord(config,values);
+            IReadOnlyDictionary<string, object> record = engine.GetRecord(config, values);
             handler(record);
         }
 
@@ -104,6 +119,12 @@ namespace iEAS.Model.UI
                 {
                     case "recordid":
                         values.Add(item.Name, RecordID);
+                        break;
+                    case "const":
+                        values.Add(item.Name, item.Value);
+                        break;
+                    case "route":
+                        values.Add(item.Name, Page.RouteData.Values[item.Value]);
                         break;
                     default:
                         break;

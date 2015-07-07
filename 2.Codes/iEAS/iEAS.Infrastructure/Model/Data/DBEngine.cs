@@ -104,6 +104,12 @@ namespace iEAS.Model.Data
                         lstParameters.Add(parameter);
                     }
                     break;
+                case "IS":
+                    if (!paramValues.ContainsKey(code))
+                        return;
+
+                    sbWhere.AppendFormat("AND {0} IS {1}", code, paramValues[code]);
+                    break;
             }
         }
 
@@ -314,7 +320,27 @@ namespace iEAS.Model.Data
 
             foreach (var condition in source.Params)
             {
-                BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                if (condition.Queryable)
+                {
+                    BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else
+                {
+                    if (values.ContainsKey(condition.Name))
+                    {
+                        lstParameters.Add(new SqlParameter("@" + condition.Name, values[condition.Name]));
+                    }
+                }
+            }
+
+            if(sbWhere.Length>0)
+            {
+                sbWhere.Remove(0, 3);
+                sql += " WHERE " + sbWhere;
+            }
+            if(!String.IsNullOrWhiteSpace(source.OrderBy))
+            {
+                sql += " ORDER BY " + source.OrderBy;
             }
 
             using (SqlConnection conn = new SqlConnection(DBConn))
@@ -357,6 +383,10 @@ namespace iEAS.Model.Data
                 if(param.Queryable)
                 {
                     BuildSQLWhere(param.Name, param.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else if (values.ContainsKey(param.Name))
+                {
+                    lstParameters.Add(new SqlParameter("@" + param.Name, values[param.Name]));
                 }
             }
             if(sbWhere.Length>0)

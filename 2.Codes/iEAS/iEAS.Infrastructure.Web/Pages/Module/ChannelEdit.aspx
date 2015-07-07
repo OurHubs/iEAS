@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.ChannelEdit" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelEdit.aspx.cs" ValidateRequest="false" Inherits="iEAS.Infrastructure.Web.Pages.Module.ChannelEdit" %>
 
 <!DOCTYPE html>
 

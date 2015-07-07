@@ -497,6 +497,9 @@
     <Content Include="Config\Model\PageContent.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="Config\Model\Channel.xml">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Config\Model\Special.xml">
       <SubType>Designer</SubType>
     </Content>
@@ -557,12 +560,20 @@
     <Content Include="Portal\TemplateEngine\Detail.aspx" />
     <Content Include="Portal\TemplateEngine\Home.aspx" />
     <Content Include="_Templates\Default\Assets\Images\bbody.jpg" />
+    <Content Include="_Templates\Default\Assets\Images\btn.png" />
+    <Content Include="_Templates\Default\Assets\Images\crumb.png" />
+    <Content Include="_Templates\Default\Assets\Images\ftbg.png" />
     <Content Include="_Templates\Default\Assets\Images\logo.png" />
     <Content Include="_Templates\Default\Assets\Images\msg_subNav.png" />
     <Content Include="_Templates\Default\Assets\Images\nav.png" />
     <Content Include="_Templates\Default\Assets\Images\t.jpg" />
+    <Content Include="_Templates\Default\Assets\Images\tybg.jpg" />
+    <Content Include="_Templates\Default\Assets\Js\MSClass.js" />
+    <Content Include="_Templates\Default\Assets\Js\public.js" />
+    <Content Include="_Templates\Default\ChannelPage.ascx" />
     <Content Include="_Templates\Default\Controls\Header\Header.ascx" />
     <Content Include="_Templates\Default\Controls\HtmlPart\HtmlPart.ascx" />
+    <Content Include="_Templates\Default\Controls\Menu\TopMenu.SubMenu.ascx" />
     <Content Include="_Templates\Default\Controls\News\News.ascx" />
     <Content Include="_Templates\Default\Controls\ProductShow\ProductShow.ascx" />
     <Content Include="_Templates\Default\Assets\Css\public.css" />

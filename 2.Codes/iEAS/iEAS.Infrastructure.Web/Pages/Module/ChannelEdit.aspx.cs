@@ -29,6 +29,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtName.Text = model.Name;
                 txtDesc.Text = model.Desc;
                 txtModel.Text = model.Model;
+                txtURL.Text = model.Url;
                
                 txtTemplate.Text = model.Template;
                 ddlChannelType.SelectedValue = model.ChannelType;
@@ -57,11 +58,13 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             model.Name = txtName.Text.Trim();
             model.Code = txtCode.Text.Trim();
             model.Desc = txtDesc.Text.Trim();
+
            
             model.Template = txtTemplate.Text.Trim();
 
             model.ChannelType = ddlChannelType.SelectedValue;
             model.Model = txtModel.Text.Trim();
+            model.Url = txtURL.Text.Trim();
             ChannelService.CreateOrUpdate(model);
 
             Response.Redirect("ChannelList.aspx");

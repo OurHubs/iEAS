@@ -14,6 +14,7 @@
     <title><%=SiteConfig.Instance.Title %></title>
     <meta name="keywords" content="<%=SiteConfig.Instance.Keywords %>" />
     <meta name="description" content="<%=SiteConfig.Instance.Description %>" />
+    <meta http-equiv="X-UA-Compatible" content="IE=7" />
     <link href="_Templates/<%=SiteConfig.Instance.Template %>/assets/css/reset.css" rel="stylesheet" type="text/css" />
     <link href="_Templates/<%=SiteConfig.Instance.Template %>/assets/css/public.css" rel="stylesheet" type="text/css" />
     <link href="_Templates/<%=SiteConfig.Instance.Template %>/assets/css/style.css" rel="stylesheet" type="text/css" />
