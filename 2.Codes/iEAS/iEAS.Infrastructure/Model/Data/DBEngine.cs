@@ -104,6 +104,12 @@ namespace iEAS.Model.Data
                         lstParameters.Add(parameter);
                     }
                     break;
+                case "IS":
+                    if (!paramValues.ContainsKey(code))
+                        return;
+
+                    sbWhere.AppendFormat("AND {0} IS {1}", code, paramValues[code]);
+                    break;
             }
         }
 
@@ -204,6 +210,18 @@ namespace iEAS.Model.Data
             });
         }
 
+        public void DeleteRecord(ModelList modelList,string[] ids)
+        {
+            StringBuilder sbIds = new StringBuilder();
+            foreach (var id in ids)
+            {
+                sbIds.AppendFormat("'{0}',", id);
+            }
+            sbIds.Trim(',');
+            string sql = modelList.DBCommand.DeleteAll.Sql.Replace("${ID}",sbIds.ToStr());
+            ExecuteSql(sql, null);
+        }
+
         public void ExecuteRecord(Record record)
         {
             if (record.RecordID == Guid.Empty)
@@ -251,6 +269,41 @@ namespace iEAS.Model.Data
             return record;
         }
 
+        public Record GetRecord(ModelForm modelForm,Dictionary<string,object> values)
+        {
+            
+            StringBuilder sbSql = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            sbSql.AppendFormat("SELECT * FROM {0} WHERE 1=1 ", modelForm.Table);
+            foreach(var kvp in values)
+            {
+                sbSql.AppendFormat(" AND {0}=@{0}", kvp.Key);
+                lstParameters.Add(new SqlParameter
+                {
+                     ParameterName="@"+kvp.Key,
+                     Value=kvp.Value
+                });
+            }
+
+            DataTable dt = QueryTable(sbSql.ToString(),lstParameters.ToArray());
+            if (dt.Rows.Count > 0)
+            {
+                Record record = new Record();
+                DataRow row = dt.Rows[0];
+                foreach (DataColumn column in dt.Columns)
+                {
+                    record.Items.Add(new DataItem
+                    {
+                        Key = column.ColumnName,
+                        Value = row[column]
+                    });
+                }
+                return record;
+            }
+            return null;
+        }
+
         public SqlDataReader ExecuteReaader(ModelDataSource source)
         {
             return ExecuteReaader(source.Sql, null);
@@ -267,7 +320,27 @@ namespace iEAS.Model.Data
 
             foreach (var condition in source.Params)
             {
-                BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                if (condition.Queryable)
+                {
+                    BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else
+                {
+                    if (values.ContainsKey(condition.Name))
+                    {
+                        lstParameters.Add(new SqlParameter("@" + condition.Name, values[condition.Name]));
+                    }
+                }
+            }
+
+            if(sbWhere.Length>0)
+            {
+                sbWhere.Remove(0, 3);
+                sql += " WHERE " + sbWhere;
+            }
+            if(!String.IsNullOrWhiteSpace(source.OrderBy))
+            {
+                sql += " ORDER BY " + source.OrderBy;
             }
 
             using (SqlConnection conn = new SqlConnection(DBConn))
@@ -310,6 +383,10 @@ namespace iEAS.Model.Data
                 if(param.Queryable)
                 {
                     BuildSQLWhere(param.Name, param.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else if (values.ContainsKey(param.Name))
+                {
+                    lstParameters.Add(new SqlParameter("@" + param.Name, values[param.Name]));
                 }
             }
             if(sbWhere.Length>0)

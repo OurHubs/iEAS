@@ -25,6 +25,12 @@ namespace iEAS.Model.Config
             get { return _Delete; }
             set { _Delete = value; }
         }
+        [XmlElement("DeleteAll")]
+        public ModelDelete DeleteAll
+        {
+            get { return _Delete; }
+            set { _Delete = value; }
+        }
     }
 
     public class ModelQuery
@@ -37,6 +43,11 @@ namespace iEAS.Model.Config
     }
 
     public class ModelDelete
+    {
+        [XmlElement]
+        public string Sql { get; set; }
+    }
+    public class ModelDeleteAll
     {
         [XmlElement]
         public string Sql { get; set; }

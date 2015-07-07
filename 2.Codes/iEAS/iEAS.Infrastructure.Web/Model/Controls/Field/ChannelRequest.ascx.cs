@@ -14,7 +14,7 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            lblChannelName.Text = hfChannelName.Value;
         }
 
         public override void InitControl(iEAS.Model.Data.Record record)

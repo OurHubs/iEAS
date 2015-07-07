@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Web.UI;
+using System.Web.UI.HtmlControls;
 using System.Web.UI.WebControls;
 
 namespace iEAS.Model.UI
@@ -39,7 +40,15 @@ namespace iEAS.Model.UI
             {
                 if (cellType == DataControlCellType.DataCell)
                 {
-                    if (ModelColumn.Control != "Text")
+                    if(ModelColumn.Control=="CheckBox")
+                    {
+                        cell.Controls.Clear();
+                        HtmlInputCheckBox chkValue = new HtmlInputCheckBox();
+                        chkValue.Attributes.Add("data", ModelColumn.Code + "s");
+                        chkValue.ID = ModelColumn.Code;
+                        cell.Controls.Add(chkValue);
+                    }
+                    else if (ModelColumn.Control != "Text")
                     {
                         cell.Controls.Clear();
                         ModelFieldTemplate tpl = cell.Page.LoadControl("~/Model/Controls/Column/" + ModelColumn.Control + ".ascx") as ModelFieldTemplate;
@@ -47,6 +56,23 @@ namespace iEAS.Model.UI
                         cell.Controls.Add(tpl);
                     }
                 }
+                else if(cellType==DataControlCellType.Header)
+                {
+                    
+                    if (ModelColumn.Control == "CheckBox")
+                    {
+                        cell.Controls.Clear();
+                        HtmlInputCheckBox checkAll = new HtmlInputCheckBox();
+                        checkAll.ID = ModelColumn.Code;
+                        checkAll.Attributes["onclick"] = "checkAll(this,'"+checkAll.ID+"s')";
+                        cell.Controls.Add(checkAll);
+                    }
+                }
+                if (!String.IsNullOrWhiteSpace(ModelColumn.Width))
+                {
+                    cell.Width = Unit.Parse(ModelColumn.Width);
+                }
+                cell.HorizontalAlign = ModelColumn.HorizontalAlign;
             };
 
             cell.DataBinding += (sender, e) =>
@@ -60,11 +86,15 @@ namespace iEAS.Model.UI
                     {
                         values[column.ColumnName] = dtRow[column];
                     }
-                    //HttpHelper.GetViewState(row)["DataSource"] = values;
 
                     if (ModelColumn.Control == "Text")
                     {
                         cell.Text = values[ModelColumn.Code] + "";
+                    }
+                    else if(ModelColumn.Control =="CheckBox")
+                    {
+                        HtmlInputCheckBox chkValue=cell.Controls[0] as HtmlInputCheckBox;
+                        chkValue.Value = values[ModelColumn.Code].ToStr();
                     }
                     else
                     {

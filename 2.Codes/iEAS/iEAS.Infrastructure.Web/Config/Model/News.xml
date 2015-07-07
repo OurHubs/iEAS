@@ -28,6 +28,7 @@
         <Item Title="删除" Command="DeleteAll" Class="btn btn-danger"></Item>
       </TopBar>
       <Columns>
+        <Column Title="RecordID" Code="RecordID" Control="CheckBox" Width="30px" HorizontalAlign="Center" />
         <Column Title="栏目" Code="ChannelName" Control="Text" />
         <Column Title="标题" Code="Title" Control="Text" />
         <Column Title="简介" Code="Brief" Control="Text" />
@@ -56,6 +57,13 @@
             ]]>
           </Sql>
         </Delete>
+        <DeleteAll>
+          <Sql>
+            <![CDATA[
+            DELETE FROM News WHERE RecordID IN (${ID})
+            ]]>
+          </Sql>
+        </DeleteAll>
       </DBCommand>
     </List>
   </Lists>

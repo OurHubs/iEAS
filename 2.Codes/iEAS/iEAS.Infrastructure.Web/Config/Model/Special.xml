@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0"?>
-<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="客户案例" Code="UserCase">
+<ModelConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" Name="产品特色" Code="Special">
   <Forms>
-    <Form Title="客户案例" Code="UserCase" Table="UserCase" Template="OneColumn">
+    <Form Title="产品特色" Code="Special" Table="Special" Template="OneColumn">
       <Fields>
         <Field Title="标题" Code="Title" Control="TextInput" IsRequired="true"/>
         <Field Title="简介" Code="Desc" Control="TextEditor"/>
@@ -11,9 +11,9 @@
     </Form>
   </Forms>
   <Lists>
-    <List Code="UserCase" Template="TabPagedQuery">
+    <List Code="Special" Template="TabPagedQuery">
       <Navigations>
-        <Navigation Title="用户案例" Type="ModelList" Url="UserCase" IsCurrent="true"></Navigation>
+        <Navigation Title="产品特色" Type="ModelList" Url="Special" IsCurrent="true"></Navigation>
       </Navigations>
       <TopBar>
         <Item Title="添加" Command="Add" Class="btn btn-success"></Item>
@@ -24,7 +24,7 @@
       </Conditions>
       <Columns>
         <Column Title="RecordID" Code="RecordID" Control="Text"></Column>
-        <Column Title="名称" Code="Name" Control="Text" />
+        <Column Title="标题" Code="Title" Control="Text" />
         <Column Title="简介" Code="Desc" Control="Text" />
         <Column Title="序号" Code="Sort" Control="Text" />
         <Column Title="操作" Code="Command" Control="Command" />
@@ -33,7 +33,7 @@
         <Query>
           <Sql>
             <![CDATA[
-              SELECT * FROM UserCase
+              SELECT * FROM Special
             ]]>
           </Sql>
           <OrderBy>
@@ -45,7 +45,7 @@
         <Delete>
           <Sql>
             <![CDATA[
-            DELETE FROM UserCase WHERE RecordID=@ID
+            DELETE FROM Special WHERE RecordID=@ID
             ]]>
           </Sql>
         </Delete>
@@ -53,17 +53,17 @@
     </List>
   </Lists>
   <DataSources>
-    <DataSource Code="UserCase.List">
-      <Sql>SELECT * FROM UserCase</Sql>
+    <DataSource Code="Special.List">
+      <Sql>SELECT * FROM Special</Sql>
       <OrderBy></OrderBy>
       <Params></Params>
     </DataSource>
   </DataSources>
   <Tables>
-    <Table Name="用户案例" Code="UserCase">
+    <Table Name="产品特色" Code="Special">
       <Columns>
         <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
-        <Column Name="名称" Code="Name" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
+        <Column Name="标题" Code="Title" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
         <Column Name="简介" Code="Desc" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
         <Column Name="图片" Code="Thumbnail" Type="nvarchar" MaxLength="50" Nullable="true"></Column>
         <Column Name="序号" Code="Sort" Type="int" Nullable="true"></Column>

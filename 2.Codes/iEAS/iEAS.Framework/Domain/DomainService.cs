@@ -227,7 +227,7 @@ namespace iEAS
          /// 按ID删除实体
          /// </summary>
          /// <param name="id"></param>
-        public void DeleteByID(int id)
+        public virtual void DeleteByID(int id)
         {
             Delete(m => m.ID == id);
         }
@@ -236,7 +236,7 @@ namespace iEAS
          /// 按Guid删除实体
          /// </summary>
          /// <param name="guid"></param>
-        public void DeleteByGuid(Guid guid)
+        public virtual void DeleteByGuid(Guid guid)
         {
             Delete(m => m.Guid == guid);
         }
