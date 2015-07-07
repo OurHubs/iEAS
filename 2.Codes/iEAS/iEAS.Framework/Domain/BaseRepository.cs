@@ -12,7 +12,6 @@ namespace iEAS
         public BaseRepository()
             :base("name=iEASConn")
         {
-
         }
 
         public BaseRepository(string nameOrConnectionString)

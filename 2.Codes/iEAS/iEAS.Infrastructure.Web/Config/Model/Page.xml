@@ -78,6 +78,13 @@
         <Param Name="RecordID" Source="RecordID" Operation="="></Param>
       </Params>
     </DataSource>
+    <DataSource Code="Page.ChannelRecord">
+      <Sql>SELECT * FROM Page</Sql>
+      <OrderBy></OrderBy>
+      <Params>
+        <Param Name="ChannelID" Source="Route" Value="ChannelID" Operation="="></Param>
+      </Params>
+    </DataSource>
   </DataSources>
   <Tables>
     <Table Name="单页数据" Code="Page">

@@ -13,6 +13,7 @@ using iEAS.Module;
 using iEAS.Account;
 using iEAS.Framework.Log;
 using System.Web.Routing;
+using System.Data.Entity;
 
 
 namespace iEAS.Infrastructure.Web
@@ -21,6 +22,8 @@ namespace iEAS.Infrastructure.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            Database.SetInitializer<iEASRepository>(null);
+
             RouteTable.Routes.MapPageRoute("Home", "", "~/Portal/TemplateEngine/Home.aspx");
             RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx");
             RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Detail.aspx");
@@ -38,7 +41,6 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<HttpCacheProvider>().As<ICacheProvider>().InstancePerRequest();
             builder.RegisterType<DomainService>().As<IDomainService>();
 
-            builder.RegisterType<FrameworkRepository>().AsSelf();
             builder.RegisterType<iEASRepository>().AsSelf();
 
             builder.RegisterType<CurrentUserProvider>().As<ICurrentUserProvider>();

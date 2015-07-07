@@ -299,6 +299,7 @@ namespace iEAS.Model.Data
                         Value = row[column]
                     });
                 }
+                record.RecordID = record.Items.Where(m => m.Key == "RecordID").First().Value.ToGuid();
                 return record;
             }
             return null;

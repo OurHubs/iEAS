@@ -50,6 +50,22 @@ namespace iEAS.Module
         /// </summary>
         public string Desc { get; set; }
         /// <summary>
+        /// 完整名称
+        /// </summary>
+        public string FullName { get; set; }
+        /// <summary>
+        /// 完整路径
+        /// </summary>
+        public string FullPath { get; set; }
+        /// <summary>
+        /// 父级名称
+        /// </summary>
+        public string ParentName { get; set; }
+        /// <summary>
+        /// 父级路径
+        /// </summary>
+        public string ParentPath { get; set; }
+        /// <summary>
         /// 排序
         /// </summary>
         public int Sort { get; set; }

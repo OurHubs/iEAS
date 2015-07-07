@@ -130,12 +130,7 @@ namespace iEAS.Infrastructure.Web
 
         protected void btnGenerateDB_Click(object sender, EventArgs e)
         {
-            Database.SetInitializer(new DropCreateDatabaseAlways<FrameworkRepository>());
             Database.SetInitializer(new DatabaseInitializer());
-            using (var rep = new FrameworkRepository())
-            {
-                rep.Database.Initialize(true);
-            }
             using (var rep = new iEASRepository())
             {
                 rep.Database.Initialize(true);

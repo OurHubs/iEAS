@@ -95,7 +95,6 @@
     <Compile Include="Log\SystemLogger.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Domain\BaseRepository.cs" />
-    <Compile Include="Repository\FrameworkRepository.cs" />
     <Compile Include="Security\EncryptionType.cs" />
     <Compile Include="Security\UserInfo.cs" />
     <Compile Include="Utility\Helper.cs" />
