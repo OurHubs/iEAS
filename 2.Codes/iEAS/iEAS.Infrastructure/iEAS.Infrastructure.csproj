@@ -147,6 +147,19 @@
     <Compile Include="Module\Service\Imp\PortalService.cs" />
     <Compile Include="Module\Service\IChannelService.cs" />
     <Compile Include="Module\Service\IPortalService.cs" />
+    <Compile Include="Orgnization\Enitity\Company.cs" />
+    <Compile Include="Orgnization\Enitity\Department.cs" />
+    <Compile Include="Orgnization\Enitity\EmergencyContact.cs" />
+    <Compile Include="Orgnization\Enitity\EmployeeTitle.cs" />
+    <Compile Include="Orgnization\Enitity\EmployeePosition.cs" />
+    <Compile Include="Orgnization\Enitity\Position.cs" />
+    <Compile Include="Orgnization\Enitity\Employee.cs" />
+    <Compile Include="Orgnization\Enitity\ReportLine.cs" />
+    <Compile Include="Orgnization\Enitity\Title.cs" />
+    <Compile Include="Orgnization\Service\IEmployeeTitleService.cs" />
+    <Compile Include="Orgnization\Service\IReportLineService.cs" />
+    <Compile Include="Orgnization\Service\IEmployeePositionService.cs" />
+    <Compile Include="Orgnization\Service\ITitleService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repository\iEASRepository.cs" />
     <Compile Include="Repository\Mapping\Account\PermissionMapping.cs" />
@@ -175,6 +188,7 @@
     <Folder Include="Navigtion\Config\" />
     <Folder Include="Navigtion\Entity\" />
     <Folder Include="Navigtion\Service\" />
+    <Folder Include="Orgnization\Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
