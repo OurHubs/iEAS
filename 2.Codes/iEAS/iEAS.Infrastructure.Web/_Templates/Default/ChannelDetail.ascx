@@ -3,9 +3,9 @@
 <%@ Register src="Controls/Header/Header.ascx" tagname="Header" tagprefix="ux" %>
 <%@ Register src="Controls/HtmlPart/HtmlPart.ascx" tagname="HtmlPart" tagprefix="ux" %>
 <%@ Register src="Controls/Menu/TopMenu.SubMenu.ascx" tagname="TopMenu_SubMenu" tagprefix="ux" %>
-<%@ Register src="Controls/Page/Page.ascx" tagname="Page" tagprefix="ux" %>
 <%@ Register src="Controls/Crumb/Crumb.ascx" tagname="Crumb" tagprefix="ux" %>
-
+<%@ Register src="Controls/News/Detail.ascx" tagname="News_Detail" tagprefix="ux" %>
+<%@ Register src="Controls/News/PagedList.ascx" tagname="News_PagedList" tagprefix="ux" %>
 <!DOCTYPE HTML>
 <html>
 <head>
@@ -26,9 +26,12 @@
 <div class="other-banner">
 	<ux:TopMenu_SubMenu ID="subMenu" runat="server"></ux:TopMenu_SubMenu>
 </div>
-<div class="wp clear">
+<div class="wp clear down-content-wp">
     <ux:Crumb ID="crumb" runat="server" />
-    <ux:Page ID="channelPage" runat="server" />
+    <ux:News_Detail ID="uxDetail" runat="server" />
+    <div class="down-list picbig">
+        <ux:News_PagedList ID="uxPagedList" runat="server" />
+    </div>
 </div>
 <div class="wp link">
     <ux:HtmlPart Id="keywords" runat="server" title="相关关键词" RecordID="3bc00f4e-f52a-4760-b315-eff22b39134c" DataSourceCode="HtmlPart.Record"></ux:HtmlPart>

@@ -25,7 +25,11 @@ namespace iEAS.Infrastructure.Web
             Database.SetInitializer<iEASRepository>(null);
 
             RouteTable.Routes.MapPageRoute("Home", "", "~/Portal/TemplateEngine/Home.aspx");
-            RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx");
+            RouteValueDictionary defChannel=new RouteValueDictionary();
+            defChannel.Add("PageIndex",1);
+            RouteTable.Routes.MapPageRoute("ChannelList", "Channel/{ChannelID}_{PageIndex}", "~/Portal/TemplateEngine/Channel.aspx",false,defChannel);
+            RouteTable.Routes.MapPageRoute("Channel", "Channel/{ChannelID}", "~/Portal/TemplateEngine/Channel.aspx", false, defChannel);
+            RouteTable.Routes.MapPageRoute("ChannelDetail", "Detail/{ChannelID}_{RecordID}", "~/Portal/TemplateEngine/Detail.aspx");
             RouteTable.Routes.MapPageRoute("Detail", "Detail/{RecordID}", "~/Portal/TemplateEngine/Detail.aspx");
             RouteTable.Routes.MapPageRoute("ModelQuery", "ModelQuery/{Model}", "~/Model/ModelQuery.aspx");
             RouteTable.Routes.MapPageRoute("ModelEdit", "ModelEdit/{Model}", "~/Model/ModelEdit.aspx");

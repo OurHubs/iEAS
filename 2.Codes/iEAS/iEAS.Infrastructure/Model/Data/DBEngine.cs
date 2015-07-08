@@ -339,7 +339,8 @@ namespace iEAS.Model.Data
                 sbWhere.Remove(0, 3);
                 sql += " WHERE " + sbWhere;
             }
-            if(!String.IsNullOrWhiteSpace(source.OrderBy))
+
+            if (!String.IsNullOrWhiteSpace(source.OrderBy))
             {
                 sql += " ORDER BY " + source.OrderBy;
             }
@@ -367,6 +368,74 @@ namespace iEAS.Model.Data
                     }
                 }
             }
+            return result;
+        }
+
+        public ModelPagedRecords GetRecords(ModelDataSource source, Dictionary<string, object> values, int pageIndex, int pageSize = 10)
+        {
+            ModelPagedRecords result = new ModelPagedRecords();
+           
+            string sql = source.Sql;
+            int index = 0;
+            int startRow = (pageIndex - 1) * pageSize;
+            int endRow = pageIndex * pageSize;
+            StringBuilder sbWhere = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+
+            foreach (var condition in source.Params)
+            {
+                if (condition.Queryable)
+                {
+                    BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else
+                {
+                    if (values.ContainsKey(condition.Name))
+                    {
+                        lstParameters.Add(new SqlParameter("@" + condition.Name, values[condition.Name]));
+                    }
+                }
+            }
+
+            if (sbWhere.Length > 0)
+            {
+                sbWhere.Remove(0, 3);
+                sql += " WHERE " + sbWhere;
+            }
+
+            string mainSQL = sql.Substring(6);
+            string fromSQL = sql.Substring(sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
+            string orderbySQL = !String.IsNullOrWhiteSpace(source.OrderBy) ? source.OrderBy : "RecordID ASC";
+
+            sql = String.Format("SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY {0}) AS __ROWNUMBER,{1}) AS __T WHERE __ROWNUMBER>{2} AND __ROWNUMBER<={3} ", orderbySQL, mainSQL, startRow, endRow);
+
+            using (SqlConnection conn = new SqlConnection(DBConn))
+            {
+                conn.Open();
+                using (SqlCommand comm = new SqlCommand(sql, conn))
+                {
+                    if (lstParameters.Count > 0)
+                    {
+                        comm.Parameters.AddRange(lstParameters.ToArray());
+                    }
+                    using (SqlDataReader reader = comm.ExecuteReader())
+                    {
+                        while (reader.Read())
+                        {
+                            Dictionary<string, object> record = new Dictionary<string, object>();
+                            for (int i = 0; i < reader.FieldCount; i++)
+                            {
+                                record.Add(reader.GetName(i), reader.GetValue(i));
+                            }
+                            result.Add(record);
+                        }
+                    }
+                }
+            }
+
+            sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
+            result.RecordCount = (int)ExecuteScalar(sql, lstParameters.Select(m => new SqlParameter(m.ParameterName, m.Value)).ToArray());
+            
             return result;
         }
 
@@ -420,11 +489,38 @@ namespace iEAS.Model.Data
             return result;
         }
 
-        public int GetRecordCount(ModelDataSource source)
+        public int GetRecordCount(ModelDataSource source,Dictionary<string,object> values=null)
         {
-            string sql = source.Sql.Substring(source.Sql.IndexOf("FROM",StringComparison.OrdinalIgnoreCase));
-            sql = "SELECT COUNT(1) " + sql;
-            return (int)ExecuteScalar(sql,null);
+            string sql = source.Sql;
+            int index = 0;
+            StringBuilder sbWhere = new StringBuilder();
+            List<SqlParameter> lstParameters = new List<SqlParameter>();
+            values = values ?? new Dictionary<string, object>();
+
+            foreach (var condition in source.Params)
+            {
+                if (condition.Queryable)
+                {
+                    BuildSQLWhere(condition.Name, condition.Operation, values, sbWhere, lstParameters, index++);
+                }
+                else
+                {
+                    if (values.ContainsKey(condition.Name))
+                    {
+                        lstParameters.Add(new SqlParameter("@" + condition.Name, values[condition.Name]));
+                    }
+                }
+            }
+
+            if (sbWhere.Length > 0)
+            {
+                sbWhere.Remove(0, 3);
+                sql += " WHERE " + sbWhere;
+            }
+
+            string fromSQL = sql.Substring(sql.IndexOf("FROM", StringComparison.OrdinalIgnoreCase));
+            sql = String.Format("SELECT COUNT(1) {0}", fromSQL);
+            return (int)ExecuteScalar(sql, lstParameters.ToArray());
         }
 
         private string BuildParamName(string field, int index)

@@ -108,8 +108,16 @@ namespace iEAS.Model.UI
             IReadOnlyDictionary<string, object> record = engine.GetRecord(config, values);
             handler(record);
         }
+        protected string GetDetailUrl(IReadOnlyDictionary<string, object> record)
+        {
+            string recordID = record.GetStr("RECORD_ID");
+            string channelID = record.GetStr("CHANNEL_ID");
+            return !String.IsNullOrWhiteSpace(channelID)
+                ? String.Format("Detail/{0}_{1}", channelID, recordID)
+                : String.Format("Detail/{0}", recordID);
+        }
 
-        private Dictionary<string,object> BuildValues(ModelDataSource dsConfig)
+        protected Dictionary<string,object> BuildValues(ModelDataSource dsConfig)
         {
             Dictionary<string,object> values=new Dictionary<string,object>();
 

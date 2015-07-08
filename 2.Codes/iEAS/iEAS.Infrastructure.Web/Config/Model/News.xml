@@ -68,10 +68,23 @@
     </List>
   </Lists>
   <DataSources>
+    <DataSource Code="News.Record">
+      <Sql>SELECT * FROM News</Sql>
+      <Params>
+        <Param Name="RecordID" Source="Route" Value="RecordID" Operation="=" />
+      </Params>
+    </DataSource>
     <DataSource Code="News.List">
       <Sql>SELECT * FROM News</Sql>
-      <OrderBy></OrderBy>
+      <OrderBy>UpdateTime DESC</OrderBy>
       <Params></Params>
+    </DataSource>
+    <DataSource Code="News.PagedList">
+      <Sql>SELECT * FROM News</Sql>
+      <OrderBy>UpdateTime DESC</OrderBy>
+      <Params>
+        <Param Name="ChannelID" Source="Route" Value="ChannelID" Operation="=" />
+      </Params>
     </DataSource>
   </DataSources>
   <Tables>

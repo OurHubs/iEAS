@@ -41,27 +41,6 @@
     <div class="footer">
         <ux:HtmlPart Id="footer" runat="server" title="尾部" RecordID="834354e3-6721-4ef9-a8c8-31d6affc2d75" DataSourceCode="HtmlPart.Record"></ux:HtmlPart>
     </div>
-    <script type="text/javascript">
-
-        $(".select").hover(
-          function () {
-              $(this).find(".msgNav").show();
-          },
-          function () {
-              $(this).find(".msgNav").hide();
-          }
-        );
-        $(".title-btn").toggle(
-          function () {
-              $(this).addClass("on");
-              $(this).parent(".box-content").removeClass("off");
-          },
-          function () {
-              $(this).removeClass("on");
-              $(this).parent(".box-content").addClass("off");
-          }
-        );
-    </script>
 </body>
 </html>
 

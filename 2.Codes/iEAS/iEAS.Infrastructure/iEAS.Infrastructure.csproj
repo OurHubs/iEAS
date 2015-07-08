@@ -104,6 +104,7 @@
     <Compile Include="Model\Data\DataItem.cs" />
     <Compile Include="Model\Data\DataItemCollection.cs" />
     <Compile Include="Model\Data\DBEngine.cs" />
+    <Compile Include="Model\Data\ModelPagedRecords.cs" />
     <Compile Include="Model\Data\ModelResult.cs" />
     <Compile Include="Model\Data\Record.cs" />
     <Compile Include="Model\Data\RecordCollection.cs" />
@@ -120,10 +121,14 @@
     <Compile Include="Model\UI\ModelFormControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="Model\UI\ModelUrl.cs" />
     <Compile Include="Model\UI\UxModelControl.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\UI\UxModelPagedControl.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Model\UI\UxModelPager.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Module\Entity\Channel.cs" />

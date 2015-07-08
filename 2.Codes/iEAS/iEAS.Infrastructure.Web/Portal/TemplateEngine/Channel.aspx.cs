@@ -28,8 +28,15 @@ namespace iEAS.Infrastructure.Web.Portal.TemplateEngine
         {
             IChannelService ChannelService = ObjectContainer.GetService<IChannelService>();
             Module.Channel channel=ChannelService.GetByID(ChannelID);
-
-            var template = Page.LoadControl("~/_Templates/Default/ChannelPage.ascx");
+            Control template = null;
+            if (!String.IsNullOrEmpty(channel.Template))
+            {
+                template = Page.LoadControl("~/_Templates/Default/"+channel.Template+".ascx");
+            }
+            else
+            {
+                template = Page.LoadControl("~/_Templates/Default/ChannelPage.ascx");
+            }
             
             this.Controls.Clear();
             this.Controls.Add(template);

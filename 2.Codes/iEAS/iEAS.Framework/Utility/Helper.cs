@@ -60,7 +60,15 @@ namespace iEAS
         }
         public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name,string format)
         {
-            return String.Format(format, dict[name]);
+            return String.Format("{0:"+format+"}", dict[name]);
+        }
+
+        public static string GetStr(this IReadOnlyDictionary<string, object> dict, string name,int maxLength)
+        {
+            string value=(dict.ContainsKey(name) ? dict[name].ToStr() : String.Empty);
+            if (value.Length > maxLength)
+                return value.Substring(0, maxLength) + "...";
+            return value;
         }
     }
 }
