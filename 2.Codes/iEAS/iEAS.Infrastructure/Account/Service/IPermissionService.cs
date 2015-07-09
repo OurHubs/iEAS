@@ -54,10 +54,10 @@ namespace iEAS.Account
         /// <summary>
         /// 保存权限信息
         /// </summary>
-        /// <param name="ownerType"></param>
-        /// <param name="ownerID"></param>
-        /// <param name="resourceType"></param>
-        /// <param name="resourceIds"></param>
+        /// <param name="ownerType">拥有者类型</param>
+        /// <param name="ownerID">拥有者ID</param>
+        /// <param name="resourceType">资源类型</param>
+        /// <param name="resourceIds">资源ID</param>
         void SavePermissions(string ownerType, string ownerID, string resourceType, IEnumerable<string> resourceIds, IEnumerable<string> allResourcesIds = null);
     }
 }

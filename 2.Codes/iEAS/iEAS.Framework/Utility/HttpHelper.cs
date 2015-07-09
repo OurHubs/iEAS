@@ -42,6 +42,19 @@ namespace iEAS.Utility
             return sbStr.ToString();
         } 
 
+        /// <summary>
+        /// 获取请求的ID列表
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public static Guid[] GetRequestIds(string key)
+        {
+            string strIds=Request[key];
+            if (String.IsNullOrWhiteSpace(strIds))
+                return new Guid[0];
+            return strIds.Split(',').Select(m => m.ToGuid()).ToArray();
+        }
+
         public static HttpRequest Request
         {
             get { return HttpContext.Current.Request; }

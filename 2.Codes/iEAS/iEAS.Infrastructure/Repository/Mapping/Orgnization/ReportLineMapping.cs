@@ -18,8 +18,8 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.SuperiorID, "SUPERIOR_ID");
             this.Property(m => m.SuperiorNumber, "SUPERIOR_NUMBER", 50);
 
-            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID);
-            this.HasRequired(m => m.Superior).WithMany().HasForeignKey(m => m.SuperiorID);
+            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID).WillCascadeOnDelete(false);
+            this.HasRequired(m => m.Superior).WithMany().HasForeignKey(m => m.SuperiorID).WillCascadeOnDelete(false);
         }
     }
 }

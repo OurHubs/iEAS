@@ -1138,10 +1138,10 @@
     <Content Include="Pages\Module\ChannelTree.aspx" />
     <Content Include="Pages\Module\FeatureEdit.aspx" />
     <Content Include="Pages\Module\FeatureList.aspx" />
-    <Content Include="Pages\Module\MenuAuthorization.aspx" />
+    <Content Include="Pages\Account\MenuAuthorization.aspx" />
     <Content Include="Pages\Module\MenuEdit.aspx" />
     <Content Include="Pages\Module\MenuList.aspx" />
-    <Content Include="Pages\Module\ModuleAuthorization.aspx" />
+    <Content Include="Pages\Account\ModuleAuthorization.aspx" />
     <Content Include="Pages\Module\ModuleEdit.aspx" />
     <Content Include="Pages\Module\ModuleList.aspx" />
     <Content Include="Pages\Module\PortalEdit.aspx" />
@@ -1242,6 +1242,9 @@
     <Content Include="Config\Site.config" />
     <Content Include="_Templates\Default\Model\LXGLBF.ascx" />
     <Content Include="Assets\ckfinder\plugins\fileeditor\codemirror\LICENSE" />
+    <Content Include="Masters\Blank.Master" />
+    <Content Include="Masters\ListPage.Master" />
+    <Content Include="Masters\EditPage.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1397,6 +1400,27 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\Blank.Master.cs">
+      <DependentUpon>Blank.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\Blank.Master.designer.cs">
+      <DependentUpon>Blank.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\EditPage.Master.cs">
+      <DependentUpon>EditPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\EditPage.Master.designer.cs">
+      <DependentUpon>EditPage.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Masters\ListPage.Master.cs">
+      <DependentUpon>ListPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Masters\ListPage.Master.designer.cs">
+      <DependentUpon>ListPage.Master</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\Column\Command.ascx.cs">
       <DependentUpon>Command.ascx</DependentUpon>
@@ -1640,11 +1664,11 @@
     <Compile Include="Pages\Module\FeatureList.aspx.designer.cs">
       <DependentUpon>FeatureList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Module\MenuAuthorization.aspx.cs">
+    <Compile Include="Pages\Account\MenuAuthorization.aspx.cs">
       <DependentUpon>MenuAuthorization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Module\MenuAuthorization.aspx.designer.cs">
+    <Compile Include="Pages\Account\MenuAuthorization.aspx.designer.cs">
       <DependentUpon>MenuAuthorization.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\MenuEdit.aspx.cs">
@@ -1661,11 +1685,11 @@
     <Compile Include="Pages\Module\MenuList.aspx.designer.cs">
       <DependentUpon>MenuList.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Pages\Module\ModuleAuthorization.aspx.cs">
+    <Compile Include="Pages\Account\ModuleAuthorization.aspx.cs">
       <DependentUpon>ModuleAuthorization.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Pages\Module\ModuleAuthorization.aspx.designer.cs">
+    <Compile Include="Pages\Account\ModuleAuthorization.aspx.designer.cs">
       <DependentUpon>ModuleAuthorization.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Module\ModuleEdit.aspx.cs">

@@ -44,7 +44,8 @@ namespace iEAS
                     Guid? guid = userID.ToNGuid();
                     if(guid==null)
                     {
-                        throw new SystemException("无效的用户ID");
+                        Logout();
+                        HttpContext.Current.Response.Redirect("~/Login.aspx");
                     }
                     _User = ObjectContainer.GetService<IUserService>().GetByID(guid.Value);
                     if (_User == null)
@@ -113,6 +114,12 @@ namespace iEAS
                 _PortalMenus.Add(portalCode, menus);
             }
             return _PortalMenus[portalCode];
+        }
+
+        public void Logout()
+        {
+            FormsAuthentication.SignOut();
+            ClearAccount();
         }
 
         private void ClearAccount()

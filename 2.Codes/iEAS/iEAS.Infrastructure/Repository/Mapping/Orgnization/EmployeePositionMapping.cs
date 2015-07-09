@@ -20,9 +20,9 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.PositionID, "POSITION_ID");
             this.Property(m => m.PositionCode, "POSITION_CODE", 50);
 
-            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID);
-            this.HasRequired(m => m.Department).WithMany().HasForeignKey(m => m.DepartmentID);
-            this.HasRequired(m => m.Position).WithMany().HasForeignKey(m => m.PositionID);
+            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID).WillCascadeOnDelete(false);
+            this.HasRequired(m => m.Department).WithMany().HasForeignKey(m => m.DepartmentID).WillCascadeOnDelete(false);
+            this.HasRequired(m => m.Position).WithMany().HasForeignKey(m => m.PositionID).WillCascadeOnDelete(false);
         }
     }
 }

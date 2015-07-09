@@ -56,7 +56,7 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.Desc, "DESC", 500);
             this.Property(m => m.WorkStatus, "WORK_STATUS");
 
-            this.HasRequired(m => m.User).WithMany().HasForeignKey(m => m.UserID);
+            this.HasRequired(m => m.User).WithMany().HasForeignKey(m => m.UserID).WillCascadeOnDelete(false);
         }
     }
 }

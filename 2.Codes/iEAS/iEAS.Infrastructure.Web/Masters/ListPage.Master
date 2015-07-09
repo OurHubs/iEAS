@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="ListPage.master.cs" Inherits="iEAS.Infrastructure.Web.Masters.ListPage" %>
+
+<!DOCTYPE html>
+<!--[if IE 6 ]> <html class="ie6 lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 6 ]> <html class="lte_ie6 lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 7 ]> <html class="lte_ie7 lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 8 ]> <html class="lte_ie8 lte_ie9"> <![endif]-->
+<!--[if lte IE 9 ]> <html class="lte_ie9"> <![endif]-->
+<!--[if (gte IE 10)|!(IE)]><!-->
+<html>
+<!--<![endif]-->
+<head runat="server">
+    <title><%=SiteConfig.Instance.Title %></title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=10,chrome=1" />
+    <link rel="stylesheet" type="text/css" href="~/assets/common/css/style2015.css">
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>assets/common/js/jquery.min.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>assets/common/js/lockTableTitle.js"></script>
+    <script type="text/javascript" src="<%=Page.ResolveUrl("~/") %>assets/common/js/common.js"></script>
+    <asp:ContentPlaceHolder ID="Header" runat="server">
+        </asp:ContentPlaceHolder>
+</head>
+<body class="body-wrap">
+    <form id="form1" runat="server">
+        <asp:ContentPlaceHolder ID="Content" runat="server">
+        </asp:ContentPlaceHolder>
+    </form>
+</body>
+</html>

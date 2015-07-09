@@ -23,7 +23,7 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.Address, "ADDRESS", 50);
             this.Property(m => m.Desc, "DESC",500);
 
-            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID);
+            this.HasRequired(m => m.Employee).WithMany().HasForeignKey(m => m.EmployeeID).WillCascadeOnDelete(false);
         }
     }
 }

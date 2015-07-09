@@ -107,29 +107,30 @@ namespace iEAS.Account
         /// <param name="resourceIds"></param>
         public void SavePermissions(string ownerType, string ownerID, string resourceType, IEnumerable<string> resourceIds,IEnumerable<string> allResourcesIds=null)
         {
-            this.Execute<iEASRepository>(rep =>
+            IPermissionService permissionService = ObjectContainer.GetService<IPermissionService>();
+            using (var ctx = permissionService.BeginContext())
+            {
+                var allPermissions = permissionService.Query(m => m.OwnerType == ownerType && m.OwnerID == ownerID && m.ResourceType == resourceType && m.Status == 1).ToList();
+                if (allResourcesIds != null)
                 {
-                    var allPermissions = rep.Query<Permission>(m => m.OwnerType == ownerType && m.OwnerID == ownerID && m.ResourceType == resourceType && m.Status == 1).ToList();
-                    if(allResourcesIds!=null)
-                    {
-                        allPermissions = allPermissions.Where(m => allResourcesIds.Contains(m.ResouceID)).ToList();
-                    }
-                   
-                    var removedPermissions= allPermissions.Where(m => !resourceIds.Contains(m.ResouceID));
-                    removedPermissions.AllDeleted();
+                    allPermissions = allPermissions.Where(m => allResourcesIds.Contains(m.ResouceID)).ToList();
+                }
 
-                    var newPermissions = resourceIds.Where(m => !allPermissions.Any(p => p.ResouceID == m)).Select(m => new Permission
-                    {
-                        OwnerID = ownerID,
-                        OwnerType = ownerType,
-                        ResourceType = resourceType,
-                        ResouceID = m,
-                        Status=1
-                    });
-                    newPermissions.AllBindUpdator();
-                    rep.Create(newPermissions);
-                    rep.SaveChanges();
+                var removedPermissions = allPermissions.Where(m => !resourceIds.Contains(m.ResouceID));
+                removedPermissions.AllDeleted();
+
+                var newPermissions = resourceIds.Where(m => !allPermissions.Any(p => p.ResouceID == m)).Select(m => new Permission
+                {
+                    OwnerID = ownerID,
+                    OwnerType = ownerType,
+                    ResourceType = resourceType,
+                    ResouceID = m,
+                    Status = 1
                 });
+                newPermissions.AllBindUpdator();
+                permissionService.Create(newPermissions);
+                ctx.Commit();
+            }
         }
     }
 }

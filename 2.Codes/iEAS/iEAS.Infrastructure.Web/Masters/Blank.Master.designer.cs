@@ -7,54 +7,36 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web.Pages.Account {
+namespace iEAS.Infrastructure.Web.Masters {
     
     
-    public partial class RoleList {
+    public partial class Blank {
         
         /// <summary>
-        /// btnQuery 控件。
+        /// Header 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuery;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Header;
         
         /// <summary>
-        /// btnAdd 控件。
+        /// form1 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
         
         /// <summary>
-        /// btnDeleteAll 控件。
+        /// Content 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteAll;
-        
-        /// <summary>
-        /// Pager 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::Wuqi.Webdiyer.AspNetPager Pager;
-        
-        /// <summary>
-        /// gvList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::iEAS.Web.UI.GridView gvList;
+        protected global::System.Web.UI.WebControls.ContentPlaceHolder Content;
     }
 }

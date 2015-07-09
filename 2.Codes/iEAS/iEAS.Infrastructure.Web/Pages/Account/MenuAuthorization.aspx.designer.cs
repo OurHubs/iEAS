@@ -7,54 +7,45 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web.Pages.Account {
+namespace iEAS.Infrastructure.Web.Pages.Module {
     
     
-    public partial class RoleList {
+    public partial class MenuAuthorization {
         
         /// <summary>
-        /// btnQuery 控件。
+        /// btnSave 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnQuery;
+        protected global::System.Web.UI.WebControls.Button btnSave;
         
         /// <summary>
-        /// btnAdd 控件。
+        /// btnBack 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAdd;
+        protected global::System.Web.UI.WebControls.Button btnBack;
         
         /// <summary>
-        /// btnDeleteAll 控件。
+        /// rptPortal 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnDeleteAll;
+        protected global::System.Web.UI.WebControls.Repeater rptPortal;
         
         /// <summary>
-        /// Pager 控件。
+        /// hfSelectedMenus 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::Wuqi.Webdiyer.AspNetPager Pager;
-        
-        /// <summary>
-        /// gvList 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::iEAS.Web.UI.GridView gvList;
+        protected global::System.Web.UI.WebControls.HiddenField hfSelectedMenus;
     }
 }

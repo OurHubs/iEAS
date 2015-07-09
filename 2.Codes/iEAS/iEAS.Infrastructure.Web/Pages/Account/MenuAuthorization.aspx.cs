@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Infrastructure.UI;
 using iEAS.Module;
 using System;
 using System.Collections.Generic;
@@ -11,7 +12,7 @@ using Menu = iEAS.Module.Menu;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
-    public partial class MenuAuthorization : System.Web.UI.Page
+    public partial class MenuAuthorization : ListForm
     {
         public IPermissionService PermissionService { get; set; }
 
@@ -99,8 +100,15 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
 
             var menuIds = MenuService.Query(m => m.Portal.ID == CurrentPortalID).Select(m => m.ID.ToString());
-
             PermissionService.SavePermissions(OwnerType, OwnerID, "MENU", ids,menuIds);
+
+            ScriptHelper.Alert("操作成功！");
+        }
+
+
+        protected void btnBack_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("RoleList.aspx");
         }
 
         private void BindControls()
@@ -123,7 +131,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             foreach(var item in allMenus)
             {
-                sbMenuData.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID.ToStr("null"), item.Name, item.ID, selectedMenus.Any(m=>m.ResouceID==item.ID.ToString())?"true":"false");
+                sbMenuData.AppendFormat("{{id:'{0}',pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID!=null?String.Format("'{0}'",item.ParentID):"null", item.Name, item.ID, selectedMenus.Any(m=>m.ResouceID==item.ID.ToString())?"true":"false");
             }
             sbMenuData.Trim(',').Append(']');
             hfSelectedMenus.Value = String.Join(",", selectedMenus.Select(m => m.ResouceID).ToArray());
