@@ -12,9 +12,9 @@ namespace iEAS.Infrastructure.Web.Pages.Account
     {
         public IRoleService RoleService { get; set; }
 
-        public int RecordID
+        public Guid RecordID
         {
-            get { return Request["rid"].ToInt(0); }
+            get { return Request["rid"].ToGuid(Guid.Empty); }
         }
 
 

@@ -24,7 +24,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         {
             if (e.CommandName == "Del")
             {
-                int rid = e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToGuid();
                 ModuleService.DeleteByID(rid);
                 lvQuery.DataBind();
             }

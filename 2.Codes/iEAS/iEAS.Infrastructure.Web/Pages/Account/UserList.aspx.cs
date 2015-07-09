@@ -24,7 +24,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         {
             if (e.CommandName == "Del")
             {
-                int rid = e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToString().ToGuid();
                 UserService.DeleteByID(rid);
                 lvQuery.DataBind();
             }

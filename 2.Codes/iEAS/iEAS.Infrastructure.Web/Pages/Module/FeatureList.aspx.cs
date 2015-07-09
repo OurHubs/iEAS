@@ -12,11 +12,11 @@ namespace iEAS.Infrastructure.Web.Pages.Module
     {
         public IFeatureService FeatureService { get; set; }
 
-        public int ModuleID
+        public Guid ModuleID
         {
             get
             {
-                int? moduleID = Request["moduleID"].ToNInt();
+                Guid? moduleID = Request["moduleID"].ToNGuid();
                 if (moduleID == null)
                 {
                     throw new BusinessException("ModuleID不能为空！");
@@ -67,7 +67,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         {
             if (e.CommandName == "Del")
             {
-                int rid = e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToGuid();
                 FeatureService.DeleteByID(rid);
                 lvQuery.DataBind();
             }

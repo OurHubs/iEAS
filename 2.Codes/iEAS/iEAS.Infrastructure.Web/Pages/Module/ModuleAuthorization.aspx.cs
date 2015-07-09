@@ -32,7 +32,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
-        public int CurrentModuleID
+        public Guid CurrentModuleID
         {
             get
             {
@@ -45,7 +45,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                     }
                     ViewState["CurrentModuleID"]=module.ID;
                 }
-                return (int)ViewState["CurrentModuleID"];
+                return (Guid)ViewState["CurrentModuleID"];
             }
             set
             {
@@ -87,7 +87,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         }
         protected void rptModule_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            CurrentModuleID = e.CommandArgument.ToString().ToInt();
+            CurrentModuleID = e.CommandArgument.ToGuid();
         }
         protected void btnSave_Click(object sender, EventArgs e)
         {
@@ -98,7 +98,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 ids = checkFeatures.Split(',');
             }
 
-            var featureIds = FeatureService.Query(m => m.ModuleID == CurrentModuleID).Select(m => m.Guid.ToString());
+            var featureIds = FeatureService.Query(m => m.ModuleID == CurrentModuleID).Select(m => m.ID.ToString());
 
             PermissionService.SavePermissions(OwnerType, OwnerGuid, ResourceType.Module, ids, featureIds);
         }
@@ -118,7 +118,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             foreach (var item in allFeatures)
             {
-                sbModuleData.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID.ToStr("null"), item.Name, item.Guid, selectedFeatures.Any(m => m.ResouceID == item.Guid.ToString()) ? "true" : "false");
+                sbModuleData.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID.ToStr("null"), item.Name, item.ID, selectedFeatures.Any(m => m.ResouceID == item.ID.ToString()) ? "true" : "false");
             }
             sbModuleData.Trim(',').Append(']');
             hfSelectedFeatures.Value = String.Join(",", selectedFeatures.Select(m => m.ResouceID).ToArray());

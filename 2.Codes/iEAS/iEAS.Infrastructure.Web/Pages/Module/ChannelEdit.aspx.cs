@@ -47,7 +47,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         protected void btnSave_Click(object sender, EventArgs e)
         {
-            Channel model = ChannelService.GetByID(RecordID);
+            Channel model=model= ChannelService.GetByID(RecordID);
 
             if (model == null)
             {
@@ -77,16 +77,16 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         }
 
         #region 属性区域
-        public int RecordID
+        public Guid RecordID
         {
-            get { return Request["rid"].ToInt(0); }
+            get { return Request["rid"].ToGuid(Guid.Empty); }
         }
 
-        public int? ParentID
+        public Guid? ParentID
         {
             get
             {
-                return Request["parentID"].ToNInt();
+                return Request["parentID"].ToNGuid();
             }
         }
 

@@ -14,8 +14,8 @@ namespace iEAS.Repository
         public EntityMapping()
         {
             this.HasKey(m => m.ID);
-            this.Property(m=>m.ID).HasColumnName("ID").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            this.Property(m => m.Guid).HasColumnName("GUID").IsRequired();
+            this.Property(m => m.ID).HasColumnName("ID").HasColumnType("uniqueidentifier");
+            this.Property(m => m.SN).HasColumnName("SN").HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
             this.Property(m => m.Version).HasColumnName("VERSION").IsConcurrencyToken();
         }
 

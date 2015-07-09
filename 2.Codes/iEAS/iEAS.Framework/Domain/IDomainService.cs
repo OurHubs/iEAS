@@ -80,14 +80,14 @@ namespace iEAS
         /// </summary>
         /// <param name="id"></param>
         /// <param name="handler"></param>
-        void UpdateByID(int id, Action<TEntity> handler);
+        void UpdateByID(Guid id, Action<TEntity> handler);
 
         /// <summary>
-        /// 按Guid更新实体
+        /// 按SN更新实体
         /// </summary>
         /// <param name="guid"></param>
         /// <param name="handler"></param>
-        void UpdateByGuid(Guid guid, Action<TEntity> handler);
+        void UpdateBySN(int sn, Action<TEntity> handler);
 
         /// <summary>
         /// 创建或更新实体
@@ -111,13 +111,13 @@ namespace iEAS
         /// 按ID删除实体
         /// </summary>
         /// <param name="id"></param>
-        void DeleteByID(int id);
+        void DeleteByID(Guid id);
 
         /// <summary>
-        /// 按Guid删除实体
+        /// 按SN删除实体
         /// </summary>
-        /// <param name="guid"></param>
-        void DeleteByGuid(Guid guid);
+        /// <param name="sn"></param>
+        void DeleteBySN(int sn);
 
         /// <summary>
         /// 按Id获取实体
@@ -125,15 +125,15 @@ namespace iEAS
         /// <param name="id"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        TEntity GetByID(int id, bool lazyLoad = false);
+        TEntity GetByID(Guid id, bool lazyLoad = false);
 
         /// <summary>
-        /// 按Guid获取实体
+        /// 按SN获取实体
         /// </summary>
-        /// <param name="guid"></param>
+        /// <param name="sn"></param>
         /// <param name="lazyLoad"></param>
         /// <returns></returns>
-        TEntity GetByGuid(Guid guid, bool lazyLoad = false);
+        TEntity GetBySN(int sn, bool lazyLoad = false);
 
         /// <summary>
         /// 按查询条件获取实体

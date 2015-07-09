@@ -25,7 +25,7 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
         {
             if(e.CommandName=="Del")
             {
-                int rid =e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToGuid();
                 BaseDataTypeService.DeleteByID(rid);
                 lvQuery.DataBind();
             }

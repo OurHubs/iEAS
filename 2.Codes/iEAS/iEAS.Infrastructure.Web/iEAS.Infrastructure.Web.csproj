@@ -1756,6 +1756,10 @@
       <Project>{9b864d0f-2fb4-420e-acfa-a55300edc92b}</Project>
       <Name>iEAS.Framework</Name>
     </ProjectReference>
+    <ProjectReference Include="..\iEAS.Infrastructure.UI\iEAS.Infrastructure.UI.csproj">
+      <Project>{61845579-bdab-4982-b570-a381d40fc78d}</Project>
+      <Name>iEAS.Infrastructure.UI</Name>
+    </ProjectReference>
     <ProjectReference Include="..\iEAS.Infrastructure\iEAS.Infrastructure.csproj">
       <Project>{eab8a63f-8aa7-40d9-9802-b8dd0e7d0798}</Project>
       <Name>iEAS.Infrastructure</Name>

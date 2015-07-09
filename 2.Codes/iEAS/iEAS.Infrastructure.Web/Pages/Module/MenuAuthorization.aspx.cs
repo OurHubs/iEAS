@@ -32,33 +32,33 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
-        public Guid CurrentPortalGuid
+        public Guid CurrentPortalID
         {
             get
             {
-                if(ViewState["CurrentPortalGuid"]==null)
+                if (ViewState["CurrentPortalID"] == null)
                 {
                     var portal=Portals.FirstOrDefault();
                     if (portal == null)
                         throw new BusinessException("没有可用的Portal");
-                    ViewState["CurrentPortalGuid"]=portal.Guid;
+                    ViewState["CurrentPortalID"] = portal.ID;
                 }
-                return (Guid)ViewState["CurrentPortalGuid"];
+                return (Guid)ViewState["CurrentPortalID"];
             }
             set
             {
-                ViewState["CurrentPortalGuid"]=value;
+                ViewState["CurrentPortalID"] = value;
             }
         }
 
-        public string OwnerGuid 
+        public string OwnerID
         {
             get
             {
-                string guid = Request["OwnerGuid"];
+                string guid = Request["OwnerID"];
                 if(String.IsNullOrEmpty(guid))
                 {
-                    throw new BusinessException("OwnerGuid不能为空！");
+                    throw new BusinessException("OwnerID不能为空！");
                 }
                 return guid;
             }
@@ -86,7 +86,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         protected void rptPortal_ItemCommand(object source, RepeaterCommandEventArgs e)
         {
-            CurrentPortalGuid = e.CommandArgument.ToString().ToGuid();
+            CurrentPortalID = e.CommandArgument.ToGuid();
         }
 
         protected void btnSave_Click(object sender, EventArgs e)
@@ -98,9 +98,9 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 ids = checkMenus.Split(',');
             }
 
-            var menuIds = MenuService.Query(m => m.Portal.Guid == CurrentPortalGuid).Select(m => m.Guid.ToString());
+            var menuIds = MenuService.Query(m => m.Portal.ID == CurrentPortalID).Select(m => m.ID.ToString());
 
-            PermissionService.SavePermissions(OwnerType, OwnerGuid, "MENU", ids,menuIds);
+            PermissionService.SavePermissions(OwnerType, OwnerID, "MENU", ids,menuIds);
         }
 
         private void BindControls()
@@ -115,15 +115,15 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         public string BuildMenuData()
         {
-            var allMenus = MenuService.Query(m => m.Portal.Guid == CurrentPortalGuid && m.Status == 1, o => o.Asc(m => m.ID));
-            var selectedMenus = PermissionService.GetPermissions(OwnerType, OwnerGuid, "MENU");
+            var allMenus = MenuService.Query(m => m.Portal.ID == CurrentPortalID && m.Status == 1, o => o.Asc(m => m.ID));
+            var selectedMenus = PermissionService.GetPermissions(OwnerType, OwnerID, "MENU");
 
             StringBuilder sbMenuData = new StringBuilder();
             sbMenuData.Append("[");
 
             foreach(var item in allMenus)
             {
-                sbMenuData.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID.ToStr("null"), item.Name, item.Guid, selectedMenus.Any(m=>m.ResouceID==item.Guid.ToString())?"true":"false");
+                sbMenuData.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,checked:{4}}},", item.ID, item.ParentID.ToStr("null"), item.Name, item.ID, selectedMenus.Any(m=>m.ResouceID==item.ID.ToString())?"true":"false");
             }
             sbMenuData.Trim(',').Append(']');
             hfSelectedMenus.Value = String.Join(",", selectedMenus.Select(m => m.ResouceID).ToArray());

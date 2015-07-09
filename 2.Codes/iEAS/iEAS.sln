@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetPager", "Plugins\AspN
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Plugin", "Plugin", "{961A646D-4A04-4612-938A-4B67EAF343B6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iEAS.Infrastructure.UI", "iEAS.Infrastructure.UI\iEAS.Infrastructure.UI.csproj", "{61845579-BDAB-4982-B570-A381D40FC78D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -59,6 +61,10 @@ Global
 		{0FAC7937-3CDD-41F6-9DC8-C743C9F727F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0FAC7937-3CDD-41F6-9DC8-C743C9F727F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0FAC7937-3CDD-41F6-9DC8-C743C9F727F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{61845579-BDAB-4982-B570-A381D40FC78D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{61845579-BDAB-4982-B570-A381D40FC78D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{61845579-BDAB-4982-B570-A381D40FC78D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{61845579-BDAB-4982-B570-A381D40FC78D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

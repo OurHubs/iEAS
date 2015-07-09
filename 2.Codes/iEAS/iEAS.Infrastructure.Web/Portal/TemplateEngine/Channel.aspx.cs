@@ -1,4 +1,5 @@
-﻿using iEAS.Module;
+﻿using iEAS.Infrastructure.UI;
+using iEAS.Module;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Portal.TemplateEngine
 {
-    public partial class Channel : System.Web.UI.Page
+    public partial class Channel : EditForm
     {
         protected override void OnInit(EventArgs e)
         {
@@ -16,18 +17,18 @@ namespace iEAS.Infrastructure.Web.Portal.TemplateEngine
             base.OnInit(e);
         }
 
-        public int ChannelID
+        public int ChannelSN
         {
             get
             {
-                return RouteData.Values["ChannelID"].ToString().ToInt();
+                return RouteData.Values["ChannelSN"].ToString().ToInt();
             }
         }
 
         private void LoadTempalte()
         {
             IChannelService ChannelService = ObjectContainer.GetService<IChannelService>();
-            Module.Channel channel=ChannelService.GetByID(ChannelID);
+            Module.Channel channel=ChannelService.GetBySN(ChannelSN);
             Control template = null;
             if (!String.IsNullOrEmpty(channel.Template))
             {

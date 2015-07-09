@@ -7,9 +7,7 @@ namespace iEAS
 {
     public interface IUserInfo
     {
-        int ID { get; set; }
-
-        Guid Guid { get; set; }
+        Guid ID { get; set; }
 
         string Name { get; set; }
     }

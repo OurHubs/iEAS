@@ -28,8 +28,7 @@ namespace iEAS.Infrastructure.Web
                 LoginName = "admin",
                 Password = "admin",
                 Name = "admin",
-                Status = 1,
-                Guid = "bb62d704-01f2-4187-9c32-9c2c7670940e".ToGuid()
+                Status = 1
             };
 
             context.Users.Add(user);
@@ -67,7 +66,7 @@ namespace iEAS.Infrastructure.Web
 
             context.SaveChanges();
 
-            portal = context.Get<PortalInfo>(m => m.Guid == portal.Guid);
+            portal = context.Get<PortalInfo>(m => m.ID == portal.ID);
 
             portal.Menus.Add(new iEAS.Module.Menu
             {

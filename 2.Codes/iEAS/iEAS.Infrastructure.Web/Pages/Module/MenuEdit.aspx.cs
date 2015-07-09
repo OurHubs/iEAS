@@ -84,16 +84,16 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         }
 
         #region 属性
-        public int RecordID
+        public Guid RecordID
         {
-            get { return Request["rid"].ToInt(0); }
+            get { return Request["rid"].ToGuid(Guid.Empty); }
         }
 
-        public int PortalID
+        public Guid PortalID
         {
             get
             {
-                int? typeID = Request["portalid"].ToNInt();
+                Guid? typeID = Request["portalid"].ToNGuid();
                 if (typeID == null)
                 {
                     throw new BusinessException("portalid不能为空！");
@@ -102,11 +102,11 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
-        public int? ParentID
+        public Guid? ParentID
         {
             get
             {
-                return Request["parentID"].ToNInt();
+                return Request["parentID"].ToNGuid();
             }
         }
 

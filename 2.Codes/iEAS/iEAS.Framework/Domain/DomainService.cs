@@ -174,7 +174,7 @@ namespace iEAS
          /// </summary>
          /// <param name="id"></param>
          /// <param name="handler"></param>
-        public void UpdateByID(int id,Action<TEntity> handler)
+        public void UpdateByID(Guid id,Action<TEntity> handler)
         {
             Update(m => m.ID == id, handler);
         }
@@ -182,11 +182,11 @@ namespace iEAS
          /// <summary>
          /// 按Guid更新实体
          /// </summary>
-         /// <param name="guid"></param>
+         /// <param name="sn"></param>
          /// <param name="handler"></param>
-        public void UpdateByGuid(Guid guid,Action<TEntity> handler)
+        public void UpdateBySN(int sn,Action<TEntity> handler)
         {
-            Update(m => m.Guid == guid, handler);
+            Update(m => m.SN == sn, handler);
         }
 
          /// <summary>
@@ -195,7 +195,7 @@ namespace iEAS
          /// <param name="entity"></param>
         public void CreateOrUpdate(TEntity entity)
         {
-            if(entity.ID==0)
+            if(entity.ID==Guid.Empty)
             {
                 Create(entity);
             }
@@ -227,7 +227,7 @@ namespace iEAS
          /// 按ID删除实体
          /// </summary>
          /// <param name="id"></param>
-        public virtual void DeleteByID(int id)
+        public virtual void DeleteByID(Guid id)
         {
             Delete(m => m.ID == id);
         }
@@ -235,10 +235,10 @@ namespace iEAS
          /// <summary>
          /// 按Guid删除实体
          /// </summary>
-         /// <param name="guid"></param>
-        public virtual void DeleteByGuid(Guid guid)
+         /// <param name="sn"></param>
+        public virtual void DeleteBySN(int sn)
         {
-            Delete(m => m.Guid == guid);
+            Delete(m => m.SN == sn);
         }
 
          /// <summary>
@@ -247,20 +247,20 @@ namespace iEAS
          /// <param name="id"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public TEntity GetByID(int id, bool lazyLoad = false)
+        public TEntity GetByID(Guid id, bool lazyLoad = false)
         {
             return Get(m => m.ID == id, lazyLoad);
         }
 
          /// <summary>
-         /// 按Guid获取实体
+         /// 按SN获取实体
          /// </summary>
-         /// <param name="guid"></param>
+         /// <param name="sn"></param>
          /// <param name="lazyLoad"></param>
          /// <returns></returns>
-        public TEntity GetByGuid(Guid guid, bool lazyLoad = false)
+        public TEntity GetBySN(int sn, bool lazyLoad = false)
         {
-            return Get(m => m.Guid == guid, lazyLoad);
+            return Get(m => m.SN == sn, lazyLoad);
         }
 
          /// <summary>

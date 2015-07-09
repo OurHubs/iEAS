@@ -46,7 +46,7 @@ namespace iEAS
                     {
                         throw new SystemException("无效的用户ID");
                     }
-                    _User=ObjectContainer.GetService<IUserService>().GetByGuid(userID.ToGuid());
+                    _User = ObjectContainer.GetService<IUserService>().GetByID(guid.Value);
                     if (_User == null)
                     {
                         throw new BusinessException("当前用户不存在！");
@@ -107,7 +107,7 @@ namespace iEAS
             {
                 var portal=PortalContext.Current.GetPortal(portalCode);
                 var menus = portal.Menus
-                    .Where(m => Permissions.Any(p => p.ResouceID == m.Guid.ToString()))
+                    .Where(m => Permissions.Any(p => p.ResouceID == m.ID.ToString()))
                     .ToList();
 
                 _PortalMenus.Add(portalCode, menus);

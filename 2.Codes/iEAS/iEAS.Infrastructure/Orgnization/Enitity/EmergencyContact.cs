@@ -11,7 +11,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 员工ID
         /// </summary>
-        public int EmployeeID { get; set; }
+        public Guid EmployeeID { get; set; }
         /// <summary>
         /// 员工编号
         /// </summary>

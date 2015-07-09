@@ -26,11 +26,11 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
                 Channel channel = null;
                 if (record != null && record.Items.ContainsKey(Field.Code))
                 {
-                    channel = channelService.GetByID(record.Items.GetValue(Field.Code).ToStr("0").ToInt());
+                    channel = channelService.GetByID(record.Items.GetValue(Field.Code).ToGuid());
                 }
                 if (channel == null)
                 {
-                    int channelID = HttpHelper.RequestValue("cid").ToInt(0);
+                    Guid channelID = HttpHelper.RequestValue("cid").ToGuid();
                     channel = channelService.GetByID(channelID);
                 }
                 if (channel != null)
@@ -38,7 +38,7 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
                     lblChannelName.Text = channel.Name;
                     hfChannelID.Value = channel.ID.ToString();
                     hfChannelName.Value = channel.Name;
-                    hfChannelGuid.Value = channel.Guid.ToStr();
+                    hfChannelSN.Value = channel.SN.ToStr();
                 }
             }
         }
@@ -51,9 +51,9 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
             {
                 result.Add(Field.Params["NameField"], hfChannelName.Value);
             }
-            if (Field.Params.ContainsKey("GuidField"))
+            if (Field.Params.ContainsKey("SNField"))
             {
-                result.Add(Field.Params["GuidField"], hfChannelGuid.Value);
+                result.Add(Field.Params["SNField"], hfChannelSN.Value);
             }
             return result;
         }

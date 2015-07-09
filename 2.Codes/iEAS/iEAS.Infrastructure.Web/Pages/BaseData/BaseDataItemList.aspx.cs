@@ -12,11 +12,11 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
     {
         public IBaseDataItemService BaseDataItemService { get; set; }
 
-        public int TypeID
+        public Guid TypeID
         {
             get
             {
-                int? typeID = Request["typeid"].ToNInt();
+                Guid? typeID = Request["typeid"].ToNGuid();
                 if (typeID == null)
                 {
                     throw new BusinessException("类型ID不能为空！");
@@ -67,7 +67,7 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
         {
             if (e.CommandName == "Del")
             {
-                int rid = e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToGuid();
                 BaseDataItemService.DeleteByID(rid);
                 lvQuery.DataBind();
             }

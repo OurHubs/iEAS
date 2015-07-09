@@ -151,6 +151,15 @@ namespace iEAS
             return null;
         }
 
+        public static Guid ToGuid(this string str,Guid defaultValue)
+        {
+            Guid result;
+            if (Guid.TryParse(str, out result))
+                return result;
+
+            return defaultValue;
+        }
+
         public static Guid ToGuid(this string str)
         {
             Guid result;

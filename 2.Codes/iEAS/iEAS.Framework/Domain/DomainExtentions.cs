@@ -10,7 +10,7 @@ namespace iEAS
     {
         public static TEntity BindUpdator<TEntity>(this TEntity entity) where TEntity : IdentityEntity
         {
-            entity.Updator = CurrentUser.Guid.ToString();
+            entity.Updator = CurrentUser.ID.ToString();
             entity.UpdateTime = DateTime.Now;
             return entity;
         }
@@ -28,9 +28,9 @@ namespace iEAS
         public static TEntity BindCreator<TEntity>(this TEntity entity)
             where TEntity:IdentityEntity
         {
-            entity.Creator = CurrentUser.Guid.ToString();
+            entity.Creator = CurrentUser.ID.ToString();
             entity.CreateTime = DateTime.Now;
-            entity.Updator = CurrentUser.Guid.ToString();
+            entity.Updator = CurrentUser.ID.ToString();
             entity.UpdateTime = entity.CreateTime;
             return entity;
         }

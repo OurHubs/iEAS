@@ -1,4 +1,5 @@
 ﻿using iEAS.BaseData;
+using iEAS.Infrastructure.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,14 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.BaseData
 {
-    public partial class BaseDataItemEdit : System.Web.UI.Page
+    public partial class BaseDataItemEdit :EditForm
     {
         public IBaseDataItemService BaseDataItemService { get; set; }
-
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
-        }
-        public int TypeID
+        public Guid TypeID
         {
             get
             {
-                int? typeID = Request["typeid"].ToNInt();
+                Guid? typeID = Request["typeid"].ToNGuid();
                 if (typeID == null)
                 {
                     throw new BusinessException("TypeID不能为空！");
@@ -29,11 +25,11 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             }
         }
 
-        public int? ParentID
+        public Guid? ParentID
         {
             get
             {
-                return Request["parentID"].ToNInt();
+                return Request["parentID"].ToNGuid();
             }
         }
 

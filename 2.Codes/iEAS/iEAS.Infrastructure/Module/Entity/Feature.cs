@@ -13,12 +13,12 @@ namespace iEAS.Module
         /// <summary>
         /// 模块ID
         /// </summary>
-        public int ModuleID { get; set; }
+        public Guid ModuleID { get; set; }
 
         /// <summary>
         /// 上级功能ID
         /// </summary>
-        public int? ParentID { get; set; }
+        public Guid? ParentID { get; set; }
 
         /// <summary>
         /// 名称

@@ -8,9 +8,9 @@ namespace iEAS.BaseData
 {
     public class BaseDataItem:IdentityEntity
     {
-        public int TypeID { get; set; }
+        public Guid TypeID { get; set; }
 
-        public int? ParentID { get; set; }
+        public Guid? ParentID { get; set; }
 
         public string Name { get; set; }
 

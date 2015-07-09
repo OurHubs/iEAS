@@ -33,7 +33,7 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Form
                 if(_Channel==null)
                 {
                     IChannelService channelService=ObjectContainer.GetService<IChannelService>();
-                    _Channel=channelService.GetByID(HttpHelper.RequestValue("cid").ToInt());
+                    _Channel=channelService.GetByID(HttpHelper.RequestValue("cid").ToGuid(Guid.Empty));
                 }
                 return _Channel;
             }

@@ -2,4 +2,4 @@
 <asp:Label ID="lblChannelName" runat="server"></asp:Label>
 <asp:HiddenField ID="hfChannelID" runat="server" />
 <asp:HiddenField ID="hfChannelName" runat="server" />
-<asp:HiddenField ID="hfChannelGuid" runat="server" />
+<asp:HiddenField ID="hfChannelSN" runat="server" />

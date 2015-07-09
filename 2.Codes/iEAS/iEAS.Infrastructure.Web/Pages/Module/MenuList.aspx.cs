@@ -84,7 +84,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         {
             if (e.CommandName == "Del")
             {
-                int rid = e.CommandArgument.ToString().ToInt();
+                Guid rid = e.CommandArgument.ToString().ToGuid();
                 MenuService.DeleteByID(rid);
                 //删除子项
 
@@ -94,11 +94,11 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         }
 
         //入口
-        public int? PortalID
+        public Guid? PortalID
         {
             get
             {
-                return Request["portalid"].ToInt(0);
+                return Request["portalid"].ToNGuid();
             }
         }
     }

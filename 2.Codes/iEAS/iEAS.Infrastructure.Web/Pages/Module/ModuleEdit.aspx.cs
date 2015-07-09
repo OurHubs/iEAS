@@ -1,4 +1,5 @@
-﻿using iEAS.Module;
+﻿using iEAS.Infrastructure.UI;
+using iEAS.Module;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,9 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
-    public partial class ModuleEdit : System.Web.UI.Page
+    public partial class ModuleEdit :EditForm
     {
         public IModuleService ModuleService { get; set; }
-
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
-        }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

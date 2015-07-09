@@ -16,21 +16,21 @@ namespace iEAS.Infrastructure.Web.Portal.TemplateEngine
             base.OnInit(e);
         }
 
-        public int ChannelID
+        public int ChannelSN
         {
             get
             {
-                return RouteData.Values["ChannelID"].ToStr().ToInt(0);
+                return RouteData.Values["ChannelSN"].ToStr().ToInt(0);
             }
         }
 
         private void LoadTempalte()
         {
             string tplPath = "~/_Templates/Default/ChannelDetail.ascx";
-            if (ChannelID != 0)
+            if (ChannelSN != 0)
             {
                 IChannelService ChannelService = ObjectContainer.GetService<IChannelService>();
-                Module.Channel channel = ChannelService.GetByID(ChannelID);
+                Module.Channel channel = ChannelService.GetBySN(ChannelSN);
                 if (!String.IsNullOrEmpty(channel.Template))
                 {
                     tplPath = "~/_Templates/Default/ChannelDetail.ascx";

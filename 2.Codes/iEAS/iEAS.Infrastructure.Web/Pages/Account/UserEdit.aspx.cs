@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Infrastructure.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,17 +9,11 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.Account
 {
-    public partial class UserEdit : System.Web.UI.Page
+    public partial class UserEdit : EditForm
     {
         public IUserService UserService { get; set; }
 
         public IRoleService RoleService { get; set; }
-
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
-        }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

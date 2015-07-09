@@ -65,7 +65,7 @@ namespace iEAS.Module
             }
         }
 
-        public override void DeleteByID(int id)
+        public override void DeleteByID(Guid id)
         {
             var channelService = ObjectContainer.GetService<IChannelService>();
             using (var ctx = channelService.BeginContext())

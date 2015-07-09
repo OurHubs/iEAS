@@ -1,4 +1,5 @@
-﻿using iEAS.Module;
+﻿using iEAS.Infrastructure.UI;
+using iEAS.Module;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,19 +9,14 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
-    public partial class FeatureEdit : System.Web.UI.Page
+    public partial class FeatureEdit : EditForm
     {
         public IFeatureService FeatureService { get; set; }
-
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
-        }
-        public int ModuleID
+        public Guid ModuleID
         {
             get
             {
-                int? moduleID = Request["moduleID"].ToNInt();
+                Guid? moduleID = Request["moduleID"].ToNGuid();
                 if (moduleID == null)
                 {
                     throw new BusinessException("ModuleID不能为空！");
@@ -29,11 +25,11 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
-        public int? ParentID
+        public Guid? ParentID
         {
             get
             {
-                return Request["parentID"].ToNInt();
+                return Request["parentID"].ToNGuid();
             }
         }
 

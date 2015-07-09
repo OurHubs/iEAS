@@ -31,7 +31,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 主负责人ID
         /// </summary>
-        public int? PrincipalManagerID { get; set; }
+        public Guid? PrincipalManagerID { get; set; }
         /// <summary>
         /// 主负责人员工编号
         /// </summary>
@@ -39,11 +39,11 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 上级ID
         /// </summary>
-        public int? ParentID { get; set; }
+        public Guid? ParentID { get; set; }
         /// <summary>
         /// 公司ID
         /// </summary>
-        public int? CompanyID { get; set; }
+        public Guid? CompanyID { get; set; }
         /// <summary>
         /// 主负责人
         /// </summary>

@@ -12,9 +12,9 @@ namespace iEAS.Account
         /// <summary>
         /// 获取用户的权限信息
         /// </summary>
-        /// <param name="userID"></param>
+        /// <param name="sn"></param>
         /// <returns></returns>
-        public IEnumerable<Permission> GetUserPermissions(int userID)
+        public IEnumerable<Permission> GetUserPermissions(int sn)
         {
             List<Permission> results = new List<Permission>();
 
@@ -22,12 +22,12 @@ namespace iEAS.Account
             using (var ctx = permissionService.BeginContext())
             {
                 IUserService userService=ctx.GetService<IUserService>();
-                User user = userService.GetByID(userID);
+                User user = userService.GetBySN(sn);
 
-                var userPermissions = permissionService.GetPermissions("USER", user.Guid.ToString());
+                var userPermissions = permissionService.GetPermissions("USER", user.ID.ToString());
                 
-                string[] roleGuids = user.Roles.Select(m => m.Guid.ToString()).ToArray();
-                var rolePermissions = permissionService.GetPermissions("ROLE", roleGuids);
+                string[] roleIDs = user.Roles.Select(m => m.ID.ToString()).ToArray();
+                var rolePermissions = permissionService.GetPermissions("ROLE", roleIDs);
 
                 results.AddRange(userPermissions);
                 results.AddRange(rolePermissions);
@@ -38,9 +38,9 @@ namespace iEAS.Account
         /// <summary>
         /// 获取用户权限信息
         /// </summary>
-        /// <param name="guid"></param>
+        /// <param name="id"></param>
         /// <returns></returns>
-        public IEnumerable<Permission> GetUserPermissions(Guid guid)
+        public IEnumerable<Permission> GetUserPermissions(Guid id)
         {
             List<Permission> results = new List<Permission>();
 
@@ -49,11 +49,11 @@ namespace iEAS.Account
             {
                 IUserService userService = ctx.GetService<IUserService>();
 
-                var userPermissions = permissionService.GetPermissions("USER", guid.ToString());
+                var userPermissions = permissionService.GetPermissions("USER", id.ToString());
 
-                User user=userService.GetByGuid(guid);
-                string[] roleGuids = user.Roles.Select(m => m.Guid.ToString()).ToArray();
-                var rolePermissions = permissionService.GetPermissions("ROLE", roleGuids);
+                User user=userService.GetByID(id);
+                string[] roleIds = user.Roles.Select(m => m.ID.ToString()).ToArray();
+                var rolePermissions = permissionService.GetPermissions("ROLE", roleIds);
 
                 results.AddRange(userPermissions);
                 results.AddRange(rolePermissions);

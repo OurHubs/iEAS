@@ -33,15 +33,15 @@ namespace iEAS.Infrastructure.Web.Pages.Account.UxControls
             }
         }
 
-        public IList<int> GetRoleIds()
+        public IList<Guid> GetRoleIds()
         {
-            List<int> roleIds = new List<int>();
+            List<Guid> roleIds = new List<Guid>();
 
             foreach(ListItem item in chkRoles.Items)
             {
                 if (item.Selected)
                 {
-                    roleIds.Add(item.Value.ToInt());
+                    roleIds.Add(item.Value.ToGuid());
                 }
             }
 

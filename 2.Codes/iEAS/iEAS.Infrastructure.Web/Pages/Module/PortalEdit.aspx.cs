@@ -5,10 +5,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using iEAS.Module;
+using iEAS.Infrastructure.UI;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
-    public partial class PortalEdit : System.Web.UI.Page
+    public partial class PortalEdit : EditForm
     {
         public IPortalService PortalService { get; set; }
 
@@ -18,10 +19,6 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             {
                 BindData();
             }
-        }
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
         }
 
         protected void btnSave_Click(object sender, EventArgs e)

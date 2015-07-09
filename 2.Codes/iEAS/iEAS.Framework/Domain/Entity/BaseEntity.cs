@@ -7,7 +7,7 @@ namespace iEAS
 {
     public class BaseEntity
     {
-        private Guid _Guid = Guid.Empty;
+        private Guid _ID = Guid.Empty;
 
         public BaseEntity()
         {
@@ -16,23 +16,23 @@ namespace iEAS
         /// <summary>
         /// 主键ID
         /// </summary>
-        public int ID { get; set; }
+        public Guid ID
+        {
+            get 
+            {
+                if(_ID==Guid.Empty)
+                {
+                    _ID = Guid.NewGuid();
+                }
+                return _ID;
+            }
+            set { _ID = value; }
+        }
 
         /// <summary>
         /// 实体的Guid
         /// </summary>
-        public Guid Guid
-        {
-            get
-            {
-                if(_Guid==Guid.Empty)
-                {
-                    _Guid = Guid.NewGuid();
-                }
-                return _Guid;
-            }
-            set { _Guid = value; }
-        }
+        public int SN { get; set; }
 
         public int Version { get; set; }
     }

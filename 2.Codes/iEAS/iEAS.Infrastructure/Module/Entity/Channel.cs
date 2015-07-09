@@ -13,7 +13,7 @@ namespace iEAS.Module
         /// <summary>
         /// 上级ID
         /// </summary>
-        public int? ParentID { get; set; }
+        public Guid? ParentID { get; set; }
         /// <summary>
         /// 名称
         /// </summary>

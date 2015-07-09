@@ -12,7 +12,7 @@ namespace iEAS.Infrastructure.Web.Ajax
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            int menuId = Request["menuid"].ToInt();
+            Guid menuId = Request["menuid"].ToGuid();
             string portal = Request["portal"];
             var portalMenus = AccountContext.Current.GetPortalMenus(portal);
             var menus = portalMenus

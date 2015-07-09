@@ -19,7 +19,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 用户信息ID
         /// </summary>
-        public int UserID { get; set; }
+        public Guid UserID { get; set; }
         /// <summary>
         /// 员工编号
         /// </summary>
@@ -173,7 +173,10 @@ namespace iEAS.Orgnization
             }
             return _EmployeeTitles;
         }
-
+        /// <summary>
+        /// 获取ReportLine信息
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<ReportLine> GetReportLines()
         {
             if(_ReportLines==null)
@@ -183,7 +186,10 @@ namespace iEAS.Orgnization
             }
             return _ReportLines;
         }
-
+        /// <summary>
+        /// 获取职位信息
+        /// </summary>
+        /// <returns></returns>
         public IEnumerable<EmployeePosition> GetPositions()
         {
             if(_EmployeePositions==null)

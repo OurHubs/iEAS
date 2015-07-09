@@ -36,14 +36,14 @@ namespace iEAS.BaseData
             return GetBaseData(typeCode).FirstOrDefault(m => m.Value == value);
         }
 
-        public static BaseDataItem GetBaseDataByID(int id)
+        public static BaseDataItem GetBaseDataByID(Guid id)
         {
             return ObjectContainer.GetService<IBaseDataItemService>().GetByID(id,true);
         }
 
-        public static BaseDataItem GetBaseDataByGuid(Guid id)
+        public static BaseDataItem GetBaseDataBySN(int sn)
         {
-            return ObjectContainer.GetService<IBaseDataItemService>().GetByGuid(id, true);
+            return ObjectContainer.GetService<IBaseDataItemService>().GetBySN(sn, true);
         }
 
         public static IEnumerable<BaseDataItem> GetAllBaseData(string typeCode)

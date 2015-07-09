@@ -1,4 +1,5 @@
 ﻿using iEAS.BaseData;
+using iEAS.Infrastructure.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,9 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.BaseData
 {
-    public partial class BaseDataTypeEdit : System.Web.UI.Page
+    public partial class BaseDataTypeEdit : EditForm
     {
         public IBaseDataTypeService BaseDataTypeService { get; set; }
-
-        public int RecordID
-        {
-            get { return Request["rid"].ToInt(0); }
-        }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

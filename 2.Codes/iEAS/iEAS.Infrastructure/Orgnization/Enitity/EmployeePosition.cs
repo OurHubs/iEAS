@@ -14,7 +14,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 员工ID
         /// </summary>
-        public int EmployeeID { get; set; }
+        public Guid EmployeeID { get; set; }
         /// <summary>
         /// 员工编号
         /// </summary>
@@ -22,7 +22,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 部门编码
         /// </summary>
-        public int DepartmentID { get; set; }
+        public Guid DepartmentID { get; set; }
         /// <summary>
         /// 部门编码
         /// </summary>
@@ -30,7 +30,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 职位ID
         /// </summary>
-        public int PositionID { get; set; }
+        public Guid PositionID { get; set; }
         /// <summary>
         /// 职位编码
         /// </summary>

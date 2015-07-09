@@ -9,7 +9,7 @@ namespace iEAS.Account
 {
     public class UserService:IdentityDomainService<User,iEASRepository>,IUserService
     {
-        public IEnumerable<Role> GetUserRoles(int userID)
+        public IEnumerable<Role> GetUserRoles(Guid userID)
         {
             return this.GetByID(userID,true).Roles.ToList();
         }

@@ -15,11 +15,11 @@ namespace iEAS.Module
         /// <summary>
         /// 类型ID
         /// </summary>
-        public int PortalID { get; set; }
+        public Guid PortalID { get; set; }
         /// <summary>
         /// 上级ID
         /// </summary>
-        public int? ParentID { get; set; }
+        public Guid? ParentID { get; set; }
         /// <summary>
         /// 名称
         /// </summary>
