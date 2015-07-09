@@ -6,16 +6,15 @@ using System.Threading.Tasks;
 
 namespace iEAS.Orgnization
 {
+    /// <summary>
+    /// 头衔
+    /// </summary>
     public class Title:IdentityEntity
     {
         /// <summary>
-        /// 中文名
+        /// 名称
         /// </summary>
-        public string ChineseName { get; set; }
-        /// <summary>
-        /// 英文名
-        /// </summary>
-        public string EnglishName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 编码
         /// </summary>

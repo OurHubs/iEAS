@@ -2,9 +2,11 @@
 using iEAS.BaseData;
 using iEAS.Log;
 using iEAS.Module;
+using iEAS.Orgnization;
 using iEAS.Repository.Mapping.Account;
 using iEAS.Repository.Mapping.BaseData;
 using iEAS.Repository.Mapping.Module;
+using iEAS.Repository.Mapping.Orgnization;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -33,6 +35,18 @@ namespace iEAS.Repository
             modelBuilder.Configurations.Add(new UserMapping());
             modelBuilder.Configurations.Add(new RoleMapping());
 
+            #region 组织机构
+            modelBuilder.Configurations.Add(new CompanyMapping());
+            modelBuilder.Configurations.Add(new DepartmentMapping());
+            modelBuilder.Configurations.Add(new EmergencyContactMapping());
+            modelBuilder.Configurations.Add(new EmployeeMapping());
+            modelBuilder.Configurations.Add(new EmployeePositionMapping());
+            modelBuilder.Configurations.Add(new EmployeeTitleMapping());
+            modelBuilder.Configurations.Add(new PositionMapping());
+            modelBuilder.Configurations.Add(new ReportLineMapping());
+            modelBuilder.Configurations.Add(new TitleMapping());
+            #endregion
+
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();//移除复数表名的契约
             base.OnModelCreating(modelBuilder);
         }
@@ -47,5 +61,14 @@ namespace iEAS.Repository
         public DbSet<PortalInfo> PortalInfos { get; set; }
         public DbSet<Menu> Menus { get; set; }
         public DbSet<Channel> Channels { get; set; }
+        public DbSet<Company> Companies { get; set; }
+        public DbSet<Department> Departments { get; set; }
+        public DbSet<EmergencyContact> EmergencyContacts { get; set; }
+        public DbSet<Employee> Employees { get; set; }
+        public DbSet<EmployeePosition> EmployeePositions { get; set; }
+        public DbSet<EmployeeTitle> EmployeeTitles { get; set; }
+        public DbSet<Position> Positions { get; set; }
+        public DbSet<ReportLine> ReportLines { get; set; }
+        public DbSet<Title> Titles { get; set; }
     }
 }

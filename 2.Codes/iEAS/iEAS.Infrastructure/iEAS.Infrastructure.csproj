@@ -173,6 +173,15 @@
     <Compile Include="Repository\Mapping\Module\MenuMapping.cs" />
     <Compile Include="Repository\Mapping\Module\ModuleInfoMapping.cs" />
     <Compile Include="Repository\Mapping\Module\PortalInfoMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\EmergencyContactMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\DepartmentMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\CompanyMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\EmployeeMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\TitleMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\ReportLineMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\PositionMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\EmployeeTitleMapping.cs" />
+    <Compile Include="Repository\Mapping\Orgnization\EmployeePositionMapping.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\iEAS.Framework\iEAS.Framework.csproj">
@@ -185,9 +194,6 @@
     <Folder Include="BaseData\Config\" />
     <Folder Include="Model\Service\" />
     <Folder Include="Module\Config\" />
-    <Folder Include="Navigtion\Config\" />
-    <Folder Include="Navigtion\Entity\" />
-    <Folder Include="Navigtion\Service\" />
     <Folder Include="Orgnization\Config\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -13,13 +13,9 @@ namespace iEAS.Orgnization
     public class Position : IdentityEntity
     {
         /// <summary>
-        /// 中文名
+        /// 名称
         /// </summary>
-        public string ChineseName { get; set; }
-        /// <summary>
-        /// 英文名
-        /// </summary>
-        public string EnglishName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 编码
         /// </summary>

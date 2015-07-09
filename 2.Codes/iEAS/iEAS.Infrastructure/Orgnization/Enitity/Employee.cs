@@ -12,10 +12,6 @@ namespace iEAS.Orgnization
     /// </summary>
     public class Employee : IdentityEntity
     {
-        private IEnumerable<EmployeeTitle> _EmployeeTitles;
-        private IEnumerable<ReportLine> _ReportLines;
-        private IEnumerable<EmployeePosition> _EmployeePositions;
-
         /// <summary>
         /// 用户信息ID
         /// </summary>
@@ -160,44 +156,5 @@ namespace iEAS.Orgnization
         /// 用户信息
         /// </summary>
         public virtual User User { get; set; }
-        /// <summary>
-        /// 获取Title信息
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<EmployeeTitle> GetTitles()
-        {
-            if (_EmployeeTitles == null)
-            {
-                IEmployeeTitleService employeeTitleService = ObjectContainer.GetService<IEmployeeTitleService>();
-                _EmployeeTitles = employeeTitleService.Query(m => m.EmployeeID == ID && m.Status == 1);
-            }
-            return _EmployeeTitles;
-        }
-        /// <summary>
-        /// 获取ReportLine信息
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<ReportLine> GetReportLines()
-        {
-            if(_ReportLines==null)
-            {
-                IReportLineService reportLineService = ObjectContainer.GetService<IReportLineService>();
-                _ReportLines = reportLineService.Query(m =>m.EmployeeID==ID && m.Status == 1);
-            }
-            return _ReportLines;
-        }
-        /// <summary>
-        /// 获取职位信息
-        /// </summary>
-        /// <returns></returns>
-        public IEnumerable<EmployeePosition> GetPositions()
-        {
-            if(_EmployeePositions==null)
-            {
-                IEmployeePositionService EPService = ObjectContainer.GetService<IEmployeePositionService>();
-                _EmployeePositions = EPService.Query(m => m.EmployeeID == ID && m.Status == 1);
-            }
-            return _EmployeePositions;
-        }
     }
 }

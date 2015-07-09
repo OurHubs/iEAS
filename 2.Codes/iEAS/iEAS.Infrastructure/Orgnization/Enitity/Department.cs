@@ -15,11 +15,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 中文名
         /// </summary>
-        public string ChineseName { get; set; }
-        /// <summary>
-        /// 英文名
-        /// </summary>
-        public string EngilishName { get; set; }
+        public string Name { get; set; }
         /// <summary>
         /// 编码
         /// </summary>
@@ -31,11 +27,19 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 主负责人ID
         /// </summary>
-        public Guid? PrincipalManagerID { get; set; }
+        public Guid? PrincipalID { get; set; }
         /// <summary>
         /// 主负责人员工编号
         /// </summary>
-        public string PrincipalManagerEmployeeNumber { get; set; }
+        public string PrincipalNumber { get; set; }
+        /// <summary>
+        /// 第一副负责人ID
+        /// </summary>
+        public Guid? DeputyID { get; set; }
+        /// <summary>
+        /// 第一副负责人员工编号
+        /// </summary>
+        public string DeputyNumber { get; set; }
         /// <summary>
         /// 上级ID
         /// </summary>
@@ -44,10 +48,6 @@ namespace iEAS.Orgnization
         /// 公司ID
         /// </summary>
         public Guid? CompanyID { get; set; }
-        /// <summary>
-        /// 主负责人
-        /// </summary>
-        public virtual Employee PrincipalManager { get; set; }
         /// <summary>
         /// 公司
         /// </summary>
