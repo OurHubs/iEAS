@@ -1101,6 +1101,7 @@
     <Content Include="Config\Model\Article.xml" />
     <Content Include="Controls\Pager.ascx" />
     <Content Include="Desktop.aspx" />
+    <Content Include="DesptopNew.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\ChannelRequest.ascx" />
@@ -1128,6 +1129,11 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Desptop\SetDesptopUC.aspx" />
+    <Content Include="Pages\Desptop\UserControl\Download.ascx" />
+    <Content Include="Pages\Desptop\UserControl\LastMsg.ascx" />
+    <Content Include="Pages\Desptop\UserControl\LastNew.ascx" />
+    <Content Include="Pages\Desptop\UserControl\Vote.ascx" />
     <Content Include="Pages\Model\ModelRegistryList.aspx" />
     <Content Include="Pages\Model\ModelTempEdit.aspx" />
     <Content Include="Pages\Model\ModelTempEditIframe.aspx" />
@@ -1391,6 +1397,13 @@
     <Compile Include="Desktop.aspx.designer.cs">
       <DependentUpon>Desktop.aspx</DependentUpon>
     </Compile>
+    <Compile Include="DesptopNew.aspx.cs">
+      <DependentUpon>DesptopNew.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DesptopNew.aspx.designer.cs">
+      <DependentUpon>DesptopNew.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -1593,6 +1606,41 @@
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Desptop\SetDesptopUC.aspx.cs">
+      <DependentUpon>SetDesptopUC.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desptop\SetDesptopUC.aspx.designer.cs">
+      <DependentUpon>SetDesptopUC.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\Download.ascx.cs">
+      <DependentUpon>Download.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\Download.ascx.designer.cs">
+      <DependentUpon>Download.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\LastMsg.ascx.cs">
+      <DependentUpon>LastMsg.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\LastMsg.ascx.designer.cs">
+      <DependentUpon>LastMsg.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\LastNew.ascx.cs">
+      <DependentUpon>LastNew.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\LastNew.ascx.designer.cs">
+      <DependentUpon>LastNew.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\Vote.ascx.cs">
+      <DependentUpon>Vote.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Desptop\UserControl\Vote.ascx.designer.cs">
+      <DependentUpon>Vote.ascx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Model\ModelRegistryList.aspx.cs">
       <DependentUpon>ModelRegistryList.aspx</DependentUpon>
