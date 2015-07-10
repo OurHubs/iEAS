@@ -1115,10 +1115,10 @@
     <Content Include="Model\ModelQuery.aspx" />
     <Content Include="Model\Controls\Field\GridEditor.ascx" />
     <Content Include="Model\Controls\Form\OneColumn.ascx" />
-    <Content Include="Model\Controls\List\ChannelTabPagedQuery.ascx" />
-    <Content Include="Model\Controls\List\ModelToolBar.ascx" />
-    <Content Include="Model\Controls\List\PagedQuery.ascx" />
-    <Content Include="Model\Controls\List\TabPagedQuery.ascx" />
+    <Content Include="Model\Controls\Form\List\ChannelTabPagedQuery.ascx" />
+    <Content Include="Model\Controls\Form\List\ModelToolBar.ascx" />
+    <Content Include="Model\Controls\Form\List\PagedQuery.ascx" />
+    <Content Include="Model\Controls\Form\List\TabPagedQuery.ascx" />
     <Content Include="Pages\Account\RoleEdit.aspx" />
     <Content Include="Pages\Account\RoleList.aspx" />
     <Content Include="Pages\Account\RoleUsers.aspx" />
@@ -1519,21 +1519,21 @@
     <Compile Include="Model\Controls\Form\OneColumn.ascx.designer.cs">
       <DependentUpon>OneColumn.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Controls\List\ModelToolBar.ascx.cs">
+    <Compile Include="Model\Controls\Form\List\ModelToolBar.ascx.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\Controls\List\ModelToolBar.ascx.designer.cs">
+    <Compile Include="Model\Controls\Form\List\ModelToolBar.ascx.designer.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Controls\List\PagedQuery.ascx.cs">
+    <Compile Include="Model\Controls\Form\List\PagedQuery.ascx.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Model\Controls\List\PagedQuery.ascx.designer.cs">
+    <Compile Include="Model\Controls\Form\List\PagedQuery.ascx.designer.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
     </Compile>
-    <Compile Include="Model\Controls\List\TabPagedQuery.ascx.cs">
+    <Compile Include="Model\Controls\Form\List\TabPagedQuery.ascx.cs">
       <DependentUpon>TabPagedQuery.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

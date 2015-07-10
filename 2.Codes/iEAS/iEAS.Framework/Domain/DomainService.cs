@@ -195,7 +195,7 @@ namespace iEAS
          /// <param name="entity"></param>
         public void CreateOrUpdate(TEntity entity)
         {
-            if(entity.ID==Guid.Empty)
+            if(entity.SN==0)
             {
                 Create(entity);
             }

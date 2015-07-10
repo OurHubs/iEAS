@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Infrastructure.UI;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,15 +9,9 @@ using System.Web.UI.WebControls;
 
 namespace iEAS.Infrastructure.Web.Pages.Account
 {
-    public partial class RoleEdit : System.Web.UI.Page
+    public partial class RoleEdit : EditForm
     {
         public IRoleService RoleService { get; set; }
-
-        public Guid RecordID
-        {
-            get { return Request["rid"].ToGuid(Guid.Empty); }
-        }
-
 
         protected void Page_Load(object sender, EventArgs e)
         {

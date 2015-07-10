@@ -37,7 +37,7 @@
                         <input type="checkbox" onclick="checkAll(this, 'ids')" />
                     </HeaderTemplate>
                     <ItemTemplate>
-                        <input name="ids" data="ids" type="checkbox" />
+                        <input name="ids" data="ids" type="checkbox" value="<%# Eval("ID") %>" />
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="30px" />
                     <HeaderStyle HorizontalAlign="Center" Width="30px" />

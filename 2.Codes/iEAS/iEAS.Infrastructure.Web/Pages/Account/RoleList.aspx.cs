@@ -58,7 +58,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
 
         private void BindData()
         {
-            var result=RoleService.PagedQuery(null, o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
+            var result=RoleService.PagedQuery(m=>m.Status==1, o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
             gvList.DataSource = result;
             gvList.DataBind();
             Pager.RecordCount = result.RecordCount;

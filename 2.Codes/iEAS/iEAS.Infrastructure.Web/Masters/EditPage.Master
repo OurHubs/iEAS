@@ -1,21 +1,22 @@
 ﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="EditPage.master.cs" Inherits="iEAS.Infrastructure.Web.Masters.EditPage" %>
 
-<!DOCTYPE html>
 
-<html xmlns="http://www.w3.org/1999/xhtml">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+    <link rel="stylesheet" type="text/css" href="~/assets/common/css/style.css" />
+    <script src="<%=Page.ResolveUrl("~/") %>assets/common/js/jQuery.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
     <title><%=SiteConfig.Instance.Title %></title>
     <asp:ContentPlaceHolder ID="Header" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body>
+<body class="bodycolor">
     <form id="form1" runat="server">
-    <div>
         <asp:ContentPlaceHolder ID="Content" runat="server">
-        
         </asp:ContentPlaceHolder>
-    </div>
     </form>
 </body>
 </html>
