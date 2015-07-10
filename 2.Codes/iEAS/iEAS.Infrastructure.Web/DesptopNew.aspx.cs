@@ -29,10 +29,10 @@ namespace iEAS.Infrastructure.Web
                  //9c5fcdba-5d32-44e2-9e59-c64f25268556
 
                 //插入Demo数据 
-                //DesptopUC w1 = new DesptopUC() { Code = "LastMsg", Desc = "最新消息", Name = "最新消息", Guid = Guid.NewGuid(), UCType = "400" };
-                //DesptopUC w2 = new DesptopUC() { Code = "LastNew", Desc = "最新动态", Name = "最新动态", Guid = Guid.NewGuid(), UCType = "400" };
-                //DesptopUC s1 = new DesptopUC() { Code = "Vote", Desc = "投票", Name = "投票", Guid = Guid.NewGuid(), UCType = "100" };
-                //DesptopUC s2 = new DesptopUC() { Code = "Download", Desc = "下载管理", Name = "最新动态", Guid = Guid.NewGuid(), UCType = "100" };
+                //DesptopUC w1 = new DesptopUC() { Code = "LastMsg", Desc = "最新消息", Name = "最新消息", ID = Guid.NewGuid(), UCType = "Center" };
+                //DesptopUC w2 = new DesptopUC() { Code = "LastNew", Desc = "最新动态", Name = "最新动态", ID = Guid.NewGuid(), UCType = "Center" };
+                //DesptopUC s1 = new DesptopUC() { Code = "Vote", Desc = "投票", Name = "投票", ID = Guid.NewGuid(), UCType = "Right" };
+                //DesptopUC s2 = new DesptopUC() { Code = "Download", Desc = "下载管理", Name = "最新动态", ID = Guid.NewGuid(), UCType = "Right" };
                 //DesptopUCService.Create(w1);
                 //DesptopUCService.Create(w2);
                 //DesptopUCService.Create(s1);
@@ -40,8 +40,8 @@ namespace iEAS.Infrastructure.Web
 
                 //初始化数据
 
-                //UserDesptopUC uc1=new UserDesptopUC(){ DestopUCType="400", UCCodes="LastMsg,LastNew", Guid=Guid.NewGuid(), UserGUI="bb62d704-01f2-4187-9c32-9c2c7670940e"};
-                //UserDesptopUC uc2=new UserDesptopUC(){ DestopUCType="400", UCCodes="Vote,Download", Guid=Guid.NewGuid(), UserGUI="bb62d704-01f2-4187-9c32-9c2c7670940e"};
+                //UserDesptopUC uc1 = new UserDesptopUC() { DestopUCType = "Center", UCCodes = "LastMsg,LastNew", ID = Guid.NewGuid(), UserID = "9c5fcdba-5d32-44e2-9e59-c64f25268556" };
+                //UserDesptopUC uc2 = new UserDesptopUC() { DestopUCType = "Center", UCCodes = "Vote,Download", ID = Guid.NewGuid(), UserID = "9c5fcdba-5d32-44e2-9e59-c64f25268556" };
 
                 //UserDeptopUCService.Create(uc1);
                 //UserDeptopUCService.Create(uc2);
@@ -50,7 +50,7 @@ namespace iEAS.Infrastructure.Web
         }
 
         [WebMethod]
-        public static string UpdateUserDesptopUC(string leftCodes,string rightCodes)
+        public static string UpdateUserDesptopUC(string leftCodes, string rightCodes)
         {
             try
             {
@@ -58,7 +58,7 @@ namespace iEAS.Infrastructure.Web
                 if (!string.IsNullOrEmpty(currUserGUI))
                 {
                     IUserDesptopUCService service = ObjectContainer.GetService<IUserDesptopUCService>();
-                    UserDesptopUC uc400 = service.Get(m => m.UserID == currUserGUI && m.DestopUCType == "400");
+                    UserDesptopUC uc400 = service.Get(m => m.UserID == currUserGUI && m.DestopUCType == "Center");
                     if (uc400 != null)
                     {
                         uc400.UCCodes = leftCodes;
@@ -70,11 +70,11 @@ namespace iEAS.Infrastructure.Web
                         uc.UCCodes = leftCodes;
                         uc.UserID = currUserGUI;
                         uc.ID = Guid.NewGuid();
-                        uc.DestopUCType = "400";
-                        service.Create(uc400);
+                        uc.DestopUCType = "Center";
+                        service.Create(uc);
                     }
 
-                    UserDesptopUC uc100 = service.Get(m => m.UserID == currUserGUI && m.DestopUCType == "100");
+                    UserDesptopUC uc100 = service.Get(m => m.UserID == currUserGUI && m.DestopUCType == "Right");
                     if (uc100 != null)
                     {
                         uc100.UCCodes = rightCodes;
@@ -83,11 +83,11 @@ namespace iEAS.Infrastructure.Web
                     else
                     {
                         UserDesptopUC uc = new UserDesptopUC();
-                        uc.UCCodes = leftCodes;
+                        uc.UCCodes = rightCodes;
                         uc.UserID = currUserGUI;
                         uc.ID = Guid.NewGuid();
-                        uc.DestopUCType = "100";
-                        service.Create(uc400);
+                        uc.DestopUCType = "Right";
+                        service.Create(uc);
                     }
                 }
                 return "1";
@@ -96,7 +96,6 @@ namespace iEAS.Infrastructure.Web
             {
                 return "0";
             }
-            
         }
      
 
@@ -104,42 +103,46 @@ namespace iEAS.Infrastructure.Web
         {
             phColumnbig.Controls.Clear();
             string currUserGUI = AccountContext.Current.User.ID.ToStr();
-            UserDesptopUC list400 = UserDeptopUCService.Get(m => m.UserID == currUserGUI && m.DestopUCType == "400");
+            UserDesptopUC list400 = UserDeptopUCService.Get(m => m.UserID == currUserGUI && m.DestopUCType == "Center");
+            string C2 = "LastNew,LastMsg";
             //宽的
-            if (list400!=null)
+            if (list400 != null)
             {
-                list400.UCCodes.Split(',').ToList().ForEach(code =>
-                {
-                    if (!string.IsNullOrEmpty(code))
-                    {
-                        Control ctl = Page.LoadControl("~/Pages/Module/DesptopUC/" + code + ".ascx");
-                        if (ctl != null)
-                        {
-                            phColumnbig.Controls.Add(ctl);
-                        }
-                    }
-                });
+                C2 = list400.UCCodes;        
             }
+            LoadCtlByCodes(C2, phColumnbig);
+
+
 
             //窄的
-            UserDesptopUC UC100 = UserDeptopUCService.Get(m => m.UserID == currUserGUI && m.DestopUCType == "100");
+            UserDesptopUC UC100 = UserDeptopUCService.Get(m => m.UserID == currUserGUI && m.DestopUCType == "Right");
+            string C3 = "Vote,Download";
             if (UC100!=null)
             {
-                 UC100.UCCodes.Split(',').ToList().ForEach(code =>
-                {
-                    if (!string.IsNullOrEmpty(code))
-                    {
-                        Control ctl = Page.LoadControl("~/Pages/Module/DesptopUC/" + code + ".ascx");
-                        if (ctl != null)
-                        {
-                            phColumn.Controls.Add(ctl);
-                        } 
-                    }
-                   
-                });
+                C3 = UC100.UCCodes;
             }
-
-
+            LoadCtlByCodes(C3, phColumn);
+        }
+        
+        /// 载入控件辅助方法
+        /// <summary>
+        /// 载入控件辅助方法
+        /// </summary>
+        /// <param name="codes"></param>
+        /// <param name="ph"></param>
+        private void LoadCtlByCodes(string codes,PlaceHolder ph)
+        {
+            codes.Split(',').ToList().ForEach(code =>
+            {
+                if (!string.IsNullOrEmpty(code))
+                {
+                    Control ctl = Page.LoadControl("~/Pages/Desptop/UserControl/" + code + ".ascx");
+                    if (ctl != null)
+                    {
+                        ph.Controls.Add(ctl);
+                    }
+                }
+            });
         }
     }
 }

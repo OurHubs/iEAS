@@ -40,20 +40,20 @@
                 //start: function (event, ui) { alert(ui.item.attr("id")) },
                 stop: function (event, ui) { GetPortletIDS(); }
             });
-            $(".column").sortable({
-                connectWith: ".columnbig",
-                handle: ".portlet-header",
-                cancel: ".portlet-toggle",
-                placeholder: "portlet-placeholder ui-corner-all",
-                stop: function (event, ui) { GetPortletIDS(); }
-            });
-            $(".columnbig").sortable({
-                connectWith: ".column",
-                handle: ".portlet-header",
-                cancel: ".portlet-toggle",
-                placeholder: "portlet-placeholder ui-corner-all",
-                stop: function (event, ui) { GetPortletIDS(); }
-            });
+            //$(".column").sortable({
+            //    connectWith: ".columnbig",
+            //    handle: ".portlet-header",
+            //    cancel: ".portlet-toggle",
+            //    placeholder: "portlet-placeholder ui-corner-all",
+            //    stop: function (event, ui) { GetPortletIDS(); }
+            //});
+            //$(".columnbig").sortable({
+            //    connectWith: ".column",
+            //    handle: ".portlet-header",
+            //    cancel: ".portlet-toggle",
+            //    placeholder: "portlet-placeholder ui-corner-all",
+            //    stop: function (event, ui) { GetPortletIDS(); }
+            //});
 
 
             $(".portlet")
@@ -74,15 +74,15 @@
         //获取列的所有ID，从上到下
         function GetPortletIDS() {
             //获取右边portlet
-            var right_ids = $("div.column  div.portlet").map(function (p) {
+            var right_ids = $("#coloumn_right  div.portlet").map(function (p) {
                 return $(this).attr("id");
             }).get().join(',');
 
             //获取左边portlet
-            var left_ids = $("div.columnbig  div.portlet").map(function (p) {
+            var left_ids = $("#column_center div.portlet").map(function (p) {
                 return $(this).attr("id");
             }).get().join(',');
-
+          
 
             $.ajax({
                 type: "POST",
@@ -102,11 +102,11 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <div class="columnbig">
+        <div class="column" style="width:600px;" id="column_center">
             <asp:PlaceHolder ID="phColumnbig" runat="server"></asp:PlaceHolder>
         </div>
 
-        <div class="column">
+        <div class="column" id="coloumn_right">
             <asp:PlaceHolder ID="phColumn" runat="server"></asp:PlaceHolder>
         </div>
     </form>
