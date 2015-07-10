@@ -7,10 +7,10 @@
 // </自动生成>
 //------------------------------------------------------------------------------
 
-namespace iEAS.Infrastructure.Web.Pages.Module {
+namespace iEAS.Infrastructure.Web.Pages.Orgnization {
     
     
-    public partial class ChannelList {
+    public partial class DepartmentList {
         
         /// <summary>
         /// gvList 控件。

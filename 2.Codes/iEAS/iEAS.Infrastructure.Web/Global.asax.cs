@@ -65,6 +65,7 @@ namespace iEAS.Infrastructure.Web
 
 
             builder.RegisterType<CompanyService>().As<ICompanyService>();
+            builder.RegisterType<DepartmentService>().As<IDepartmentService>();
 
             // builder.RegisterType<ILogger>().As<Log4netLogger>();
 

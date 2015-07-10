@@ -1,44 +1,40 @@
-﻿using System;
+﻿using iEAS.Infrastructure.UI;
+using iEAS.Orgnization;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using iEAS.Module;
-using iEAS.Infrastructure.UI;
 
-namespace iEAS.Infrastructure.Web.Pages.Module
+namespace iEAS.Infrastructure.Web.Pages.Orgnization
 {
-    public partial class ChannelList : ListForm
+    public partial class DepartmentList : ListForm
     {
-        public IChannelService ChannelService { get; set; }
+        public IDepartmentService DepartmentService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(!IsPostBack)
+            if (!IsPostBack)
             {
                 BindData();
             }
         }
-
-       
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
                 Guid rid = e.CommandArgument.ToGuid();
-                ChannelService.DeleteByID(rid);
-                //删除子项
-
+                DepartmentService.DeleteByID(rid);
                 BindData();
             }
         }
         private void BindData()
         {
-            var result = ChannelService.Query(m => m.Status == 1, null, true);
+            var result = DepartmentService.Query(m => m.Status == 1, null, true);
 
-            List<iEAS.Module.Channel> records = new List<iEAS.Module.Channel>();
+            List<Department> records = new List<Department>();
             var roots = result.Where(m => m.ParentID == null).ToList();
 
             for (int i = 0; i < roots.Count; i++)
@@ -63,7 +59,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             gvList.DataBind();
         }
 
-        private void BuildItems(iEAS.Module.Channel item, List<iEAS.Module.Channel> records, string prefix)
+        private void BuildItems(Department item, List<Department> records, string prefix)
         {
             if (item.Children == null)
                 return;

@@ -1154,6 +1154,8 @@
     <Content Include="Pages\Module\PortalList.aspx" />
     <Content Include="Pages\Orgnization\CompanyEdit.aspx" />
     <Content Include="Pages\Orgnization\CompanyList.aspx" />
+    <Content Include="Pages\Orgnization\DepartmentEdit.aspx" />
+    <Content Include="Pages\Orgnization\DepartmentList.aspx" />
     <Content Include="Portal.aspx" />
     <Content Include="Portal\Default.aspx" />
     <Content Include="Portal\TemplateEngine\Channel.aspx" />
@@ -1783,6 +1785,20 @@
     </Compile>
     <Compile Include="Pages\Orgnization\CompanyList.aspx.designer.cs">
       <DependentUpon>CompanyList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentEdit.aspx.cs">
+      <DependentUpon>DepartmentEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentEdit.aspx.designer.cs">
+      <DependentUpon>DepartmentEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentList.aspx.cs">
+      <DependentUpon>DepartmentList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentList.aspx.designer.cs">
+      <DependentUpon>DepartmentList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Portal.aspx.cs">
       <DependentUpon>Portal.aspx</DependentUpon>
