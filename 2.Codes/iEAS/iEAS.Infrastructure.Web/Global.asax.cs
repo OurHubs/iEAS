@@ -59,6 +59,9 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<PortalService>().As<IPortalService>();
             builder.RegisterType<MenuService>().As<IMenuService>();
             builder.RegisterType<ChannelService>().As<IChannelService>();
+            builder.RegisterType<DesptopUCService>().As<IDesptopUCService>();
+            builder.RegisterType<UserDesptopUCService>().As<IUserDesptopUCService>();
+
             // builder.RegisterType<ILogger>().As<Log4netLogger>();
 
         }

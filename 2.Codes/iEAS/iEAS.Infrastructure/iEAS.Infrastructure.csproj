@@ -138,7 +138,7 @@
     <Compile Include="Module\Entity\ModuleInfo.cs" />
     <Compile Include="Module\Entity\ResourceType.cs" />
     <Compile Include="Module\Entity\PortalInfo.cs" />
-    <Compile Include="Module\Entity\UserDesptop.cs" />
+    <Compile Include="Module\Entity\UserDesptopUC.cs" />
     <Compile Include="Module\Service\IDesptopUCService.cs" />
     <Compile Include="Module\Service\IFeatureService.cs" />
     <Compile Include="Module\Service\IMenuService.cs" />

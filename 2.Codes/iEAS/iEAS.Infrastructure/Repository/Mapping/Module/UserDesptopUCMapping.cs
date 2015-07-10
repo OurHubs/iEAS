@@ -12,7 +12,7 @@ namespace iEAS.Repository.Mapping.Module
         public UserDesptopUCMapping()
         {
             this.ToTable("USER_DESTOPUC");
-            this.Property(m => m.UserGUI, "USERGUI", 50);
+            this.Property(m => m.UserID, "USERID", 50);
             this.Property(m => m.DestopUCType, "DESTOPUCTYPE", 50);
             this.Property(m => m.UCCodes, "UCCODES", 200);
         }

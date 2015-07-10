@@ -11,7 +11,7 @@ namespace iEAS.Module
         /// <summary>
         /// 用户Recode
         /// </summary>
-        public string UserGUI { get; set; }
+        public string UserID { get; set; }
 
         /// <summary>
         /// 控件类型
