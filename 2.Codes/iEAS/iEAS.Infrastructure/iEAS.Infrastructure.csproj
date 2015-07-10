@@ -132,21 +132,27 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Module\Entity\Channel.cs" />
+    <Compile Include="Module\Entity\DesptopUC.cs" />
     <Compile Include="Module\Entity\Feature.cs" />
     <Compile Include="Module\Entity\Menu.cs" />
     <Compile Include="Module\Entity\ModuleInfo.cs" />
     <Compile Include="Module\Entity\ResourceType.cs" />
     <Compile Include="Module\Entity\PortalInfo.cs" />
+    <Compile Include="Module\Entity\UserDesptop.cs" />
+    <Compile Include="Module\Service\IDesptopUCService.cs" />
     <Compile Include="Module\Service\IFeatureService.cs" />
     <Compile Include="Module\Service\IMenuService.cs" />
     <Compile Include="Module\Service\IModuleService.cs" />
+    <Compile Include="Module\Service\Imp\DesptopUCService.cs" />
     <Compile Include="Module\Service\Imp\FeatureService.cs" />
     <Compile Include="Module\Service\Imp\ChannelService.cs" />
     <Compile Include="Module\Service\Imp\MenuService.cs" />
     <Compile Include="Module\Service\Imp\ModuleService.cs" />
     <Compile Include="Module\Service\Imp\PortalService.cs" />
     <Compile Include="Module\Service\IChannelService.cs" />
+    <Compile Include="Module\Service\Imp\UserDesptopUCService.cs" />
     <Compile Include="Module\Service\IPortalService.cs" />
+    <Compile Include="Module\Service\IUserDeptopUCService.cs" />
     <Compile Include="Orgnization\Enitity\Company.cs" />
     <Compile Include="Orgnization\Enitity\Department.cs" />
     <Compile Include="Orgnization\Enitity\EmergencyContact.cs" />
@@ -169,10 +175,12 @@
     <Compile Include="Repository\Mapping\BaseData\BaseDataTypeMapping.cs" />
     <Compile Include="Repository\Mapping\BaseData\BaseDataItemMapping.cs" />
     <Compile Include="Repository\Mapping\Module\ChannelMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\DesptopUCMapping.cs" />
     <Compile Include="Repository\Mapping\Module\FeatureMapping.cs" />
     <Compile Include="Repository\Mapping\Module\MenuMapping.cs" />
     <Compile Include="Repository\Mapping\Module\ModuleInfoMapping.cs" />
     <Compile Include="Repository\Mapping\Module\PortalInfoMapping.cs" />
+    <Compile Include="Repository\Mapping\Module\UserDesptopUCMapping.cs" />
     <Compile Include="Repository\Mapping\Orgnization\EmergencyContactMapping.cs" />
     <Compile Include="Repository\Mapping\Orgnization\DepartmentMapping.cs" />
     <Compile Include="Repository\Mapping\Orgnization\CompanyMapping.cs" />

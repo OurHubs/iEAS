@@ -35,6 +35,11 @@ namespace iEAS.Repository
             modelBuilder.Configurations.Add(new UserMapping());
             modelBuilder.Configurations.Add(new RoleMapping());
 
+            //桌面portlet
+            modelBuilder.Configurations.Add(new DesptopUCMapping());
+            modelBuilder.Configurations.Add(new UserDesptopUCMapping());
+
+
             #region 组织机构
             modelBuilder.Configurations.Add(new CompanyMapping());
             modelBuilder.Configurations.Add(new DepartmentMapping());
@@ -70,5 +75,8 @@ namespace iEAS.Repository
         public DbSet<Position> Positions { get; set; }
         public DbSet<ReportLine> ReportLines { get; set; }
         public DbSet<Title> Titles { get; set; }
+        public DbSet<DesptopUC> DesptopUCS { get; set; }
+        public DbSet<UserDesptopUC> UserDesptopUCS{ get; set; }
+
     }
 }
