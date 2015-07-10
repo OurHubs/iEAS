@@ -359,6 +359,16 @@ namespace iEAS
         {
             return PagedQuery(null,orderBy,pageIndex,pageSize);
         }
+
+        /// <summary>
+        /// 获取查询条件
+        /// </summary>
+        /// <returns></returns>
+        public IQueryable<TEntity> Query()
+        {
+            var rep = ObjectContainer.GetService<TRepository>();
+            return rep.Set<TEntity>();
+        }
     }
 
      public class IdentityDomainService<TEntity, TRepository>

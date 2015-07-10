@@ -198,5 +198,11 @@ namespace iEAS
         /// <param name="pageSize"></param>
         /// <returns></returns>
         PagedResult<TEntity> PagedQuery(Action<Orderable<TEntity>> orderBy, int pageIndex, int pageSize);
+
+        /// <summary>
+        /// 获取查询条件
+        /// </summary>
+        /// <returns></returns>
+        IQueryable<TEntity> Query();
     }
 }

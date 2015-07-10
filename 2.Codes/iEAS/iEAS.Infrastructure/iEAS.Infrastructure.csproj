@@ -162,7 +162,9 @@
     <Compile Include="Orgnization\Enitity\Employee.cs" />
     <Compile Include="Orgnization\Enitity\ReportLine.cs" />
     <Compile Include="Orgnization\Enitity\Title.cs" />
+    <Compile Include="Orgnization\Service\ICompanyService.cs" />
     <Compile Include="Orgnization\Service\IEmployeeTitleService.cs" />
+    <Compile Include="Orgnization\Service\Impl\ChannelService.cs" />
     <Compile Include="Orgnization\Service\IReportLineService.cs" />
     <Compile Include="Orgnization\Service\IEmployeePositionService.cs" />
     <Compile Include="Orgnization\Service\ITitleService.cs" />

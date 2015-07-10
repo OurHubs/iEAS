@@ -47,11 +47,6 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             Response.Redirect("RoleList.aspx");
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("RoleList.aspx");
-        }
-
         private void BindData()
         {
             var role = RoleService.GetByID(RecordID);

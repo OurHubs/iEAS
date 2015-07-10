@@ -1,15 +1,15 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoleEdit.aspx.cs"
-    MasterPageFile="~/Masters/EditPage.Master"
-    Inherits="iEAS.Infrastructure.Web.Pages.Account.RoleEdit" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/EditPage.Master" AutoEventWireup="true" CodeBehind="CompanyEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.CompanyEdit" %>
 
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
+<asp:Content ID="Content1" ContentPlaceHolderID="Header" runat="server">
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <table width="90%" border="0" align="center" cellpadding="3" cellspacing="0" class="small">
         <tr>
             <td class="Big">
-                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 新增角色</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 公司管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
 	           
                 <span style="font-size: 12px; float: right; margin-right: 20px;">
-                    <a href="RoleList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a>
+                    <a href="CompanyList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
             </td>
         </tr>
@@ -30,6 +30,20 @@
             </td>
         </tr>
         <tr>
+            <td nowrap class="TableContent" width="15%">地址
+            </td>
+            <td class="TableData">
+                <asp:TextBox ID="txtAddress" runat="server" CssClass="BigInput"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
+            <td nowrap class="TableContent" width="15%">网站
+            </td>
+            <td class="TableData">
+                <asp:TextBox ID="txtWebUrl" runat="server" CssClass="BigInput"></asp:TextBox>
+            </td>
+        </tr>
+        <tr>
             <td nowrap class="TableContent" width="15%">描述<font title='打*号表示为必填' color='#ff0000'>(*)</font>
             </td>
             <td class="TableData">
@@ -38,8 +52,8 @@
         </tr>
         <tr align="center" class="TableControl">
             <td colspan="2" nowrap height="35">
-                <asp:Button ID="btnSave" runat="server" Text="保存信息" OnClick="btnSave_Click" CssClass="BigButton" />
-                <asp:Button ID="btnBack" runat="server" Text="返 回" class="btn" OnClientClick="location.href='RoleList.aspx'" />
+                <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" CssClass="BigButton" />
+                <input type="button" value="返 回" onclick="location.href='CompanyList.aspx'" class="BigButton" />
             </td>
         </tr>
     </table>

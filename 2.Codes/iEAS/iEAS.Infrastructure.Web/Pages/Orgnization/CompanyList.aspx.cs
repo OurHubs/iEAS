@@ -1,5 +1,5 @@
-﻿using iEAS.Account;
-using iEAS.Infrastructure.UI;
+﻿using iEAS.Infrastructure.UI;
+using iEAS.Orgnization;
 using iEAS.Utility;
 using System;
 using System.Collections.Generic;
@@ -8,11 +8,11 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace iEAS.Infrastructure.Web.Pages.Account
+namespace iEAS.Infrastructure.Web.Pages.Orgnization
 {
-    public partial class RoleList : ListForm
+    public partial class CompanyList : ListForm
     {
-        public IRoleService RoleService { get; set; }
+        public ICompanyService CompanyService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -33,15 +33,10 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             BindData();
         }
 
-        protected void btnAdd_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("RoleEdit.aspx");
-        }
-
         protected void btnDeleteAll_Click(object sender, EventArgs e)
         {
             Guid[] ids = HttpHelper.GetRequestIds("ids");
-            RoleService.Delete(m => ids.Contains(m.ID));
+            CompanyService.Delete(m => ids.Contains(m.ID));
             BindData();
             ScriptHelper.Alert("操作成功！");
         }
@@ -51,16 +46,28 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             if (e.CommandName == "Del")
             {
                 Guid rid = e.CommandArgument.ToGuid();
-                RoleService.DeleteByID(rid);
+                CompanyService.DeleteByID(rid);
                 BindData();
             }
         }
 
         private void BindData()
         {
-            var query = RoleService.Query().Where(m => m.Status == 1);
+            var query = CompanyService.Query().Where(m => m.Status == 1);
 
-            var result = query.PagedQuery(o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
+            string name = txtName.Text.Trim();
+            if(!String.IsNullOrWhiteSpace(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            string code = txtCode.Text.Trim();
+            if (!String.IsNullOrWhiteSpace(code))
+            {
+                query = query.Where(m => m.Code.Contains(code));
+            }
+
+            var result = query.PagedQuery( o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
             gvList.DataSource = result;
             gvList.DataBind();
             Pager.RecordCount = result.RecordCount;
