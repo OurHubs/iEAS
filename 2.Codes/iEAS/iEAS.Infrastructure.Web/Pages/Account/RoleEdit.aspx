@@ -6,7 +6,7 @@
      <table width="90%" border="0" align="center" cellpadding="3" cellspacing="0" class="small">
         <tr>
             <td class="Big">
-                <img src="<%=Page.ResolveUrl("~/") %>"assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 新增角色</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 新增角色</span>&nbsp;&nbsp;&nbsp;&nbsp;
 	            <span style="font-size: 12px; float: right; margin-right: 20px;">
                     <a href="RoleList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
@@ -28,8 +28,11 @@
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtCode" runat="server" CssClass="BigInput"></asp:TextBox>
+
             </td>
         </tr>
+        
+
         <tr>
             <td nowrap class="TableContent" width="15%">
                 描述<font title='打*号表示为必填' color='#ff0000'>(*)</font>
@@ -45,4 +48,27 @@
             </td>
         </tr>
     </table>
+    <script type="text/javascript">
+
+        $(function () {
+            //$.formValidator.initConfig({
+            //    formid: "formTable",
+            //    errorfocus: false,
+            //    submitonce: true,
+            //    tipstyle: "both",
+            //    onerror: function () { // 验证不通过时的回调函数
+            //        alert("红色提示处输入非法，请根据提示修改！");
+            //    }
+            //});
+
+           // $.formValidator.initConfig({ autotip: true, onerror: function (msg) { alert(msg) } });
+
+            
+            $("#<%=txtName.ClientID%>").formValidator({ onshow: "请输入密码", onfocus: "密码不能为 空", oncorrect: "密码合法" })
+                         .inputValidator({ min: 1, empty: { leftempty: false, rightempty: false, emptyerror: "密码两边不能有空符号" }, onerror: "名字不能 为空,请确认" });
+        })
+      
+    </script>
+   
+
 </asp:Content>
