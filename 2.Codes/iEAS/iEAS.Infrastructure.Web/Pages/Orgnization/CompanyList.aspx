@@ -63,10 +63,11 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
+                        <a href="DepartmentList.aspx?companyId=<%# Eval("ID") %>">部门管理</a>|
                         <a href="CompanyEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" />
+                    <ItemStyle HorizontalAlign="Center" Width="300px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

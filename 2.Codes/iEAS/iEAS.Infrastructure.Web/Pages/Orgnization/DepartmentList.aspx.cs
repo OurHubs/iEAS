@@ -21,6 +21,19 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             }
         }
 
+        public Guid CompanyID
+        {
+            get 
+            {
+                Guid? companyID = Request["companyID"].ToNGuid();
+                if (companyID == null)
+                {
+                    throw new BusinessException("公司ID不能为空！");
+                }
+                return companyID.Value;
+            }
+        }
+
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
@@ -32,7 +45,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
         }
         private void BindData()
         {
-            var result = DepartmentService.Query(m => m.Status == 1, null, true);
+            var result = DepartmentService.Query(m =>m.CompanyID==CompanyID && m.Status == 1, null, true);
 
             List<Department> records = new List<Department>();
             var roots = result.Where(m => m.ParentID == null).ToList();

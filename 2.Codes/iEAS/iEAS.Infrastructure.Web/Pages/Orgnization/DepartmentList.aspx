@@ -11,7 +11,7 @@
     <div class="data-wrap">
         <div class="data-operation">
             <div class="button-operation">
-                <input type="button" value="新增" class='btn btn-success' onclick="location.href = 'DepartmentEdit.aspx'" />
+                <input type="button" value="添加一级部门" class='btn btn-success' onclick="location.href = 'DepartmentEdit.aspx?companyID=<%=CompanyID %>'" />
             </div>
             <div class="pager_operation">
             </div>
@@ -38,7 +38,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作" HeaderStyle-Width="300px">
                     <ItemTemplate>
-                        <a href="DepartmentEdit.aspx?parentID=<%# Eval("ID") %>">添加子部门</a>|<a href="DepartmentEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                        <a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&parentID=<%# Eval("ID") %>">添加子部门</a>|<a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
                 </asp:TemplateField>

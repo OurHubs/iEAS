@@ -13,6 +13,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
     public partial class DepartmentEdit : EditForm
     {
         public IDepartmentService DepartmentService { get; set; }
+        public ICompanyService CompanyService { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -22,11 +23,11 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             }
         }
 
-        public Guid CompanyID
+        public Guid? CompanyID
         {
             get
             {
-                return HttpHelper.RequestValue("companyId").ToGuid();
+                return HttpHelper.RequestValue("companyId").ToNGuid();
             }
         }
 
@@ -64,12 +65,12 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 LogManager.GetLogger().Error("保存部门信息出错！", ex);
                 throw ex;
             }
-            Response.Redirect("DepartmentList.aspx");
+            Response.Redirect("DepartmentList.aspx?companyID=" + department.CompanyID);
         }
 
         private void BindData()
         {
-            var department = DepartmentService.GetByID(RecordID);
+            var department = DepartmentService.GetByID(RecordID,true);
             if (department != null)
             {
                 txtName.Text = department.Name;
@@ -77,8 +78,9 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 txtDesc.Text = department.Desc;
                 txtDeputyNumber.Text = department.DeputyNumber;
                 txtPrincipalNumber.Text = department.PrincipalNumber;
+                lblCompany.Text = department.Company.Name;
             }
-            lblParent.Text = "顶级栏目";
+            lblParent.Text = "（无）";
             if (ParentID.HasValue)
             {
                 Department parent = DepartmentService.GetByID(ParentID.Value, true);
@@ -86,6 +88,11 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 {
                     lblParent.Text = parent.Name;
                 }
+            }
+            if(department==null && CompanyID!=null)
+            {
+                Company company = CompanyService.GetByID(CompanyID.Value);
+                lblCompany.Text = company.Name;
             }
         }
     }

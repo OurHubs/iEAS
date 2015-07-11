@@ -1154,8 +1154,16 @@
     <Content Include="Pages\Module\PortalList.aspx" />
     <Content Include="Pages\Orgnization\CompanyEdit.aspx" />
     <Content Include="Pages\Orgnization\CompanyList.aspx" />
+    <Content Include="Pages\Orgnization\CompanyTree.aspx" />
     <Content Include="Pages\Orgnization\DepartmentEdit.aspx" />
+    <Content Include="Pages\Orgnization\DepartmentIndex.aspx" />
     <Content Include="Pages\Orgnization\DepartmentList.aspx" />
+    <Content Include="Pages\Orgnization\EmployeeEdit.aspx" />
+    <Content Include="Pages\Orgnization\EmployeeList.aspx" />
+    <Content Include="Pages\Orgnization\PositionEdit.aspx" />
+    <Content Include="Pages\Orgnization\PositionList.aspx" />
+    <Content Include="Pages\Orgnization\TitleEdit.aspx" />
+    <Content Include="Pages\Orgnization\TitleList.aspx" />
     <Content Include="Portal.aspx" />
     <Content Include="Portal\Default.aspx" />
     <Content Include="Portal\TemplateEngine\Channel.aspx" />
@@ -1786,6 +1794,13 @@
     <Compile Include="Pages\Orgnization\CompanyList.aspx.designer.cs">
       <DependentUpon>CompanyList.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Orgnization\CompanyTree.aspx.cs">
+      <DependentUpon>CompanyTree.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\CompanyTree.aspx.designer.cs">
+      <DependentUpon>CompanyTree.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Orgnization\DepartmentEdit.aspx.cs">
       <DependentUpon>DepartmentEdit.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1793,12 +1808,61 @@
     <Compile Include="Pages\Orgnization\DepartmentEdit.aspx.designer.cs">
       <DependentUpon>DepartmentEdit.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentIndex.aspx.cs">
+      <DependentUpon>DepartmentIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\DepartmentIndex.aspx.designer.cs">
+      <DependentUpon>DepartmentIndex.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Orgnization\DepartmentList.aspx.cs">
       <DependentUpon>DepartmentList.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Orgnization\DepartmentList.aspx.designer.cs">
       <DependentUpon>DepartmentList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeEdit.aspx.cs">
+      <DependentUpon>EmployeeEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeEdit.aspx.designer.cs">
+      <DependentUpon>EmployeeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeList.aspx.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeList.aspx.designer.cs">
+      <DependentUpon>EmployeeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\PositionEdit.aspx.cs">
+      <DependentUpon>PositionEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\PositionEdit.aspx.designer.cs">
+      <DependentUpon>PositionEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\PositionList.aspx.cs">
+      <DependentUpon>PositionList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\PositionList.aspx.designer.cs">
+      <DependentUpon>PositionList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\TitleEdit.aspx.cs">
+      <DependentUpon>TitleEdit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\TitleEdit.aspx.designer.cs">
+      <DependentUpon>TitleEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\TitleList.aspx.cs">
+      <DependentUpon>TitleList.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\TitleList.aspx.designer.cs">
+      <DependentUpon>TitleList.aspx</DependentUpon>
     </Compile>
     <Compile Include="Portal.aspx.cs">
       <DependentUpon>Portal.aspx</DependentUpon>
