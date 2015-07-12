@@ -164,8 +164,10 @@
     <Compile Include="Orgnization\Enitity\Title.cs" />
     <Compile Include="Orgnization\Service\ICompanyService.cs" />
     <Compile Include="Orgnization\Service\IDepartmentService.cs" />
+    <Compile Include="Orgnization\Service\IEmployeeService.cs" />
     <Compile Include="Orgnization\Service\IEmployeeTitleService.cs" />
     <Compile Include="Orgnization\Service\Impl\CompanyService.cs" />
+    <Compile Include="Orgnization\Service\Impl\EmployeeService.cs" />
     <Compile Include="Orgnization\Service\Impl\PositionService.cs" />
     <Compile Include="Orgnization\Service\Impl\TitleService.cs" />
     <Compile Include="Orgnization\Service\Impl\DepartmentService.cs" />

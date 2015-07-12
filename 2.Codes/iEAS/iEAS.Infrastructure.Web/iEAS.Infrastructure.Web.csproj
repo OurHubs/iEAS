@@ -1160,6 +1160,7 @@
     <Content Include="Pages\Orgnization\DepartmentList.aspx" />
     <Content Include="Pages\Orgnization\DepartmentTree.aspx" />
     <Content Include="Pages\Orgnization\EmployeeEdit.aspx" />
+    <Content Include="Pages\Orgnization\EmployeeIndex.aspx" />
     <Content Include="Pages\Orgnization\EmployeeList.aspx" />
     <Content Include="Pages\Orgnization\PositionEdit.aspx" />
     <Content Include="Pages\Orgnization\PositionList.aspx" />
@@ -1818,7 +1819,6 @@
     </Compile>
     <Compile Include="Pages\Orgnization\DepartmentList.aspx.cs">
       <DependentUpon>DepartmentList.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Pages\Orgnization\DepartmentList.aspx.designer.cs">
       <DependentUpon>DepartmentList.aspx</DependentUpon>
@@ -1836,6 +1836,13 @@
     </Compile>
     <Compile Include="Pages\Orgnization\EmployeeEdit.aspx.designer.cs">
       <DependentUpon>EmployeeEdit.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeIndex.aspx.cs">
+      <DependentUpon>EmployeeIndex.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Orgnization\EmployeeIndex.aspx.designer.cs">
+      <DependentUpon>EmployeeIndex.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Orgnization\EmployeeList.aspx.cs">
       <DependentUpon>EmployeeList.aspx</DependentUpon>
