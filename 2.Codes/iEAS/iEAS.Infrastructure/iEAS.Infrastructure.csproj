@@ -166,6 +166,7 @@
     <Compile Include="Orgnization\Service\IDepartmentService.cs" />
     <Compile Include="Orgnization\Service\IEmployeeTitleService.cs" />
     <Compile Include="Orgnization\Service\Impl\CompanyService.cs" />
+    <Compile Include="Orgnization\Service\Impl\TitleService.cs" />
     <Compile Include="Orgnization\Service\Impl\DepartmentService.cs" />
     <Compile Include="Orgnization\Service\IReportLineService.cs" />
     <Compile Include="Orgnization\Service\IEmployeePositionService.cs" />
