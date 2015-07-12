@@ -6,10 +6,10 @@
     <table width="90%" border="0" align="center" cellpadding="3" cellspacing="0" class="small">
         <tr>
             <td class="Big">
-                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 公司管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 职称管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
 	           
                 <span style="font-size: 12px; float: right; margin-right: 20px;">
-                    <a href="CompanyList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a>
+                    <a href="TitleList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
             </td>
         </tr>
@@ -46,7 +46,7 @@
         <tr align="center" class="TableControl">
             <td colspan="2" nowrap height="35">
                 <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" CssClass="BigButton" />
-                <input type="button" value="返 回" onclick="location.href = 'CompanyList.aspx'" class="BigButton" />
+                <input type="button" value="返 回" onclick="location.href = 'TitleList.aspx'" class="BigButton" />
             </td>
         </tr>
     </table>
