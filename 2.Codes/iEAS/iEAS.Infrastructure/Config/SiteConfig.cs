@@ -36,5 +36,7 @@ namespace iEAS.Config
         public string Template { get; set; }
 
         public string WeiBoUrl { get; set; }
+
+        public string Administrator { get; set; }
     }
 }

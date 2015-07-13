@@ -1267,6 +1267,7 @@
     <Content Include="Masters\ListPage.Master" />
     <Content Include="Masters\EditPage.Master" />
     <Content Include="Config\Menu.config" />
+    <Content Include="Install\Config\Menu.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1423,6 +1424,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Install\Entity\MenuConfig.cs" />
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

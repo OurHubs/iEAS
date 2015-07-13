@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Config;
 using iEAS.Context;
 using iEAS.Module;
 using iEAS.Security;
@@ -32,6 +33,11 @@ namespace iEAS
                 }
                 return ctx;
             }
+        }
+
+        public bool IsAdministrator
+        {
+            get { return SiteConfig.Instance.Administrator == User.LoginName; }
         }
 
         public User User
@@ -108,7 +114,7 @@ namespace iEAS
             {
                 var portal=PortalContext.Current.GetPortal(portalCode);
                 var menus = portal.Menus
-                    .Where(m => Permissions.Any(p => p.ResouceID == m.ID.ToString()))
+                    .Where(m => IsAdministrator || Permissions.Any(p => p.ResouceID == m.ID.ToString()))
                     .ToList();
 
                 _PortalMenus.Add(portalCode, menus);
@@ -125,16 +131,18 @@ namespace iEAS
         private void ClearAccount()
         {
             _User = null;
+            ClearResources();
+        }
+
+        public void ClearResources()
+        {
             _Roles = null;
             _Permissions = null;
             _Modules = null;
 
             _PortalMenus.Clear();
-        }
 
-        private void ClearResources()
-        {
-            _Modules = null;
+            PortalContext.Current.ResetPortal();
         }
     }
 }

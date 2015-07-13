@@ -101,7 +101,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             var menuIds = MenuService.Query(m => m.Portal.ID == CurrentPortalID).Select(m => m.ID.ToString());
             PermissionService.SavePermissions(OwnerType, OwnerID, "MENU", ids,menuIds);
-
+            AccountContext.Current.ClearResources();
             ScriptHelper.Alert("操作成功！");
         }
 

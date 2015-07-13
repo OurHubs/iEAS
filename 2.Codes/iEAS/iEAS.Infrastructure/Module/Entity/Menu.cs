@@ -11,7 +11,7 @@ namespace iEAS.Module
     /// </summary>
     public class Menu:IdentityEntity
     {
-        //private List<Menu> _Children = new List<Menu>();
+        private List<Menu> _Children = new List<Menu>();
         /// <summary>
         /// 类型ID
         /// </summary>
@@ -50,6 +50,10 @@ namespace iEAS.Module
         public virtual Menu Parent { get; set; }
 
 
-        public virtual List<Menu> Children { get; set; }
+        public virtual List<Menu> Children
+        {
+            get { return _Children; }
+            set { _Children = value; }
+        }
     }
 }
