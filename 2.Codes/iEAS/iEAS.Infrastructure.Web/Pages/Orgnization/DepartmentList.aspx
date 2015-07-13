@@ -12,11 +12,11 @@
         <div class="data-operation">
             <div class="button-operation">
                 <input type="button" value="添加一级部门" class='btn btn-success' onclick="location.href = 'DepartmentEdit.aspx?companyID=<%=CompanyID %>'" />
-                 
-                <span style="font-size: 12px; float: right; margin-right: 20px;">
-                    <a href="CompanyList.aspx" style="font-size: 12px;">&lt;&lt;返回公司列表页</a>
-                </span>
             </div>
+
+            <span style="font-size: 12px; float: right; margin-right: 20px;">
+                    <a href="CompanyList.aspx" style="font-size: 12px;">&lt;&lt;返回公司列表页</a>
+            </span>
             <div class="pager_operation">
             </div>
         </div>
