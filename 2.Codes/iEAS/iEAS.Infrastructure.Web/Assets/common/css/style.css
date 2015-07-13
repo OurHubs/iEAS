@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 body{font-size:9pt; color:#393939; margin:auto;}
 form{padding-bottom:20px;margin:15px;}
 img{border:0px;}
@@ -297,7 +297,9 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
 .TableControl{ background: #e7f0fb}
 .TableHeader { COLOR:#fff; FONT-WEIGHT: bold; FONT-SIZE: 9pt; background:#FAFAFC; line-height:21px;}
 .TableContent{ background:#FAFAFC;}
-.TableData   { BACKGROUND: #FFFFFF;COLOR:#000000;}
+
+
+
 .TableLine1  { BACKGROUND: #F3F3F3;}
 .TableLine2  { BACKGROUND: #FFFFFF;}
 .TableRed{background:#FAFAFC;}
@@ -629,16 +631,8 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
 }
 
 /*  block型表格样式  */
-.TableBlock{
-   border:1px #CCCCCE solid;
-   line-height:20px;
-   font-size:9pt;
-   border-collapse:collapse;
-}
-.TableBlock td{
-   padding:3px;
-   height:35px;
-}
+.TableBlock{border:1px #CCCCCE solid; line-height:20px; font-size:9pt; border-collapse:collapse; }
+.TableBlock td{   padding:3px;   height:35px;}
 .nico{
 	 font-size:12px;
 	 color:#8C8A8A;
@@ -657,53 +651,46 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
    padding:0px;
    padding-left:5px;
 }
-.TableBlock .TableHeader td.TableCorner{
-   background:#5d99da;
-   color:#fff;
-   font-weight:bold;
-}
-.TableBlock .TableLine1 td,
-.TableBlock td.TableLine1{
-   background:#FFFFFF;
-   border-bottom:1px #cccccc solid;
-   border-right:1px #cccccc solid;
-}
-.TableBlock .TableLine2 td,
-.TableBlock td.TableLine2{
-   background:#FFFFFF;
-   border-bottom:1px #cccccc solid;
-   border-right:1px #cccccc solid;
-}
-.TableBlock .TableData td,
-.TableBlock td.TableData{
-   background:#FFFFFF;
-   border-bottom:1px #cccccc solid;
-   border-right:1px #cccccc solid;
-}
-.TableBlock .TableContent td,
-.TableBlock td.TableContent{
-   background:#FAFAFC;
-   border-bottom:1px #cccccc solid;
-   border-right:1px #cccccc solid;
-}
-.TableBlock .TableFooter td,
-.TableBlock .TableControl td,
-.TableBlock td.TableFooter,
-.TableBlock td.TableControl{
-   background: #FAFAFC;
-   border:1px #cecece solid;
-}
-.TableBlock .TableRed td,
-.TableBlock td.TableRed
-{
-   background:#FAFAFC;
-}
+.TableBlock{ width:100%;}
+.TableBlock .TableHeader td.TableCorner{ background:#5d99da; color:#fff; font-weight:bold;}
+.TableBlock .TableLine1 td,.TableBlock td.TableLine1{   background:#FFFFFF;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock .TableLine2 td,.TableBlock td.TableLine2{   background:#FFFFFF;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock .TableData td,.TableBlock td.TableData{   background:#FFFFFF;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock .TableContent td,.TableBlock td.TableContent{   background:#FAFAFC; text-align:center;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
 
-.TableBlock .TableLeft td,
-.TableBlock td.TableLeft{
-   background:#FAFAFC;
-   border-bottom:1px #a7bd74 solid;
+
+.TableBlock .TableFooter td,.TableBlock .TableControl td,.TableBlock td.TableFooter,.TableBlock td.TableControl{   background: #FAFAFC;   border:1px #cecece solid;}
+.TableBlock .TableRed td,.TableBlock td.TableRed{   background:#FAFAFC;}
+.TableBlock .TableLeft td,.TableBlock td.TableLeft{   background:#FAFAFC;   border-bottom:1px #a7bd74 solid;}
+
+.TableBlock th{ width:15%; font-weight:normal;  background:#FAFAFC; text-align:center;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock th  span{color:#f00;}
+.TableBlock td{ BACKGROUND: #fff;COLOR:#000;background:#fff;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock td div{ display:inline-block;padding-right:10px;}
+
+.TableData   { BACKGROUND: #FFFFFF;COLOR:#000000;}
+.TableData div{ display:inline-block;padding-right:10px;}
+
+
+.TableBlock2Column{  background: #FAFAFC;   border:1px #cecece solid;}
+.TableBlock2Column td{ width:35%; BACKGROUND: #fff;COLOR:#000;background:#fff;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;
+					   padding: 3px;height: 35px;
 }
+.TableBlock2Column>tbody>tr>th{ width:15%; font-weight:normal;  background:#FAFAFC; text-align:center;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
+.TableBlock2Column>tbody>tr>td div{ display:inline-block;padding-right:10px;}
+.TableBlock2Column>tbody>tr.TableControl{ text-align:left; height:35px;}
+.TableBlock2Column>tbody>tr.TableControl td{  background: #FAFAFC;   border:1px #cecece solid;}
+
+
+
+/*编辑页面头部信息*/
+.TableBlock_top{ height:30px;  margin-bottom:5px; line-height:30px;}
+.TableBlock_top .TableBlock_top_title{float:left;font-size: 12pt;color: #124164;font-weight: bold; vertical-align:middle;}
+.TableBlock_top .TableBlock_top_title img{vertical-align:middle;}
+.TableBlock_top .TableBlock_top_back{float:right;}
+
+
+
 
 .Content{
    line-height:normal;
@@ -711,17 +698,17 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
    word-break:break-all;  
 }
 
-.TableBlock .TableRowHover td,
-.TableBlock td.TableRowHover
+.TableBlock .TableRowHover td,.TableBlock td.TableRowHover
 {
    background:#FAFAFC;
 }
 
-.TableBlock .TableRowActive td,
-.TableBlock td.TableRowActive
-{
-   background:#e5e5e5;
-}
+.TableBlock .TableRowActive td,.TableBlock td.TableRowActive{   background:#e5e5e5;}
+
+/*add by lance*/
+.TableBlock tr th{ background:#FAFAFC;}
+
+
 
 .no-left-border{
    border-left:0px !important;

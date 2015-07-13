@@ -10,6 +10,53 @@
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
     <title><%=SiteConfig.Instance.Title %></title>
+    <script type="text/javascript">
+        //function ConfigValidateGroup(action) { 
+        //    var id = $("[BtnAction='" + action + "']").attr("id");
+        //    if (id) {
+        //        $.formValidator.initConfig({
+        //            form:form1,
+        //            submitButtonID: id,
+        //            validatorGroup: action,                 
+        //            errorFocus: false,
+        //            onError: function (msg, obj, errorlist) {
+        //                var str = "";
+        //                $.map(errorlist, function (m) {
+        //                    str += m + "\r\n";
+        //                });
+        //                str = $.trim(str);
+        //                alert(str);
+        //                return false;
+        //            },
+        //            onSuccess: function () {
+        //                setTimeout(function () {
+        //                    $("[BtnAction],#btnConsult").attr("disabled", "disabled");
+        //                }, 1);
+        //            }
+        //        });
+        //    }
+        //    return id ? true : false;
+        //}
+
+        function ConfigValidateGroup(groupName) {
+            $.formValidator.initConfig({
+                formID: "form1",
+                debug: false,
+                theme:"SolidBox",
+                validatorGroup: groupName==null?"1":groupName,
+                onError: function (msg, obj, errorlist) {
+                    var str = "";
+                    $.map(errorlist, function (m) {
+                        str += m + "\r\n";
+                    });
+                    str = $.trim(str);
+                    //alert(str);
+                    return false;
+                }
+            });
+        }
+
+    </script>
     <asp:ContentPlaceHolder ID="Header" runat="server">
     </asp:ContentPlaceHolder>
 </head>

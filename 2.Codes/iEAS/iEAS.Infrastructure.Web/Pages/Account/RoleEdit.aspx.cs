@@ -6,9 +6,11 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Services;
 
 namespace iEAS.Infrastructure.Web.Pages.Account
 {
+    [System.Web.Script.Services.ScriptService]
     public partial class RoleEdit : EditForm
     {
         public IRoleService RoleService { get; set; }
@@ -56,6 +58,13 @@ namespace iEAS.Infrastructure.Web.Pages.Account
                 txtCode.Text = role.Code;
                 txtDesc.Text = role.Desc;
             }
+        }
+
+
+        [WebMethod]
+        public static string CheckRoleCode(string roleCode)
+        {
+            return "1";
         }
     }
 }
