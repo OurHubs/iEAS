@@ -1166,6 +1166,7 @@
     <Content Include="Pages\Orgnization\PositionList.aspx" />
     <Content Include="Pages\Orgnization\TitleEdit.aspx" />
     <Content Include="Pages\Orgnization\TitleList.aspx" />
+    <Content Include="Pages\Account\test.aspx" />
     <Content Include="Portal.aspx" />
     <Content Include="Portal\Default.aspx" />
     <Content Include="Portal\TemplateEngine\Channel.aspx" />
@@ -1879,6 +1880,13 @@
     </Compile>
     <Compile Include="Pages\Orgnization\TitleList.aspx.designer.cs">
       <DependentUpon>TitleList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\test.aspx.cs">
+      <DependentUpon>test.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\test.aspx.designer.cs">
+      <DependentUpon>test.aspx</DependentUpon>
     </Compile>
     <Compile Include="Portal.aspx.cs">
       <DependentUpon>Portal.aspx</DependentUpon>

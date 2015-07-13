@@ -42,7 +42,7 @@
             $.formValidator.initConfig({
                 formID: "form1",
                 mode:"AutoTip",
-                debug: false,
+                debug: true,
                 theme:"SolidBox",
                 validatorGroup: groupName==null?"1":groupName,
                 onError: function (msg, obj, errorlist) {
