@@ -8,7 +8,7 @@
          <div class="TableBlock_top_title"> <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif"  alt="" > 新增角色</div>
          <div class="TableBlock_top_back"> <a href="RoleList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a></div>
     </div>
-    <table class="TableBlock2Column" >
+    <table class="TableBlock" >
         <tr>          
             <th>名称 <span>*</span></th>
             <td >
@@ -44,7 +44,7 @@
         $(function () {  
             ConfigValidateGroup();
             $("#<%=txtName.ClientID%>").formValidator({  onShow: "请输入名称", onFocus: "至少1个长度", onCorrect: "名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "名称两边不能有空符号" }, onError: "名称不能为空,请确认" });
-            $("#<%=txtCode.ClientID%>").formValidator({  onShow: "请输入编码", onFocus: "用户名至少5个字符,最多10个字符", onCorrect: "编码正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "编码两边不能有空符号" }, onError: "编码不能为空,请确认" });
+            $("#<%=txtCode.ClientID%>").formValidator({  onShow: "请输入编码", onFocus: "保证编码不可以重复", onCorrect: "编码正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "编码两边不能有空符号" }, onError: "编码不能为空,请确认" });
         })
     </script>
 </asp:Content>
