@@ -15,7 +15,7 @@ namespace iEAS.Repository.Mapping.Orgnization
 
             this.Property(m => m.Name, "NAME", 50);
             this.Property(m => m.Code, "CODE", 50);
-            this.Property(m => m.Level, "LEVEL");
+            this.Property(m => m.Level, "LEVEL",50);
             this.Property(m => m.Desc, "DESC", 500);
         }
     }
