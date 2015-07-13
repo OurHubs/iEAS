@@ -35,5 +35,15 @@ namespace iEAS.Infrastructure.Web
         {
             get { return Request["code"].ToStr("Default"); }
         }
+
+        public string GetRoleListStr()
+        {
+            var lstRole=AccountContext.Current.Roles.Select(m => m.Name).ToList();
+            if(AccountContext.Current.IsAdministrator)
+            {
+                lstRole.Insert(0,"超级管理员");
+            }
+            return lstRole.Count == 0 ? String.Empty : "[" + String.Join(",", lstRole.ToArray()) + "]";
+        }
     }
 }

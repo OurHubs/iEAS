@@ -1103,6 +1103,7 @@
     <Content Include="Desktop.aspx" />
     <Content Include="DesptopNew.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="Model\Controls\Column\Command.ascx" />
     <Content Include="Model\Controls\Field\ChannelRequest.ascx" />
     <Content Include="Model\Controls\Field\CheckBox.ascx" />
@@ -1427,6 +1428,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="Masters\Blank.Master.cs">
       <DependentUpon>Blank.Master</DependentUpon>
