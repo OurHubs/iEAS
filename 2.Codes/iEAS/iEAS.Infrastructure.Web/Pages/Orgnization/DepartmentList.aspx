@@ -41,6 +41,7 @@
                         <a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&parentID=<%# Eval("ID") %>">添加子部门</a>|<a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="300px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />
