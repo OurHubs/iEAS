@@ -5,7 +5,7 @@
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
   
     <div class="TableBlock_top">     
-         <div class="TableBlock_top_title"> <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif"  alt="" > 新增角色</div>
+         <div class="TableBlock_top_title"> <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif"  alt="" /> 新增角色</div>
          <div class="TableBlock_top_back"> <a href="RoleList.aspx" style="font-size: 12px;">&lt;&lt;返回列表页</a></div>
     </div>
     <table class="TableBlock" >
