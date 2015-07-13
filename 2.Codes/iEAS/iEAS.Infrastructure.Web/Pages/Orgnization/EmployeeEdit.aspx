@@ -16,28 +16,28 @@
     </table>
     <table class="TableBlock" border="0" width="90%" align="center" style="border-bottom: #4686c6 solid 0px;">
         <tr>
-            <td nowrap class="TableContent" width="15%">中文名称<font title='打*号表示为必填' color='#ff0000'>(*)</font>
+            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>中文名称
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtChinesename" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
          <tr>
-            <td nowrap class="TableContent" width="15%">英文名称<font title='打*号表示为必填' color='#ff0000'>(*)</font>
+            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>英文名称
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtEnglishName" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td nowrap class="TableContent" width="15%">编码<font title='打*号表示为必填' color='#ff0000'>(*)</font>
+            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>编码
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtEmployeeNumber" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td nowrap class="TableContent" width="15%">描述<font title='打*号表示为必填' color='#ff0000'>(*)</font>
+            <td nowrap class="TableContent" width="15%">描述
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" Rows="3" Width="500px" CssClass="BigInput"></asp:TextBox>
@@ -50,4 +50,13 @@
             </td>
         </tr>
     </table>
+    <script type="text/javascript">
+        $(function () {
+            ConfigValidateGroup();
+            $("#<%=txtChinesename.ClientID%>").formValidator({ onShow: "请输入中文名称", onFocus: "至少1个长度", onCorrect: "中文名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "中文名称两边不能有空符号" }, onError: "中文名称不能为空,请确认" });
+            $("#<%=txtEnglishName.ClientID%>").formValidator({ onShow: "请输入英文名称", onFocus: "至少1个长度", onCorrect: "英文名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "英文名称两边不能有空符号" }, onError: "英文名称不能为空,请确认" });
+            $("#<%=txtEmployeeNumber.ClientID%>").formValidator({ onShow: "请输入员工编码", onFocus: "保证编码不可以重复", onCorrect: "员工编码正确" }).inputValidator({ min: 1, onError: "员工编码不能为空,请确认" });
+
+        })
+    </script>
 </asp:Content>

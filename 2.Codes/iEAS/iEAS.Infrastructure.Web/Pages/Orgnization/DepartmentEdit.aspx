@@ -34,7 +34,6 @@
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtName" runat="server" CssClass="BigInput"></asp:TextBox>
-                <div id="<%=txtName.ClientID %>Tip"></div>
             </td>
         </tr>
         <tr>
@@ -42,7 +41,6 @@
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtCode" runat="server" CssClass="BigInput"></asp:TextBox>
-                <div id="<%=txtCode.ClientID %>Tip"></div>
             </td>
         </tr>
         <tr>
@@ -50,7 +48,6 @@
             </td>
             <td class="TableData">
                 <asp:TextBox ID="txtPrincipalNumber" runat="server" CssClass="BigInput"></asp:TextBox>
-                <div id="<%=txtPrincipalNumber.ClientID %>Tip"></div>
             </td>
         </tr>
         <tr>
