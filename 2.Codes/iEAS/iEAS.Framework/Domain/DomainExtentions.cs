@@ -71,6 +71,21 @@ namespace iEAS
             return service;
         }
 
+        public static PagedResult<TEntity> PagedQuery<TEntity>(this IQueryable<TEntity> query,Action<Orderable<TEntity>> orderBy,int pageIndex,int pageSize=10)
+        {
+            PagedResult<TEntity> result = new PagedResult<TEntity>();
+            result.RecordCount = query.Count();
+            if(orderBy!=null)
+            {
+                Orderable<TEntity> order=new Orderable<TEntity>(query);
+                orderBy(order);
+                query=order.Query;
+            }
+            int start = (pageIndex - 1) * pageSize;
+            result.Items = query.Skip(start).Take(pageSize).ToList();
+            return result;
+        }
+
         private static IUserInfo CurrentUser
         {
             get

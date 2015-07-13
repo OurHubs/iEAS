@@ -1,24 +1,27 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="RoleList.aspx.cs"
-    MasterPageFile="~/Masters/ListPage.Master"
-    Inherits="iEAS.Infrastructure.Web.Pages.Account.RoleList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ListPage.Master" AutoEventWireup="true" CodeBehind="CompanyList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.CompanyList" %>
 
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
+<asp:Content ID="ctHeader" ContentPlaceHolderID="Header" runat="server">
+</asp:Content>
+<asp:Content ID="ctContent" ContentPlaceHolderID="Content" runat="server">
     <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="RoleList.aspx" data-toggle="tab">角色管理</a></li>
+            <li class="active"><a href="CompanyList.aspx" data-toggle="tab">公司管理</a></li>
         </ul>
     </div>
     <div class="search_area">
         <div class="form-search form-search-top" style="text-align: left; padding-left: 10px;">
-            <div class="adv-select-label">角色名称：</div>
+            <div class="adv-select-label">公司名称：</div>
+            <asp:TextBox ID="txtName" runat="server" CssClass="BigInput"></asp:TextBox>
+            <div class="adv-select-label">公司编码：</div>
+            <asp:TextBox ID="txtCode" runat="server" CssClass="BigInput"></asp:TextBox>
             <asp:Button ID="btnQuery" runat="server" Text="查 询" OnClick="btnQuery_Click" CssClass="btn btn-primary" />
         </div>
     </div>
     <div class="data-wrap">
         <div class="data-operation">
             <div class="button-operation">
-                <asp:Button ID="btnAdd" runat="server" Text='添加角色' CssClass='btn btn-success' OnClick="btnAdd_Click" />
-                <asp:Button ID="btnDeleteAll" runat="server" Text='删除角色' CssClass='btn btn-danger' OnClick="btnDeleteAll_Click" />
+                <input type="button" value="添加" class='btn btn-success' onclick="location.href='CompanyEdit.aspx'" />
+                <asp:Button ID="btnDeleteAll" runat="server" Text='删除' CssClass='btn btn-danger' OnClick="btnDeleteAll_Click" />
             </div>
             <div class="pager_operation">
                 <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Left" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
@@ -44,25 +47,26 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="名称">
                     <ItemTemplate><%# Eval("Name") %></ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="150px" />
+                    <ItemStyle Width="300px" HorizontalAlign="Left" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="编码">
                     <ItemTemplate><%# Eval("Code") %></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="150px" />
                 </asp:TemplateField>
+                <asp:TemplateField HeaderText="地址">
+                   <ItemTemplate><%# Eval("Address") %></ItemTemplate>
+                   <ItemStyle Width="300px" HorizontalAlign="Left" />
+                </asp:TemplateField>
                 <asp:TemplateField HeaderText="描述">
                     <ItemTemplate><%# Eval("Desc") %></ItemTemplate>
-                    <HeaderStyle HorizontalAlign="Left"/>
+                    <HeaderStyle HorizontalAlign="Left" Width="200px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
-                        <a href="MenuAuthorization.aspx?ownerID=<%# Eval("ID") %>&ownerType=ROLE">菜单配置</a>|
-                        <a href="ModuleAuthorization.aspx?ownerID=<%# Eval("ID") %>&ownerType=ROLE">权限配置</a>|
-                        <a href="UserRoles.aspx?typeid=<%# Eval("ID") %>">用户列表</a>|
-                        <a href="RoleEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                        <a href="CompanyEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="300px" />
+                    <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

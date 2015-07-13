@@ -14,6 +14,7 @@ using iEAS.Account;
 using iEAS.Framework.Log;
 using System.Web.Routing;
 using System.Data.Entity;
+using iEAS.Orgnization;
 
 
 namespace iEAS.Infrastructure.Web
@@ -61,6 +62,9 @@ namespace iEAS.Infrastructure.Web
             builder.RegisterType<ChannelService>().As<IChannelService>();
             builder.RegisterType<DesptopUCService>().As<IDesptopUCService>();
             builder.RegisterType<UserDesptopUCService>().As<IUserDesptopUCService>();
+
+
+            builder.RegisterType<CompanyService>().As<ICompanyService>();
 
             // builder.RegisterType<ILogger>().As<Log4netLogger>();
 
