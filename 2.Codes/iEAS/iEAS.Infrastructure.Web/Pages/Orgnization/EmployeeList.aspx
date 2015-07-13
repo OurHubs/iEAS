@@ -46,10 +46,10 @@
                     <HeaderStyle HorizontalAlign="Center" Width="30px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="名称">
-                    <ItemTemplate><%# Eval("ChineseName") %>(<%# Eval("EnglishName") %>)</ItemTemplate>
+                    <ItemTemplate><%# Eval("Name") %></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="150px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="员工编号">
+                <asp:TemplateField HeaderText="编码">
                     <ItemTemplate><%# Eval("EmployeeNumber") %></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="150px" />
                 </asp:TemplateField>
@@ -59,7 +59,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
-                        <a href="EmployeeEdit.aspx?departmentId=<%# DepartmentID %>&rid=<%# Eval("ID") %>">编辑</a>|
+                        <a href="EmployeeEdit.aspx?departmentId=<%# Eval("DepartmentId") %>&rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="300px" />

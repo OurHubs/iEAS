@@ -1266,6 +1266,7 @@
     <Content Include="Masters\Blank.Master" />
     <Content Include="Masters\ListPage.Master" />
     <Content Include="Masters\EditPage.Master" />
+    <Content Include="Config\Menu.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -5,29 +5,90 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iEAS.Infrastructure.UI;
+using iEAS.Utility;
 
 namespace iEAS.Infrastructure.Web.Pages.Account
 {
-    public partial class UserList : System.Web.UI.Page
+    public partial class UserList : ListForm
     {
         public IUserService UserService { get; set; }
 
-        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
+        protected void Page_Load(object sender, EventArgs e)
         {
-            return UserService.QueryRecord(m => m.Status == 1,
-                                                        o => o.Asc(m => m.ID),
-                                                        args.startRowIndex,
-                                                        args.maxRows);
+            if (!IsPostBack)
+            {
+                BindData();
+            }
         }
 
-        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        private void BindData()
+        {
+            var query = UserService.Query().Where(m => m.Status == 1);
+
+            string name= txtName.Text.Trim();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            var result = query.PagedQuery(o => o.Desc(m => m.SN), aspnetpage.CurrentPageIndex, aspnetpage.PageSize);
+            gvList.DataSource = result;
+            gvList.DataBind();
+            aspnetpage.RecordCount = result.RecordCount;
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("UserEdit.aspx");
+        }
+
+        protected void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            Guid[] ids = HttpHelper.GetRequestIds("ids");
+            UserService.Delete(m => ids.Contains(m.ID));
+            BindData();
+            ScriptHelper.Alert("操作成功！");
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
-                Guid rid = e.CommandArgument.ToString().ToGuid();
+                Guid rid = e.CommandArgument.ToGuid();
                 UserService.DeleteByID(rid);
-                lvQuery.DataBind();
+                BindData();
             }
         }
+
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        protected void Pager_PageChanging(object src, Wuqi.Webdiyer.PageChangingEventArgs e)
+        {
+            aspnetpage.CurrentPageIndex = e.NewPageIndex;
+            BindData();
+        }
+
+
+        //protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
+        //{
+        //    return UserService.QueryRecord(m => m.Status == 1,
+        //                                                o => o.Asc(m => m.ID),
+        //                                                args.startRowIndex,
+        //                                                args.maxRows);
+        //}
+
+        //protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        //{
+        //    if (e.CommandName == "Del")
+        //    {
+        //        Guid rid = e.CommandArgument.ToString().ToGuid();
+        //        UserService.DeleteByID(rid);
+        //        lvQuery.DataBind();
+        //    }
+        //}
     }
 }

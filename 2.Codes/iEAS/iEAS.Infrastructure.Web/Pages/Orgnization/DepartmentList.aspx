@@ -13,6 +13,10 @@
             <div class="button-operation">
                 <input type="button" value="添加一级部门" class='btn btn-success' onclick="location.href = 'DepartmentEdit.aspx?companyID=<%=CompanyID %>'" />
             </div>
+
+            <span style="font-size: 12px; float: right; margin-right: 20px;">
+                    <a href="CompanyList.aspx" style="font-size: 12px;">&lt;&lt;返回公司列表页</a>
+            </span>
             <div class="pager_operation">
             </div>
         </div>
@@ -41,6 +45,7 @@
                         <a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&parentID=<%# Eval("ID") %>">添加子部门</a>|<a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="300px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

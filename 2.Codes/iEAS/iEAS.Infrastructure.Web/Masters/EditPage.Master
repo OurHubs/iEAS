@@ -41,7 +41,8 @@
         function ConfigValidateGroup(groupName) {
             $.formValidator.initConfig({
                 formID: "form1",
-                debug: false,
+                mode:"AutoTip",
+                debug: true,
                 theme:"SolidBox",
                 validatorGroup: groupName==null?"1":groupName,
                 onError: function (msg, obj, errorlist) {

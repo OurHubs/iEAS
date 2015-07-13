@@ -672,13 +672,14 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
 .TableData div{ display:inline-block;padding-right:10px;}
 
 
-.TableBlock2Column{  background: #FAFAFC;   border:1px #cecece solid;}
+.TableBlock2Column{  background: #FAFAFC;   border:1px #cecece solid; width:100%;}
 .TableBlock2Column td{ width:35%; BACKGROUND: #fff;COLOR:#000;background:#fff;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;
 					   padding: 3px;height: 35px;
 }
 .TableBlock2Column>tbody>tr>th{ width:15%; font-weight:normal;  background:#FAFAFC; text-align:center;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
 .TableBlock2Column>tbody>tr>th span{color:#f00;}
 .TableBlock2Column>tbody>tr>td div{ display:inline-block;padding-right:10px;}
+.TableBlock2Column>tbody>tr>td table td{ border:none;}
 .TableBlock2Column>tbody>tr.TableControl{ text-align:left; height:35px;}
 .TableBlock2Column>tbody>tr.TableControl td{  background: #FAFAFC;   border:1px #cecece solid;}
 
