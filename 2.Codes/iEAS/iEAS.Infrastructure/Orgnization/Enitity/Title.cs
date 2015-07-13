@@ -22,7 +22,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 级别
         /// </summary>
-        public int Level { get; set; }
+        public string Level { get; set; }
         /// <summary>
         /// 描述信息
         /// </summary>

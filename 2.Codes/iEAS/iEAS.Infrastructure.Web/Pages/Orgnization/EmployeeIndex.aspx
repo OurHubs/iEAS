@@ -1,11 +1,11 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ChannelIndex.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Module.ChannelIndex" %>
+﻿<%@ Page Title="" Language="C#" AutoEventWireup="true" CodeBehind="EmployeeIndex.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.EmployeeIndex" %>
 
 <html>
 <head>
     <title></title>
 </head>
 <frameset cols="200px,*" noresize="1" border="0">
-    <frame name="left" src="ChannelTree.aspx" scrolling="no"  frameborder="0" marginwidth="0" marginHeight="0" noresize="1"/>
+    <frame name="left" src="DepartmentTree.aspx" scrolling="no"  frameborder="0" marginwidth="0" marginHeight="0" noresize="1"/>
     <frame name="main" src=""  scrolling="yes"  frameborder="0" marginwidth="0" marginHeight="0" noresize="1"/>
     <noframes>
         <body>

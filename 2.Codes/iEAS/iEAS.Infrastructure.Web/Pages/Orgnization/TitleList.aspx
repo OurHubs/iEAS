@@ -1,18 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ListPage.Master" AutoEventWireup="true" CodeBehind="CompanyList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.CompanyList" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/ListPage.Master" AutoEventWireup="true" CodeBehind="TitleList.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.TitleList" %>
 
-<asp:Content ID="ctHeader" ContentPlaceHolderID="Header" runat="server">
+<asp:Content ID="Content1" ContentPlaceHolderID="Header" runat="server">
 </asp:Content>
-<asp:Content ID="ctContent" ContentPlaceHolderID="Content" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="CompanyList.aspx" data-toggle="tab">公司管理</a></li>
+            <li class="active"><a href="RoleList.aspx" data-toggle="tab">职称管理</a></li>
         </ul>
     </div>
     <div class="search_area">
         <div class="form-search form-search-top" style="text-align: left; padding-left: 10px;">
-            <div class="adv-select-label">公司名称：</div>
+          <div class="adv-select-label">名称：</div>
             <asp:TextBox ID="txtName" runat="server" CssClass="BigInput"></asp:TextBox>
-            <div class="adv-select-label">公司编码：</div>
+            <div class="adv-select-label">编码：</div>
             <asp:TextBox ID="txtCode" runat="server" CssClass="BigInput"></asp:TextBox>
             <asp:Button ID="btnQuery" runat="server" Text="查 询" OnClick="btnQuery_Click" CssClass="btn btn-primary" />
         </div>
@@ -20,7 +20,7 @@
     <div class="data-wrap">
         <div class="data-operation">
             <div class="button-operation">
-                <input type="button" value="添加" class='btn btn-success' onclick="location.href='CompanyEdit.aspx'" />
+                <input type="button" value="添加" class='btn btn-success' onclick="location.href = 'TitleEdit.aspx'" />
                 <asp:Button ID="btnDeleteAll" runat="server" Text='删除' CssClass='btn btn-danger' OnClick="btnDeleteAll_Click" />
             </div>
             <div class="pager_operation">
@@ -47,24 +47,23 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="名称">
                     <ItemTemplate><%# Eval("Name") %></ItemTemplate>
-                    <ItemStyle Width="300px" HorizontalAlign="Left" />
+                    <ItemStyle HorizontalAlign="Center" Width="150px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="编码">
                     <ItemTemplate><%# Eval("Code") %></ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="150px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="地址">
-                   <ItemTemplate><%# Eval("Address") %></ItemTemplate>
-                   <ItemStyle Width="300px" HorizontalAlign="Left" />
+                 <asp:TemplateField HeaderText="级别">
+                    <ItemTemplate><%# Eval("Level") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="50px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="描述">
                     <ItemTemplate><%# Eval("Desc") %></ItemTemplate>
-                    <HeaderStyle HorizontalAlign="Left" Width="200px" />
+                    <HeaderStyle HorizontalAlign="Left" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
-                        <a href="DepartmentList.aspx?companyId=<%# Eval("ID") %>">部门管理</a>|
-                        <a href="CompanyEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                        <a href="TitleEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="300px" />

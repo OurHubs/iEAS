@@ -10,61 +10,34 @@
 namespace iEAS.Infrastructure.Web.Pages.Orgnization {
     
     
-    public partial class DepartmentEdit {
+    public partial class EmployeeEdit {
         
         /// <summary>
-        /// lblCompany 控件。
+        /// txtChinesename 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCompany;
+        protected global::System.Web.UI.WebControls.TextBox txtChinesename;
         
         /// <summary>
-        /// lblParent 控件。
+        /// txtEnglishName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblParent;
+        protected global::System.Web.UI.WebControls.TextBox txtEnglishName;
         
         /// <summary>
-        /// txtName 控件。
+        /// txtEmployeeNumber 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtName;
-        
-        /// <summary>
-        /// txtCode 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtCode;
-        
-        /// <summary>
-        /// txtPrincipalNumber 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtPrincipalNumber;
-        
-        /// <summary>
-        /// txtDeputyNumber 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtDeputyNumber;
+        protected global::System.Web.UI.WebControls.TextBox txtEmployeeNumber;
         
         /// <summary>
         /// txtDesc 控件。
