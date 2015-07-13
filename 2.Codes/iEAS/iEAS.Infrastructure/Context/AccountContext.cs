@@ -1,4 +1,5 @@
 ﻿using iEAS.Account;
+using iEAS.Config;
 using iEAS.Context;
 using iEAS.Module;
 using iEAS.Security;
@@ -31,6 +32,14 @@ namespace iEAS
                     HttpContext.Current.Session[typeof(AccountContext).FullName] = ctx;
                 }
                 return ctx;
+            }
+        }
+
+        public bool IsAdministrator
+        {
+            get
+            {
+                return User.LoginName == SiteConfig.Instance.Administrator;
             }
         }
 
@@ -75,9 +84,16 @@ namespace iEAS
             {
                 if(_Modules==null)
                 {
-                    _Modules = ObjectContainer.GetService<IModuleService>().Query(m => m.Status == 1)
-                        .Where(m => Permissions.Any(p => p.ResourceType == ResourceType.Module))
-                        .ToList();
+                    if (IsAdministrator)
+                    {
+                        _Modules = ObjectContainer.GetService<IModuleService>().Query(m => m.Status == 1);
+                    }
+                    else
+                    {
+                        _Modules = ObjectContainer.GetService<IModuleService>().Query(m => m.Status == 1)
+                            .Where(m => Permissions.Any(p => p.ResourceType == ResourceType.Module))
+                            .ToList();
+                    }
 
                 }
                 return _Modules;
@@ -108,13 +124,14 @@ namespace iEAS
             {
                 var portal=PortalContext.Current.GetPortal(portalCode);
                 var menus = portal.Menus
-                    .Where(m => Permissions.Any(p => p.ResouceID == m.ID.ToString()))
+                    .Where(m => IsAdministrator || Permissions.Any(p => p.ResouceID == m.ID.ToString()))
                     .ToList();
 
                 _PortalMenus.Add(portalCode, menus);
             }
             return _PortalMenus[portalCode];
         }
+
 
         public void Logout()
         {

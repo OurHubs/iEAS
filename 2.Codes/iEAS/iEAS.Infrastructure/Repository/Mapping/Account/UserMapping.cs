@@ -26,6 +26,7 @@ namespace iEAS.Repository.Mapping.Account
             this.Property(m => m.WorkZip, "WORK_ZIP", 50);
             this.Property(m => m.WorkAddress, "WORK_ADDRESS", 200);
             this.Property(m => m.EncryptionType, "ENCRYPTION_TYPE");
+            this.Property(m => m.Source, "SOURCE", 50);
 
             this.HasMany(m => m.Roles).WithMany().Map(c =>
             {
