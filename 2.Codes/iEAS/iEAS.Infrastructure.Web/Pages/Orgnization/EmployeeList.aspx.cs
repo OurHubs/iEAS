@@ -51,7 +51,11 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             Guid[] ids = HttpHelper.GetRequestIds("ids");
             EmployeeService.Delete(m => ids.Contains(m.ID));
             BindData();
-            ScriptHelper.Alert("操作成功！");
+            if (ids == null || ids.Length <= 0) { ScriptHelper.Alert("请选择您要删除的记录！"); }
+            else
+            {
+                ScriptHelper.Alert("操作成功！");
+            }
         }
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
