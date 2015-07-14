@@ -7,6 +7,11 @@
     <title></title>
     <link rel="stylesheet" href="assets/common/css/viplogin_130319.css" />
     <script type="text/javascript" src="Assets/common/js/jquery.min.js"></script>
+    <script type="text/javascript">
+        if (window.top != window) {
+            window.top.location.href = "Login.aspx";
+        }
+    </script>
 </head>
 <body>
     <div id="bgHeight" class="bgHeight">

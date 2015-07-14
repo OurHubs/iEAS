@@ -5,8 +5,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-<title>iEAS企业应用平台 </title>
-
+<title><%=SiteConfig.Instance.Title %></title>
 <link href="assets/common/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="assets/common/css/zh-cn-system.css" rel="stylesheet" type="text/css" />
 <script language="javascript" type="text/javascript" src="assets/common/js/jquery.min.js"></script>
@@ -14,7 +13,7 @@
 </head>
 <body scroll="no" class="objbody">
 <div class="header">
-	<div class="logo lf"><a href="" target="_blank"><span class="invisible">iEAS企业应用办公平台</span></a></div>
+	<div class="logo lf"><a href="" target="_blank"><span class="invisible"><%=SiteConfig.Instance.Title %></span></a></div>
     <div class="rt-col">
     	<div class="tab_style white cut_line text-r"><a href="javascript:;" onClick="show_userback()" class="top_ico" title="在线人员"><img src="assets/common/images/2014_1.png" width="22" height="22" /></a>
 		<a href="javascript:_MP(214,'');" hidefocus='true' title="短消息"><b id="sms_count"></b><img src="assets/common/images/2014_5.png" width="22" height="22" /></a>&nbsp;
@@ -25,7 +24,7 @@
         </div>
     </div>
     <div class="col-auto">
-    	<div class="log white cut_line">您好！测试1  [系统管理组]<span style="color:#A30100;">|</span><a href="Login.aspx">[退出]</a>
+    	<div class="log white cut_line">您好！<%=AccountContext.Current.User.Name %>  <%=GetRoleListStr() %><span style="color:#A30100;">|</span><a href="Login.aspx">[退出]</a>
     	</div>
         <ul class="nav white" id="top_menu">
             <%
@@ -42,12 +41,6 @@
     	<div id="Scroll"><div id="leftMain" style="padding-bottom:20px;"></div></div>
         <a href="javascript:;" id="openClose" style="outline-style: none; outline-color: invert; outline-width: medium;" hideFocus="hidefocus" class="open" title="展开与关闭左侧菜单"><span class="hidden">展开</span></a>
     </div>
-	<!--<div class="col-1 lf cat-menu" id="display_center_id" style="display:none" height="100%">
-	<div class="content">
-        	<iframe name="center_frame" id="center_frame" src="" frameborder="false" scrolling="auto" style="border:none" width="100%" height="auto" allowtransparency="true"></iframe>
-            </div>
-			
-        </div> -->
     <div class="col-auto mr8">
     <div class="crumbs">
     </div>

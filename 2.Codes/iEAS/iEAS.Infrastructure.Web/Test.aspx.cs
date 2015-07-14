@@ -1,5 +1,6 @@
 ﻿using iEAS.Account;
 using iEAS.BaseData;
+using iEAS.Infrastructure.Web.Install;
 using iEAS.Model.Config;
 using iEAS.Module;
 using iEAS.Repository;
@@ -232,6 +233,13 @@ namespace iEAS.Infrastructure.Web
             ModelRegistryCollection regs = new ModelRegistryCollection();
             regs.Add(new ModelRegistry { Name = "1", Desc = "d", Module = "M", Path = "Article.xml" });
             regs.Save();
+        }
+
+        protected void btnBuildMenu_Click(object sender, EventArgs e)
+        {
+            MenuConfig.GetConfig().InstallToDatabase();
+            AccountContext.Current.ClearResources();
+            ScriptHelper.Alert("操作成功！");
         }
     }
 }

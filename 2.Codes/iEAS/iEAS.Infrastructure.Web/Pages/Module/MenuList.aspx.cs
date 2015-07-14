@@ -57,7 +57,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         private void BuildItems(iEAS.Module.Menu item, List<iEAS.Module.Menu> records, string prefix)
         {
-            if (item.Children == null)
+            if (item.Children.Count==0)
                 return;
             var items = item.Children.Where(m => m.Status == 1).ToArray();
             for (int i = 0; i < items.Length; i++)
