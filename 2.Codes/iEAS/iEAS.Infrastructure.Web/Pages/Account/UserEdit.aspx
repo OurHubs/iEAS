@@ -5,7 +5,11 @@
 
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
-   
+   <style type="text/css">
+    .TableBlock2Column td table{ float:left;}
+    .tabContainer{}
+    .tabContainer table{float:left; display:inline; width:400px;}
+</style>
 
 
     <div class="TableBlock_top">
@@ -53,14 +57,15 @@
                 <span>*</span>性别：
             </th>
             <td>
-                <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
-                    <asp:ListItem Text="男" Value="1"></asp:ListItem>
+                <asp:RadioButtonList ID="rblGender" style=" float:left;" runat="server" RepeatDirection="Horizontal">
+                    <asp:ListItem Text="男" Value="1" Selected="True"></asp:ListItem>
                     <asp:ListItem Text="女" Value="0"></asp:ListItem>
-                    <asp:ListItem Text="未知" Value=""></asp:ListItem>
+                   <%-- <asp:ListItem Text="未知" Value=""></asp:ListItem>--%>
                 </asp:RadioButtonList>
+                <div id="genderTip" style="float:left; bottom:0px; margin-left:400px;"></div>
             </td>
              <th>
-                <span>*</span>生日：
+                生日：
             </th>
             <td>
                 <asp:TextBox ID="txtBirthday" ReadOnly="true"   onclick="WdatePicker({dateFmt:'yyyy-MM-dd'})"  CssClass="BigInput" runat="server"></asp:TextBox>
@@ -116,13 +121,13 @@
             <th>
                 <span>*</span>所属角色：
             </th>
-            <td>
-                <ux:RoleSelect ID="uxRoleSelect" runat="server" />
-                <div id="xq2Tip"></div>
+            <td colspan="3" class="tabContainer">
+                <ux:RoleSelect ID="uxRoleSelect"  runat="server" />
+                <div id="RoleTip" style="display:inline-table"></div>
             </td>
-            <th>
+         <%--   <th>
             </th>
-            <td></td>
+            <td></td>--%>
         </tr>
         <tr class="TableControl">
             <td colspan="4">
@@ -150,10 +155,10 @@
             $("#<%=txtWorkZip.ClientID%>").formValidator({ empty: true, onShow: "请输入工作邮编", onFocus: "至少1个长度", onCorrect: "正确", onEmpty: "工作邮编不填写？" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "工作邮编不能有空符号" }, onError: "工作邮编为空,请确认" });
             $("#<%=txtHomeZip.ClientID%>").formValidator({ empty: true, onShow: "请输入家庭邮编", onFocus: "至少1个长度", onCorrect: "正确", onEmpty: "家庭邮编不填写？" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "家庭邮编不能有空符号" }, onError: "家庭邮编为空,请确认" });
 
-            //$(":radio[name='<%=rblGender.ClientID%>']").formValidator({ relativeID: "sex1", tipID: "sexTip", tipCss: { "left": "60px" }, onShow: "请选择你的性别", onFocus: "没有第三种性别了，你选一个吧", onCorrect: "输入正确", defaultValue: ["2"] }).inputValidator({ min: 1, max: 1, onError: "性别忘记选了,请确认" }).defaultPassed();
-           // $(":checkbox[name='checkbox8']").formValidator({ relativeID: "pp6", tipID: "xq2Tip", tipCss: { "left": "60px" }, onShow: "请选择你的兴趣爱好(至少选择2个,最多选择3个)", onFocus: "你至少选择2个,最多选择3个", onCorrect: "恭喜你,你选对了", defaultValue: ["7", "8"] }).inputValidator({ min: 2, max: 3, onError: "你选的个数不对(至少选择2个,最多选择3个)" });
+            //$(":radio[name='ctl00$Content$rblGender']").formValidator({  tipID: "genderTip", tipCss: { "left": "60px" }, onShow: "请选择你的性别", onFocus: "没有第三种性别了，你选一个吧", onCorrect: "输入正确", defaultValue: ["1"] }).inputValidator({ min: 1, max: 1, onError: "性别忘记选了,请确认" }).defaultPassed();
+            $(":checkbox[id^='Content_uxRoleSelect_chkRoles']").formValidator({ tipID: "RoleTip", tipCss: { "left": "60px" }, onShow: "请选择角色", onFocus: "至少选择一个角色", onCorrect: "恭喜你,你选对了" }).inputValidator({ min: 1, onError: "你选的个数不对(至少选择1角色)" });
 
-            $("#Content_uxRoleSelect_chkRoles > input[type=checkbox] ").formValidator({ relativeID: "pp6", tipID: "xq2Tip", tipCss: { "left": "60px" }, onShow: "请选择你的兴趣爱好(至少选择2个,最多选择3个)", onFocus: "你至少选择2个,最多选择3个", onCorrect: "恭喜你,你选对了", defaultValue: ["7", "8"] }).inputValidator({ min: 2, max: 3, onError: "你选的个数不对(至少选择2个,最多选择3个)" });
+            $("#Content_uxRoleSelect_chkRoles > input[type=checkbox] ").formValidator({ relativeID: "pp6", tipID: "xq2Tip", tipCss: { "left": "60px" }, onShow: "请选择用户角色(至少选择1个)", onFocus: "你至少选择2个,最多选择3个", onCorrect: "恭喜你,你选对了", defaultValue: ["7", "8"] }).inputValidator({ min: 2, max: 3, onError: "至少选择1个" });
 
            })
     </script>
