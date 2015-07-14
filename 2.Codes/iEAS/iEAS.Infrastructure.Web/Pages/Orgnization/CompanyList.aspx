@@ -47,7 +47,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="名称">
                     <ItemTemplate><%# Eval("Name") %></ItemTemplate>
-                    <ItemStyle Width="300px" HorizontalAlign="Left" />
+                    <ItemStyle Width="300px" HorizontalAlign="Center" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="编码">
                     <ItemTemplate><%# Eval("Code") %></ItemTemplate>
@@ -55,11 +55,11 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="地址">
                    <ItemTemplate><%# Eval("Address") %></ItemTemplate>
-                   <ItemStyle Width="300px" HorizontalAlign="Left" />
+                   <ItemStyle Width="300px" HorizontalAlign="Center" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="描述">
                     <ItemTemplate><%# Eval("Desc") %></ItemTemplate>
-                    <HeaderStyle HorizontalAlign="Left" Width="200px" />
+                    <ItemStyle HorizontalAlign="Center" Width="200px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
@@ -67,7 +67,7 @@
                         <a href="CompanyEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="300px" />
+                    <ItemStyle HorizontalAlign="Center" Width="200px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

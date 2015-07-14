@@ -5,7 +5,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="Content" runat="server">
     <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="ChannelEdit.aspx" data-toggle="tab">部门管理</a></li>
+            <li class="active"><a href='DepartmentList.aspx?companyID=<%=CompanyID %>' data-toggle="tab">部门管理</a></li>
         </ul>
     </div>
     <div class="data-wrap">
@@ -45,7 +45,7 @@
                         <a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&parentID=<%# Eval("ID") %>">添加子部门</a>|<a href="DepartmentEdit.aspx?companyID=<%# Eval("CompanyID") %>&rid=<%# Eval("ID") %>">编辑</a>|
                                 <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="300px" />
+                    <ItemStyle HorizontalAlign="Center" Width="200px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />
