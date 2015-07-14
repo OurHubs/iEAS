@@ -26,7 +26,7 @@
             
         </tr>
         <tr>
-              <th>描述 <span>*</span></th>         
+              <th>描述 </th>         
             <td>
                 <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" Rows="3" Width="500px" CssClass="BigInput"></asp:TextBox>
             </td>
@@ -45,30 +45,25 @@
             ConfigValidateGroup();
             $("#<%=txtName.ClientID%>").formValidator({  onShow: "请输入名称", onFocus: "至少1个长度", onCorrect: "名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "名称两边不能有空符号" }, onError: "名称不能为空,请确认" });
             $("#<%=txtCode.ClientID%>").formValidator({  onShow: "请输入编码", onFocus: "保证编码不可以重复", onCorrect: "编码正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "编码两边不能有空符号" }, onError: "编码不能为空,请确认" });
-            //$("#S").formValidator({onShow: "请输入用户名", onFocus: "用户名至少5个字符,最多10个字符", onCorrect: "该用户名可以注册" }).inputValidator({ min: 5, max: 10, onError: "你输入的用户名非法,请确认" })//.regexValidator({regExp:"username",dataType:"enum",onError:"用户名格式不正确"})
-	        //.ajaxValidator({
-	        //    type: "GET",
-	        //    dataType: "json",
-	        //    async: true,
-	        //    //url: "RoleEdit.aspx/CheckRoleCode",
-	        //    url: "test.aspx",
-	        //    data: "{leftCodes:'1',rightCodes:'2'}",
-	        //   // contentType: "application/json;charset=utf-8",
-	        //    //data: "{roleCode:'" + 2 + "'}",
-	        //    success: function (data) {
-	        //        alert(data.d);
-	        //        if (data == "0") return true;
-	        //        return "该用户名不可用，请更换用户名";
-	        //    },
-	        //    //buttons: $("#button"),
-	        //    error: function (jqXHR, textStatus, errorThrown) {
-	        //        debugger;
-	        //        alert("服务器没有返回数据，可能服务器忙，请重试" + errorThrown);
-	        //    },
-	        //    onError: "该用户名不可用，请更换用户名",
-	        //    onWait: "正在对用户名进行合法性校验，请稍候..."
-	        //}).defaultPassed();
 
+            //$("#").formValidator({ onShow: "请输入编码", onFocus: "保证编码不可以重复", onCorrect: "编码正确" }).inputValidator({ min: 5, max: 10, onError: "你输入的编码非法,请确认" })
+            //.ajaxValidator({
+            //    dataType : "json",
+            //    async: true,               
+            //    url: "Handler1.ashx?action=CheckRoleCode&code=" +  $(this).val(),
+            //    success: function (data) {
+                   
+            //        alert(data.ReturnDesc);
+            //        if (data.ReturnCode == "1") return true;
+            //        return data.ReturnDesc;
+            //    },            
+            //    error: function(jqXHR, textStatus, errorThrown){alert("服务器没有返回数据，可能服务器忙，请重试"+errorThrown);},
+            //    onError : "该编码不可用，请更换",
+            //    onWait : "正在对角色编码进行合法性校验，请稍候..."
+            //}).defaultPassed();
         })
+
+
+
     </script>
 </asp:Content>

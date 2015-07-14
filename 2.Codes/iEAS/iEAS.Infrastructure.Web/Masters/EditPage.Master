@@ -10,8 +10,6 @@
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/My97DatePicker/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>
- 
-
     <title><%=SiteConfig.Instance.Title %></title>
      <style type="text/css">
         body

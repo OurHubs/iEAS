@@ -1283,6 +1283,7 @@
     <Content Include="Masters\EditPage.Master" />
     <Content Include="Config\Menu.config" />
     <Content Include="Install\Config\Menu.config" />
+    <Content Include="Pages\Account\Handler1.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1576,6 +1577,9 @@
     </Compile>
     <Compile Include="Model\Controls\Form\OneColumn.ascx.designer.cs">
       <DependentUpon>OneColumn.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\Handler1.ashx.cs">
+      <DependentUpon>Handler1.ashx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Account\RoleEdit.aspx.cs">
       <DependentUpon>RoleEdit.aspx</DependentUpon>

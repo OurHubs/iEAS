@@ -30,6 +30,12 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             if (role == null)
             {
                 role = new Role();
+                bool existCode = IsExistRoleCode(txtCode.Text.Trim());
+                if (existCode)
+                {
+                    ScriptHelper.Alert("该编码已经存在！");
+                    return;
+                }
             }
 
             role.Name = txtName.Text.Trim();
@@ -60,6 +66,11 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             }
         }
 
+        private bool IsExistRoleCode(string code)
+        {
+           IList<Role> listRole= RoleService.Query(m => m.Code == code);
+           return (listRole != null && listRole.Count > 1);
+        }
 
         [WebMethod]
         public static string CheckRoleCode(string roleCode)

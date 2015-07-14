@@ -36,7 +36,14 @@ namespace iEAS.Infrastructure.Web.Pages.Account
                 if (user == null)
                 {
                     user = new User();
+                    //验证登录账号
+                    if (IsExistLoginName(txtLoginName.Text.Trim()))
+                    {
+                        ScriptHelper.Alert("该账号已经存在！");
+                        return;
+                    }
                 }
+               
                 user.LoginName = txtLoginName.Text.Trim();
                 user.Password = txtPassword.Text.Trim();
                 user.Name = txtName.Text.Trim();
@@ -77,13 +84,16 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         {
             var user = UserService.GetByID(RecordID,true);
             if (user != null)
-            {
+            {                
+                txtLoginName.Enabled = false;
                 txtLoginName.Text = user.LoginName;
-                txtPassword.Text = user.Password;
+                //txtPassword.Text = user.Password;
+                //this.txtPassword.Attributes["value"， user.Password];
+                this.txtPassword.Attributes["value"]=user.Password;
                 txtName.Text = user.Name;
                 txtNick.Text = user.Nick;
                 rblGender.SelectedValue = user.Gender + "";
-                txtBirthday.Text = user.Birthday.ToStr("yyyy-MM-dd");
+                txtBirthday.Text = user.Birthday.HasValue?user.Birthday.Value.ToString("yyyy-MM-dd"):"";
                 txtTelephone.Text = user.Telephone;
                 txtEmail.Text = user.Email;
                 txtHomeZip.Text = user.HomeZip;
@@ -96,6 +106,16 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             {
                 uxRoleSelect.BindRoles(new List<Role>());
             }
+        }
+
+        private bool IsExistLoginName(string loginName)
+        {
+            if (string.IsNullOrEmpty(loginName))
+            {
+                return false;
+            }
+            IList<User> listUser = UserService.Query(m => m.LoginName== loginName);
+            return (listUser != null && listUser.Count > 1);
         }
     }
 }
