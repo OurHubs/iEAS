@@ -37,8 +37,6 @@ namespace iEAS.Config
 
         public string WeiBoUrl { get; set; }
 
-        public string Administrator { get; set; }
-
         public string Password { get; set; }
         public string Administrator { get; set; }
     }
