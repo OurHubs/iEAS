@@ -13,7 +13,6 @@ namespace iEAS.Repository.Mapping.Orgnization
         {
             this.ToTable("EMPLOYEE");
 
-            this.Property(m => m.UserID, "User_ID");
             this.Property(m => m.EmployeeNumber, "EMPLOYEE_NUMBER", 50);
             this.Property(m => m.ChineseName, "CHINESE_NAME", 50);
             this.Property(m => m.EnglishName, "ENGLISH_NAME", 50);
@@ -21,9 +20,9 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.TerminatedDate, "TERMINATED_DATE");
             this.Property(m => m.Gender, "GENDER");
             this.Property(m => m.Birthday, "BIRTHDAY");
-            this.Property(m => m.HomeCountry, "HOME_COUNTRY",50);
+            this.Property(m => m.HomeCountry, "HOME_COUNTRY", 50);
             this.Property(m => m.HomeCountryName, "HOME_COUNTRYNAME", 50);
-            this.Property(m => m.HomeProvince, "HOME_PROVINCE",50);
+            this.Property(m => m.HomeProvince, "HOME_PROVINCE", 50);
             this.Property(m => m.HomeProvinceName, "HOME_PROVINCE_NAME", 50);
             this.Property(m => m.HomeCity, "HOME_CITY", 50);
             this.Property(m => m.HomeCityName, "HOME_CITY_NAME", 50);
@@ -56,7 +55,7 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.Desc, "DESC", 500);
             this.Property(m => m.WorkStatus, "WORK_STATUS");
 
-            this.HasRequired(m => m.User).WithMany().HasForeignKey(m => m.UserID).WillCascadeOnDelete(false);
+            this.HasRequired(m => m.User).WithOptional().WillCascadeOnDelete(false);
         }
     }
 }

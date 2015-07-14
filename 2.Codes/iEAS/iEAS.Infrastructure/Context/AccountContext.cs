@@ -26,7 +26,7 @@ namespace iEAS
             get
             {
                 AccountContext ctx = HttpContext.Current.Session[typeof(AccountContext).FullName] as AccountContext;
-                if(ctx==null)
+                if (ctx == null)
                 {
                     ctx = new AccountContext();
                     HttpContext.Current.Session[typeof(AccountContext).FullName] = ctx;
@@ -44,11 +44,11 @@ namespace iEAS
         {
             get
             {
-                if(_User==null)
+                if (_User == null)
                 {
                     string userID = HttpContext.Current.User.Identity.Name;
                     Guid? guid = userID.ToNGuid();
-                    if(guid==null)
+                    if (guid == null)
                     {
                         Logout();
                         HttpContext.Current.Response.Redirect("~/Login.aspx");
@@ -67,7 +67,7 @@ namespace iEAS
         {
             get
             {
-                if(_Roles==null)
+                if (_Roles == null)
                 {
                     _Roles = ObjectContainer.GetService<IUserService>().GetUserRoles(User.ID);
                 }
@@ -79,7 +79,7 @@ namespace iEAS
         {
             get
             {
-                if(_Modules==null)
+                if (_Modules == null)
                 {
                     _Modules = ObjectContainer.GetService<IModuleService>().Query(m => m.Status == 1)
                         .Where(m => Permissions.Any(p => p.ResourceType == ResourceType.Module))
@@ -94,7 +94,7 @@ namespace iEAS
         {
             get
             {
-                if(_Permissions==null)
+                if (_Permissions == null)
                 {
                     _Permissions = ObjectContainer.GetService<IPermissionService>().GetUserPermissions(User.ID);
                 }
@@ -104,15 +104,15 @@ namespace iEAS
 
         public void RegisterUserID(Guid userID)
         {
-           ClearAccount();
-           FormsAuthentication.SetAuthCookie(userID.ToString(),true);
+            ClearAccount();
+            FormsAuthentication.SetAuthCookie(userID.ToString(), true);
         }
 
         public IEnumerable<Menu> GetPortalMenus(string portalCode)
         {
-            if(!_PortalMenus.ContainsKey(portalCode))
+            if (!_PortalMenus.ContainsKey(portalCode))
             {
-                var portal=PortalContext.Current.GetPortal(portalCode);
+                var portal = PortalContext.Current.GetPortal(portalCode);
                 var menus = portal.Menus
                     .Where(m => IsAdministrator || Permissions.Any(p => p.ResouceID == m.ID.ToString()))
                     .ToList();

@@ -16,9 +16,9 @@ namespace iEAS.Config
         {
             get
             {
-                if(_Instance==null)
+                if (_Instance == null)
                 {
-                    string path=Path.Combine(AppDomain.CurrentDomain.BaseDirectory,"Config/Site.Config");
+                    string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Config/Site.Config");
                     _Instance = XmlHelper.Deserialize<SiteConfig>(path);
                 }
                 return _Instance;
@@ -37,6 +37,7 @@ namespace iEAS.Config
 
         public string WeiBoUrl { get; set; }
 
+        public string Password { get; set; }
         public string Administrator { get; set; }
     }
 }

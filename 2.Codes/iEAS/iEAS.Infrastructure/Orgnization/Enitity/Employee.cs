@@ -13,10 +13,6 @@ namespace iEAS.Orgnization
     public class Employee : IdentityEntity
     {
         /// <summary>
-        /// 用户信息ID
-        /// </summary>
-        public Guid UserID { get; set; }
-        /// <summary>
         /// 员工编号
         /// </summary>
         public string EmployeeNumber { get; set; }
@@ -35,7 +31,7 @@ namespace iEAS.Orgnization
         /// <summary>
         /// 离职日期
         /// </summary>
-        public DateTime? TerminatedDate  { get; set; }
+        public DateTime? TerminatedDate { get; set; }
         /// <summary>
         /// 性别(0:女，1：男)
         /// </summary>
@@ -82,7 +78,7 @@ namespace iEAS.Orgnization
         /// 传真
         /// </summary>
         public string Fax { get; set; }
-        
+
         /// <summary>
         /// 工作所在国家
         /// </summary>
@@ -148,7 +144,7 @@ namespace iEAS.Orgnization
         /// </summary>
         public string Desc { get; set; }
         /// <summary>
-        /// 工作状态（1：正式员工，2：离职员工，3：试用期，4：临时工）
+        /// 工作状态（1：正式员工，2：离职员工，3：试用期，4：临时工,5:实习）
         /// </summary>
         public int WorkStatus { get; set; }
         #endregion
