@@ -46,7 +46,7 @@
     </div>
     	<div class="col-1">
         	<div class="content" style="position:relative; overflow:hidden; width:100%;">
-                <iframe name="right" id="rightMain" frameborder="false" src="desktop.aspx" scrolling="auto" style="border:none;" width="100%" height="auto" allowtransparency="true"></iframe>
+                <iframe name="right" id="rightMain" frameborder="0"  src="desktop.aspx"  style="border:none;overflow-x:hidden;overflow-y:scroll;" width="100%" height="auto"></iframe>
         	</div>
         </div>
     </div>

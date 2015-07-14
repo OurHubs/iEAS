@@ -1040,6 +1040,21 @@
     <Content Include="Assets\formValidator\themes\SolidBox\js\theme.js" />
     <Content Include="Assets\formValidator\themes\SolidBox\Preview.jpg" />
     <Content Include="Assets\formValidator\themes\SolidBox\style\style.css" />
+    <Content Include="Assets\my97DatePicker\calendar.js" />
+    <Content Include="Assets\my97DatePicker\config.js" />
+    <Content Include="Assets\my97DatePicker\datePicker.gif" />
+    <Content Include="Assets\my97DatePicker\lang\en.js" />
+    <Content Include="Assets\my97DatePicker\lang\zh-cn.js" />
+    <Content Include="Assets\my97DatePicker\lang\zh-tw.js" />
+    <Content Include="Assets\my97DatePicker\My97DatePicker.htm" />
+    <Content Include="Assets\my97DatePicker\skin\datePicker.gif" />
+    <Content Include="Assets\my97DatePicker\skin\default\datepicker.css" />
+    <Content Include="Assets\my97DatePicker\skin\default\img.gif" />
+    <Content Include="Assets\my97DatePicker\skin\WdatePicker.css" />
+    <Content Include="Assets\my97DatePicker\skin\whyGreen\bg.jpg" />
+    <Content Include="Assets\my97DatePicker\skin\whyGreen\datepicker.css" />
+    <Content Include="Assets\my97DatePicker\skin\whyGreen\img.gif" />
+    <Content Include="Assets\my97DatePicker\WdatePicker.js" />
     <Content Include="Assets\ztree\css\demo.css" />
     <Content Include="Assets\ztree\css\metroStyle\img\line_conn.png" />
     <Content Include="Assets\ztree\css\metroStyle\img\loading.gif" />
@@ -1518,18 +1533,21 @@
     </Compile>
     <Compile Include="Model\Controls\List\ModelToolBar.ascx.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\Controls\List\ModelToolBar.ascx.designer.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\List\PagedQuery.ascx.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\Controls\List\PagedQuery.ascx.designer.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\List\TabPagedQuery.ascx.cs">
       <DependentUpon>TabPagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\ModelEdit.aspx.cs">
       <DependentUpon>ModelEdit.aspx</DependentUpon>

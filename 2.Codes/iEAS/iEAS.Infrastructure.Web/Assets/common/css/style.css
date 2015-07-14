@@ -666,7 +666,7 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
 .TableBlock th{ width:15%; font-weight:normal;  background:#FAFAFC; text-align:center;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
 .TableBlock th  span{color:#f00;}
 .TableBlock td{ BACKGROUND: #fff;COLOR:#000;background:#fff;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
-.TableBlock td div{ display:inline-block;padding-right:10px;}
+.TableBlock td div{ display:inline-block;padding-right:10px;  }
 
 .TableData   { BACKGROUND: #FFFFFF;COLOR:#000000;}
 .TableData div{ display:inline-block;padding-right:10px;}
