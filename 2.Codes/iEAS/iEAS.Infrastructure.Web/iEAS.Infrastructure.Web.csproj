@@ -1518,18 +1518,21 @@
     </Compile>
     <Compile Include="Model\Controls\List\ModelToolBar.ascx.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\Controls\List\ModelToolBar.ascx.designer.cs">
       <DependentUpon>ModelToolBar.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\List\PagedQuery.ascx.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\Controls\List\PagedQuery.ascx.designer.cs">
       <DependentUpon>PagedQuery.ascx</DependentUpon>
     </Compile>
     <Compile Include="Model\Controls\List\TabPagedQuery.ascx.cs">
       <DependentUpon>TabPagedQuery.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Model\ModelEdit.aspx.cs">
       <DependentUpon>ModelEdit.aspx</DependentUpon>

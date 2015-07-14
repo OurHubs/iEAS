@@ -21,6 +21,18 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             }
         }
 
+        public Guid DepartmentID
+        {
+            get
+            {
+                Guid? departmentId = Request["departmentId"].ToNGuid();
+                if (departmentId == null)
+                {
+                    throw new BusinessException("部门ID不能为空！");
+                }
+                return departmentId.Value;
+            }
+        }
         protected void btnSave_Click(object sender, EventArgs e)
         {
             var employee = EmployeeService.GetByID(RecordID);
@@ -45,7 +57,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 LogManager.GetLogger().Error("保存出错！", ex);
                 throw ex;
             }
-            Response.Redirect("EmployeeList.aspx");
+            Response.Redirect("EmployeeList.aspx?departmentID=" + DepartmentID);
         }
 
         private void BindData()

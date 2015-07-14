@@ -64,6 +64,10 @@ namespace iEAS.Account
         /// </summary>
         public EncryptionType EncryptionType { get; set; }
 
+        /// <summary>
+        /// 来源
+        /// </summary>
+        public string Source { get; set; }
         public virtual List<Role> Roles
         {
             get { return _Roles; }
