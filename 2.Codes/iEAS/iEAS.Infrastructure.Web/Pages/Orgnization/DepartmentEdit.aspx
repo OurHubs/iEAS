@@ -6,7 +6,7 @@
     <table width="90%" border="0" align="center" cellpadding="3" cellspacing="0" class="small">
         <tr>
             <td class="Big">
-                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 新增部门</span>&nbsp;&nbsp;&nbsp;&nbsp;
+                <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 部门管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
 	           
                 <span style="font-size: 12px; float: right; margin-right: 20px;">
                     <a href="DepartmentList.aspx?companyID=<%=CompanyID %>" style="font-size: 12px;">&lt;&lt;返回列表页</a>

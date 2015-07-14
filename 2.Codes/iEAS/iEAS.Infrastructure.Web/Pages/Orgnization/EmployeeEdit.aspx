@@ -51,7 +51,7 @@
                 </td>
                 <td class="TableData">
                     <asp:RadioButtonList ID="rblGender" runat="server" RepeatDirection="Horizontal">
-                        <asp:ListItem Text="男" Value="1" Selected="True"></asp:ListItem>
+                        <asp:ListItem Text="男" Value="1"></asp:ListItem>
                         <asp:ListItem Text="女" Value="0"></asp:ListItem>
                     </asp:RadioButtonList>
                 </td>

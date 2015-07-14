@@ -5,7 +5,7 @@
 <asp:Content ID="ctContent" ContentPlaceHolderID="Content" runat="server">
     <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="EmployeeList.aspx" data-toggle="tab">员工管理</a></li>
+            <li class="active"><a href='EmployeeList.aspx?departmentId=<%=DepartmentID %>' data-toggle="tab">员工管理</a></li>
         </ul>
     </div>
     <div class="search_area">
@@ -55,14 +55,14 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="描述">
                     <ItemTemplate><%# Eval("Desc") %></ItemTemplate>
-                    <HeaderStyle HorizontalAlign="Left" />
+                    <ItemStyle HorizontalAlign="Center" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
                          <a href="EmployeeEdit.aspx?departmentId=<%# DepartmentID %>&rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="300px" />
+                    <ItemStyle HorizontalAlign="Center" Width="100px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

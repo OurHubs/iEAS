@@ -50,7 +50,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             employee.Email = txtEmail.Text.Trim();
             employee.Email2 = txtEmail2.Text.Trim();
             employee.Fax = txtFax.Text.Trim();
-            employee.Gender = Convert.ToInt16(rblGender.SelectedValue);
+            employee.Gender = Convert.ToInt32(rblGender.SelectedValue);
             employee.HomeAddress = txtHomeAddress.Text.Trim();
             //employee.Birthday = txtBirthday.Text.Trim();
             //employee.HiredDate = txtHiredDate.Text.Trim();
@@ -80,7 +80,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             employee.WorkCountyName = txtWorkCountyName.Text.Trim();
             employee.WorkProvince = txtWorkProvinceName.Text.Trim();
             employee.WorkProvinceName = txtWorkProvinceName.Text.Trim();
-            employee.WorkStatus = Convert.ToInt16(ddlWorkStatus.SelectedValue);
+            employee.WorkStatus = Convert.ToInt32(ddlWorkStatus.SelectedValue);
             employee.WorkZipCode = txtWorkZipCode.Text.Trim();
             employee.Status = 1;
 
@@ -110,7 +110,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 txtEmail2.Text = employee.Email2;
                 txtFax.Text = employee.Fax;
                 int gender;
-                rblGender.SelectedValue = int.TryParse(employee.Gender.ToString(), out gender) == true ? "" : gender.ToString();
+                rblGender.SelectedValue = int.TryParse(employee.Gender.ToString(), out gender) == false ? "" : gender.ToString();
                 txtHomeAddress.Text = employee.HomeAddress;
                 //txtBirthday.Text=employee.Birthday ;
                 //txtHiredDate.Text=employee.HiredDate ;
@@ -129,7 +129,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 txtWorkProvinceName.Text = employee.WorkProvince;
                 txtWorkProvinceName.Text = employee.WorkProvinceName;
                 int workstatus;
-                ddlWorkStatus.SelectedValue = int.TryParse(employee.WorkStatus.ToString(), out workstatus) == true ? "" : workstatus.ToString();
+                ddlWorkStatus.SelectedValue = int.TryParse(employee.WorkStatus.ToString(), out workstatus) == false ? "" : workstatus.ToString();
                 txtWorkZipCode.Text = employee.WorkZipCode;
             }
         }
