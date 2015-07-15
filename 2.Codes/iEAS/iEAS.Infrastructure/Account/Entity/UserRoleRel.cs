@@ -8,8 +8,8 @@ namespace iEAS.Account
 {
     public class UserRoleRel
     {
-        public int UserID { get; set; }
+        public Guid UserID { get; set; }
 
-        public int RoleID { get; set; }
+        public Guid RoleID { get; set; }
     }
 }

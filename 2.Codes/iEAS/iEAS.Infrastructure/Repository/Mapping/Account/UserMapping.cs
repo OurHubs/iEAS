@@ -27,7 +27,7 @@ namespace iEAS.Repository.Mapping.Account
             this.Property(m => m.WorkAddress, "WORK_ADDRESS", 200);
             this.Property(m => m.EncryptionType, "ENCRYPTION_TYPE");
 
-            this.HasMany(m => m.Roles).WithMany().Map(c =>
+            this.HasMany(m => m.Roles).WithMany(m=>m.Users).Map(c =>
             {
                 c.ToTable("USER_ROLE_REL");
                 c.MapLeftKey("USER_ID");

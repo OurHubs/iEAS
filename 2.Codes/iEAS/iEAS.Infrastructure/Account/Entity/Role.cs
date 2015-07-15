@@ -23,5 +23,7 @@ namespace iEAS.Account
         /// 描述
         /// </summary>
         public string Desc { get; set; }
+
+        public virtual List<User> Users { get; set; }
     }
 }

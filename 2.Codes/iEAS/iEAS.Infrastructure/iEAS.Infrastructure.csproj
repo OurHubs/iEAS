@@ -51,7 +51,9 @@
     <Compile Include="Account\Entity\Permission.cs" />
     <Compile Include="Account\Entity\Role.cs" />
     <Compile Include="Account\Entity\User.cs" />
-    <Compile Include="Account\Entity\UserRoleRel.cs" />
+    <Compile Include="Account\Entity\UserRoleRel.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="Account\Service\Impl\PermissionService.cs" />
     <Compile Include="Account\Service\Impl\RoleService.cs" />
     <Compile Include="Account\Service\Impl\UserService.cs" />

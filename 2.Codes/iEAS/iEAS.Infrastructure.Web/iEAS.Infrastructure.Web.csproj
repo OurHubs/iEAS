@@ -1140,6 +1140,7 @@
     <Content Include="Pages\Account\RoleUsers.aspx" />
     <Content Include="Pages\Account\UserEdit.aspx" />
     <Content Include="Pages\Account\UserList.aspx" />
+    <Content Include="Pages\Account\UserRoles.aspx" />
     <Content Include="Pages\Account\UxControls\RoleSelect.ascx" />
     <Content Include="Pages\BaseData\BaseDataItemEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
@@ -1617,6 +1618,13 @@
     </Compile>
     <Compile Include="Pages\Account\UserList.aspx.designer.cs">
       <DependentUpon>UserList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Account\UserRoles.aspx.cs">
+      <DependentUpon>UserRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Account\UserRoles.aspx.designer.cs">
+      <DependentUpon>UserRoles.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Account\UxControls\RoleSelect.ascx.cs">
       <DependentUpon>RoleSelect.ascx</DependentUpon>

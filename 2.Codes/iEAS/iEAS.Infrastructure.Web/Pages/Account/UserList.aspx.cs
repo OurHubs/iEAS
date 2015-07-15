@@ -1,4 +1,4 @@
-﻿using iEAS.Account;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,7 +7,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using iEAS.Infrastructure.UI;
 using iEAS.Utility;
-
+using iEAS.Account;
 namespace iEAS.Infrastructure.Web.Pages.Account
 {
     public partial class UserList : ListForm
@@ -72,23 +72,5 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             BindData();
         }
 
-
-        //protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
-        //{
-        //    return UserService.QueryRecord(m => m.Status == 1,
-        //                                                o => o.Asc(m => m.ID),
-        //                                                args.startRowIndex,
-        //                                                args.maxRows);
-        //}
-
-        //protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Del")
-        //    {
-        //        Guid rid = e.CommandArgument.ToString().ToGuid();
-        //        UserService.DeleteByID(rid);
-        //        lvQuery.DataBind();
-        //    }
-        //}
     }
 }

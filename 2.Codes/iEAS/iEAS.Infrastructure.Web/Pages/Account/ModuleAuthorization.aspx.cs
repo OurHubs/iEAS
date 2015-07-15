@@ -53,11 +53,11 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
-        public string OwnerGuid
+        public string OwnerID
         {
             get
             {
-                string guid = Request["OwnerGuid"];
+                string guid = Request["OwnerID"];
                 if (String.IsNullOrEmpty(guid))
                 {
                     throw new BusinessException("OwnerGuid不能为空！");
@@ -100,8 +100,9 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             var featureIds = FeatureService.Query(m => m.ModuleID == CurrentModuleID).Select(m => m.ID.ToString());
 
-            PermissionService.SavePermissions(OwnerType, OwnerGuid, ResourceType.Module, ids, featureIds);
+            PermissionService.SavePermissions(OwnerType, OwnerID, ResourceType.Module, ids, featureIds);
         }
+
         private void BindModules()
         {
             rptModule.DataSource = Modules;
@@ -111,7 +112,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         public string BuildFeatureData()
         {
             var allFeatures = FeatureService.Query(m => m.ModuleID == CurrentModuleID && m.Status == 1);
-            var selectedFeatures = PermissionService.GetPermissions(OwnerType, OwnerGuid,ResourceType.Module);
+            var selectedFeatures = PermissionService.GetPermissions(OwnerType, OwnerID,ResourceType.Module);
 
             StringBuilder sbModuleData = new StringBuilder();
             sbModuleData.Append("[");

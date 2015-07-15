@@ -9,5 +9,6 @@ namespace iEAS.Account
 {
     public class RoleService : IdentityDomainService<Role, iEASRepository>, IRoleService
     {
+
     }
 }

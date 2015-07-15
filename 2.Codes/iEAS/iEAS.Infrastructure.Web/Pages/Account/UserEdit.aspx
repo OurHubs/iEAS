@@ -153,9 +153,10 @@
             $("#<%=txtHomeZip.ClientID%>").formValidator({ empty: true, onShow: "请输入家庭邮编", onFocus: "至少1个长度", onCorrect: "正确", onEmpty: "家庭邮编不填写？" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "家庭邮编不能有空符号" }, onError: "家庭邮编为空,请确认" });
 
             //$(":radio[name='ctl00$Content$rblGender']").formValidator({  tipID: "genderTip", tipCss: { "left": "60px" }, onShow: "请选择你的性别", onFocus: "没有第三种性别了，你选一个吧", onCorrect: "输入正确", defaultValue: ["1"] }).inputValidator({ min: 1, max: 1, onError: "性别忘记选了,请确认" }).defaultPassed();
-            $(":checkbox[id^='Content_uxRoleSelect_chkRoles']").formValidator({ tipID: "RoleTip", tipCss: { "left": "60px" }, onShow: "请选择角色", onFocus: "至少选择一个角色", onCorrect: "恭喜你,你选对了" }).inputValidator({ min: 1, onError: "你选的个数不对(至少选择1角色)" });
+            $(":checkbox[id^='Content_uxRoleSelect_chkRoles']").formValidator({ tipID: "RoleTip", tipCss: { "left": "60px" }, onShow: "请选择角色", onFocus: "至少选择一个角色", onCorrect: "恭喜你,你选对了" }).inputValidator({ min: 0, onError: "你选的个数不对(至少选择1角色)" });
+            //$("#tabContainer > input[type=checkbox]").formValidator({ tipID: "RoleTip", tipCss: { "left": "60px" }, onShow: "请选择角色", onFocus: "至少选择一个角色", onCorrect: "恭喜你,你选对了" }).inputValidator({ min: 1, onError: "你选的个数不对(至少选择1角色)" });
 
-            $("#Content_uxRoleSelect_chkRoles > input[type=checkbox] ").formValidator({ relativeID: "pp6", tipID: "xq2Tip", tipCss: { "left": "60px" }, onShow: "请选择用户角色(至少选择1个)", onFocus: "你至少选择2个,最多选择3个", onCorrect: "恭喜你,你选对了", defaultValue: ["7", "8"] }).inputValidator({ min: 2, max: 3, onError: "至少选择1个" });
+            //$("#tabContainer > input[type=checkbox] ").formValidator({ relativeID: "pp6", tipID: "xq2Tip", tipCss: { "left": "60px" }, onShow: "请选择用户角色(至少选择1个)", onFocus: "你至少选择2个,最多选择3个", onCorrect: "恭喜你,你选对了", defaultValue: ["7", "8"] }).inputValidator({ min: 2, max: 3, onError: "至少选择1个" });
 
            })
     </script>
