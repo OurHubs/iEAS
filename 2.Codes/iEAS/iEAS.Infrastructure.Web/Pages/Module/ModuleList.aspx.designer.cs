@@ -13,22 +13,40 @@ namespace iEAS.Infrastructure.Web.Pages.Module {
     public partial class ModuleList {
         
         /// <summary>
-        /// form1 控件。
+        /// txtName 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm form1;
+        protected global::System.Web.UI.WebControls.TextBox txtName;
         
         /// <summary>
-        /// lvQuery 控件。
+        /// btnQuery 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::iEAS.Web.UI.ListView lvQuery;
+        protected global::System.Web.UI.WebControls.Button btnQuery;
+        
+        /// <summary>
+        /// btnAdd 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnAdd;
+        
+        /// <summary>
+        /// btnDeleteAll 控件。
+        /// </summary>
+        /// <remarks>
+        /// 自动生成的字段。
+        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnDeleteAll;
         
         /// <summary>
         /// Pager 控件。
@@ -37,15 +55,15 @@ namespace iEAS.Infrastructure.Web.Pages.Module {
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::iEAS.Infrastructure.Web.Controls.Pager Pager;
+        protected global::Wuqi.Webdiyer.AspNetPager Pager;
         
         /// <summary>
-        /// odsQuery 控件。
+        /// gvList 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::iEAS.Web.UI.ObjectDataSource odsQuery;
+        protected global::iEAS.Web.UI.GridView gvList;
     }
 }

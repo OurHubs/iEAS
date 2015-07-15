@@ -1282,7 +1282,9 @@
     <Content Include="Masters\ListPage.Master" />
     <Content Include="Masters\EditPage.Master" />
     <Content Include="Config\Menu.config" />
-    <Content Include="Install\Config\Menu.config" />
+    <Content Include="Install\Config\Menu.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Pages\Account\Handler1.ashx" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>

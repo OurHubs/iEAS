@@ -46,11 +46,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
             Response.Redirect("ModuleList.aspx");
         }
-
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ModuleList.aspx");
-        }
+             
 
         private void BindData()
         {

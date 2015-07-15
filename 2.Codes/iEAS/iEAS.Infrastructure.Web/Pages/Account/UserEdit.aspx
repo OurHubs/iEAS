@@ -9,7 +9,7 @@
     .TableBlock2Column td table{ float:left;}
     .tabContainer{}
     .tabContainer table{float:left; display:inline; width:400px;}
-</style>
+   </style>
 
 
     <div class="TableBlock_top">
@@ -59,8 +59,7 @@
             <td>
                 <asp:RadioButtonList ID="rblGender" style=" float:left;" runat="server" RepeatDirection="Horizontal">
                     <asp:ListItem Text="男" Value="1" Selected="True"></asp:ListItem>
-                    <asp:ListItem Text="女" Value="0"></asp:ListItem>
-                   <%-- <asp:ListItem Text="未知" Value=""></asp:ListItem>--%>
+                    <asp:ListItem Text="女" Value="0"></asp:ListItem>                
                 </asp:RadioButtonList>
                 <div id="genderTip" style="float:left; bottom:0px; margin-left:400px;"></div>
             </td>
@@ -125,9 +124,7 @@
                 <ux:RoleSelect ID="uxRoleSelect"  runat="server" />
                 <div id="RoleTip" style="display:inline-table"></div>
             </td>
-         <%--   <th>
-            </th>
-            <td></td>--%>
+  
         </tr>
         <tr class="TableControl">
             <td colspan="4">
