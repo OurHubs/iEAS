@@ -43,6 +43,9 @@
     <Compile Include="BaseEditPage.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="BasePage.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="ListForm.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>

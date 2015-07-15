@@ -8,6 +8,7 @@
 <title><%=SiteConfig.Instance.Title %></title>
 <link href="assets/common/css/reset.css" rel="stylesheet" type="text/css" />
 <link href="assets/common/css/zh-cn-system.css" rel="stylesheet" type="text/css" />
+    <script language="javascript" type="text/javascript" src="assets/common/js/common.js"></script>
 <script language="javascript" type="text/javascript" src="assets/common/js/jquery.min.js"></script>
 <script language="javascript" type="text/javascript" src="assets/common/js/styleswitch.js"></script>
 </head>
@@ -27,11 +28,10 @@
     	<div class="log white cut_line">您好！<%=AccountContext.Current.User.Name %>  <%=GetRoleListStr() %><span style="color:#A30100;">|</span><a href="Login.aspx">[退出]</a>
     	</div>
         <ul class="nav white" id="top_menu">
-            <%
-                int i = 0;
+            <%  int index = 0;
                 foreach (var menu in TopMenus)
                { %>
-		    <li id="_M<%=menu.ID %>" class="top_menu"><a href="javascript:_M('<%=menu.ID %>','<%=menu.Url %>')" hidefocus="true" style="outline:none;"><%=menu.Name %></a></li>
+		    <li id="_M<%=menu.ID %>" class="top_menu"><a href="javascript:_M('<%=menu.ID %>','<%=menu.Url %>',<%=index++==0?"true":"false" %>)" hidefocus="true" style="outline:none;"><%=menu.Name %></a></li>
 		    <%} %>
         </ul>
     </div>
@@ -53,23 +53,6 @@
 </div>
 <div class="scroll"><a href="javascript:;" class="per" title="使用鼠标滚轴滚动侧栏" onclick="menuScroll(1);"></a><a href="javascript:;" class="next" title="使用鼠标滚轴滚动侧栏" onclick="menuScroll(2);"></a></div>
 <script type="text/javascript">
-    if (!Array.prototype.map)
-        Array.prototype.map = function (fn, scope) {
-            var result = [], ri = 0;
-            for (var i = 0, n = this.length; i < n; i++) {
-                if (i in this) {
-                    result[ri++] = fn.call(scope, this[i], i, this);
-                }
-            }
-            return result;
-        };
-
-    var getWindowSize = function () {
-        return ["Height", "Width"].map(function (name) {
-            return window["inner" + name] ||
-              document.compatMode === "CSS1Compat" && document.documentElement["client" + name] || document.body["client" + name]
-        });
-    }
     window.onload = function () {
         if (!+"\v1" && !document.querySelector) { // for IE6 IE7
             document.body.onresize = resize;
@@ -132,7 +115,6 @@
         $("#btnx").hover(function () { $("#Site_model,#btnx h6").css("display", "block"); $(this).addClass("btns2"); $(".bg_btn").hide(); }, function () { $("#Site_model,#btnx h6").css("display", "none"); $(this).removeClass("btns2"); $(".bg_btn").show(); });
         $("#Site_model li").hover(function () { $(this).toggleClass("hvs"); }, function () { $(this).toggleClass("hvs"); });
         $("#Site_model li").click(function () { $("#Site_model li").removeClass("ac"); $(this).addClass("ac"); });
-
     })
 
     //隐藏站点下拉。
@@ -171,7 +153,9 @@
         return false;
     });
 
-    function _M(menuid, targetUrl) {
+    function _M(menuid, targetUrl, hideMenu) {
+        $("#rightMain").attr('src', targetUrl);
+
         $("#menuid").val(menuid);
         $("#bigid").val(menuid);
         $("#paneladd").html('<a class="panel-add" href="javascript:add_panel();"><em>添加</em></a>');
@@ -179,7 +163,6 @@
         $("#leftMain").load("Ajax/LMenu.aspx?portal=<%=PortalCode %>&menuid=" + menuid, { limit: 25 }, function () {
             windowW();
         });
-        $("#rightMain").attr('src', targetUrl);
         $('.top_menu').removeClass("on");
         $('#_M' + menuid).addClass("on");
         $.get("Ajax/TMenu.aspx?menuid=" + menuid, function (data) {
@@ -193,7 +176,7 @@
         $("html").removeClass("on");
         $("#openClose").data('clicknum', 0);
         $("#current_pos").data('clicknum', 1);
-        if (menuid == 1) {
+        if (hideMenu) {
             $(".left_menu").addClass("left_menu_on");
             $(this).addClass("close");
             $("html").addClass("on");
@@ -205,7 +188,11 @@
             $('#btnx').css('display', 'none');
         }
     }
-    _M(1, 'Desktop.aspx');
+    <% var firstMenu=TopMenus.First();
+       if(firstMenu!=null){%>
+    _M('<%=firstMenu.ID%>', '<%=firstMenu.Url%>',true);
+    <%}%>
+   
     function _MP(menuid, targetUrl) {
         targetUrl = targetUrl || "";
 

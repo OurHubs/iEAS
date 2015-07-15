@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace iEAS.Infrastructure.UI
 {
-    public class EditForm:System.Web.UI.Page
+    public class EditForm:BasePage
     {
         public Guid RecordID
         {

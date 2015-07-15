@@ -12,6 +12,7 @@ namespace iEAS.Orgnization
     public class Department : IdentityEntity
     {
         private List<Department> _Children = new List<Department>();
+        private List<Position> _Positions = new List<Position>();
         /// <summary>
         /// 中文名
         /// </summary>
@@ -61,6 +62,14 @@ namespace iEAS.Orgnization
         {
             get { return _Children; }
             set { _Children = value; }
+        }
+        /// <summary>
+        /// 岗位
+        /// </summary>
+        public virtual List<Position> Positions
+        {
+            get { return _Positions; }
+            set { _Positions = value; }
         }
     }
 }

@@ -8,66 +8,61 @@
             <td class="Big">
                 <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 部门管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
 	           
+               
+
                 <span style="font-size: 12px; float: right; margin-right: 20px;">
                     <a href="DepartmentList.aspx?companyID=<%=CompanyID %>" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
             </td>
         </tr>
     </table>
-    <table class="TableBlock" border="0" width="90%" align="center" style="border-bottom: #4686c6 solid 0px;">
-         <tr>
-            <td nowrap class="TableContent" width="15%">公司：
-            </td>
+    <table class="TableBlock2Column">
+        <tr>
+            <th>公司：</th>
             <td class="TableData">
                 <asp:Label ID="lblCompany" runat="server"></asp:Label>
             </td>
-        </tr>
-        <tr>
-            <td nowrap class="TableContent" width="15%">上级部门：
-            </td>
+            <th>上级部门：</th>
             <td class="TableData">
                 <asp:Label ID="lblParent" runat="server"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>部门名称：
-            </td>
+            <th>部门名称：</th>
             <td class="TableData">
                 <asp:TextBox ID="txtName" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
-        </tr>
-        <tr>
-            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>部门编码：
-            </td>
+            <th>部门编码：</th>
             <td class="TableData">
                 <asp:TextBox ID="txtCode" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td nowrap class="TableContent" width="15%"><font title='打*号表示为必填' color='#ff0000'>*</font>主负责人：
-            </td>
+            <th>主负责人：</th>
             <td class="TableData">
                 <asp:TextBox ID="txtPrincipalNumber" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
-        </tr>
-        <tr>
-            <td nowrap class="TableContent" width="15%">副负责人：
-            </td>
+            <th>副负责人：</th>
             <td class="TableData">
                 <asp:TextBox ID="txtDeputyNumber" runat="server" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
         <tr>
-            <td nowrap class="TableContent" width="15%">描述：
+            <th>所设岗位：</th>
+            <td class="TableData" colspan="3">
+                <asp:ListBox ID="lstPosition" runat="server" SelectionMode="Multiple" Height="150px" Width="350px"></asp:ListBox>
             </td>
-            <td class="TableData">
+        </tr>
+        <tr>
+            <th>个人描述：</th>
+            <td class="TableData" colspan="3">
                 <asp:TextBox ID="txtDesc" runat="server" TextMode="MultiLine" Rows="3" Width="500px" CssClass="BigInput"></asp:TextBox>
             </td>
         </tr>
         <tr align="center" class="TableControl">
-            <td colspan="2" nowrap height="35">
+            <td colspan="2" height="35">
                 <asp:Button ID="btnSave" runat="server" Text="保 存" OnClick="btnSave_Click" CssClass="BigButton" />
-                <input type="button" value="返 回" class="BigButton" onclick="location.href='DepartmentList.aspx?companyID=<%=CompanyID %>'" />
+                <input type="button" value="返 回" class="BigButton" onclick="location.href='DepartmentList.aspx?companyID=<%=CompanyID %>    '" />
             </td>
         </tr>
     </table>

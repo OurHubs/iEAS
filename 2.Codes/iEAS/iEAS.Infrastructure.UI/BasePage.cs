@@ -7,7 +7,7 @@ using System.Web.UI;
 
 namespace iEAS.Infrastructure.UI
 {
-    public class ListForm : BasePage
+    public class BasePage : Page
     {
     }
 }

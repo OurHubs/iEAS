@@ -97,6 +97,14 @@
                 <td class="TableContent" width="15%">岗位信息
                 </td>
                 <td class="TableData" colspan="3">
+                    部门：
+                    <asp:DropDownList ID="ddlDepartment" runat="server">
+                        <asp:ListItem Text="请选择" Value=""></asp:ListItem>
+                    </asp:DropDownList>
+                    岗位：
+                    <asp:DropDownList ID="ddlPosition" runat="server">
+                        <asp:ListItem Text="请选择" Value=""></asp:ListItem>
+                    </asp:DropDownList>
                     <table>
                         <tr>
                             <th>序号</th>

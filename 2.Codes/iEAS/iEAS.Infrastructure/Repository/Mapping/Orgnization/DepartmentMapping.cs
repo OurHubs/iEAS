@@ -22,9 +22,15 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.DeputyNumber, "DEPUTY_NUMBER", 200);
             this.Property(m => m.ParentID, "PARENT_ID");
             this.Property(m => m.CompanyID, "COMPANY_ID");
-
+            
             this.HasRequired(m => m.Company).WithMany().HasForeignKey(m => m.CompanyID).WillCascadeOnDelete(false);
             this.HasOptional(m => m.Parent).WithMany(m => m.Children).HasForeignKey(m => m.ParentID).WillCascadeOnDelete(false);
+            this.HasMany(m => m.Positions).WithMany().Map(m =>
+            {
+                m.MapLeftKey("DEPARTMENT_ID");
+                m.MapRightKey("POSITION_I");
+                m.ToTable("DEPARTMENT_POSITION_REL");
+            });
         }
     }
 }
