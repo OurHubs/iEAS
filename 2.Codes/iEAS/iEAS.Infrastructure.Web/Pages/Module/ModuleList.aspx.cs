@@ -20,6 +20,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 BindData();
             }
         }
+
         protected void btnQuery_Click(object sender, EventArgs e)
         {
             BindData();
@@ -77,22 +78,5 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             Pager.RecordCount = result.RecordCount;
         }
 
-        //protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
-        //{
-        //    return ModuleService.QueryRecord(m => m.Status == 1,
-        //                                                o => o.Asc(m => m.ID),
-        //                                                args.startRowIndex,
-        //                                                args.maxRows);
-        //}
-
-        //protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
-        //{
-        //    if (e.CommandName == "Del")
-        //    {
-        //        Guid rid = e.CommandArgument.ToGuid();
-        //        ModuleService.DeleteByID(rid);
-        //        lvQuery.DataBind();
-        //    }
-        //}
     }
 }

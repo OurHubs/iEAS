@@ -57,6 +57,8 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             {
                 menu = new iEAS.Module.Menu();
                 menu.ParentID = ParentID;
+
+
             }
             menu.PortalID = PortalID;
             menu.Name = txtName.Text.Trim();

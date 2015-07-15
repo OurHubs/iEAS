@@ -5,6 +5,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using iEAS.Utility;
 
 namespace iEAS.Infrastructure.Web.Pages.Module
 {
@@ -27,49 +28,44 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
         protected void Page_Load(object sender, EventArgs e)
         {
-        }
-
-        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
-        {
-            var result = FeatureService.QueryRecord(m => m.ModuleID == ModuleID && m.Status == 1,
-                                                        o => o.Asc(m => m.ID),
-                                                        args.startRowIndex,
-                                                        args.maxRows, true);
-            List<Feature> records = new List<Feature>();
-            var roots = result.Where(m => m.ParentID == null).ToList();
-
-            for (int i = 0; i < roots.Count; i++)
+            if (!IsPostBack)
             {
-                var item = roots[i];
-                records.Add(item);
-
-                if (i == roots.Count - 1)
-                {
-                    item.Name = "└─" + item.Name;
-                    BuildItems(item, records, "　　");
-                }
-                else
-                {
-                    item.Name = "├─" + item.Name;
-                    BuildItems(item, records, "│　");
-                }
-
+                BindData();
             }
-
-            return new QueryResult<Feature>
-            {
-                Items = records,
-                RecordCount = result.RecordCount
-            };
         }
 
-        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
                 Guid rid = e.CommandArgument.ToGuid();
                 FeatureService.DeleteByID(rid);
-                lvQuery.DataBind();
+                BindData();
+            }
+        }
+
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("FeatureEdit.aspx?moduleID=" + ModuleID);
+        }
+
+        protected void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            Guid[] ids = HttpHelper.GetRequestIds("ids");
+            if (ids.Count() > 0)
+            {
+                FeatureService.Delete(m => ids.Contains(m.ID));
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else
+            {
+                ScriptHelper.Alert("请勾选要删除的行！");
             }
         }
 
@@ -95,6 +91,39 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 records.Add(subItem);
                 BuildItems(subItem, records, subPrefix);
             }
+        }
+
+        private void BindData()
+        {
+            var query = FeatureService.Query().Where(m => m.Status == 1);
+            string name = txtName.Text.Trim();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            List<Feature> records = new List<Feature>();
+            var roots = query.Where(m => m.ParentID == null).ToList();
+
+            for (int i = 0; i < roots.Count; i++)
+            {
+                var item = roots[i];
+                records.Add(item);
+
+                if (i == roots.Count - 1)
+                {
+                    item.Name = "└─" + item.Name;
+                    BuildItems(item, records, "　　");
+                }
+                else
+                {
+                    item.Name = "├─" + item.Name;
+                    BuildItems(item, records, "│　");
+                }
+
+            }
+            gvList.DataSource = records;
+            gvList.DataBind();
         }
     }
 }

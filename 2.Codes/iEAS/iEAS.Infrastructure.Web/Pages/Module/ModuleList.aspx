@@ -1,5 +1,5 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ModuleList.aspx.cs" 
-     MasterPageFile="~/Masters/ListPage.Master"
+    MasterPageFile="~/Masters/ListPage.Master"
     Inherits="iEAS.Infrastructure.Web.Pages.Module.ModuleList" %>
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
      <div class="tabbable work-nav">
@@ -66,59 +66,4 @@
             <RowStyle Wrap="true" />
         </iEAS:GridView>
     </div>
-        <%--<div class="container">
-            <ul class="tabList_toolbar">
-                <li><a href="ModuleEdit.aspx" class="add">增 加</a> </li>
-                <li><a href="#" class="del">删 除</a></li>
-            </ul>
-            <table class="tabList">
-                <tr class="title">
-                    <td style="width: 5%">
-                        <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
-                    </td>
-                    <td style="width: 20%">模块名称
-                    </td>
-
-                    <td style="width: 10%">模块编码
-                    </td>
-                    <td>描述
-                    </td>
-                    <td style="width: 15%">操作
-                    </td>
-                </tr>
-                <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="IDS" />
-                            </td>
-                            <td>
-                                <%# Eval("Name") %>
-                            </td>
-                            <td>
-                                <%# Eval("Code") %>
-                            </td>
-                            <td>
-                                <%# Eval("Desc") %>
-                            </td>
-                            <td>
-                                <a href="FeatureList.aspx?moduleID=<%# Eval("ID") %>">功能列表</a>
-                                |
-                            <a href="FeatureEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
-                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                </iEAS:ListView>
-            </table>
-            <div class="fenye">
-              <iEAS:Pager ID="Pager"  runat="server" PagedControlID="lvQuery" />
-            </div>
-           
-            <iEAS:ObjectDataSource ID="odsQuery" runat="server" OnQuery="odsQuery_Query" DeleteMethod="DeleteRecord">
-            </iEAS:ObjectDataSource>
-        </div>--%>
 </asp:Content>

@@ -28,6 +28,12 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             if (module == null)
             {
                 module = new ModuleInfo();
+                bool existCode = IsExistModuleCode(txtCode.Text.Trim());
+                if (existCode)
+                {
+                    ScriptHelper.Alert("该编码已经存在！");
+                    return;
+                }
             }
 
             module.Name = txtName.Text.Trim();
@@ -45,8 +51,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 throw ex;
             }
             Response.Redirect("ModuleList.aspx");
-        }
-             
+        }             
 
         private void BindData()
         {
@@ -57,6 +62,12 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtCode.Text = module.Code;
                 txtDesc.Text = module.Desc;
             }
+        }
+
+        private bool IsExistModuleCode(string code)
+        {
+            IList<ModuleInfo> listRole = ModuleService.Query(m => m.Code == code);
+            return (listRole != null && listRole.Count > 1);
         }
     }
 }

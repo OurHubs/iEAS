@@ -68,11 +68,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             Response.Redirect("FeatureList.aspx?moduleID=" + ModuleID);
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("FeatureList.aspx?moduleID=" + ModuleID);
-        }
-
+       
         private void BindData()
         {
             var feature = FeatureService.GetByID(RecordID, true);
