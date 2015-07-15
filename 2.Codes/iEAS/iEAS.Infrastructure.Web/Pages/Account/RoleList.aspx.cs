@@ -41,9 +41,16 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         protected void btnDeleteAll_Click(object sender, EventArgs e)
         {
             Guid[] ids = HttpHelper.GetRequestIds("ids");
-            RoleService.Delete(m => ids.Contains(m.ID));
-            BindData();
-            ScriptHelper.Alert("操作成功！");
+            if (ids.Count() > 0)
+            {
+                RoleService.Delete(m => ids.Contains(m.ID));
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else
+            {
+                ScriptHelper.Alert("请勾选要删除的行！");
+            }
         }
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -59,7 +66,11 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         private void BindData()
         {
             var query = RoleService.Query().Where(m => m.Status == 1);
-
+            string name = txtName.Text.Trim();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
             var result = query.PagedQuery(o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
             gvList.DataSource = result;
             gvList.DataBind();

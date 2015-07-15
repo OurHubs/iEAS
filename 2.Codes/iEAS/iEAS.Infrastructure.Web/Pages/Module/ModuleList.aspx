@@ -55,7 +55,7 @@
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate >                       
-                        <a href="FeatureList.aspx?moduleID=<%# Eval("ID") %>">功能列表</a>
+                        <a href="FeatureList.aspx?moduleID=<%# Eval("ID") %>">功能列表</a>|
                         <a href="ModuleEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>

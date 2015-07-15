@@ -72,7 +72,14 @@ namespace iEAS.Infrastructure.Web.Pages.Account
                 }
                 ctx.Commit();
             }
-            Response.Redirect("UserList.aspx");
+            if (RoleId.HasValue)
+            {
+                Response.Redirect("UserRoles.aspx?roleid=" + RoleId.Value);
+            }
+            else
+            {
+                Response.Redirect("UserList.aspx");
+            }
         }
 
         protected void btnBack_Click(object sender, EventArgs e)
@@ -86,9 +93,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             if (user != null)
             {                
                 txtLoginName.Enabled = false;
-                txtLoginName.Text = user.LoginName;
-                //txtPassword.Text = user.Password;
-                //this.txtPassword.Attributes["value"， user.Password];
+                txtLoginName.Text = user.LoginName;           
                 this.txtPassword.Attributes["value"]=user.Password;
                 txtName.Text = user.Name;
                 txtNick.Text = user.Nick;
@@ -104,7 +109,12 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             }
             else
             {
-                uxRoleSelect.BindRoles(new List<Role>());
+                List<Role> role = new List<Role>();
+                if (RoleId.HasValue)
+                {
+                    role.Add(new Role { ID = RoleId.Value });
+                }
+                uxRoleSelect.BindRoles(role);
             }
         }
 
@@ -116,6 +126,18 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             }
             IList<User> listUser = UserService.Query(m => m.LoginName== loginName);
             return (listUser != null && listUser.Count > 1);
+        }
+
+        public Guid? RoleId
+        {
+            get
+            {
+                if (Request["roleid"]!=null)
+                {
+                    return Request["roleid"].ToGuid();
+                }
+                return null;
+            }
         }
     }
 }

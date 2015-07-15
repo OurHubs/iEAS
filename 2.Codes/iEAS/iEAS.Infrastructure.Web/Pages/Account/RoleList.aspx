@@ -10,7 +10,7 @@
     </div>
     <div class="search_area">
         <div class="form-search form-search-top" style="text-align: left; padding-left: 10px;">
-            <div class="adv-select-label">角色名称：</div>
+            <div class="adv-select-label">角色名称：<asp:TextBox ID="txtName" runat="server"></asp:TextBox></div>
             <asp:Button ID="btnQuery" runat="server" Text="查 询" OnClick="btnQuery_Click" CssClass="btn btn-primary" />
         </div>
     </div>

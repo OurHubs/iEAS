@@ -29,16 +29,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         private void BindData()
         {
             Role role = RoleService.GetByID(RoleId.ToGuid(),true);
-
-            // var roleQuery=RoleService.Query().Where(m=>m.Status==1);
-            //  var userQuery = UserService.Query().Where(m => m.Status == 1);
-            // var relQuey=UserRoleRelService.Query();
-
-            //var result = from user in userQuery
-            //             join rel in relQuey on user.ID equals rel.UserID
-            //             where rel.RoleID == RoleId.ToGuid()
-            //             select user;
-
+            litRoleName.Text = role.Name;
 
             var query = role.Users.Where(m => m.Status == 1);
             string name = txtName.Text.Trim();
@@ -46,13 +37,7 @@ namespace iEAS.Infrastructure.Web.Pages.Account
             {
                 query = query.Where(m => m.Name.Contains(name));
             }
-
             var reault = PagedQuery<User>(query, null, o => o.Desc(m => m.SN), aspnetpage.CurrentPageIndex, aspnetpage.PageSize);
-
-            //var result = UserService.PagedQuery(o => o.Desc(m => m.SN), aspnetpage.CurrentPageIndex, aspnetpage.PageSize);
-            //PagedResult<User> page = new PagedResult<iEAS.Account.User>(
-
-
 
             gvList.DataSource = reault;
             gvList.DataBind();
@@ -61,15 +46,22 @@ namespace iEAS.Infrastructure.Web.Pages.Account
 
         protected void btnAdd_Click(object sender, EventArgs e)
         {
-            Response.Redirect("UserEdit.aspx");
+            Response.Redirect("UserEdit.aspx?roleid="+RoleId);
         }
 
         protected void btnDeleteAll_Click(object sender, EventArgs e)
-        {
+        {         
             Guid[] ids = HttpHelper.GetRequestIds("ids");
-            UserService.Delete(m => ids.Contains(m.ID));
-            BindData();
-            ScriptHelper.Alert("操作成功！");
+            if (ids.Count() > 0)
+            {
+                UserService.Delete(m => ids.Contains(m.ID));
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else
+            {
+                ScriptHelper.Alert("请勾选要删除的行！");
+            }
         }
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)

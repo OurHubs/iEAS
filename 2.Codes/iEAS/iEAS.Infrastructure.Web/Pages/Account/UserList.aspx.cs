@@ -44,11 +44,18 @@ namespace iEAS.Infrastructure.Web.Pages.Account
         }
 
         protected void btnDeleteAll_Click(object sender, EventArgs e)
-        {
+        {           
             Guid[] ids = HttpHelper.GetRequestIds("ids");
-            UserService.Delete(m => ids.Contains(m.ID));
-            BindData();
-            ScriptHelper.Alert("操作成功！");
+            if (ids.Count() > 0)
+            {
+                UserService.Delete(m => ids.Contains(m.ID));
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else
+            {
+                ScriptHelper.Alert("请勾选要删除的行！");
+            }
         }
 
         protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)

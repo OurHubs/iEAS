@@ -4,7 +4,7 @@
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
    <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
-            <li class="active"><a href="UserList.aspx" data-toggle="tab">用户管理</a></li>
+            <li class="active"><a href="UserList.aspx" data-toggle="tab"> 角色：<asp:Literal ID="litRoleName" runat="server"></asp:Literal> > 用户管理</a></li>
         </ul>
     </div>
     <div class="search_area">
@@ -71,7 +71,7 @@
              
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
-                        <a href="UserEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
+                        <a href="UserEdit.aspx?rid=<%# Eval("ID") %>">编辑</a> |
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
                     <ItemStyle HorizontalAlign="Center" Width="300px" />
