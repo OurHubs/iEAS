@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using iEAS.Module;
 using iEAS.Context;
+using iEAS.Utility;
 
 
 namespace iEAS.Infrastructure.Web.Pages.Module
@@ -14,50 +15,9 @@ namespace iEAS.Infrastructure.Web.Pages.Module
     {
         public IMenuService MenuService { get; set; }
 
-        protected void Page_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        protected IPageableDataSource odsQuery_Query(object sender, iEAS.Web.UI.ObjectDataSourceEventArgs args)
-        {
-            var result= MenuService.QueryRecord(m => m.Status == 1 
-                                           && m.PortalID == PortalID.Value,
-                                                        o => o.Asc(m => m.ID),
-                                                        args.startRowIndex,
-                                                        args.maxRows,true);
-
-            List<iEAS.Module.Menu> records = new List<iEAS.Module.Menu>();
-            var roots = result.Where(m => m.ParentID == null).ToList();
-
-            for (int i = 0; i < roots.Count; i++)
-            {
-                var item = roots[i];
-                records.Add(item);
-
-                if (i == roots.Count - 1)
-                {
-                    item.Name = "└─" + item.Name;
-                    BuildItems(item, records, "　　");
-                }
-                else
-                {
-                    item.Name = "├─" + item.Name;
-                    BuildItems(item, records, "│　");
-                }
-
-            }
-
-            return new QueryResult<iEAS.Module.Menu>
-            {
-                Items = records,
-                RecordCount = result.RecordCount
-            };
-        }
-
         private void BuildItems(iEAS.Module.Menu item, List<iEAS.Module.Menu> records, string prefix)
         {
-            if (item.Children.Count==0)
+            if (item.Children.Count == 0)
                 return;
             var items = item.Children.Where(m => m.Status == 1).ToArray();
             for (int i = 0; i < items.Length; i++)
@@ -79,21 +39,82 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             }
         }
 
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                BindData();
+            }
+        }
 
-        protected void lvQuery_ItemCommand(object sender, ListViewCommandEventArgs e)
+        protected void btnQuery_Click(object sender, EventArgs e)
+        {
+            BindData();
+        }
+
+        protected void gvList_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             if (e.CommandName == "Del")
             {
-                Guid rid = e.CommandArgument.ToString().ToGuid();
+                Guid rid = e.CommandArgument.ToGuid();
                 MenuService.DeleteByID(rid);
-                //删除子项
-
-                lvQuery.DataBind();
+                BindData();
             }
-            PortalContext.Current.ResetPortal();
         }
 
-        //入口
+        protected void btnAdd_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MenuEdit.aspx?portalid=" + PortalID.ToStr());
+        }
+
+        protected void btnDeleteAll_Click(object sender, EventArgs e)
+        {
+            Guid[] ids = HttpHelper.GetRequestIds("ids");
+            if (ids.Count() > 0)
+            {
+                MenuService.Delete(m => ids.Contains(m.ID));
+                BindData();
+                ScriptHelper.Alert("操作成功！");
+            }
+            else
+            {
+                ScriptHelper.Alert("请勾选要删除的行！");
+            }
+        }
+
+        private void BindData()
+        {
+            var query = MenuService.Query().Where(m => m.Status == 1);
+            string name = txtName.Text.Trim();
+            if (!string.IsNullOrEmpty(name))
+            {
+                query = query.Where(m => m.Name.Contains(name));
+            }
+
+            List<iEAS.Module.Menu> records = new List<iEAS.Module.Menu>();
+            var roots = query.Where(m => m.ParentID == null).ToList();
+
+            for (int i = 0; i < roots.Count; i++)
+            {
+                var item = roots[i];
+                records.Add(item);
+
+                if (i == roots.Count - 1)
+                {
+                    item.Name = "└─" + item.Name;
+                    BuildItems(item, records, "　　");
+                }
+                else
+                {
+                    item.Name = "├─" + item.Name;
+                    BuildItems(item, records, "│　");
+                }
+
+            }
+            gvList.DataSource = records;
+            gvList.DataBind();
+        }
+
         public Guid? PortalID
         {
             get

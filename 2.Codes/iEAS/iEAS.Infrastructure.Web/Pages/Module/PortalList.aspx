@@ -1,9 +1,7 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="PortalList.aspx.cs"
      MasterPageFile="~/Masters/ListPage.Master" 
     Inherits="iEAS.Infrastructure.Web.Pages.Module.PortalList" %>
-<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
-      
-     
+<asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">  
     <div class="tabbable work-nav">
         <ul id="myTab" class="nav nav-tabs">
             <li class="active"><a href="ModuleList.aspx" data-toggle="tab">Portal管理</a></li>
@@ -56,8 +54,7 @@
                     <HeaderStyle HorizontalAlign="Left"/>
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
-                    <ItemTemplate >         
-                                 
+                    <ItemTemplate >  
                             <a href="MenuList.aspx?portalid=<%# Eval("ID") %>">菜单</a>|           
                             <a href="PortalEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
                             <asp:LinkButton ID="LinkButton1" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
@@ -68,49 +65,5 @@
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />
             <RowStyle Wrap="true" />
         </iEAS:GridView>
-    </div>
-
-    <%--<table class="tabList">
-                <tr class="title">
-                    <td style="width: 5%">
-                        <input name="checkAll" class="checkAll" id="checkAll" type="checkbox" value='' />
-                    </td>
-                    <td style="width: 20%">类型名称
-                    </td>
-
-                    <td style="width: 10%">类型编码
-                    </td>
-                    <td>描述
-                    </td>
-                    <td style="width: 15%">操作
-                    </td>
-                </tr>
-                <iEAS:ListView ID="lvQuery" runat="server" DataSourceID="odsQuery" DataKeyNames="ID" OnItemCommand="lvQuery_ItemCommand">
-                    <LayoutTemplate>
-                        <asp:PlaceHolder ID="itemPlaceHolder" runat="server"></asp:PlaceHolder>
-                    </LayoutTemplate>
-                    <ItemTemplate>
-                        <tr>
-                            <td>
-                                <input type="checkbox" name="IDS" />
-                            </td>
-                            <td>
-                                <%# Eval("Name") %>
-                            </td>
-                            <td>
-                                <%# Eval("Code") %>
-                            </td>
-                            <td>
-                                <%# Eval("Desc") %>
-                            </td>
-                            <td>
-                                <a href="MenuList.aspx?portalid=<%# Eval("ID") %>">菜单</a>
-                                |
-                            <a href="PortalEdit.aspx?rid=<%# Eval("ID") %>">编辑</a>|
-                            <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
-                            </td>
-                        </tr>
-                    </ItemTemplate>
-                </iEAS:ListView>
-            </table>--%>
+    </div>    
 </asp:Content>
