@@ -29,6 +29,12 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             if (portalInfo == null)
             {
                 portalInfo = new PortalInfo();
+                bool existCode = IsExistPortalCode(txtCode.Text.Trim());
+                if (existCode)
+                {
+                    ScriptHelper.Alert("该编码已经存在！");
+                    return;
+                }
             }
 
             portalInfo.Name = txtName.Text.Trim();
@@ -47,11 +53,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
             Response.Redirect("PortalList.aspx");
         }
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("PortalList.aspx");
-        }
-
+      
         private void BindData()
         {
             var baseDataTyp = PortalService.GetByID(RecordID);
@@ -61,6 +63,12 @@ namespace iEAS.Infrastructure.Web.Pages.Module
                 txtCode.Text = baseDataTyp.Code;
                 txtDesc.Text = baseDataTyp.Desc;
             }
+        }
+
+        private bool IsExistPortalCode(string code)
+        {
+            IList<PortalInfo> listRole = PortalService.Query(m => m.Code == code);
+            return (listRole != null && listRole.Count > 1);
         }
     }
 }
