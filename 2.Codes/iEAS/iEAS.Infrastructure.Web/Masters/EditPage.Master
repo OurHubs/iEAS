@@ -7,6 +7,7 @@
     <meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
     <link rel="stylesheet" type="text/css" href="~/assets/common/css/style.css" />
     <script src="<%=Page.ResolveUrl("~/") %>assets/common/js/jQuery.min.js" type="text/javascript" charset="UTF-8"></script>
+    <script src="<%=Page.ResolveUrl("~/") %>assets/common/js/common.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidator.min.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/formvalidator/formValidatorRegex.js" type="text/javascript" charset="UTF-8"></script>
     <script src="<%=Page.ResolveUrl("~/") %>assets/My97DatePicker/WdatePicker.js" type="text/javascript" charset="UTF-8"></script>

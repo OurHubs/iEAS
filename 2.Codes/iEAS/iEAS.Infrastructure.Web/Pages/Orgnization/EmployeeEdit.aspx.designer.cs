@@ -103,22 +103,13 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization {
         protected global::System.Web.UI.WebControls.DropDownList ddlJobGrade;
         
         /// <summary>
-        /// ddlDepartment 控件。
+        /// uxPositionSelect 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlDepartment;
-        
-        /// <summary>
-        /// ddlPosition 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlPosition;
+        protected global::iEAS.Infrastructure.Web.Pages.Controls.UxPositionSelect uxPositionSelect;
         
         /// <summary>
         /// txtReportLine 控件。

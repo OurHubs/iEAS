@@ -1146,6 +1146,10 @@
     <Content Include="Pages\BaseData\BaseDataItemList.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
+    <Content Include="Pages\Controls\Pages\DepartmentSelect.aspx" />
+    <Content Include="Pages\Controls\Pages\PositionSelect.aspx" />
+    <Content Include="Pages\Controls\UxDepartmentSelect.ascx" />
+    <Content Include="Pages\Controls\UxPositionSelect.ascx" />
     <Content Include="Pages\Desptop\SetDesptopUC.aspx" />
     <Content Include="Pages\Desptop\UserControl\Download.ascx" />
     <Content Include="Pages\Desptop\UserControl\LastMsg.ascx" />
@@ -1660,6 +1664,34 @@
     </Compile>
     <Compile Include="Pages\BaseData\BaseDataTypeList.aspx.designer.cs">
       <DependentUpon>BaseDataTypeList.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Controls\Pages\DepartmentSelect.aspx.cs">
+      <DependentUpon>DepartmentSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\Pages\DepartmentSelect.aspx.designer.cs">
+      <DependentUpon>DepartmentSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Controls\Pages\PositionSelect.aspx.cs">
+      <DependentUpon>PositionSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\Pages\PositionSelect.aspx.designer.cs">
+      <DependentUpon>PositionSelect.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Controls\UxDepartmentSelect.ascx.cs">
+      <DependentUpon>UxDepartmentSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\UxDepartmentSelect.ascx.designer.cs">
+      <DependentUpon>UxDepartmentSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Controls\UxPositionSelect.ascx.cs">
+      <DependentUpon>UxPositionSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\UxPositionSelect.ascx.designer.cs">
+      <DependentUpon>UxPositionSelect.ascx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Desptop\SetDesptopUC.aspx.cs">
       <DependentUpon>SetDesptopUC.aspx</DependentUpon>

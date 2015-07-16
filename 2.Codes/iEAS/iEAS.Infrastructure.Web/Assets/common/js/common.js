@@ -20,6 +20,44 @@ var getWindowSize = function () {
     });
 }
 
+/*
+*´ò¿ªWindows´°¿Ú
+*/
+function openWindow(url, width, height,callback) {
+
+    var iWidth = 500,
+        iHeight = 350,
+        iTop = 0,
+        iLeft = 0,
+        name = new Date().getTime(),
+        opener;
+
+    if(width){
+        iWidth=parseInt(width.replace("px",""));
+    }
+    if(height){
+        iHeight=parseInt(height.replace("px",""));
+    }
+
+    iTop=(window.screen.availHeight - 30 - iHeight) / 2;
+    iLeft = (window.screen.availWidth - 10 - iWidth) / 2;
+
+    var features = "width="+iWidth+"px";
+    features += ",height="+iHeight+"px";
+    features += ",top="+iTop+"px";
+    features += ",left="+iLeft+"px";
+    features += ",toolbar=no,menubar=no,scrollbars=yes, resizable=no,location=no, status=no";
+    opener = window.open(url, name, features, false);
+    if (callback && typeof callback =="function") {
+        callback(opener);
+    }
+    return false;
+}
+
+function parseInt(){
+    parseFloat
+}
+
 
 
 

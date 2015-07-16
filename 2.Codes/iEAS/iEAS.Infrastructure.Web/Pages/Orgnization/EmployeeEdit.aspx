@@ -1,5 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/EditPage.Master" AutoEventWireup="true" CodeBehind="EmployeeEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.EmployeeEdit" %>
 
+<%@ Register src="../Controls/UxPositionSelect.ascx" tagname="PositionSelect" tagprefix="ux" %>
+
 <asp:Content ID="ctHeader" ContentPlaceHolderID="Header" runat="server">
 </asp:Content>
 <asp:Content ID="ctContent" ContentPlaceHolderID="Content" runat="server">
@@ -97,21 +99,7 @@
                 <td class="TableContent" width="15%">岗位信息
                 </td>
                 <td class="TableData" colspan="3">
-                    部门：
-                    <asp:DropDownList ID="ddlDepartment" runat="server">
-                        <asp:ListItem Text="请选择" Value=""></asp:ListItem>
-                    </asp:DropDownList>
-                    岗位：
-                    <asp:DropDownList ID="ddlPosition" runat="server">
-                        <asp:ListItem Text="请选择" Value=""></asp:ListItem>
-                    </asp:DropDownList>
-                    <table>
-                        <tr>
-                            <th>序号</th>
-                            <th>部门</th>
-                            <th>职位</th>
-                        </tr>
-                    </table>
+                    <ux:PositionSelect ID="uxPositionSelect" runat="server" />
                 </td>
             </tr>
             <tr>
