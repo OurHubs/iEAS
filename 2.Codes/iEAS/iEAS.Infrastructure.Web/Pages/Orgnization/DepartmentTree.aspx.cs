@@ -28,7 +28,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
 
             StringBuilder sbTreeNodes = new StringBuilder();
             sbTreeNodes.Append("[");
-            sbTreeNodes.AppendFormat("{{id:'{0}',pId:{1},name:'{2}',open:true,url:'{3}',target:'main'}},", Guid.Empty, "null", SiteConfig.Instance.Title, String.Empty);
+            sbTreeNodes.AppendFormat("{{id:'{0}',pId:{1},name:'{2}',open:true,url:'EmployeeList.aspx',target:'main'}},", Guid.Empty, "null", SiteConfig.Instance.Title, String.Empty);
 
             foreach(var company in companies)
             {
@@ -52,7 +52,7 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
 
         private string GetUrl(Company node)
         {
-            return String.Empty;
+            return node != null ? String.Format("EmployeeList.aspx?companyId={0}", node.ID) : String.Empty;
         }
         private string GetUrl(Department node)
         {

@@ -5,7 +5,7 @@
 <asp:HiddenField ID="hfName" runat="server" />
 <script type="text/javascript">
     $(function () {
-        $("#<%=lblName.ClientID %>").text($("#<%=hfName.ClientID %>"));
+        $("#<%=lblName.ClientID %>").text($("#<%=hfName.ClientID %>").val());
 
         $("#<%=ClientID %>").click(function () {
             return openWindow('<%=Page.ResolveUrl("~/")%>Pages/Controls/Pages/PositionSelect.aspx', null, null, function (win) {
@@ -13,6 +13,7 @@
                 win.hfName = "<%=hfName.ClientID %>";
                 win.lblName = "<%=lblName.ClientID %>";
                 win.focus();
+            });
         });
     });
 </script>

@@ -85,13 +85,13 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization {
         protected global::System.Web.UI.WebControls.TextBox txtTerminatedDate;
         
         /// <summary>
-        /// txtAreaName 控件。
+        /// uxEmployeeSelect 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtAreaName;
+        protected global::iEAS.Infrastructure.Web.Pages.Controls.UxEmployeeSelect uxEmployeeSelect;
         
         /// <summary>
         /// ddlJobGrade 控件。
@@ -112,13 +112,13 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization {
         protected global::iEAS.Infrastructure.Web.Pages.Controls.UxPositionSelect uxPositionSelect;
         
         /// <summary>
-        /// txtReportLine 控件。
+        /// lstTitle 控件。
         /// </summary>
         /// <remarks>
         /// 自动生成的字段。
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtReportLine;
+        protected global::System.Web.UI.WebControls.ListBox lstTitle;
         
         /// <summary>
         /// txtDesc 控件。
@@ -184,51 +184,6 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization {
         protected global::System.Web.UI.WebControls.TextBox txtEmail2;
         
         /// <summary>
-        /// txtWorkCountryName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkCountryName;
-        
-        /// <summary>
-        /// txtWorkProvinceName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkProvinceName;
-        
-        /// <summary>
-        /// txtWorkCityName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkCityName;
-        
-        /// <summary>
-        /// txtWorkCountyName 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkCountyName;
-        
-        /// <summary>
-        /// txtWorkZipCode 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtWorkZipCode;
-        
-        /// <summary>
         /// txtWorkAddress 控件。
         /// </summary>
         /// <remarks>
@@ -236,33 +191,6 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization {
         /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtWorkAddress;
-        
-        /// <summary>
-        /// txtHomeAddress 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHomeAddress;
-        
-        /// <summary>
-        /// txtHomePhone 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHomePhone;
-        
-        /// <summary>
-        /// txtHomeZipCode 控件。
-        /// </summary>
-        /// <remarks>
-        /// 自动生成的字段。
-        /// 若要进行修改，请将字段声明从设计器文件移到代码隐藏文件。
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtHomeZipCode;
         
         /// <summary>
         /// btnSave 控件。

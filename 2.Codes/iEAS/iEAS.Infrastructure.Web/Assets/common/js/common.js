@@ -33,10 +33,10 @@ function openWindow(url, width, height,callback) {
         opener;
 
     if(width){
-        iWidth=parseInt(width.replace("px",""));
+        iWidth = width;
     }
     if(height){
-        iHeight=parseInt(height.replace("px",""));
+        iHeight = height;
     }
 
     iTop=(window.screen.availHeight - 30 - iHeight) / 2;
@@ -53,15 +53,6 @@ function openWindow(url, width, height,callback) {
     }
     return false;
 }
-
-function parseInt(){
-    parseFloat
-}
-
-
-
-
-
 
 function checkAll(checkBox, ids) {
     if ($(checkBox).attr('checked')) {

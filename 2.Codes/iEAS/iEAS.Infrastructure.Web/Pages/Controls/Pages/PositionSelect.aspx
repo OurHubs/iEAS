@@ -38,7 +38,7 @@
             var ids = "", names = "";
             for (var i = 0; i < nodes.length; i++) {
                 var node = nodes[i];
-                ids += "," + nodes.id + "_" + node.pId;
+                ids += "," + node.pId + "_" + node.id;
                 names += "," + node.name + "(" + node.deptName + ")";
             }
 

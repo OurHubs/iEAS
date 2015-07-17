@@ -47,7 +47,7 @@ namespace iEAS.Infrastructure.Web.Pages.Controls.Pages
                 }
                 if(department.Positions!=null)
                 {
-                    foreach(var position in department.Positions)
+                    foreach(var position in department.Positions.Where(m=>m.Status==1))
                     {
                         sbTreeNodes.AppendFormat("{{id:'{0}',pId:'{1}',name:'{2}',open:true,deptName:'{3}'}},", position.ID,department.ID, position.Name,department.Name);
                     }

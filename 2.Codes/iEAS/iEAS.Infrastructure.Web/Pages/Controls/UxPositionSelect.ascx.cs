@@ -16,9 +16,9 @@ namespace iEAS.Infrastructure.Web.Pages.Controls
 
         }
 
-        public List<KeyValuePair<string,string>> GetPostionIds()
+        public List<KeyValuePair<Guid,Guid>> GetPostionIds()
         {
-            List<KeyValuePair<string, string>> result = new List<KeyValuePair<string, string>>();
+            List<KeyValuePair<Guid, Guid>> result = new List<KeyValuePair<Guid, Guid>>();
 
             if (!String.IsNullOrEmpty(hfId.Value))
             {
@@ -26,7 +26,7 @@ namespace iEAS.Infrastructure.Web.Pages.Controls
                 foreach(var kvp in kvpId)
                 {
                     string[] ss=kvp.Split('_');
-                    result.Add(new KeyValuePair<string, string>(ss[0], ss[1]));
+                    result.Add(new KeyValuePair<Guid, Guid>(ss[0].ToGuid(), ss[1].ToGuid()));
                 }
             }
             return result;
@@ -35,7 +35,7 @@ namespace iEAS.Infrastructure.Web.Pages.Controls
         public void BindPosition(Guid employeeId)
         {
             IEmployeePositionService service = ObjectContainer.GetService<IEmployeePositionService>();
-            var list=service.Query(m => m.EmployeeID == employeeId,null,true);
+            var list=service.Query(m => m.EmployeeID == employeeId&&m.Position.Status==1,null,true);
             StringBuilder sbIds = new StringBuilder();
             StringBuilder sbNames = new StringBuilder();
 

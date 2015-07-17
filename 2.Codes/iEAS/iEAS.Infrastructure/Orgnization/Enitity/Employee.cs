@@ -12,6 +12,8 @@ namespace iEAS.Orgnization
     /// </summary>
     public class Employee : IdentityEntity
     {
+        private List<Title> _Titles = new List<Title>();
+        private List<EmployeePosition> _DepartmentPostions = new List<EmployeePosition>();
         /// <summary>
         /// 员工编号
         /// </summary>
@@ -144,13 +146,50 @@ namespace iEAS.Orgnization
         /// </summary>
         public string Desc { get; set; }
         /// <summary>
-        /// 工作状态（1：正式员工，2：离职员工，3：试用期，4：临时工,5:实习）
+        /// 工作状态（1：在职，2：离职，3：试用，4：临聘,5:实习）
         /// </summary>
         public int WorkStatus { get; set; }
+
+        public string WorkStatsDisplayName
+        {
+            get 
+            {
+                switch (WorkStatus)
+                {
+                    case 1:
+                        return "在职";
+                    case 2:
+                        return "离职";
+                    case 3:
+                        return "试用";
+                    case 4:
+                        return "临聘";
+                    case 5:
+                        return "实习";
+                }
+                return String.Empty;
+            }
+        }
+
+        public Guid? ReportLine { get; set; }
         #endregion
         /// <summary>
         /// 用户信息
         /// </summary>
         public virtual User User { get; set; }
+
+        public virtual Employee ReportLineUser { get; set; }
+
+        public virtual List<Title> Titles
+        {
+            get { return _Titles; }
+            set { _Titles = value; }
+        }
+
+        public virtual List<EmployeePosition> DepartmentPostions
+        {
+            get { return _DepartmentPostions; }
+            set { _DepartmentPostions = value; }
+        }
     }
 }

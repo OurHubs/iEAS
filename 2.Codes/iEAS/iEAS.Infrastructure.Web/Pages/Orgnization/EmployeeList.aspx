@@ -20,8 +20,8 @@
     <div class="data-wrap">
         <div class="data-operation">
             <div class="button-operation">
-                <input type="button" value="添加" class='btn btn-success' onclick="location.href = 'EmployeeEdit.aspx?departmentId=<%=DepartmentID %>'" />
-                <asp:Button ID="btnDeleteAll" runat="server" Text='删除' CssClass='btn btn-danger' OnClick="btnDeleteAll_Click" />
+                <input type="button" value="添加员工" class='btn btn-success' onclick="location.href = 'EmployeeEdit.aspx?departmentId=<%=DepartmentID %>'" />
+                <asp:Button ID="btnDeleteAll" runat="server" Text='删除员工' CssClass='btn btn-danger' OnClick="btnDeleteAll_Click" />
             </div>
             <div class="pager_operation">
                 <iEAS:AspNetPager ID="Pager" runat="server" AlwaysShow="true" ShowCustomInfoSection="Left" PrevPageText="上一页" NextPageText="下一页" FirstPageText="首页" LastPageText="尾页"
@@ -46,23 +46,40 @@
                     <HeaderStyle HorizontalAlign="Center" Width="30px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="名称">
-                    <ItemTemplate><%# Eval("ChineseName") %>(<%# Eval("EnglishName") %>)</ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="150px" />
+                    <ItemTemplate><%# Eval("ChineseName") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="65px" />
                 </asp:TemplateField>
                  <asp:TemplateField HeaderText="员工编号">
                     <ItemTemplate><%# Eval("EmployeeNumber") %></ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="150px" />
+                    <ItemStyle HorizontalAlign="Center" Width="65px" />
                 </asp:TemplateField>
-                <asp:TemplateField HeaderText="描述">
-                    <ItemTemplate><%# Eval("Desc") %></ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" />
+                <asp:TemplateField HeaderText="手机">
+                    <ItemTemplate><%# Eval("MobilePhone") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="75px" />
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="Email">
+                    <ItemTemplate><%# Eval("Email") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="75px" />
+                </asp:TemplateField>
+                <asp:TemplateField HeaderText="部门">
+                    <ItemTemplate><%# GetDeptName(Container.DataItem) %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="100px" />
+                </asp:TemplateField>
+                 <asp:TemplateField HeaderText="汇报对象">
+                    <ItemTemplate><%# Eval("ReportLineUser.ChineseName") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="65px" />
+                </asp:TemplateField>
+                 
+                 <asp:TemplateField HeaderText="状态">
+                    <ItemTemplate><%# Eval("WorkStatsDisplayName") %></ItemTemplate>
+                    <ItemStyle HorizontalAlign="Center" Width="60px" />
                 </asp:TemplateField>
                 <asp:TemplateField HeaderText="操作">
                     <ItemTemplate>
                          <a href="EmployeeEdit.aspx?departmentId=<%# DepartmentID %>&rid=<%# Eval("ID") %>">编辑</a>|
                         <asp:LinkButton ID="btnDelete" runat="server" Text="删除" CommandName="Del" CommandArgument='<%# Eval("ID") %>'></asp:LinkButton>
                     </ItemTemplate>
-                    <ItemStyle HorizontalAlign="Center" Width="100px" />
+                    <ItemStyle HorizontalAlign="Center" Width="90px" />
                 </asp:TemplateField>
             </Columns>
             <HeaderStyle CssClass="editThead" HorizontalAlign="Center" />

@@ -54,8 +54,18 @@ namespace iEAS.Repository.Mapping.Orgnization
             this.Property(m => m.JobGrade, "JOB_GRADE", 50);
             this.Property(m => m.Desc, "DESC", 500);
             this.Property(m => m.WorkStatus, "WORK_STATUS");
+            this.Property(m => m.ReportLine, "REPORT_LINE");
 
+            this.HasOptional(m => m.ReportLineUser).WithMany().HasForeignKey(m => m.ReportLine);
             this.HasRequired(m => m.User).WithOptional().WillCascadeOnDelete(false);
+            this.HasMany(m => m.Titles).WithMany().Map(m =>
+            {
+                m.MapLeftKey("EMPLOYEE_ID");
+                m.MapRightKey("TITLE_ID");
+                m.ToTable("EMPLOYEE_TITLE_REL");
+            });
+
+            this.Ignore(m => m.WorkStatsDisplayName);
         }
     }
 }

@@ -1147,8 +1147,10 @@
     <Content Include="Pages\BaseData\BaseDataTypeEdit.aspx" />
     <Content Include="Pages\BaseData\BaseDataTypeList.aspx" />
     <Content Include="Pages\Controls\Pages\DepartmentSelect.aspx" />
+    <Content Include="Pages\Controls\Pages\EmployeeSelect.aspx" />
     <Content Include="Pages\Controls\Pages\PositionSelect.aspx" />
     <Content Include="Pages\Controls\UxDepartmentSelect.ascx" />
+    <Content Include="Pages\Controls\UxEmployeeSelect.ascx" />
     <Content Include="Pages\Controls\UxPositionSelect.ascx" />
     <Content Include="Pages\Desptop\SetDesptopUC.aspx" />
     <Content Include="Pages\Desptop\UserControl\Download.ascx" />
@@ -1672,6 +1674,13 @@
     <Compile Include="Pages\Controls\Pages\DepartmentSelect.aspx.designer.cs">
       <DependentUpon>DepartmentSelect.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Pages\Controls\Pages\EmployeeSelect.aspx.cs">
+      <DependentUpon>EmployeeSelect.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\Pages\EmployeeSelect.aspx.designer.cs">
+      <DependentUpon>EmployeeSelect.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pages\Controls\Pages\PositionSelect.aspx.cs">
       <DependentUpon>PositionSelect.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -1685,6 +1694,13 @@
     </Compile>
     <Compile Include="Pages\Controls\UxDepartmentSelect.ascx.designer.cs">
       <DependentUpon>UxDepartmentSelect.ascx</DependentUpon>
+    </Compile>
+    <Compile Include="Pages\Controls\UxEmployeeSelect.ascx.cs">
+      <DependentUpon>UxEmployeeSelect.ascx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pages\Controls\UxEmployeeSelect.ascx.designer.cs">
+      <DependentUpon>UxEmployeeSelect.ascx</DependentUpon>
     </Compile>
     <Compile Include="Pages\Controls\UxPositionSelect.ascx.cs">
       <DependentUpon>UxPositionSelect.ascx</DependentUpon>

@@ -1,6 +1,7 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Masters/EditPage.Master" AutoEventWireup="true" CodeBehind="EmployeeEdit.aspx.cs" Inherits="iEAS.Infrastructure.Web.Pages.Orgnization.EmployeeEdit" %>
 
 <%@ Register src="../Controls/UxPositionSelect.ascx" tagname="PositionSelect" tagprefix="ux" %>
+<%@ Register src="../Controls/UxEmployeeSelect.ascx" tagname="EmployeeSelect" tagprefix="ux" %>
 
 <asp:Content ID="ctHeader" ContentPlaceHolderID="Header" runat="server">
 </asp:Content>
@@ -10,7 +11,7 @@
             <td class="Big">
                 <img src="<%=Page.ResolveUrl("~/") %>assets/common/images/notify_new.gif" align="middle" alt=""><span class="big3"> 员工管理</span>&nbsp;&nbsp;&nbsp;&nbsp;
                 <span style="font-size: 12px; float: right; margin-right: 20px;">
-                    <a href="EmployeeList.aspx?departmentId=<%=DepartmentID %>" style="font-size: 12px;">&lt;&lt;返回列表页</a>
+                    <a href="EmployeeList.aspx?departmentId=<%=DepartmentID %>&companyId=<%=CompanyID%>" style="font-size: 12px;">&lt;&lt;返回列表页</a>
                 </span>
             </td>
         </tr>
@@ -76,10 +77,10 @@
                 </td>
             </tr>
             <tr>
-                <td class="TableContent" width="15%">属地
+                 <td class="TableContent" width="15%">直系领导
                 </td>
                 <td class="TableData">
-                    <asp:TextBox ID="txtAreaName" runat="server" CssClass="BigInput"></asp:TextBox>
+                    <ux:EmployeeSelect ID="uxEmployeeSelect" runat="server"></ux:EmployeeSelect>
                 </td>
                 <td class="TableContent" width="15%">职级
                 </td>
@@ -106,19 +107,7 @@
                 <td class="TableContent" width="15%">职称
                 </td>
                 <td class="TableData" colspan="3">
-                    <table>
-                        <tr>
-                            <th>序号</th>
-                            <th>职称</th>
-                        </tr>
-                    </table>
-                </td>
-            </tr>
-            <tr>
-                <td class="TableContent" width="15%">直系领导
-                </td>
-                <td class="TableData" colspan="3">
-                    <asp:TextBox ID="txtReportLine" runat="server" CssClass="BigInput"></asp:TextBox>
+                    <asp:ListBox ID="lstTitle" runat="server" SelectionMode="Multiple" Width="150px"></asp:ListBox>
                 </td>
             </tr>
             <tr>
@@ -171,21 +160,6 @@
                 </td>
             </tr>
             <tr>
-                <td class="TableContent" width="15%">所在地区
-                </td>
-                <td class="TableData">
-                    <asp:TextBox ID="txtWorkCountryName" runat="server" CssClass="BigInput"></asp:TextBox>
-                    <asp:TextBox ID="txtWorkProvinceName" runat="server" CssClass="BigInput"></asp:TextBox>
-                    <asp:TextBox ID="txtWorkCityName" runat="server" CssClass="BigInput"></asp:TextBox>
-                    <asp:TextBox ID="txtWorkCountyName" runat="server" CssClass="BigInput"></asp:TextBox>
-                </td>
-                <td class="TableContent" width="15%">邮编
-                </td>
-                <td class="TableData">
-                    <asp:TextBox ID="txtWorkZipCode" runat="server" CssClass="BigInput"></asp:TextBox>
-                </td>
-            </tr>
-            <tr>
                 <td class="TableContent" width="15%">详细地址
                 </td>
                 <td class="TableData" colspan="3">
@@ -195,7 +169,7 @@
         </table>
     </fieldset>
 
-    <fieldset>
+<%--    <fieldset>
         <legend>家庭信息</legend>
         <table class="TableBlock" border="0" width="90%" align="center" style="border-bottom: #4686c6 solid 0px;">
             <tr>
@@ -234,17 +208,17 @@
                 </td>
             </tr>
         </table>
-    </fieldset>
+    </fieldset>--%>
 
     <asp:Button ID="btnSave" runat="server" Text="保存" OnClick="btnSave_Click" CssClass="BigButton" />
-    <input type="button" value="返 回" onclick="location.href = 'EmployeeList.aspx?departmentId=<%=DepartmentID %>    '" class="BigButton" />
+    <input type="button" value="返 回" onclick="location.href = 'EmployeeList.aspx?departmentId=<%=DepartmentID %>&companyId=<%=CompanyID%>'" class="BigButton" />
 
 <script type="text/javascript">
-    $(function () {
+<%--    $(function () {
         ConfigValidateGroup();
         $("#<%=txtEmployeeNumber.ClientID%>").formValidator({ onShow: "请输入员工编号", onFocus: "保证编号不可以重复", onCorrect: "员工编号正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "员工编号两边不能有空符号" }, onError: "员工编号不能为空,请确认" });
         $("#<%=txtChinesename.ClientID%>").formValidator({ onShow: "请输入中文名", onFocus: "至少1个长度", onCorrect: "中文名正确" }).inputValidator({ min: 1,  onError: "中文名不能为空,请确认" });
-        })
-    </script>
+    });--%>
+</script>
 
 </asp:Content>

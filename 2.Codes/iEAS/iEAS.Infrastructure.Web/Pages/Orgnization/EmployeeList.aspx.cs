@@ -23,16 +23,19 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
             }
         }
 
-        public Guid DepartmentID
+        public Guid? DepartmentID
         {
             get 
             {
-                Guid? departmentId = Request["departmentId"].ToNGuid();
-                if (departmentId == null)
-                {
-                    throw new BusinessException("部门ID不能为空！");
-                }
-                return departmentId.Value;
+                return Request["departmentId"].ToNGuid();
+            }
+        }
+
+        public Guid? CompanyID
+        {
+            get
+            {
+                return Request["CompanyID"].ToNGuid();
             }
         }
         protected void btnQuery_Click(object sender, EventArgs e)
@@ -84,10 +87,28 @@ namespace iEAS.Infrastructure.Web.Pages.Orgnization
                 query = query.Where(m => m.EmployeeNumber.Contains(employeeNumber));
             }
 
+            if(DepartmentID!=null)
+            {
+                var deptId = DepartmentID.Value;
+                query = query.Where(m => m.DepartmentPostions.Any(p => p.DepartmentID == deptId));
+            }
+
+            if(CompanyID!=null)
+            {
+                var cid = CompanyID.Value;
+                query = query.Where(m => m.DepartmentPostions.Any(p => p.Department.CompanyID == cid));
+            }
+
             var result = query.PagedQuery(o => o.Desc(m => m.SN), Pager.CurrentPageIndex, Pager.PageSize);
             gvList.DataSource = result;
             gvList.DataBind();
             Pager.RecordCount = result.RecordCount;
+        }
+        
+        protected string GetDeptName(object item)
+        {
+            Employee employee = item as Employee;
+            return String.Join(",",employee.DepartmentPostions.Select(m => m.Department.Name).Distinct().ToArray());
         }
     }
 }
