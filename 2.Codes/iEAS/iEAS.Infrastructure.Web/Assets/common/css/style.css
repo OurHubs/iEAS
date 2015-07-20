@@ -272,6 +272,7 @@ input.BigButtonD:hover{background-position:0 -30px;}
 input.BigButtonEHover{width:305px;height:30px;height:27px !important;padding-bottom:3px;color:#000000;background:url("../images/big_btn_e.png") no-repeat;border:0px;cursor:pointer;font-size:12pt;background-position:0 -30px;}
 input.BigButtonE{width:305px;height:30px;height:27px !important;padding-bottom:3px;color:#36434E;background:url("../images/big_btn_e.png") no-repeat;border:0px;cursor:pointer;font-size:12pt;}
 input.BigButtonE:hover{background-position:0 -30px;}
+
 input.BigInput{ height:23px; line-height:23px;}
 input.BigInput,textarea.BigInput {font-size: 12pt;padding: 1px 5px;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text.png') top left repeat-x; background-position:0 -1px;}
 input.BigInput:hover,textarea.BigInput:hover {font-size: 12pt;border: 1px solid #99CC00; background: white url('../images/bg_input_text_hover.png') top left repeat-x;}
@@ -285,8 +286,8 @@ input.BigStatic,textarea.BigStatic {font-size: 10pt;padding: 1px 5px;  border: 1
 
 input.SmallStatic,textarea.SmallStatic {font-size: 9pt;padding: 1px 5px;  border: 1px solid #C0BBB4; background: #E0E0E0;}
 
-select.BigSelect  { COLOR: #000066;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text.png') top left repeat-x; BORDER-BOTTOM:1px double; FONT-SIZE: 12pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 22px; LINE-HEIGHT: normal}
-select.BigSelect:hover  { COLOR: #000066;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text_hover.png') top left repeat-x; BORDER-BOTTOM:1px double; FONT-SIZE: 12pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 22px; LINE-HEIGHT: normal}
+select.BigSelect  { COLOR: #000066; width:207px;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text.png') top left repeat-x; FONT-SIZE: 12pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; padding: 2px 5px; }
+select.BigSelect:hover  { COLOR: #000066;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text_hover.png') top left repeat-x;  FONT-SIZE: 12pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal;padding: 2px 5px; }
 
 select.SmallSelect{ COLOR: #000066;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text.png') top left repeat-x; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal}
 select.SmallSelect:hover{ COLOR: #000066;  border: 1px solid #C0BBB4; background: white url('../images/bg_input_text_hover.png') top left repeat-x; BORDER-BOTTOM:1px double; FONT-SIZE: 9pt; FONT-STYLE: normal; FONT-VARIANT: normal; FONT-WEIGHT: normal; HEIGHT: 18px; LINE-HEIGHT: normal}

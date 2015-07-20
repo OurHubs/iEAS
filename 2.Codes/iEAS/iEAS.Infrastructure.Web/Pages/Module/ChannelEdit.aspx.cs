@@ -71,10 +71,10 @@ namespace iEAS.Infrastructure.Web.Pages.Module
         }
 
 
-        protected void btnBack_Click(object sender, EventArgs e)
-        {
-            Response.Redirect("ChannelList.aspx");
-        }
+        //protected void btnBack_Click(object sender, EventArgs e)
+        //{
+        //    Response.Redirect("ChannelList.aspx");
+        //}
 
         #region 属性区域
         public Guid RecordID
