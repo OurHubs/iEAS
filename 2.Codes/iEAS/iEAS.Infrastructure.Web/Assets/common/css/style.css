@@ -669,6 +669,8 @@ select.SmallStatic{ COLOR: #000066; BACKGROUND: #E0E0E0; border:solid 1px black;
 .TableBlock td{ BACKGROUND: #fff;COLOR:#000;background:#fff;   border-bottom:1px #cccccc solid;   border-right:1px #cccccc solid;}
 .TableBlock td div{ display:inline-block;padding-right:10px;  }
 
+.TableBlock>tbody>tr>td table td{ border:none;}
+
 .TableData   { BACKGROUND: #FFFFFF;COLOR:#000000;}
 .TableData div{ display:inline-block;padding-right:10px;}
 

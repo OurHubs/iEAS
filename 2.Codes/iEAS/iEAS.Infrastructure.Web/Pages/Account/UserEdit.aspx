@@ -5,11 +5,11 @@
 
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
-   <style type="text/css">
+   <%--<style type="text/css">
     .TableBlock2Column td table{ float:left;}
     .tabContainer{}
     .tabContainer table{float:left; display:inline; width:400px;}
-   </style>
+   </style>--%>
 
 
     <div class="TableBlock_top">

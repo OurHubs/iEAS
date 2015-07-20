@@ -91,7 +91,6 @@
         </tr>
     </table>
      <script type="text/javascript">
-
          $(function () {
              ConfigValidateGroup();
              $("#<%=txtName.ClientID%>").formValidator({ onShow: "请输入名称", onFocus: "至少1个长度", onCorrect: "名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "名称两边不能有空符号" }, onError: "名称不能为空,请确认" });
@@ -105,7 +104,26 @@
                  $("#<%=txtModel.ClientID%>").formValidator({ onShow: "请输入模型", onFocus: "请输入模型", onCorrect: "模型正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "模型两边不能有空符号" }, onError: "模型不能为空,请确认" });
                  $("#<%=txtModel.ClientID%>").closest("tr").find("th").prepend("<span>*</span>");
              }
-        })
+         })
+
+         $("#<%=ddlChannelType.ClientID%>").change(function () {
+             $("#<%=txtURL.ClientID%>").closest("tr").find("th").find("span").remove();
+             $("#<%=txtModel.ClientID%>").closest("tr").find("th").find("span").remove();
+             var selValue = $("#<%=ddlChannelType.ClientID%>").val(); 
+             if (selValue == "URL") {
+                 $("#<%=txtURL.ClientID%>").formValidator({ onShow: "请输入URL", onFocus: "保证URL不可以重复", onCorrect: "URL正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "URL两边不能有空符号" }, onError: "URL不能为空,请确认" });
+                 if (!$("#<%=txtURL.ClientID%>").closest("tr").find("th").has("span").length) {
+                     $("#<%=txtURL.ClientID%>").closest("tr").find("th").prepend("<span>*</span>");
+                 }               
+             } else if (selValue == "MODEL" || selValue == "PModel") {
+                 $("#<%=txtModel.ClientID%>").formValidator({ onShow: "请输入模型", onFocus: "请输入模型", onCorrect: "模型正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "模型两边不能有空符号" }, onError: "模型不能为空,请确认" });
+                 if (!$("#<%=txtModel.ClientID%>").closest("tr").find("th").has("span").length) {
+                     $("#<%=txtModel.ClientID%>").closest("tr").find("th").prepend("<span>*</span>");
+                }
+             }
+
+         });
+
 
     </script>
 </asp:Content>
