@@ -28,13 +28,16 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             if(baseDataTyp==null)
             {
                 baseDataTyp = new BaseDataType();
+                if (IsExistDataTypeCode(txtCode.Text.Trim()))
+                {
+                    ScriptHelper.Alert("该编号已经存在！");
+                    return;
+                }
             }
-
             baseDataTyp.Name = txtName.Text.Trim();
             baseDataTyp.Code = txtCode.Text.Trim();
             baseDataTyp.Desc = txtDesc.Text.Trim();
             baseDataTyp.Status = 1;
-
             try
             {
                 BaseDataTypeService.CreateOrUpdate(baseDataTyp);
@@ -61,6 +64,16 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
                 txtCode.Text = baseDataTyp.Code;
                 txtDesc.Text = baseDataTyp.Desc;
             }
+        }
+
+        private bool IsExistDataTypeCode(string code)
+        {
+            if (string.IsNullOrEmpty(code))
+            {
+                return false;
+            }
+            IList<BaseDataType> listUser = BaseDataTypeService.Query(m => m.Code == code);
+            return (listUser != null && listUser.Count > 1);
         }
     }
 }

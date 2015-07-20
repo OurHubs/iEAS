@@ -61,11 +61,7 @@
              ConfigValidateGroup();
              $("#<%=txtName.ClientID%>").formValidator({ onShow: "请输入名称", onFocus: "至少1个长度", onCorrect: "名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "名称两边不能有空符号" }, onError: "名称不能为空,请确认" });
              $("#<%=txtCode.ClientID%>").formValidator({ onShow: "请输入编码", onFocus: "保证编码不可以重复", onCorrect: "编码正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "编码两边不能有空符号" }, onError: "编码不能为空,请确认" });
-
-            //$("#<%=txtDesc.ClientID%>").formValidator({ empty: true, onEmpty: "真的不输入描述了吗？", onShow: "请输入备注", onFocus: "最好填写备注", onCorrect: "备注正确" }).inputValidator({ empty: { leftEmpty: false, rightEmpty: false, emptyError: "编码两边不能有空符号" }, onError: "描述不能为空,请确认" });
-
-        })
-
+         })
     </script>
 
 </asp:Content>
