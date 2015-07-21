@@ -55,6 +55,14 @@
 	};
 
 
+	owner.forgetPassword=function(email,callback){
+		callback=callback || $.noop;
+		if(!checkEmail(email)){
+			return callback("邮箱地址不合法");
+		}
+		return callback();
+	};
+
 	owner.createState = function(name, callback) {
 		var state = owner.getState();
 		state.account = name;
