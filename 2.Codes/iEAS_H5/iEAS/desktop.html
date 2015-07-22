@@ -29,9 +29,9 @@
 					<div class="mui-slider-item">
 						<ul class="mui-table-view mui-grid-view mui-grid-9">
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
-								<a href="#">
+								<a href="workflow-index.html">
 									<span class="mui-icon mui-icon-home"></span>
-									<div class="mui-media-body">Home</div>
+									<div class="mui-media-body">工作流</div>
 								</a>
 							</li>
 							<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
@@ -273,6 +273,12 @@
 					}
 				}
 				toggleLoop(true);
+				
+				
+				$(".mui-table-view-cell").on('tap','a',function(event){
+					var url=this.getAttribute('href');
+					$.openWindow(url);
+				});
 			}(mui,document));
 		</script>
 	</body>

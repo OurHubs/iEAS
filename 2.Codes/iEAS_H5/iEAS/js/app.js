@@ -10,15 +10,16 @@
 		loginInfo.account = loginInfo.account || '';
 		loginInfo.password = loginInfo.password || '';
 		
-		if(loginInfo.account.length<6){
-			return callback("账号最短为 5 个字符");
+		if(loginInfo.account.length<1){
+			return callback("账号最短为 1 个字符");
 		}
-		if(loginInfo.password.length<6){
-			return callback('密码最短为 6 个字符');
+		if(loginInfo.password.length<1){
+			return callback('密码最短为 1 个字符');
 		}
 		
 		var users=JSON.parse(localStorage.getItem("$users") || '[]');
 		var authed=users.some(function(user){
+			console.log(user.account);
 			return user.account=loginInfo.account && user.password== loginInfo.password;
 		});
 		
@@ -46,14 +47,14 @@
 		regInfo.account = regInfo.account || '';
 		regInfo.password = regInfo.password || '';
 		
-		if(regInfo.account.length<5){
-			return callback("");
+		if(regInfo.account.length<1){
+			return callback("账号最短为 1 个字符");
 		}
-		if(regInfo.password.length<5){
-			return callback("");
+		if(regInfo.password.length<1){
+			return callback("账号最短为 1 个字符");
 		}
 		if(!checkEmail(regInfo.email)){
-			return callback('密码最短为 6 个字符');
+			return callback('Email格式不正确');
 		}
 		var users=JSON.parse(localStorage.getItem("$users") || '[]');
 		users.push(regInfo);
