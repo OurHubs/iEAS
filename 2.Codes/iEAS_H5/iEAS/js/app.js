@@ -31,6 +31,13 @@
 	};	
 	
 	/*
+	 * 登出
+	 */
+	owner.logout=function(){
+		owner.setState(null);
+	};
+	
+	/*
 	 * 注册用户信息
 	 */
 	owner.reg=function(regInfo,callback){
@@ -113,4 +120,15 @@
 		email=email ||"";
 		return (email.length>3 && email.indexOf('@')>-1);
 	};
+	
+	var clearApp=function(){
+		var views=plus.webview.all();
+		var appid=plus.runtime.appid;
+		for(var i in views){
+			var view=views[i];
+			if(view.id!==appid){
+				view.close();
+			}
+		}
+	}
 }(mui, window.app = {}));

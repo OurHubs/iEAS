@@ -115,6 +115,7 @@
 			$.init({
 				statusBarBackground: '#f7f7f7'
 			});
+			
 			$.plusReady(function() {
 				plus.screen.lockOrientation("portrait-primary");
 				var settings = app.getSettings();
@@ -137,6 +138,17 @@
 						});
 					}, 0);
 				};
+				
+				plus.webview.currentWebview().onshow=function(event){
+					if(mainPage){
+						mainPage.close();
+						mainPage = $.preload({
+							"id": 'main',
+							"url": 'main.html'
+						});
+					}
+				};
+				
 				//检查 "登录状态/锁屏状态" 开始
 				if (settings.autoLogin && state.token && settings.gestures) {
 					$.openWindow({
