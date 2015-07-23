@@ -3,12 +3,7 @@
     Inherits="iEAS.Infrastructure.Web.Pages.BaseData.BaseDataItemEdit" %>
 
 <asp:Content ID="Content1" runat="server" ContentPlaceHolderID="Content">
-      <%--  <div class="container">
-            <div class="form_panel">
-                <div class="from_panel_header">
-                    <span class="title icon_search">基础数据项</span>
-                </div>
-                <div class="form_panel_body">--%>
+
 
     <div class="TableBlock_top">
         <div class="TableBlock_top_title">
@@ -59,6 +54,12 @@
                             </td>
                         </tr>
                     </table>
-              
+              <script type="text/javascript">
+                  $(function () {
+                      ConfigValidateGroup();
+                      $("#<%=txtName.ClientID%>").formValidator({ onShow: "请输入名称", onFocus: "至少1个长度", onCorrect: "名称正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "名称两边不能有空符号" }, onError: "名称不能为空,请确认" });
+                      $("#<%=txtValue.ClientID%>").formValidator({ onShow: "请输入值", onFocus: "保证值不可以重复", onCorrect: "值正确" }).inputValidator({ min: 1, empty: { leftEmpty: false, rightEmpty: false, emptyError: "值两边不能有空符号" }, onError: "值不能为空,请确认" });
+         })
+    </script>  
 </asp:Content>
 

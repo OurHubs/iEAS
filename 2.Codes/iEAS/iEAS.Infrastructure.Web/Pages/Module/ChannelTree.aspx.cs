@@ -27,7 +27,7 @@ namespace iEAS.Infrastructure.Web.Pages.Module
 
             foreach (var channel in channels)
             {
-                sbChannel.AppendFormat("{{id:{0},pId:{1},name:'{2}',guid:'{3}',open:true,url:'{4}',target:'main'}},", channel.ID, channel.ParentID.ToStr("null"), channel.Name, channel.ID, GetUrl(channel));
+                sbChannel.AppendFormat("{{id:'{0}',pId:{1},name:'{2}',guid:'{3}',open:true,url:'{4}',target:'main'}},", channel.ID, channel.ParentID==null?"null":"'"+channel.ParentID+"'", channel.Name, channel.ID, GetUrl(channel));
             }
             sbChannel.Trim(',').Append(']');
             return sbChannel.ToString();

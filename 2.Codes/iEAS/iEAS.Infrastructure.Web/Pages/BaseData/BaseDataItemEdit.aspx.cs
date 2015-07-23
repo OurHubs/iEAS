@@ -44,18 +44,21 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
         protected void btnSave_Click(object sender, EventArgs e)
         {
             var baseDataItem = BaseDataItemService.GetByID(RecordID);
-
             if (baseDataItem == null)
             {
                 baseDataItem = new BaseDataItem();
                 baseDataItem.ParentID = ParentID;
+                if (IsExistDataItemValue(txtValue.Text.Trim()))
+                {
+                    ScriptHelper.Alert("该值已经存在！");
+                    return;
+                }
             }
             baseDataItem.TypeID = TypeID;
             baseDataItem.Name = txtName.Text.Trim();
             baseDataItem.Value = txtValue.Text.Trim();
             baseDataItem.Desc = txtDesc.Text.Trim();
             baseDataItem.Status = 1;
-
             try
             {
                 BaseDataItemService.CreateOrUpdate(baseDataItem);
@@ -98,6 +101,16 @@ namespace iEAS.Infrastructure.Web.Pages.BaseData
             {
                 lblParent.Text = "顶级数据项";
             }
+        }
+
+        private bool IsExistDataItemValue(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                return false;
+            }
+            IList<BaseDataItem> listUser = BaseDataItemService.Query(m => m.Value == value);
+            return (listUser != null && listUser.Count > 1);
         }
     }
 }

@@ -5,10 +5,10 @@
 <head runat="server">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <title>框架管理系统</title>
-    <link href="../../Assets/common/css/Admin.css" rel="stylesheet" />
-    <link href="../../Assets/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
-    <script src="../../Assets/common/js/jquery.min.js" type="text/javascript"></script>
-    <script src="../../Assets/ztree/js/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
+    <link href="<%=Page.ResolveUrl("~/") %>Assets/common/css/Admin.css" rel="stylesheet" />
+    <link href="<%=Page.ResolveUrl("~/") %>Assets/ztree/css/zTreeStyle/zTreeStyle.css" rel="stylesheet" />
+    <script src="<%=Page.ResolveUrl("~/") %>Assets/common/js/jquery.min.js" type="text/javascript"></script>
+    <script src="<%=Page.ResolveUrl("~/") %>Assets/ztree/js/jquery.ztree.all-3.5.min.js" type="text/javascript"></script>
     <script type="text/javascript">
 	<!--
     var setting = {
