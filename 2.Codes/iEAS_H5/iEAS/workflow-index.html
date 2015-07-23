@@ -4,189 +4,151 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Hello MUI</title>
-		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1, user-scalable=no">
+		<meta name="viewport" content="width=device-width, initial-scale=1,maximum-scale=1,user-scalable=no">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="apple-mobile-web-app-status-bar-style" content="black">
 
+		<!--标准mui.css-->
 		<link rel="stylesheet" href="css/mui.min.css">
+		<!--App自定义的css-->
+		<style>
+			.mui-bar-popover {
+				width: 30%;
+			}
+		</style>
 	</head>
-
 	<body>
 		<header class="mui-bar mui-bar-nav">
 			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
-			<h1 class="mui-title">Hello mui</h1>
-			<a class="mui-icon mui-icon-bars mui-pull-right"></a>
+			<h1 id="title" class="mui-title">流程</h1>
 		</header>
-		<script src="js/mui.min.js"></script>
-		<script src="js/update.js" type="text/javascript" charset="utf-8"></script>
-		<script>
-			var menu = null,
-				main = null;
-			var showMenu = false;
-			mui.init({
-				swipeBack: false,
-				statusBarBackground: '#f7f7f7',
-				gestureConfig: {
-					doubletap: true
-				},
-				subpages: [{
-					id: 'workflow-list',
-					url: 'workflow-list.html',
-					styles: {
-						top: '45px',
-						bottom: 0,
-						bounce: 'vertical'
-					}
-				}]
-			});
-			mui.plusReady(function() {
-				//仅支持竖屏显示
-				plus.screen.lockOrientation("portrait-primary");
-				main = plus.webview.currentWebview();
-				main.addEventListener('maskClick', closeMenu);
-				//处理侧滑导航，为了避免和子页面初始化等竞争资源，延迟加载侧滑页面；
-				setTimeout(function() {
-					menu = mui.preload({
-						id: 'workflow-index-menu',
-						url: 'workflow-index-menu.html',
-						styles: {
-							left: 0,
-							width: '70%',
-							zindex: -1
-						},
-						show: {
-							aniShow: 'none'
-						}
-					});
-				}, 200);
-			});
-			var isInTransition = false;
-			/**
-			 * 显示侧滑菜单
-			 */
-			function openMenu() {
-				if (isInTransition) {
-					return;
-				}
-				if (!showMenu) {
-					//侧滑菜单处于隐藏状态，则立即显示出来；
-					isInTransition = true;
-					menu.setStyle({
-						mask: 'rgba(0,0,0,0)'
-					}); //menu设置透明遮罩防止点击
-					menu.show('none', 0, function() {
-						//主窗体开始侧滑并显示遮罩
-						main.setStyle({
-							mask: 'rgba(0,0,0,0.4)',
-							left: '70%',
-							transition: {
-								duration: 150
-							}
-						});
-						mui.later(function() {
-							isInTransition = false;
-							menu.setStyle({
-								mask: "none"
-							}); //移除menu的mask
-						}, 160);
-						showMenu = true;
-					});
-				}
-			};
-			/**
-			 * 关闭菜单
-			 */
-			function closeMenu() {
-				if (isInTransition) {
-					return;
-				}
-				if (showMenu) {
-					//关闭遮罩；
-					//主窗体开始侧滑；
-					isInTransition = true;
-					main.setStyle({
-						mask: 'none',
-						left: '0',
-						transition: {
-							duration: 200
-						}
-					});
-					showMenu = false;
-					//等动画结束后，隐藏菜单webview，节省资源；
-					mui.later(function() {
-						isInTransition = false;
-						menu.hide();
-					}, 300);
-				}
-			};
-			 //点击左上角侧滑图标，打开侧滑菜单；
-			document.querySelector('.mui-icon-bars').addEventListener('tap', function(e) {
-				if (showMenu) {
-					closeMenu();
-				} else {
-					openMenu();
-				}
-			});
-			 //敲击顶部导航，内容区回到顶部
-			document.querySelector('header').addEventListener('doubletap', function() {
-				main.children()[0].evalJS('mui.scrollTo(0, 100)');
-			});
-			 //主界面向右滑动，若菜单未显示，则显示菜单；否则不做任何操作
-			window.addEventListener("swiperight", openMenu);
-			 //主界面向左滑动，若菜单已显示，则关闭菜单；否则，不做任何操作；
-			window.addEventListener("swipeleft", closeMenu);
-			 //侧滑菜单触发关闭菜单命令
-			window.addEventListener("menu:close", closeMenu);
-			window.addEventListener("menu:open", openMenu);
-			 //重写mui.menu方法，Android版本menu按键按下可自动打开、关闭侧滑菜单；
-			mui.menu = function() {
-					if (showMenu) {
-						closeMenu();
-					} else {
-						openMenu();
-					}
-				}
-				//处理右上角关于图标的点击事件；
-			var subWebview = null,
-				template = null;
-			document.getElementById('info').addEventListener('tap', function() {
-				if (subWebview == null) {
-					//获取共用父窗体
-					template = plus.webview.getWebviewById("default-main");
-				}
-				if (template) {
-					subWebview = template.children()[0];
-					subWebview.loadURL('examples/info.html');
-					//修改共用父模板的标题
-					mui.fire(template, 'updateHeader', {
-						title: '关于',
-						showMenu: false
-					});
-					template.show('slide-in-right', 150);
-				}
-			});
-			 //首页返回键处理
-			 //处理逻辑：1秒内，连续两次按返回键，则退出应用；
-			var first = null;
-			mui.back = function() {
-				if (showMenu) {
-					closeMenu();
-				} else {
-					//首次按键，提示‘再按一次退出应用’
-					if (!first) {
-						first = new Date().getTime();
-						mui.toast('再按一次退出应用');
-						setTimeout(function() {
-							first = null;
-						}, 1000);
-					} else {
-						if (new Date().getTime() - first < 1000) {
-							plus.runtime.quit();
-						}
-					}
-				}
-			};
-		</script>
+		<nav class="mui-bar mui-bar-tab ">
+			<a class="mui-tab-item" href="workflow-list-start.html">
+				<span class="mui-icon mui-icon-home"></span>
+				<span class="mui-tab-label">流程</span>
+			</a>
+			<a class="mui-tab-item" href="workflow-list-pending.html">
+				<span class="mui-icon mui-icon-email"><span class="mui-badge">9</span></span>
+				<span class="mui-tab-label">待审批</span>
+			</a>
+			<a class="mui-tab-item" href="workflow-list-submited.html">
+				<span class="mui-icon mui-icon-contact"></span>
+				<span class="mui-tab-label">已提交</span>
+			</a>
+			<a class="mui-tab-item" href="workflow-list-approved.html">
+				<span class="mui-icon mui-icon-minus"></span>
+				<span class="mui-tab-label">已审批</span>
+			</a>
+		</nav>
+		<!--
+        	作者：snta2008@126.com
+        	时间：2015-07-23
+        	描述：       
+		<div id="more" class="mui-popover mui-bar-popover">
+			<div class="mui-popover-arrow"></div>
+			<ul class="mui-table-view">
+				<li class="mui-table-view-cell"><a href="#">草稿</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="#">已审批</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="#">与我相关</a>
+				</li>
+				<li class="mui-table-view-cell"><a href="#">流程列表</a>
+				</li>
+			</ul>
+		</div>
+		 -->
 	</body>
-
+	<script src="js/mui.min.js"></script>
+	<script type="text/javascript" charset="utf-8">
+		(function($,doc){
+			var aniShow = "pop-in";
+			var webview_style = {
+						popGesture: "close"
+					};
+			
+			 //mui初始化
+			$.init({
+				swipeBack:true 
+			});
+			var subpages = ['workflow-list-start.html', 'workflow-list-pending.html', 'workflow-list-submited.html', 'workflow-list-approved.html'];
+			var subpage_style = {
+				top: '46px',
+				bottom: '50px'
+			};
+			
+			var aniShow = {};
+			
+			 //创建子页面，首个选项卡页面显示，其它均隐藏；
+			$.plusReady(function() {
+				var self = plus.webview.currentWebview();
+				for (var i = 0; i < 4; i++) {
+					var temp = {};
+					var sub = plus.webview.create(subpages[i], subpages[i], subpage_style);
+					if (i > 0) {
+						sub.hide();
+					}else{
+						temp[subpages[i]] = "true";
+						mui.extend(aniShow,temp);
+					}
+					self.append(sub);
+				}
+			});
+			 //当前激活选项
+			var activeTab = subpages[0];
+			var title = document.getElementById("title");
+			 //选项卡点击事件
+			$('.mui-bar-tab').on('tap', 'a', function(e) {
+				var targetTab = this.getAttribute('href');
+				if (targetTab == activeTab) {
+					return;
+				}
+				/*
+				if(targetTab=="setting.html"){
+					console.log('setting.html');
+					$.openWindow({
+						id: "setting",
+						url: "setting.html",
+						styles: webview_style,
+						show: {
+							aniShow: aniShow
+						},
+						waiting: {
+							autoShow: false
+						}
+					});
+					return false;
+				}
+				*/
+				
+				//更换标题
+				title.innerHTML = this.querySelector('.mui-tab-label').innerHTML;
+				//显示目标选项卡
+				if($.os.ios||aniShow[targetTab]){
+					plus.webview.show(targetTab);
+				}else{
+					var temp = {};
+					temp[targetTab] = "true";
+					mui.extend(aniShow,temp);
+					plus.webview.show(targetTab,"fade-in",300);
+				}
+				//隐藏当前;
+				plus.webview.hide(activeTab);
+				//更改当前活跃的选项卡
+				activeTab = targetTab;
+			});
+			 //自定义事件，模拟点击“首页选项卡”
+			doc.addEventListener('gohome', function() {
+				var defaultTab = document.getElementById("defaultTab");
+				//模拟首页点击
+				mui.trigger(defaultTab, 'tap');
+				//切换选项卡高亮
+				var current = document.querySelector(".mui-bar-tab>.mui-tab-item.mui-active");
+				if (defaultTab !== current) {
+					current.classList.remove('mui-active');
+					defaultTab.classList.add('mui-active');
+				}
+			});
+		}(mui,document));			
+	</script>
 </html>

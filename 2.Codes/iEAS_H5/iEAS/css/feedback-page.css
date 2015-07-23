@@ -17,7 +17,7 @@
 .feedback p {
 	padding: 10px 15px 0;
 }
-.feedback button { 
+.feedback .mui-btn-block { 
 	width: 90%;
 	height: 46px;
 	left: 50%;

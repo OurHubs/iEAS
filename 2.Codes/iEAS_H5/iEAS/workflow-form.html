@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en" class="feedback">
+
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>feedback</title>
+		<link rel="stylesheet" type="text/css" href="css/mui.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="css/app.css" />
+		 
+		<link rel="stylesheet" type="text/css" href="css/feedback-page.css" />
+		
+		<link href="css/mui.listpicker.css" rel="stylesheet" />
+		<link href="css/mui.dtpicker.css" rel="stylesheet" />
+	</head>
+
+	<body>
+		<header class="mui-bar mui-bar-nav">
+			<a class="mui-action-back mui-icon mui-icon-left-nav mui-pull-left"></a>
+			<h1 class="mui-title">请假流程申请</h1>
+		</header>
+		<div class="mui-content">
+			<p>原因</p>
+			<div class="row mui-input-row">
+				<textarea id='question' class="mui-input-clear question" placeholder="请详细填写请假原因..."></textarea>
+			</div>
+			<p>日期</p>
+			<form id='login-form' class="mui-input-group">
+				<div class="mui-input-row">
+					<input id='contact' type="text" class="mui-input-clear  contact" placeholder="请输入开日期" />
+				</div>
+				<div class="mui-input-row">
+					<input id='enddate' type="text" class="mui-input-clear  contact" placeholder="请输入结束日期" />
+				</div>
+			</form>
+			<p>附件(选填,提供问题截图)</p>
+			<div id='image-list' class="row image-list">
+			</div>
+			<button id='submit' type="button" class="mui-btn mui-btn-block mui-btn-green">提交</button>
+		</div>
+		<p>您还有4.5天年假款使用</p>
+		<script src="js/mui.min.js"></script>
+		<!--
+        	作者：snta2008@126.com
+        	时间：2015-07-23
+        	描述：       
+		<script src='libs/easymob-webim-sdk/jquery-1.11.1.js'></script>
+		<script src='libs/easymob-webim-sdk/strophe-custom-2.0.0.js'></script>
+		<script src='libs/easymob-webim-sdk/json2.js'></script>
+		<script src="libs/easymob-webim-sdk/easemob.im-1.0.5.js"></script>
+		<script src='js/feedback.js'></script>
+				 -->
+		<script src="js/feedback-page.js"></script>
+
+		<script src="js/mui.listpicker.js"></script>
+		<script src="js/mui.dtpicker.js"></script>
+		<script>
+		(function($,doc){
+			var pickers = {};
+			document.getElementById("contact").addEventListener('tap',function(event){
+				pickers['contact']=pickers['contact'] || new $.DtPicker({type:"date"});
+				pickers['contact'].show(function(rs) {
+							document.getElementById("contact").value =rs.text;
+						});
+				
+			},false);
+			document.getElementById("enddate").addEventListener('tap',function(event){
+				pickers['enddate']=pickers['enddate'] || new $.DtPicker({type:"date"});
+				pickers['enddate'].show(function(rs) {
+							document.getElementById("enddate").value =rs.text;
+						});
+				
+			},false);
+		}(mui,document));
+		</script>
+	</body>
+
+</html>

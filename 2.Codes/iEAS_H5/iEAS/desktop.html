@@ -277,7 +277,12 @@
 				
 				$(".mui-table-view-cell").on('tap','a',function(event){
 					var url=this.getAttribute('href');
-					$.openWindow(url);
+					$.openWindow({
+						url:url,
+						styles:{
+							index:999
+						}
+					});
 				});
 			}(mui,document));
 		</script>
