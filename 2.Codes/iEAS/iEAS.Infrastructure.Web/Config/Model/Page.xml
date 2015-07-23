@@ -90,7 +90,7 @@
     <Table Name="单页数据" Code="Page">
       <Columns>
         <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
-        <Column Name="栏目ID" Code="ChannelID" Type="int" Nullable="true"></Column>
+        <Column Name="栏目ID" Code="ChannelID" Type="guid" Nullable="true"></Column>
         <Column Name="栏目名称" Code="ChannelName" Type="nvarchar" MaxLength="100" Nullable="true"></Column>
         <Column Name="内容" Code="Content" Type="ntext" MaxLength="50" Nullable="true"></Column>
         <Column Name="更新人" Code="Updator" Type="nvarchar" MaxLength="50" Nullable="true"></Column>

@@ -46,7 +46,7 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Field
         public override Dictionary<string, object> GetValues()
         {
             Dictionary<string, object> result = new Dictionary<string, object>();
-            result.Add(Field.Code, hfChannelID.Value.ToNInt());
+            result.Add(Field.Code, hfChannelID.Value);
             if (Field.Params.ContainsKey("NameField"))
             {
                 result.Add(Field.Params["NameField"], hfChannelName.Value);

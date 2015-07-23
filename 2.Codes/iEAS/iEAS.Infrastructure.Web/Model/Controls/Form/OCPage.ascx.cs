@@ -98,8 +98,8 @@ namespace iEAS.Infrastructure.Web.Model.Controls.Form
 
         private Record GetRecord()
         {
-            int cid = Request["cid"].ToInt();
-            if (cid != 0)
+            Guid? cid = Request["cid"].ToNGuid();
+            if (cid != null)
             {
                 return new DBEngine().GetRecord(ModelContext.Current.Form, new Dictionary<string, object> { { "ChannelID", cid } });
             }

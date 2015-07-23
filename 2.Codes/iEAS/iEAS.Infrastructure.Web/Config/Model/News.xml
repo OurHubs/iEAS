@@ -91,7 +91,7 @@
     <Table Name="新闻动态" Code="News">
       <Columns>
         <Column Name="RecordID" Code="RecordID" Type="guid" Nullable="true" PrimaryKey="true"></Column>
-        <Column Name="栏目ID" Code="ChannelID" Type="int" Nullable="true"></Column>
+        <Column Name="栏目ID" Code="ChannelID" Type="guid" Nullable="true"></Column>
         <Column Name="栏目名称" Code="ChannelName" Type="nvarchar" MaxLength="100" Nullable="true"></Column>
         <Column Name="标题" Code="Title" Type="nvarchar" MaxLength="500" Nullable="true"></Column>
         <Column Name="内容" Code="Content" Type="ntext" Nullable="true"></Column>
