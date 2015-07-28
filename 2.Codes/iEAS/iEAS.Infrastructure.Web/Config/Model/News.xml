@@ -80,10 +80,10 @@
       <Params></Params>
     </DataSource>
     <DataSource Code="News.PagedList">
-      <Sql>SELECT * FROM News</Sql>
+      <Sql>SELECT *,SN as ChannelSN FROM ChannelNews</Sql>
       <OrderBy>UpdateTime DESC</OrderBy>
       <Params>
-        <Param Name="ChannelID" Source="Route" Value="ChannelID" Operation="=" />
+        <Param Name="SN" Source="Route" Value="ChannelSN" Operation="=" />
       </Params>
     </DataSource>
   </DataSources>

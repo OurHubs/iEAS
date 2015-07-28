@@ -23,7 +23,7 @@
         {
             case "model":
             case "pmodel":
-                url = "/channel/" + channel.GetStr("ID");
+                url = "/channel/" + channel.GetStr("SN");
                 break;
             case "node":
                 url = "/channel/" + channel.GetStr("URL");

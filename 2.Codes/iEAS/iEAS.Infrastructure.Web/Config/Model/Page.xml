@@ -79,10 +79,10 @@
       </Params>
     </DataSource>
     <DataSource Code="Page.ChannelRecord">
-      <Sql>SELECT * FROM Page</Sql>
+      <Sql>SELECT *,SN as ChannelSN FROM PageNews</Sql>
       <OrderBy></OrderBy>
       <Params>
-        <Param Name="ChannelID" Source="Route" Value="ChannelID" Operation="="></Param>
+        <Param Name="SN" Source="Route" Value="ChannelSN" Operation="="></Param>
       </Params>
     </DataSource>
   </DataSources>

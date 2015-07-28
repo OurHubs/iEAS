@@ -3,24 +3,24 @@
   <DataSources>
     <DataSource Code="Channel.TopMenu">
       <Sql>SELECT * FROM CHANNEL</Sql>
-      <OrderBy>SORT ASC</OrderBy>
+      <OrderBy>SN ASC</OrderBy>
       <Params>
         <Param Name="STATUS" Source="Const" Operation="=" Value="1"></Param>
         <Param Name="PARENT_ID" Source="Const" Operation="IS" Value="NULL"></Param>
       </Params>
     </DataSource>
     <DataSource Code="Channel.SecondMenu">
-      <Sql>SELECT * FROM CHANNEL WHERE PARENT_ID = (SELECT PARENT_ID FROM CHANNEL WHERE ID=@ID)</Sql>
-      <OrderBy>SORT ASC</OrderBy>
+      <Sql>SELECT * FROM CHANNEL WHERE PARENT_ID = (SELECT PARENT_ID FROM CHANNEL WHERE SN=@SN)</Sql>
+      <OrderBy>SN ASC</OrderBy>
       <Params>
-        <Param Name="ID" Source="ROUTE" Value="ChannelID" Queryable="false"></Param>
+        <Param Name="SN" Source="ROUTE" Value="ChannelSN" Queryable="false"></Param>
       </Params>
     </DataSource>
     <DataSource Code="Channel.CurrentMenu">
-      <Sql>SELECT * FROM CHANNEL WHERE ID = @ID</Sql>
-      <OrderBy>SORT ASC</OrderBy>
+      <Sql>SELECT * FROM CHANNEL WHERE SN = @SN</Sql>
+      <OrderBy>SN ASC</OrderBy>
       <Params>
-        <Param Name="ID" Source="ROUTE" Value="ChannelID" Queryable="false"></Param>
+        <Param Name="SN" Source="ROUTE" Value="ChannelSN" Queryable="false"></Param>
       </Params>
     </DataSource>
   </DataSources>

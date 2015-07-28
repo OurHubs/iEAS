@@ -6,7 +6,7 @@
     <ul class="sub-nav-2 cu-span">
         <% Iterator(m =>
            { %>
-        <li><a href="/Channel/<%=m.GetStr("ID") %>" title="<%=m.GetStr("Name") %>"><span><%=m.GetStr("NAME") %></span></a></li>
+        <li><a href="/Channel/<%=m.GetStr("SN") %>" title="<%=m.GetStr("Name") %>"><span><%=m.GetStr("NAME") %></span></a></li>
         <%}); %>
     </ul>
 </div>
