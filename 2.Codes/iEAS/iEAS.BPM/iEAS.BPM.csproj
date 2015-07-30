@@ -57,7 +57,10 @@
   <ItemGroup>
     <Compile Include="Entity\Activity.cs" />
     <Compile Include="Entity\ActivityInstance.cs" />
+    <Compile Include="Entity\ActivityInstanceDestination.cs" />
     <Compile Include="Entity\Connection.cs" />
+    <Compile Include="Entity\DataField.cs" />
+    <Compile Include="Entity\enum.cs" />
     <Compile Include="Entity\Process.cs" />
     <Compile Include="Entity\ProcessInstance.cs" />
     <Compile Include="Entity\Worklist.cs" />

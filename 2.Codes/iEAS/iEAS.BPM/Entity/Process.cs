@@ -8,7 +8,7 @@ namespace iEAS.BPM
 {
     public class Process
     {
-        public Guid Id { get; set; }
+        public int Id { get; set; }
         public string FullName { get; set; }
         public virtual List<Activity> Activities { get; set; }
     }
