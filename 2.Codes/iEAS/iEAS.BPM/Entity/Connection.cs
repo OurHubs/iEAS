@@ -13,11 +13,9 @@ namespace iEAS.BPM
     public class Connection:IDisposable
     {
         private string _Impersonator;
-        private BPMRepository _Repository;
 
         public Connection()
         {
-            _Repository = new BPMRepository();
         }
 
         /// <summary>
@@ -48,12 +46,15 @@ namespace iEAS.BPM
         /// <returns></returns>
         public ProcessInstance CreateProcessInstance(string processCode)
         {
-            ProcessInstance instance = new ProcessInstance(_Repository);
-            var process=_Repository.Process.FirstOrDefault(m => m.Code == processCode);
-            instance.Process = process;
-            instance.ProcessId = process.Id;
-            _Repository.ProcessInstance.Add(instance);
-            _Repository.SaveChanges();
+            ProcessInstance instance = new ProcessInstance();
+            using (var rep = new BPMRepository())
+            { 
+                var process = rep.Process.FirstOrDefault(m => m.Code == processCode);
+                instance.Process = process;
+                instance.ProcessId = process.Id;
+                rep.ProcessInstance.Add(instance);
+                rep.SaveChanges();
+            }
 
             return instance;
         }
@@ -85,11 +86,6 @@ namespace iEAS.BPM
 
         public void Dispose()
         {
-            if(_Repository!=null)
-            {
-                _Repository.Dispose();
-                _Repository = null;
-            }
         }
     }
 }

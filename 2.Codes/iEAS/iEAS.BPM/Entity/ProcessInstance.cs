@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Activities;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,12 +10,10 @@ namespace iEAS.BPM
 {
     public class ProcessInstance
     {
-        private BPMRepository _Repository;
         private int _State = -1;
 
-        internal ProcessInstance(BPMRepository repository)
+        internal ProcessInstance()
         {
-            _Repository = repository;
         }
 
         #region 属性
@@ -62,12 +61,15 @@ namespace iEAS.BPM
         public void Start()
         {
             WorkflowApplication workflowApplication = CreateApplication();
-            RegisterEvents(workflowApplication);
+            RegisterEvents(workflowApplication);           
+            using(var rep=new BPMRepository())
+            {
+                rep.Entry(this).State = EntityState.Modified;
+                this.State = 0;
+                this.ApplicationId = workflowApplication.Id;               
+                rep.SaveChanges();
+            }
             workflowApplication.Run();
-            
-            this.ApplicationId = workflowApplication.Id;
-            this.State = 0;
-            _Repository.SaveChanges();
         }
 
         private WorkflowApplication CreateApplication()
@@ -83,8 +85,12 @@ namespace iEAS.BPM
 
         private void OnCompleted(WorkflowApplicationCompletedEventArgs args)
         {
-            //this.State = 2;
-            //_Repository.SaveChanges();
+            using (var rep=new BPMRepository())
+            {
+                rep.Entry(this).State = EntityState.Modified;
+                this.State = 2;
+                rep.SaveChanges();
+            }
 
             Console.WriteLine("============================Begin===================================");
 
