@@ -21,8 +21,7 @@ namespace iEAS.BPM
             modelBuilder.Configurations.Add(new ActivityMapping());
             modelBuilder.Configurations.Add(new ProcessInstanceMapping());
             modelBuilder.Configurations.Add(new ActivityInstanceMapping());
-            modelBuilder.Configurations.Add(new WorklistItemMapping());
-            modelBuilder.Configurations.Add(new WorklistItemApproverMapping());
+            modelBuilder.Configurations.Add(new ActivityInstanceDestinationMapping());
 
             base.OnModelCreating(modelBuilder);
         }
@@ -31,7 +30,6 @@ namespace iEAS.BPM
         public DbSet<Activity> Activity { get; set; }
         public DbSet<ProcessInstance> ProcessInstance { get; set; }
         public DbSet<ActivityInstance> ActivityInstance { get; set; }
-        public DbSet<WorklistItem> WorklistItem { get; set; }
-        public DbSet<WorklistItemApprover> WorklistItemApprover { get; set; }
+        public DbSet<ActivityInstanceDestination> ActivityInstanceDestination { get; set; }
     }
 }

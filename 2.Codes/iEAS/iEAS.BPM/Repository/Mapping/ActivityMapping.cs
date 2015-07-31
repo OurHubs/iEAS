@@ -11,6 +11,8 @@ namespace iEAS.BPM.Repository.Mapping
     {
         public ActivityMapping()
         {
+            this.ToTable("Activity");
+
             this.HasKey(m => m.Id);
             this.HasRequired(m => m.Process).WithMany(m => m.Activities).HasForeignKey(m => m.ProcessId).WillCascadeOnDelete();
         }

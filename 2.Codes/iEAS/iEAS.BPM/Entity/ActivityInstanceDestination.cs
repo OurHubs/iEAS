@@ -20,6 +20,10 @@ namespace iEAS.BPM
         /// </summary>
         public int ActivityInstanceId { get; set; }
         /// <summary>
+        /// 流程实例Id
+        /// </summary>
+        public int ProcessInstanceId { get; set; }
+        /// <summary>
         /// 目标对象类型
         /// </summary>
         public DestinationType DestinationType { get; set; }
@@ -43,5 +47,9 @@ namespace iEAS.BPM
         /// 节点实例
         /// </summary>
         public virtual ActivityInstance ActivityInstance { get; set; }
+        /// <summary>
+        /// 流程实例
+        /// </summary>
+        public virtual ProcessInstance ProcessInstance { get; set; }
     }
 }

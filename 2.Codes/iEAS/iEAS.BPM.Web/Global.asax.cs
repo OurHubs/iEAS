@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Security;
@@ -11,6 +12,7 @@ namespace iEAS.BPM.Web
     {
         protected void Application_Start(object sender, EventArgs e)
         {
+            
         }
     }
 }

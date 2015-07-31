@@ -11,6 +11,7 @@
     <form id="form1" runat="server">
     <div>
         <asp:Button ID="btnGenerateDB" runat="server" Text="生成数据库" OnClick="btnGenerateDB_Click" />
+         <asp:Button ID="btnCreateProc" runat="server" Text="创建流程实例" OnClick="btnCreateProc_Click" />
     </div>
     </form>
 </body>

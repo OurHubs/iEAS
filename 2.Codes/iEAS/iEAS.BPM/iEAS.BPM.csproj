@@ -59,24 +59,33 @@
     <Compile Include="Entity\ActivityInstance.cs" />
     <Compile Include="Entity\ActivityInstanceDestination.cs" />
     <Compile Include="Entity\Connection.cs" />
-    <Compile Include="Entity\DataField.cs" />
     <Compile Include="Entity\enum.cs" />
     <Compile Include="Entity\Process.cs" />
     <Compile Include="Entity\ProcessInstance.cs" />
-    <Compile Include="Entity\Worklist.cs" />
-    <Compile Include="Entity\WorklistItem.cs" />
-    <Compile Include="Entity\WorklistItemApprover.cs" />
+    <Compile Include="Entity\Worklist.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Entity\WorklistItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="IClientAPI.cs" />
     <Compile Include="Repository\BPMRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repository\Mapping\ActivityInstanceDestinationMapping.cs" />
     <Compile Include="Repository\Mapping\ActivityInstanceMapping.cs" />
     <Compile Include="Repository\Mapping\ActivityMapping.cs" />
     <Compile Include="Repository\Mapping\ProcessInstanceMapping.cs" />
     <Compile Include="Repository\Mapping\ProcessMapping.cs" />
-    <Compile Include="Repository\Mapping\WorklistItemApproverMapping.cs" />
-    <Compile Include="Repository\Mapping\WorklistItemMapping.cs" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Activity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <XamlAppDef Include="Test.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </XamlAppDef>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

@@ -11,6 +11,8 @@ namespace iEAS.BPM.Repository.Mapping
     {
         public ProcessInstanceMapping()
         {
+            this.ToTable("ProcessInstance");
+
             this.HasKey(m => m.Id);
             this.Property(m => m.ProcessId);
             this.HasRequired(m => m.Process).WithMany().HasForeignKey(m => m.ProcessId).WillCascadeOnDelete(false);

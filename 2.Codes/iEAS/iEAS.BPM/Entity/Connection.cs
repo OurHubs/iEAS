@@ -10,12 +10,14 @@ namespace iEAS.BPM
     /// <summary>
     /// 流程连接
     /// </summary>
-    public class Connection
+    public class Connection:IDisposable
     {
         private string _Impersonator;
+        private BPMRepository _Repository;
 
         public Connection()
         {
+            _Repository = new BPMRepository();
         }
 
         /// <summary>
@@ -42,11 +44,18 @@ namespace iEAS.BPM
         /// <summary>
         /// 创建流程实例
         /// </summary>
-        /// <param name="processName"></param>
+        /// <param name="processCode"></param>
         /// <returns></returns>
-        public ProcessInstance CreateProcessInstance(string processName)
+        public ProcessInstance CreateProcessInstance(string processCode)
         {
-            return null;
+            ProcessInstance instance = new ProcessInstance(_Repository);
+            var process=_Repository.Process.FirstOrDefault(m => m.Code == processCode);
+            instance.Process = process;
+            instance.ProcessId = process.Id;
+            _Repository.ProcessInstance.Add(instance);
+            _Repository.SaveChanges();
+
+            return instance;
         }
 
         public Worklist OpenWorklist()
@@ -72,6 +81,15 @@ namespace iEAS.BPM
         private WorklistItem OpenWorklistItem(string sn)
         {
             return null;
+        }
+
+        public void Dispose()
+        {
+            if(_Repository!=null)
+            {
+                _Repository.Dispose();
+                _Repository = null;
+            }
         }
     }
 }

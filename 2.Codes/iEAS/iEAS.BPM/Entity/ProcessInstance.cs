@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Activities;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,11 +9,24 @@ namespace iEAS.BPM
 {
     public class ProcessInstance
     {
+        private BPMRepository _Repository;
+        private int _State = -1;
+
+        internal ProcessInstance(BPMRepository repository)
+        {
+            _Repository = repository;
+        }
+
+        #region 属性
         public int Id { get; set; }
         /// <summary>
         /// 流程Id
         /// </summary>
         public int ProcessId { get; set; }
+        /// <summary>
+        /// 应用实例Id
+        /// </summary>
+        public Guid ApplicationId { get; internal set; }
         /// <summary>
         /// Folio
         /// </summary>
@@ -22,12 +36,67 @@ namespace iEAS.BPM
         /// </summary>
         public string Originator { get; set; }
         /// <summary>
+        /// 完成状态
+        /// -1:未发起，0：运转中,1：已完成,2:取消,3:终止,4:异常
+        /// </summary>
+        public int State
+        {
+            get { return _State; }
+            set { _State = value; }
+        }
+        /// <summary>
         /// 流程信息
         /// </summary>
-        public virtual Process Process { get; set; }
+        public Process Process { get; internal set; }
         /// <summary>
         /// 流程活动的节点实例
         /// </summary>
-        public virtual List<ActivityInstance> Activities { get; set; }
+        public List<ActivityInstance> Activities { get; internal set; }
+        #endregion
+
+        #region 方法
+
+        /// <summary>
+        /// 发起流程
+        /// </summary>
+        public void Start()
+        {
+            WorkflowApplication workflowApplication = CreateApplication();
+            RegisterEvents(workflowApplication);
+            workflowApplication.Run();
+            
+            this.ApplicationId = workflowApplication.Id;
+            this.State = 0;
+            _Repository.SaveChanges();
+        }
+
+        private WorkflowApplication CreateApplication()
+        {
+            System.Activities.Activity activity = new Test();
+            return new WorkflowApplication(activity);
+        }
+
+        private void RegisterEvents(WorkflowApplication application)
+        {
+            application.Completed += OnCompleted;
+        }
+
+        private void OnCompleted(WorkflowApplicationCompletedEventArgs args)
+        {
+            //this.State = 2;
+            //_Repository.SaveChanges();
+
+            Console.WriteLine("============================Begin===================================");
+
+            Console.WriteLine("完成:");
+            Console.WriteLine("Id:{0}", args.InstanceId);
+            Console.WriteLine("完成状态:{0}", args.CompletionState);
+
+            Console.WriteLine("============================End===================================");
+        }
+
+
+
+        #endregion
     }
 }

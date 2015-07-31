@@ -23,6 +23,15 @@ namespace iEAS.BPM.Web
                 rep.Database.Initialize(true);
             }
         }
+
+        protected void btnCreateProc_Click(object sender, EventArgs e)
+        {
+            using(Connection conn=new Connection())
+            {
+                ProcessInstance instance=conn.CreateProcessInstance("Test");
+                instance.Start();
+            }
+        }
     }
 
     public class DatabaseInitializer : DropCreateDatabaseAlways<BPMRepository>
