@@ -1,5 +1,6 @@
 ﻿<Activity mc:Ignorable="sap sap2010 sads" x:Class="iEAS.BPM.Test" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="iEAS.BPM.Test_1"
  xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:local="clr-namespace:iEAS.BPM"
  xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
  xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
  xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
@@ -38,19 +39,21 @@
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Hello My BPM!" />
-    <sads:DebugSymbol.Symbol>dztFOlzkuqflk4Fc5Lqn5ZOB56CU5Y+RXGlFQVNcMi5Db2Rlc1xpRUFTXGlFQVMuQlBNXFRlc3QueGFtbAMnAyoOAgEBKAUoVQIBAihDKFICAQM=</sads:DebugSymbol.Symbol>
+    <local:ActionActivity DisplayName="领导审批" sap2010:WorkflowViewState.IdRef="ActionActivity_1" />
+    <sads:DebugSymbol.Symbol>dydGOlxpRUFTXDIuQ29kZXNcaUVBU1xpRUFTLkJQTVxUZXN0LnhhbWwEKAMsDgIBASkFKVUCAQMqBSpjAgECKUMpUgIBBA==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="213,63" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="235,187">
+      <sap2010:ViewStateData Id="ActionActivity_1" sap:VirtualizedContainerService.HintSize="213,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="235,249">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="iEAS.BPM.Test_1" sap:VirtualizedContainerService.HintSize="275,267" />
+      <sap2010:ViewStateData Id="iEAS.BPM.Test_1" sap:VirtualizedContainerService.HintSize="275,329" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>

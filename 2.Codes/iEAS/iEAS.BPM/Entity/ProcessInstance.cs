@@ -12,10 +12,6 @@ namespace iEAS.BPM
     {
         private int _State = -1;
 
-        internal ProcessInstance()
-        {
-        }
-
         #region 属性
         public int Id { get; set; }
         /// <summary>
@@ -46,7 +42,7 @@ namespace iEAS.BPM
         /// <summary>
         /// 流程信息
         /// </summary>
-        public Process Process { get; internal set; }
+        public virtual Process Process { get; set; }
         /// <summary>
         /// 流程活动的节点实例
         /// </summary>
@@ -60,47 +56,15 @@ namespace iEAS.BPM
         /// </summary>
         public void Start()
         {
-            WorkflowApplication workflowApplication = CreateApplication();
-            RegisterEvents(workflowApplication);           
+            Guid applicationId=WorkflowEngine.Current.StartFlow();
             using(var rep=new BPMRepository())
             {
                 rep.Entry(this).State = EntityState.Modified;
                 this.State = 0;
-                this.ApplicationId = workflowApplication.Id;               
+                this.ApplicationId = applicationId;             
                 rep.SaveChanges();
             }
-            workflowApplication.Run();
         }
-
-        private WorkflowApplication CreateApplication()
-        {
-            System.Activities.Activity activity = new Test();
-            return new WorkflowApplication(activity);
-        }
-
-        private void RegisterEvents(WorkflowApplication application)
-        {
-            application.Completed += OnCompleted;
-        }
-
-        private void OnCompleted(WorkflowApplicationCompletedEventArgs args)
-        {
-            using (var rep=new BPMRepository())
-            {
-                rep.Entry(this).State = EntityState.Modified;
-                this.State = 2;
-                rep.SaveChanges();
-            }
-
-            Console.WriteLine("============================Begin===================================");
-
-            Console.WriteLine("完成:");
-            Console.WriteLine("Id:{0}", args.InstanceId);
-            Console.WriteLine("完成状态:{0}", args.CompletionState);
-
-            Console.WriteLine("============================End===================================");
-        }
-
 
 
         #endregion

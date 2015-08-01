@@ -34,5 +34,15 @@ namespace iEAS.BPM.WinTest
                 instance.Start();
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            using (Connection conn = new Connection())
+            {
+                conn.ImpersonateUser(txtUser.Text.Trim());
+                var worklsitItem = conn.OpenWorklistItem(txtSN.Text.Trim());
+                worklsitItem.Execute(null);
+            }
+        }
     }
 }

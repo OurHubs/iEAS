@@ -55,6 +55,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionActivity.cs" />
     <Compile Include="Entity\Activity.cs" />
     <Compile Include="Entity\ActivityInstance.cs" />
     <Compile Include="Entity\ActivityInstanceDestination.cs" />
@@ -76,6 +77,7 @@
     <Compile Include="Repository\Mapping\ActivityMapping.cs" />
     <Compile Include="Repository\Mapping\ProcessInstanceMapping.cs" />
     <Compile Include="Repository\Mapping\ProcessMapping.cs" />
+    <Compile Include="WorkflowEngine.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Activity\" />

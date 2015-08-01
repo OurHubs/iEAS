@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace iEAS.BPM
         /// 节点实例
         /// </summary>
         public ActivityInstance ActivityInstance { get; set; }
+        public ActivityInstanceDestination ActivityInstanceDestination { get; set; }
         /// <summary>
         /// 标题
         /// </summary>
@@ -36,5 +38,18 @@ namespace iEAS.BPM
         /// 当前审批人
         /// </summary>
         public string Approver { get; set; }
+
+        public void Execute(Dictionary<string,object> data)
+        {
+            using (var req = new BPMRepository())
+            {
+                var actInst = req.ActivityInstance.FirstOrDefault(m => m.Id == ActivityInstance.Id);
+                string activityName=actInst.Activity.Name;            
+                actInst.Destinations.FirstOrDefault(m => m.Approver == this.Approver).Deleted = true;
+                req.SaveChanges();
+                WorkflowEngine.Current.ExecuteFlow(ProcessInstance.ApplicationId, activityName);
+            }
+          
+        }
     }
 }

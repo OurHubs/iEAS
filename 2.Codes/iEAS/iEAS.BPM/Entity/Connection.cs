@@ -79,9 +79,24 @@ namespace iEAS.BPM
         /// </summary>
         /// <param name="sn">序号(流程实例Id+节点Id)</param>
         /// <returns></returns>
-        private WorklistItem OpenWorklistItem(string sn)
+        public WorklistItem OpenWorklistItem(string sn)
         {
-            return null;
+            string[] strs= sn.Split('_');
+            int instId = int.Parse(strs[0]);
+            int actId = int.Parse(strs[1]);
+            WorklistItem worklistItem = new WorklistItem();
+            using(var req=new BPMRepository())
+            {
+                worklistItem.ActivityInstance = req.ActivityInstance.FirstOrDefault(m => m.Id == actId);
+                worklistItem.ProcessInstance = req.ProcessInstance.FirstOrDefault(m => m.Id == instId);
+                worklistItem.Approver = Impersonator;
+                //worklistItem.ActivityInstanceDestination = req.ActivityInstanceDestination.FirstOrDefault(m => m.ActivityInstanceId == actId && m.Approver == Impersonator);
+                //worklistItem.Approver = worklistItem.ActivityInstanceDestination.Approver;
+                //worklistItem.Destination = worklistItem.ActivityInstance.Activity.Destination;
+                //worklistItem.DestinationType = worklistItem.ActivityInstance.Activity.DestinationType;
+                //worklistItem.TargetApprover = worklistItem.ActivityInstanceDestination.TargetApprover;
+            }
+            return worklistItem;
         }
 
         public void Dispose()

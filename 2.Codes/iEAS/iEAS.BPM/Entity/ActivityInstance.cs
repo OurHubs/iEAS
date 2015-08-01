@@ -11,6 +11,8 @@ namespace iEAS.BPM
     /// </summary>
     public class ActivityInstance
     {
+        private List<ActivityInstanceDestination> _Destinations = new List<ActivityInstanceDestination>();
+
         /// <summary>
         /// Id
         /// </summary>
@@ -41,6 +43,10 @@ namespace iEAS.BPM
         /// <summary>
         /// 目标操作人
         /// </summary>
-        public virtual List<ActivityInstanceDestination> Destinations { get; set; }
+        public virtual List<ActivityInstanceDestination> Destinations
+        {
+            get { return _Destinations; }
+            set { _Destinations = value; }
+        }
     }
 }
