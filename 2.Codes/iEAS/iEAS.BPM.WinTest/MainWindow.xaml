@@ -11,5 +11,6 @@
         <TextBox Name="txtSN" Height="23" Canvas.Left="225" TextWrapping="Wrap" Text="" Canvas.Top="95" Width="120"/>
         <Label Content="User" Canvas.Left="180" Canvas.Top="131"/>
         <TextBox Name="txtUser" Height="23" Canvas.Left="225" TextWrapping="Wrap" Text="" Canvas.Top="135" Width="120"/>
+        <Button Name="btnClientAPI" Content="TestClientAPI" Click="btnClientAPI_Click" Canvas.Left="109" Canvas.Top="201" Width="75" RenderTransformOrigin="-0.214,0.023"/>
     </Canvas>
 </Window>

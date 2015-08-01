@@ -38,13 +38,12 @@ namespace iEAS.BPM
             }
         }
 
-        public Guid StartFlow()
+        public WorkflowApplication CreateFlow(string processCode)
         {
             System.Activities.Activity activity = new Test();
             WorkflowApplication application = new WorkflowApplication(activity);
             RegisterEvents(application);
-            application.Run();
-            return application.Id;
+            return application;
         }
 
         public void ExecuteFlow(Guid id,string activity)
@@ -71,7 +70,7 @@ namespace iEAS.BPM
         {
             Console.WriteLine("============================Begin===================================");
 
-            Console.WriteLine("Onloaded:");
+            Console.WriteLine("OnUnloaded:");
             Console.WriteLine("Id:{0}", args.InstanceId);
             Console.WriteLine("============================End===================================");
         }

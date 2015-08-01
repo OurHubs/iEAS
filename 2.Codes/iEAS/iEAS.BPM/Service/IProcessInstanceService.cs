@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace iEAS.BPM
 {
-    /// <summary>
-    /// 客户端API
-    /// </summary>
-    public interface IClientAPI
+    public interface IProcessInstanceService
     {
+        ProcessInstance CreateProcessInstance(string processCode);
+
+        void SubmitProcessInstance();
     }
 }

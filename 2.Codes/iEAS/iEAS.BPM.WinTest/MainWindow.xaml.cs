@@ -27,11 +27,13 @@ namespace iEAS.BPM.WinTest
 
         private void btnStart_Click(object sender, RoutedEventArgs e)
         {
-            using(Connection conn=new Connection())
+            using (var conn = new Client.Connection("http://localhost:8733/BPMService/"))
             {
-                var instance=conn.CreateProcessInstance("iEAS.BPM.Test");
-                txtId.Text = instance.Id + "";
-                instance.Start();
+                conn.Open();
+                var inst = conn.CreateProcessInstance("iEAS.BPM.Test");
+                inst.Submit();
+                txtId.Text = inst.Id + "";
+                Console.WriteLine("InstId:" + inst.Id);
             }
         }
 
@@ -42,6 +44,17 @@ namespace iEAS.BPM.WinTest
                 conn.ImpersonateUser(txtUser.Text.Trim());
                 var worklsitItem = conn.OpenWorklistItem(txtSN.Text.Trim());
                 worklsitItem.Execute(null);
+            }
+        }
+
+        private void btnClientAPI_Click(object sender, RoutedEventArgs e)
+        {
+            using (var conn = new Client.Connection("http://localhost:8733/BPMService/"))
+            {
+                conn.Open();
+                var inst=conn.CreateProcessInstance("iEAS.BPM.Test");
+                inst.Submit();
+                Console.WriteLine("InstId:" + inst.Id);
             }
         }
     }
