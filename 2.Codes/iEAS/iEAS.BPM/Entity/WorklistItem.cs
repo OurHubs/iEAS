@@ -43,12 +43,12 @@ namespace iEAS.BPM
         {
             using (var req = new BPMRepository())
             {
-                var actInst = req.ActivityInstance.FirstOrDefault(m => m.Id == ActivityInstance.Id);
-                string activityName=actInst.Activity.Name;            
-                actInst.Destinations.FirstOrDefault(m => m.Approver == this.Approver).Deleted = true;
+                var actInst = req.ActivityInstanceDestination.FirstOrDefault(m=>m.ProcessInstanceId==ProcessInstance.Id && m.Approver==this.Approver);
+                actInst.Deleted = true;
                 req.SaveChanges();
-                WorkflowEngine.Current.ExecuteFlow(ProcessInstance.ApplicationId, activityName);
+                WorkflowEngine.Current.ExecuteFlow(ProcessInstance.ApplicationId, actInst.ActivityInstance.Activity.Name);
             }
+           
           
         }
     }

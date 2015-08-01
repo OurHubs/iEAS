@@ -40,20 +40,22 @@
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
     <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Hello My BPM!" />
     <local:ActionActivity DisplayName="领导审批" sap2010:WorkflowViewState.IdRef="ActionActivity_1" />
-    <sads:DebugSymbol.Symbol>dydGOlxpRUFTXDIuQ29kZXNcaUVBU1xpRUFTLkJQTVxUZXN0LnhhbWwEKAMsDgIBASkFKVUCAQMqBSpjAgECKUMpUgIBBA==</sads:DebugSymbol.Symbol>
+    <local:ActionActivity DisplayName="董事长审批" sap2010:WorkflowViewState.IdRef="ActionActivity_2" />
+    <sads:DebugSymbol.Symbol>dydGOlxpRUFTXDIuQ29kZXNcaUVBU1xpRUFTLkJQTVxUZXN0LnhhbWwFKAMtDgIBASkFKVUCAQQqBSpjAgEDKwUrZAIBAilDKVICAQU=</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>
       <sap2010:ViewStateData Id="WriteLine_1" sap:VirtualizedContainerService.HintSize="213,63" />
       <sap2010:ViewStateData Id="ActionActivity_1" sap:VirtualizedContainerService.HintSize="213,22" />
-      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="235,249">
+      <sap2010:ViewStateData Id="ActionActivity_2" sap:VirtualizedContainerService.HintSize="213,22" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="235,311">
         <sap:WorkflowViewStateService.ViewState>
           <scg:Dictionary x:TypeArguments="x:String, x:Object">
             <x:Boolean x:Key="IsExpanded">True</x:Boolean>
           </scg:Dictionary>
         </sap:WorkflowViewStateService.ViewState>
       </sap2010:ViewStateData>
-      <sap2010:ViewStateData Id="iEAS.BPM.Test_1" sap:VirtualizedContainerService.HintSize="275,329" />
+      <sap2010:ViewStateData Id="iEAS.BPM.Test_1" sap:VirtualizedContainerService.HintSize="275,391" />
     </sap2010:ViewStateManager>
   </sap2010:WorkflowViewState.ViewStateManager>
 </Activity>
