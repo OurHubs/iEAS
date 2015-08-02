@@ -39,6 +39,8 @@ namespace iEAS.BPM
             using (var rep = new BPMRepository())
             {
                 var inst = rep.ProcessInstance.FirstOrDefault(m => m.Id == instance.Id);
+                inst.Folio = instance.Folio;
+                inst.Originator = inst.Originator;
                 inst.State = 0;
                 inst.ApplicationId = application.Id;
                 rep.SaveChanges();
@@ -56,23 +58,8 @@ namespace iEAS.BPM
                 actInst.Deleted = true;
                 rep.SaveChanges();
             }
-            WorkflowEngine.Current.ExecuteFlow(applicationId, worklistItem.ActivityInstance.Name);
+            WorkflowEngine.Current.ExecuteFlow(worklistItem);
         }
-
-        #region 转化为客户端数据
-        public Client.Process GetProcess(string processCode)
-        {
-            Client.Process result = new Client.Process();
-
-            using (var rep = new BPMRepository())
-            {
-                var process = rep.Process.Include("Activities").FirstOrDefault(m => m.Code == processCode);
-                result = GetClientProcess(process);
-            }
-
-            return result;
-        }
-
         public Client.WorklistItem OpenWorklistItem(string sn, string impersonator)
         {
             Client.WorklistItem result = new Client.WorklistItem();
@@ -95,6 +82,43 @@ namespace iEAS.BPM
                 result.SN = sn;
                 result.TargetApprover = aid.TargetApprover;
                 result.Approver = aid.Approver;
+            }
+
+            return result;
+        }
+
+
+        public Client.Worklist OpenWorklist(string impersonator)
+        {
+            List<Client.WorklistItem> items = new List<Client.WorklistItem>();
+            using(var req=new BPMRepository())
+            {
+                var destinations=req.ActivityInstanceDestination.Where(m => m.Approver == impersonator && !m.Deleted);
+                foreach(var item in destinations)
+                {
+                    Client.WorklistItem worklistItem = new Client.WorklistItem();
+                    worklistItem.ActivityInstance = GetClientActivityInstance(item.ActivityInstance);
+                    worklistItem.ProcessInstance = GetClientProcessInstance(item.ProcessInstance);
+                    worklistItem.Approver = impersonator;
+                    worklistItem.Folio = worklistItem.ProcessInstance.Folio;
+                    worklistItem.SN = worklistItem.ProcessInstance.Id + "_" + worklistItem.ActivityInstance.Id;
+                    worklistItem.TargetApprover = item.TargetApprover;
+
+                    items.Add(worklistItem);
+                }
+            }
+            return new Worklist(items);
+        }
+
+        #region 转化为客户端数据
+        public Client.Process GetProcess(string processCode)
+        {
+            Client.Process result = new Client.Process();
+
+            using (var rep = new BPMRepository())
+            {
+                var process = rep.Process.Include("Activities").FirstOrDefault(m => m.Code == processCode);
+                result = GetClientProcess(process);
             }
 
             return result;

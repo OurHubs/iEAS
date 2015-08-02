@@ -40,6 +40,7 @@ namespace iEAS.BPM.Client
             var service = _ChannelFacotry.CreateChannel();
             var instance=service.CreateProcessInstance(processCode);
             instance.BPMService = service;
+            instance.Originator = this._Impersonator;
             return instance;
         }
 
@@ -51,6 +52,17 @@ namespace iEAS.BPM.Client
                 throw new Exception("当前刻录不存在！");
             worklistItem.Service = service;
             return worklistItem;
+        }
+
+        public Worklist OpenWorklist()
+        {
+            var service = _ChannelFacotry.CreateChannel();
+            var worklist=service.OpenWorklist(this._Impersonator);
+            foreach(var item in worklist)
+            {
+                item.Service = service;
+            }
+            return worklist;
         }
 
         /// <summary>

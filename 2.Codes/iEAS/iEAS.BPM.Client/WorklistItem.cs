@@ -10,6 +10,7 @@ namespace iEAS.BPM.Client
     [DataContract]
     public class WorklistItem
     {
+        private ActivityActionConnection _Actions = new ActivityActionConnection(new List<ActivityAction>());
         internal IBPMService Service { get; set; }
         [DataMember]
         public string SN { get; set; }
@@ -23,7 +24,14 @@ namespace iEAS.BPM.Client
         public string Approver { get; set; }
         [DataMember]
         public string TargetApprover { get; set; }
-        public void Exectue()
+        [DataMember]
+        public ActivityActionConnection Actions
+        {
+            get { return _Actions; }
+            set { _Actions=value; }
+        }
+
+        public void Execute()
         {
             Service.ExecuteWorklistItem(this);
         }

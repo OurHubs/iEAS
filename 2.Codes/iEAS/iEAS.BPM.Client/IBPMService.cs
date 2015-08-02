@@ -27,5 +27,8 @@ namespace iEAS.BPM.Client
         Process GetProcess(string processCode);
         [OperationContract]
         WorklistItem OpenWorklistItem(string sn, string impersonator);
+
+        [OperationContract]
+        Worklist OpenWorklist(string impersonator);
     }
 }

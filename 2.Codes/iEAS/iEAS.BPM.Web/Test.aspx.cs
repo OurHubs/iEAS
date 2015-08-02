@@ -17,23 +17,10 @@ namespace iEAS.BPM.Web
 
         protected void btnGenerateDB_Click(object sender, EventArgs e)
         {
-            Database.SetInitializer(new DatabaseInitializer());
-            using (var rep = new BPMRepository())
-            {
-                rep.Database.Initialize(true);
-            }
         }
 
         protected void btnCreateProc_Click(object sender, EventArgs e)
         {
-        }
-    }
-
-    public class DatabaseInitializer : DropCreateDatabaseAlways<BPMRepository>
-    {
-        protected override void Seed(BPMRepository context)
-        {
-            base.Seed(context);
         }
     }
 }

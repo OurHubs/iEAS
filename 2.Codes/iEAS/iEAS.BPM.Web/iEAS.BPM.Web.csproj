@@ -75,11 +75,27 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="FlowPending.aspx" />
+    <Content Include="FlowSubmit.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Test.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FlowPending.aspx.cs">
+      <DependentUpon>FlowPending.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FlowPending.aspx.designer.cs">
+      <DependentUpon>FlowPending.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="FlowSubmit.aspx.cs">
+      <DependentUpon>FlowSubmit.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="FlowSubmit.aspx.designer.cs">
+      <DependentUpon>FlowSubmit.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -93,9 +109,9 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\iEAS.BPM\iEAS.BPM.csproj">
-      <Project>{413611b6-ebf8-45f7-b4ac-4af3bad084f9}</Project>
-      <Name>iEAS.BPM</Name>
+    <ProjectReference Include="..\iEAS.BPM.Client\iEAS.BPM.Client.csproj">
+      <Project>{8bd25577-21a2-46ae-b895-041ff60db6f8}</Project>
+      <Name>iEAS.BPM.Client</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

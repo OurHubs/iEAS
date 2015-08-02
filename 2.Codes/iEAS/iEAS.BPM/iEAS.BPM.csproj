@@ -68,20 +68,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity\ActionActivity.cs" />
+    <Compile Include="Activity\ActionNode.cs" />
+    <Compile Include="Activity\ActivityArguments.cs" />
     <Compile Include="BPMService.cs" />
     <Compile Include="Entity\Activity.cs" />
+    <Compile Include="Entity\ActivityAction.cs" />
     <Compile Include="Entity\ActivityInstance.cs" />
     <Compile Include="Entity\ActivityInstanceDestination.cs" />
-    <Compile Include="Entity\Connection.cs" />
     <Compile Include="Entity\enum.cs" />
     <Compile Include="Entity\Process.cs" />
     <Compile Include="Entity\ProcessInstance.cs" />
-    <Compile Include="Entity\Worklist.cs">
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="Entity\WorklistItem.cs">
-      <SubType>Code</SubType>
-    </Compile>
     <Compile Include="Service\IProcessInstanceService.cs" />
     <Compile Include="Service\ProcessInstanceService.cs" />
     <Compile Include="Repository\BPMRepository.cs" />

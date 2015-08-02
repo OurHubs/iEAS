@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Activity.cs" />
+    <Compile Include="ActivityActionConnection.cs" />
     <Compile Include="ActivityInstance.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="DestinationType.cs" />
@@ -51,7 +52,9 @@
     <Compile Include="Process.cs" />
     <Compile Include="ProcessInstance.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Worklist.cs" />
     <Compile Include="WorklistItem.cs" />
+    <Compile Include="ActivityAction.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

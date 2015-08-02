@@ -73,15 +73,20 @@ namespace iEAS.BPM
 
         private void OnActionCallBack(NativeActivityContext context, Bookmark mark, object state)
         {
+            ActivityArguments args = state as ActivityArguments;
+            if (args == null)
+                return;
+
             using (var req = new BPMRepository())
             {
                 var instance = req.ProcessInstance.FirstOrDefault(m => m.ApplicationId == context.WorkflowInstanceId);
                 var actInst = req.ActivityInstance.FirstOrDefault(m => m.ProcessInstanceId == instance.Id && m.Activity.Name == this.DisplayName);
+
+                actInst.Destinations.FirstOrDefault(m => m.Approver == args.Approver).Deleted = true;
                 if (actInst.Destinations.All(m => m.Deleted))
                 {
                     context.RemoveBookmark(mark);
                     req.ActivityInstance.Remove(actInst);
-                    req.SaveChanges();
                     Console.WriteLine("BookMark：Action：被移除");
                 }
                 else
@@ -92,6 +97,7 @@ namespace iEAS.BPM
                         Console.WriteLine(dest.Approver);
                     }
                 }
+                req.SaveChanges();
             }
         }
     }

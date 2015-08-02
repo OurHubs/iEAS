@@ -46,7 +46,7 @@ namespace iEAS.BPM.WinTest
                 conn.ImpersonateUser(txtUser.Text.Trim());
                 var worklistItem = conn.OpenWorklistItem(txtSN.Text);
                 Console.WriteLine("InstId:" + worklistItem.SN);
-                worklistItem.Exectue();
+                worklistItem.Execute();
             }
         }
 

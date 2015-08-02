@@ -23,25 +23,38 @@
       <AssemblyReference>EntityFramework.SqlServer</AssemblyReference>
       <AssemblyReference>Microsoft.CSharp</AssemblyReference>
       <AssemblyReference>Newtonsoft.Json</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
       <AssemblyReference>System</AssemblyReference>
       <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Activities.DurableInstancing</AssemblyReference>
+      <AssemblyReference>System.Activities.Presentation</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition.Registration</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.DataAnnotations</AssemblyReference>
+      <AssemblyReference>System.Configuration</AssemblyReference>
+      <AssemblyReference>System.Configuration.Install</AssemblyReference>
       <AssemblyReference>System.Core</AssemblyReference>
       <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Services</AssemblyReference>
+      <AssemblyReference>System.Runtime.DurableInstancing</AssemblyReference>
       <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
       <AssemblyReference>System.ServiceModel</AssemblyReference>
       <AssemblyReference>System.ServiceModel.Activities</AssemblyReference>
       <AssemblyReference>System.Xaml</AssemblyReference>
       <AssemblyReference>System.Xml</AssemblyReference>
       <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>iEAS.BPM.Client</AssemblyReference>
       <AssemblyReference>mscorlib</AssemblyReference>
       <AssemblyReference>iEAS.BPM</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
   <Sequence sap2010:WorkflowViewState.IdRef="Sequence_1">
-    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Hello My BPM!" />
+    <WriteLine sap2010:WorkflowViewState.IdRef="WriteLine_1" />
     <local:ActionActivity DisplayName="领导审批" sap2010:WorkflowViewState.IdRef="ActionActivity_1" />
     <local:ActionActivity DisplayName="董事长审批" sap2010:WorkflowViewState.IdRef="ActionActivity_2" />
-    <sads:DebugSymbol.Symbol>dydGOlxpRUFTXDIuQ29kZXNcaUVBU1xpRUFTLkJQTVxUZXN0LnhhbWwFKAMtDgIBASkFKVUCAQQqBSpjAgEDKwUrZAIBAilDKVICAQU=</sads:DebugSymbol.Symbol>
+    <sads:DebugSymbol.Symbol>dzBGOlxpRUFTXDIuQ29kZXNcaUVBU1xpRUFTLkJQTVxBY3Rpdml0eVxUZXN0LnhhbWwENQM6DgIBATYFNkACAQQ3BTdjAgEDOAU4ZAIBAg==</sads:DebugSymbol.Symbol>
   </Sequence>
   <sap2010:WorkflowViewState.ViewStateManager>
     <sap2010:ViewStateManager>

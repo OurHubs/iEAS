@@ -1,12 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace iEAS.BPM
+namespace iEAS.BPM.Client
 {
-    public class Worklist:System.Collections.ObjectModel.ReadOnlyCollection<WorklistItem>
+    [DataContract]
+    public class Worklist:ReadOnlyCollection<WorklistItem>
     {
         public Worklist(IList<WorklistItem> items)
             :base(items)

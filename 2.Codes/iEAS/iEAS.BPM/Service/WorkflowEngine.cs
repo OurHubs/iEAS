@@ -46,15 +46,19 @@ namespace iEAS.BPM
             return application;
         }
 
-        public void ExecuteFlow(Guid id,string activity)
+        public void ExecuteFlow(Client.WorklistItem worklistItem)
         {
             System.Activities.Activity act = new Test();
             WorkflowApplication application = new WorkflowApplication(act);
             RegisterEvents(application);
-            application.Load(id);
+            application.Load(worklistItem.ProcessInstance.ApplicationId);
 
-            string activityAction = activity + "$Action";
-            application.ResumeBookmark(activityAction, null);
+            string activityAction = worklistItem.ActivityInstance.Name + "$Action";
+            ActivityArguments args = new ActivityArguments
+            {
+                 Approver=worklistItem.Approver
+            };
+            application.ResumeBookmark(activityAction, args);
         }
 
         private void RegisterEvents(WorkflowApplication application)
