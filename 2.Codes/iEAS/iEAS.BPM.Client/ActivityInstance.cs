@@ -12,5 +12,9 @@ namespace iEAS.BPM.Client
     {
         [DataMember]
         public int Id { get; set; }
+        [DataMember]
+        public string Name { get; set; }
+
+        public Activity Activity { get; set; }
     }
 }

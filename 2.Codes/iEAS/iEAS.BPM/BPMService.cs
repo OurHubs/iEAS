@@ -47,7 +47,19 @@ namespace iEAS.BPM
             application.Run();
             return instance;
         }
+        public void ExecuteWorklistItem(Client.WorklistItem worklistItem)
+        {
+            Guid applicationId = worklistItem.ProcessInstance.ApplicationId;
+            using(var rep=new BPMRepository())
+            {
+                var actInst=rep.ActivityInstanceDestination.FirstOrDefault(m => m.ActivityInstanceId == worklistItem.ActivityInstance.Id && m.Approver==worklistItem.Approver);
+                actInst.Deleted = true;
+                rep.SaveChanges();
+            }
+            WorkflowEngine.Current.ExecuteFlow(applicationId, worklistItem.ActivityInstance.Name);
+        }
 
+        #region 转化为客户端数据
         public Client.Process GetProcess(string processCode)
         {
             Client.Process result = new Client.Process();
@@ -55,26 +67,88 @@ namespace iEAS.BPM
             using (var rep = new BPMRepository())
             {
                 var process = rep.Process.Include("Activities").FirstOrDefault(m => m.Code == processCode);
-                result.Code = process.Code;
-                result.Id = process.Id;
-                result.Name = process.Name;
-               
-                List<Client.Activity> activities = new List<Client.Activity>();
-                foreach (var item in process.Activities)
-                {
-                    var act = new Client.Activity();
-                    act.Id = item.Id;
-                    act.Name = item.Name;
-                    act.DestinationType = (Client.DestinationType)Enum.Parse(typeof(Client.DestinationType), item.DestinationType.ToString());
-                    act.Destination = item.Destination;
-                    activities.Add(act);
-                }
-                result.Activities = activities;
+                result = GetClientProcess(process);
             }
 
             return result;
         }
 
+        public Client.WorklistItem OpenWorklistItem(string sn, string impersonator)
+        {
+            Client.WorklistItem result = new Client.WorklistItem();
+            result.SN = sn;
 
+            string[] strs = sn.Split('_');
+            int procInstId = int.Parse(strs[0]);
+            int actInstId = int.Parse(strs[1]);
+            using(var req=new BPMRepository())
+            {
+                var aid=req.ActivityInstanceDestination.FirstOrDefault(m => m.ActivityInstanceId == actInstId && m.Approver==impersonator);
+                if(aid==null)
+                {
+                    Console.WriteLine("当前刻录不存在SN={0},Approver={1}", sn, impersonator);
+                    return null;
+                }
+                result.ActivityInstance = GetClientActivityInstance(aid.ActivityInstance);
+                result.ProcessInstance = GetClientProcessInstance(aid.ProcessInstance);
+                result.Folio = result.ProcessInstance.Folio;
+                result.SN = sn;
+                result.TargetApprover = aid.TargetApprover;
+                result.Approver = aid.Approver;
+            }
+
+            return result;
+        }
+
+        private Client.ActivityInstance GetClientActivityInstance(ActivityInstance actInst)
+        {
+            Client.ActivityInstance result = new Client.ActivityInstance();
+            result.Id = actInst.Id;
+            result.Name = actInst.ActivityName;
+            result.Activity = GetClientActivity(actInst.Activity);
+
+            return result;
+        }
+
+        private Client.ProcessInstance GetClientProcessInstance(ProcessInstance procInst)
+        {
+            Client.ProcessInstance result = new Client.ProcessInstance();
+            result.Id = procInst.Id;
+            result.Folio = procInst.Folio;
+            result.ApplicationId = procInst.ApplicationId;
+            result.Process = GetClientProcess(procInst.Process);
+
+            return result;
+        }
+    
+        private Client.Process GetClientProcess(Process process)
+        {
+            Client.Process result = new Client.Process();
+                result.Code = process.Code;
+                result.Id = process.Id;
+                result.Name = process.Name;
+
+            List<Client.Activity> activities = new List<Client.Activity>();
+            foreach (var item in process.Activities)
+            {
+                var act = GetClientActivity(item);
+                activities.Add(act);
+            }
+            result.Activities = activities;
+
+            return result;
+        }
+
+        private Client.Activity GetClientActivity(Activity activity)
+        {
+            Client.Activity result = new Client.Activity();
+            result.Id = activity.Id;
+            result.Name = activity.Name;
+            result.DestinationType = (Client.DestinationType)Enum.Parse(typeof(Client.DestinationType), activity.DestinationType.ToString());
+            result.Destination = activity.Destination;
+
+            return result;
+        }
+        #endregion
     }
 }

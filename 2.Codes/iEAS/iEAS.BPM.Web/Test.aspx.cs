@@ -26,11 +26,6 @@ namespace iEAS.BPM.Web
 
         protected void btnCreateProc_Click(object sender, EventArgs e)
         {
-            using(Connection conn=new Connection())
-            {
-                ProcessInstance instance=conn.CreateProcessInstance("Test");
-                instance.Start();
-            }
         }
     }
 

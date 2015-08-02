@@ -33,17 +33,20 @@ namespace iEAS.BPM.WinTest
                 var inst = conn.CreateProcessInstance("iEAS.BPM.Test");
                 inst.Submit();
                 txtId.Text = inst.Id + "";
+                txtSN.Text = inst.Id + "_";
                 Console.WriteLine("InstId:" + inst.Id);
             }
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            using (Connection conn = new Connection())
+            using (var conn = new Client.Connection("http://localhost:8733/BPMService/"))
             {
+                conn.Open();
                 conn.ImpersonateUser(txtUser.Text.Trim());
-                var worklsitItem = conn.OpenWorklistItem(txtSN.Text.Trim());
-                worklsitItem.Execute(null);
+                var worklistItem = conn.OpenWorklistItem(txtSN.Text);
+                Console.WriteLine("InstId:" + worklistItem.SN);
+                worklistItem.Exectue();
             }
         }
 

@@ -44,6 +44,11 @@ namespace iEAS.BPM.Client
             set { _State = value; }
         }
         /// <summary>
+        /// 应用程序Id
+        /// </summary>
+        [DataMember]
+        public Guid ApplicationId { get; set; }
+        /// <summary>
         /// 流程信息
         /// </summary>
         [DataMember]

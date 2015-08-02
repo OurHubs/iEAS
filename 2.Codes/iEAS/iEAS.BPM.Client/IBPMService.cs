@@ -21,6 +21,11 @@ namespace iEAS.BPM.Client
         ProcessInstance SubmitProcessInstance(ProcessInstance instance);
 
         [OperationContract]
+        void ExecuteWorklistItem(WorklistItem worklistItem);
+
+        [OperationContract]
         Process GetProcess(string processCode);
+        [OperationContract]
+        WorklistItem OpenWorklistItem(string sn, string impersonator);
     }
 }

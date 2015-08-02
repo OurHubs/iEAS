@@ -43,6 +43,16 @@ namespace iEAS.BPM.Client
             return instance;
         }
 
+        public WorklistItem OpenWorklistItem(string sn)
+        {
+            var service = _ChannelFacotry.CreateChannel();
+            var worklistItem = service.OpenWorklistItem(sn,this._Impersonator);
+            if (worklistItem == null)
+                throw new Exception("当前刻录不存在！");
+            worklistItem.Service = service;
+            return worklistItem;
+        }
+
         /// <summary>
         /// 设定当前用户
         /// </summary>
